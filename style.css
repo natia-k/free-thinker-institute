@@ -668,3 +668,16 @@ footer{
   footer{padding:60px 28px 36px}
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
 }
+/* =========================
+   FIX SECTION TEXT CUTTING
+   ========================= */
+
+section[id] {
+  scroll-margin-top: 140px;
+}
+
+@media (max-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+}
