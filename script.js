@@ -1,41 +1,39 @@
-const header = document.getElementById("siteHeader");
+const header = document.querySelector(".site-header");
 const glow = document.getElementById("cursorGlow");
-const revealItems = document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
   if (!header) return;
-  if (window.scrollY > 10) {
+  if (window.scrollY > 12) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
   }
 });
 
-window.addEventListener("mousemove", (e) => {
-  if (!glow) return;
-  glow.style.left = `${e.clientX}px`;
-  glow.style.top = `${e.clientY}px`;
-});
+if (glow) {
+  window.addEventListener("mousemove", (e) => {
+    glow.style.left = `${e.clientX}px`;
+    glow.style.top = `${e.clientY}px`;
+  });
 
-window.addEventListener("mouseleave", () => {
-  if (!glow) return;
-  glow.style.opacity = ".32";
-});
+  document.addEventListener("mouseleave", () => {
+    glow.style.opacity = "0";
+  });
 
-window.addEventListener("mouseenter", () => {
-  if (!glow) return;
-  glow.style.opacity = ".8";
-});
+  document.addEventListener("mouseenter", () => {
+    glow.style.opacity = ".8";
+  });
+}
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
     }
   });
 }, {
   threshold: 0.14
 });
 
-revealItems.forEach((item) => observer.observe(item));
+reveals.forEach((item) => observer.observe(item));
