@@ -1,255 +1,715 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Thinker Institute</title>
+:root{
+  --bg:#eef4fb;
+  --bg-2:#f3f7fc;
+  --card:#ffffff;
+  --nav:rgba(223,234,246,0.72);
+  --text:#10233d;
+  --accent:#4e79a7;
+  --muted:#5f7189;
+  --line:rgba(16,35,61,0.08);
+  --shadow-soft:0 10px 28px rgba(37, 74, 118, 0.06);
+  --shadow-card:0 18px 48px rgba(37, 74, 118, 0.08);
+  --radius-xl:34px;
+  --radius-lg:28px;
+  --radius-md:22px;
+  --max:1360px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="cursor-glow" id="cursorGlow"></div>
+html{
+  scroll-behavior:smooth;
+}
 
-  <div class="site-shell">
-    <header class="site-header" id="siteHeader">
-      <div class="container nav-wrap">
-        <a href="#" class="brand">
-          <span class="brand-logo">
-            <img src="images/logo.png" alt="Free Thinker Institute logo">
-          </span>
-          <span class="brand-text">Free Thinker Institute</span>
-        </a>
+body{
+  font-family:"Inter", sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(113,159,211,0.12), transparent 24%),
+    radial-gradient(circle at 88% 12%, rgba(113,159,211,0.10), transparent 20%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 48%, #f8fbfe 100%);
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-        <nav class="desktop-nav">
-          <a href="#intentions">Intentions</a>
-          <a href="#goals">Goals</a>
-          <a href="#what-we-do">What We Do</a>
-          <a href="#closing">Join</a>
-        </nav>
+.grain{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.06;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
 
-        <div class="nav-actions">
-          <a href="#what-we-do" class="btn btn-secondary">Learn More</a>
-          <a href="#closing" class="btn btn-primary">Join Us</a>
-        </div>
-      </div>
-    </header>
+.cursor-glow{
+  position:fixed;
+  width:30rem;
+  height:30rem;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:0;
+  transform:translate(-50%, -50%);
+  background:radial-gradient(circle, rgba(78,121,167,0.16) 0%, rgba(78,121,167,0.08) 34%, transparent 70%);
+  filter:blur(26px);
+  opacity:.75;
+  transition:opacity .25s ease;
+}
 
-    <main>
-      <section class="hero section-first">
-        <div class="container hero-grid">
-          <div class="hero-copy hero-load">
-            <div class="eyebrow">Community · Reflection · Development</div>
+.site-shell{
+  position:relative;
+  z-index:2;
+}
 
-            <h1>
-              Think with<br>
-              more clarity.<br>
-              Live with<br>
-              more intention.
-            </h1>
+.container{
+  width:min(calc(100% - 56px), var(--max));
+  margin:0 auto;
+}
 
-            <p class="hero-text">
-              A modern community for people who care about personal growth,
-              critical thinking, meaningful relationships, and building a more
-              deliberate life — personally and professionally.
-            </p>
+/* NAV */
 
-            <div class="hero-actions">
-              <a href="#intentions" class="btn btn-primary">Explore the intentions</a>
-              <a href="#what-we-do" class="btn btn-secondary">See what we do</a>
-            </div>
-          </div>
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  padding-top:16px;
+}
 
-          <div class="hero-panel hero-load">
-            <div class="hero-panel-inner">
-              <div class="mini-label">A shared direction</div>
-              <h2>Clearer thought. Better living. Real community.</h2>
-              <p>
-                The Institute brings together reflection, conversation,
-                self-development, and practical growth in a calm, structured,
-                and open-minded environment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+.nav-wrap{
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:14px 18px;
+  background:var(--nav);
+  border:1px solid transparent;
+  border-radius:24px;
+  backdrop-filter:blur(18px);
+  transition:all .35s var(--ease);
+}
 
-      <section class="section intentions-section" id="intentions">
-        <div class="container">
-          <div class="section-head reveal">
-            <div class="section-left">
-              <div class="section-kicker">01 — Five Intentions</div>
-              <h2>A framework for thoughtful living.</h2>
-            </div>
+.site-header.scrolled .nav-wrap{
+  border-color:var(--line);
+  box-shadow:var(--shadow-soft);
+  background:rgba(223,234,246,0.84);
+}
 
-            <div class="section-right">
-              <p>
-                These intentions shape how the community approaches growth,
-                dialogue, truth, responsibility, and connection. The tone is calm,
-                clear, and grounded — more like principles than slogans.
-              </p>
-            </div>
-          </div>
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  text-decoration:none;
+  min-width:0;
+}
 
-          <div class="intentions-grid">
-            <article class="editorial-card reveal">
-              <div class="card-number">01</div>
-              <h3>Devotion to self-improvement</h3>
-              <p>
-                Physical, intellectual, emotional, and philosophical growth.
-                A serious relationship to becoming more capable, aware, and honest.
-              </p>
-            </article>
+.brand-logo{
+  width:64px;
+  height:64px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.82);
+  border:1px solid rgba(16,35,61,0.06);
+  box-shadow:var(--shadow-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
 
-            <article class="editorial-card reveal">
-              <div class="card-number">02</div>
-              <h3>Transparency and open-mindedness</h3>
-              <p>
-                Stay willing to refine your thinking. Consider other perspectives
-                carefully, without collapsing into certainty too quickly.
-              </p>
-            </article>
+.brand-logo img{
+  width:78%;
+  height:78%;
+  object-fit:contain;
+  display:block;
+}
 
-            <article class="editorial-card reveal">
-              <div class="card-number">03</div>
-              <h3>Commitment to critical thinking</h3>
-              <p>
-                Learn to trust and sharpen your own judgment through reason,
-                reflection, experience, and attention.
-              </p>
-            </article>
+.brand-text{
+  color:var(--text);
+  font-size:1rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  white-space:nowrap;
+}
 
-            <article class="editorial-card reveal">
-              <div class="card-number">04</div>
-              <h3>Maximize happiness while minimizing harm</h3>
-              <p>
-                Seek a meaningful balance between freedom, care, responsibility,
-                and the desire to reduce unnecessary suffering.
-              </p>
-            </article>
+.desktop-nav{
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
 
-            <article class="editorial-card wide reveal">
-              <div class="card-number">05</div>
-              <h3>Eager to give and receive love</h3>
-              <p>
-                A community is built not only on ideas, but also on generosity,
-                humanity, kindness, and the willingness to be present for others.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+.desktop-nav a,
+.mobile-menu a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:.95rem;
+  transition:color .28s var(--ease);
+  position:relative;
+}
 
-      <section class="section goals-section" id="goals">
-        <div class="container">
-          <div class="section-head reveal">
-            <div class="section-left">
-              <div class="section-kicker">02 — Goals</div>
-              <h2>A clear structure with ambitious aims.</h2>
-            </div>
+.desktop-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:0;
+  height:1px;
+  background:var(--accent);
+  transition:width .28s var(--ease);
+}
 
-            <div class="section-right">
-              <p>
-                The goal is not scale for its own sake. The goal is to create a
-                space that is useful, intelligent, socially warm, and materially
-                supportive of people’s lives.
-              </p>
-            </div>
-          </div>
+.desktop-nav a:hover{
+  color:var(--text);
+}
 
-          <div class="goals-grid">
-            <article class="goal-card reveal">
-              <span class="goal-index">01</span>
-              <h3>A warm and thoughtful community</h3>
-              <p>
-                Open-minded, respectful, enriching, and genuinely alive.
-              </p>
-            </article>
+.desktop-nav a:hover::after{
+  width:100%;
+}
 
-            <article class="goal-card reveal">
-              <span class="goal-index">02</span>
-              <h3>Material and professional development</h3>
-              <p>
-                Support that helps people become more secure, capable, and free.
-              </p>
-            </article>
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-            <article class="goal-card reveal">
-              <span class="goal-index">03</span>
-              <h3>Ideas that improve life</h3>
-              <p>
-                Shared frameworks that help maximize well-being and reduce harm.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+.mobile-toggle{
+  display:none;
+  width:46px;
+  height:46px;
+  border:none;
+  border-radius:14px;
+  background:rgba(255,255,255,0.7);
+  cursor:pointer;
+  box-shadow:var(--shadow-soft);
+}
 
-      <section class="section what-section" id="what-we-do">
-        <div class="container">
-          <div class="section-head reveal">
-            <div class="section-left">
-              <div class="section-kicker">03 — What We Do</div>
-              <h2>Personal and professional development.</h2>
-            </div>
+.mobile-toggle span{
+  display:block;
+  width:18px;
+  height:1.5px;
+  background:var(--text);
+  margin:5px auto;
+}
 
-            <div class="section-right">
-              <p>
-                Conversations move between inner life and outer life:
-                meaning, habits, relationships, work, ambition, skills,
-                and building a life that feels more deliberate.
-              </p>
-            </div>
-          </div>
+.mobile-menu{
+  display:none;
+}
 
-          <div class="what-layout">
-            <article class="soft-card reveal">
-              <div class="mini-label">Personal</div>
-              <h3>Conversations with depth</h3>
-              <p>
-                Self-development, relationships, values, reflection,
-                and the five intentions as lived practice.
-              </p>
-            </article>
+/* BUTTONS */
 
-            <article class="soft-card reveal">
-              <div class="mini-label">Professional</div>
-              <h3>Dream job training</h3>
-              <p>
-                Direction, skill growth, role clarity, and how to improve
-                in the work you are moving toward.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:.94rem;
+  font-weight:500;
+  white-space:nowrap;
+  transition:
+    transform .28s var(--ease),
+    box-shadow .28s var(--ease),
+    background .28s var(--ease),
+    border-color .28s var(--ease),
+    color .28s var(--ease);
+  border:1px solid transparent;
+}
 
-      <section class="section closing-section" id="closing">
-        <div class="container">
-          <div class="closing-panel reveal">
-            <div class="closing-copy">
-              <div class="section-kicker">04 — Closing</div>
-              <h2>Everyone is welcome.</h2>
-              <p>
-                Start with conversation. Stay for the clarity, growth,
-                and direction that comes from learning together in a more
-                intentional way.
-              </p>
-            </div>
+.btn-primary{
+  color:#fff;
+  background:var(--accent);
+  box-shadow:0 10px 26px rgba(78,121,167,0.16);
+}
 
-            <div class="closing-actions">
-              <a href="#" class="btn btn-primary">Join the community</a>
-              <a href="#intentions" class="btn btn-secondary">Read the intentions</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
+.btn-primary:hover{
+  transform:translateY(-1px);
+  background:#456d99;
+  box-shadow:0 16px 32px rgba(78,121,167,0.18);
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.btn-secondary{
+  color:var(--text);
+  background:rgba(255,255,255,0.72);
+  border-color:var(--line);
+}
+
+.btn-secondary:hover{
+  transform:translateY(-1px);
+  background:#fff;
+  box-shadow:var(--shadow-soft);
+}
+
+/* HERO */
+
+.hero{
+  padding:88px 0 88px;
+}
+
+.hero-grid{
+  min-height:calc(100vh - 170px);
+  display:grid;
+  grid-template-columns:minmax(0, 1.05fr) minmax(360px, .9fr);
+  gap:52px;
+  align-items:center;
+}
+
+.hero-copy{
+  position:relative;
+}
+
+.hero-copy::before{
+  content:"";
+  position:absolute;
+  left:-120px;
+  top:-100px;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(78,121,167,0.14) 0%, rgba(78,121,167,0.05) 36%, transparent 72%);
+  filter:blur(18px);
+  pointer-events:none;
+}
+
+.eyebrow,
+.section-kicker,
+.mini-label{
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:.72rem;
+}
+
+.hero h1{
+  position:relative;
+  z-index:2;
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(4rem, 7.3vw, 7rem);
+  line-height:.92;
+  font-weight:600;
+  letter-spacing:-0.045em;
+  max-width:8ch;
+  margin:24px 0 28px;
+}
+
+.hero-text{
+  position:relative;
+  z-index:2;
+  max-width:58ch;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:1.05rem;
+  margin-bottom:36px;
+}
+
+.hero-actions{
+  position:relative;
+  z-index:2;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.hero-visual{
+  position:relative;
+}
+
+.visual-panel{
+  min-height:560px;
+  border-radius:var(--radius-xl);
+  background:
+    radial-gradient(circle at 28% 28%, rgba(175,207,241,0.55), transparent 20%),
+    radial-gradient(circle at 76% 30%, rgba(118,164,214,0.24), transparent 18%),
+    radial-gradient(circle at 60% 80%, rgba(171,206,239,0.42), transparent 22%),
+    linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.42));
+  border:1px solid rgba(255,255,255,0.62);
+  box-shadow:0 24px 56px rgba(37,74,118,0.08);
+  position:relative;
+  overflow:hidden;
+  backdrop-filter:blur(14px);
+  display:flex;
+  align-items:flex-end;
+  padding:28px;
+}
+
+.visual-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(120deg, rgba(255,255,255,0.26), transparent 28%),
+    linear-gradient(180deg, rgba(255,255,255,0.12), transparent 40%);
+  pointer-events:none;
+}
+
+.visual-ring{
+  position:absolute;
+  border-radius:999px;
+  border:1px solid rgba(78,121,167,0.12);
+  pointer-events:none;
+}
+
+.visual-ring-1{
+  width:420px;
+  height:420px;
+  right:-90px;
+  top:-60px;
+}
+
+.visual-ring-2{
+  width:280px;
+  height:280px;
+  left:42px;
+  top:90px;
+}
+
+.visual-ring-3{
+  width:190px;
+  height:190px;
+  right:120px;
+  bottom:140px;
+}
+
+.visual-glass{
+  position:relative;
+  z-index:2;
+  width:min(100%, 430px);
+  padding:26px;
+  border-radius:26px;
+  background:rgba(255,255,255,0.54);
+  border:1px solid rgba(255,255,255,0.58);
+  backdrop-filter:blur(18px);
+  box-shadow:0 12px 28px rgba(37,74,118,0.08);
+}
+
+.visual-glass h2{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(2rem, 3vw, 3.2rem);
+  line-height:.98;
+  font-weight:600;
+  letter-spacing:-0.03em;
+  margin:14px 0 14px;
+}
+
+.visual-glass p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* SECTIONS */
+
+.section{
+  padding:150px 0;
+}
+
+.section-closing{
+  padding-bottom:120px;
+}
+
+.section-head{
+  display:grid;
+  grid-template-columns:minmax(0,.62fr) minmax(0,1fr);
+  gap:52px;
+  align-items:end;
+  margin-bottom:56px;
+}
+
+.section-left h2{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(2.8rem, 4.8vw, 4.9rem);
+  line-height:.95;
+  font-weight:600;
+  letter-spacing:-0.04em;
+  max-width:9ch;
+  margin-top:18px;
+}
+
+.section-right{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.section-right p{
+  max-width:56ch;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:1rem;
+}
+
+/* CARDS */
+
+.intentions-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:24px;
+}
+
+.editorial-card,
+.goal-card,
+.what-panel{
+  background:rgba(255,255,255,0.82);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-soft);
+  backdrop-filter:blur(10px);
+  transition:
+    transform .3s var(--ease),
+    box-shadow .3s var(--ease),
+    border-color .3s var(--ease);
+}
+
+.editorial-card:hover,
+.goal-card:hover,
+.what-panel:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-card);
+  border-color:rgba(78,121,167,0.16);
+}
+
+.editorial-card{
+  border-radius:var(--radius-lg);
+  padding:32px;
+}
+
+.editorial-card-wide{
+  grid-column:1 / -1;
+}
+
+.card-number{
+  font-size:.78rem;
+  color:var(--muted);
+  letter-spacing:.16em;
+  margin-bottom:24px;
+}
+
+.editorial-card h3,
+.goal-card h3,
+.what-panel h3{
+  font-size:1.2rem;
+  line-height:1.38;
+  font-weight:600;
+  margin-bottom:14px;
+}
+
+.editorial-card p,
+.goal-card p,
+.what-panel p{
+  color:var(--muted);
+  line-height:1.82;
+}
+
+.goals-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:24px;
+}
+
+.goal-card{
+  border-radius:var(--radius-lg);
+  padding:30px;
+  min-height:270px;
+}
+
+.goal-badge{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(78,121,167,0.10);
+  color:var(--accent);
+  font-size:.86rem;
+  font-weight:600;
+  margin-bottom:24px;
+}
+
+.what-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.what-panel{
+  border-radius:30px;
+  padding:34px;
+  min-height:280px;
+}
+
+/* CLOSING */
+
+.closing-panel{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:30px;
+  align-items:end;
+  padding:44px;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(78,121,167,0.10), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.72));
+  border:1px solid rgba(255,255,255,0.7);
+  box-shadow:0 20px 52px rgba(37,74,118,0.08);
+  backdrop-filter:blur(14px);
+}
+
+.closing-copy h2{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(2.8rem, 4.8vw, 4.8rem);
+  line-height:.95;
+  font-weight:600;
+  letter-spacing:-0.04em;
+  margin:18px 0 14px;
+}
+
+.closing-copy p{
+  max-width:50ch;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.closing-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+/* ANIMATION */
+
+.hero-load{
+  opacity:0;
+  transform:translateY(28px);
+  animation:heroFadeUp 1.05s var(--ease) forwards;
+}
+
+.hero-copy.hero-load{
+  animation-delay:.08s;
+}
+
+.hero-visual.hero-load{
+  animation-delay:.22s;
+}
+
+@keyframes heroFadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:
+    opacity .9s var(--ease),
+    transform .9s var(--ease);
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1180px){
+  .hero-grid,
+  .section-head,
+  .what-layout,
+  .closing-panel,
+  .goals-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section-right{
+    justify-content:flex-start;
+  }
+}
+
+@media (max-width: 860px){
+  .container{
+    width:min(calc(100% - 28px), var(--max));
+  }
+
+  .desktop-nav,
+  .nav-actions{
+    display:none;
+  }
+
+  .mobile-toggle{
+    display:block;
+  }
+
+  .mobile-menu{
+    margin-top:10px;
+    padding:12px 14px;
+    border-radius:20px;
+    background:rgba(223,234,246,0.88);
+    backdrop-filter:blur(18px);
+    box-shadow:var(--shadow-soft);
+    border:1px solid var(--line);
+  }
+
+  .mobile-menu.open{
+    display:grid;
+    gap:12px;
+  }
+
+  .brand-logo{
+    width:56px;
+    height:56px;
+    border-radius:16px;
+  }
+
+  .brand-text{
+    font-size:.92rem;
+    white-space:normal;
+    line-height:1.1;
+  }
+
+  .hero{
+    padding:56px 0 44px;
+  }
+
+  .hero-grid{
+    min-height:auto;
+    gap:30px;
+  }
+
+  .visual-panel{
+    min-height:420px;
+    padding:18px;
+  }
+
+  .visual-glass{
+    width:100%;
+    padding:22px;
+  }
+
+  .section{
+    padding:110px 0;
+  }
+
+  .intentions-grid,
+  .what-layout{
+    grid-template-columns:1fr;
+  }
+
+  .editorial-card-wide{
+    grid-column:auto;
+  }
+
+  .closing-panel{
+    padding:30px;
+  }
+
+  .hero h1{
+    max-width:10ch;
+  }
+}
