@@ -1,215 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Thinker Institute | Think Clearer, Live Better</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ── CORE STYLES ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ivory:#FDFCF8;
-  --navy:#0A192F;
-  --mid:#4A6080;
-  --muted:#8A9BB0;
-  --border:rgba(10,25,47,0.1);
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--ivory);
-  color:var(--navy);
-  font-family:'DM Sans',sans-serif;
-  line-height:1.65;
-  overflow-x:hidden;
-}
-
-/* ── THE INSTITUTIONAL SPINE ── */
-.site-spine {
-  position: fixed;
-  left: 8%;
-  top: 0;
-  width: 1px;
-  height: 100vh;
-  background: var(--navy);
-  opacity: 0.08;
-  z-index: 101;
-  pointer-events: none;
-}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:24px 8%;
-  background:rgba(253,252,248,0.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
-}
-.logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;font-weight:600;
-  color:var(--navy);text-decoration:none;
-  padding-left: 20px;
-}
-.nav-join{
-  background:var(--navy);color:var(--ivory);
-  padding:10px 24px;border-radius:100px;
-  font-size:12px;font-weight:600;text-decoration:none;
-  text-transform: uppercase; letter-spacing: 0.1em;
-}
-
-/* ── NEW YORK HERO ── */
-#hero{
-  min-height:90vh;
-  padding: 180px 8% 100px 12%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.hero-tag{
-  font-size:11px;font-weight:600;letter-spacing:0.2em;
-  text-transform:uppercase;color:var(--mid);
-  margin-bottom:32px;
-}
-h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(52px,8vw,110px);
-  font-weight:600;line-height:0.95;
-  letter-spacing:-0.02em;
-  margin-bottom:40px;
-}
-h1 em{font-style:italic;color:var(--mid); font-weight: 400;}
-.hero-sub{
-  font-size:20px;font-weight:300;
-  color:rgba(10,25,47,0.6);
-  max-width:600px; margin-bottom:48px;
-}
-.btn-navy{
-  background:var(--navy);color:var(--ivory);
-  padding:16px 40px;border-radius:100px;
-  font-size:13px;font-weight:600;text-decoration:none;
-  display:inline-block; transition: transform 0.2s;
-}
-.btn-navy:hover{transform: translateY(-2px);}
-
-/* ── SPEED BUMP SECTION ── */
-.statement-bump {
-  background: var(--navy);
-  color: var(--ivory);
-  padding: 140px 12%;
-}
-.statement-bump h2 {
-  font-family:'Cormorant Garamond',serif;
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 1.1; color: var(--ivory);
-}
-
-/* ── EDITORIAL INTENTIONS ── */
-#intentions { padding: 120px 8% 120px 12%; }
-.intention-row {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  padding: 60px 0;
-  border-top: 1px solid var(--border);
-}
-.int-num {
-  font-family:'Cormorant Garamond',serif;
-  font-size: 40px; font-style: italic; opacity: 0.3;
-}
-.int-content h3 {
-  font-family:'Cormorant Garamond',serif;
-  font-size: 32px; margin-bottom: 12px;
-}
-.int-content p { max-width: 650px; color: var(--mid); }
-
-/* ── FOOTER ── */
-footer{
-  background:var(--navy); padding: 80px 12%; color: rgba(253,252,248,0.5);
-}
-.footer-brand { font-family:'Cormorant Garamond',serif; font-size: 24px; color: var(--ivory); margin-bottom: 20px;}
-
-@media(max-width:768px){
-  .site-spine { display: none; }
-  #hero, #intentions, .statement-bump { padding-left: 8%; padding-right: 8%; }
-  .intention-row { grid-template-columns: 1fr; gap: 20px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Thinker Institute — Think Clearer. Live Better.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="site-spine"></div>
-
 <nav>
-  <a href="#" class="logo">Free Thinker Institute</a>
-  <a href="https://discord.gg/fksQBjS" class="nav-join">Join Community</a>
+  <a href="#" class="logo">
+    <img src="logo.png" alt="Free Thinker Institute logo" class="logo-image">
+    <span class="logo-text">Free Thinker Institute</span>
+  </a>
+
+  <ul>
+    <li><a href="#intentions">Intentions</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#program">What We Do</a></li>
+    <li><a href="#learn-more">Learn More</a></li>
+    <li><a href="https://discord.gg/fksQBjS" class="nav-cta">Join On Discord</a></li>
+  </ul>
 </nav>
 
 <section id="hero">
-  <p class="hero-tag">Free Thinker Institute · New York</p>
-  <h1>Think <br><em>Clearer.</em> Live Better.</h1>
-  <p class="hero-sub">We translate history and neuroscience into a practical toolkit for your life. No fluff—just logic and community.</p>
-  <div>
-    <a href="https://discord.gg/fksQBjS" class="btn-navy">Start the Conversation</a>
+  <div class="hero-bg-letter">F</div>
+
+  <div class="hero-inner reveal">
+    <div class="hero-left">
+      <p class="hero-overline">Free Thinker Institute · New York</p>
+
+      <h1 class="hero-headline">
+        Want to join a warm,<br>
+        <span class="italic">compassionate,</span><br>
+        open minded community?
+      </h1>
+
+      <div class="hero-divider">
+        <div class="hero-divider-mark"></div>
+      </div>
+
+      <p class="hero-sub">
+        The Goals: Increase Happiness &amp; Minimize Harm<br>
+        Through Personal and Professional Development
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="https://discord.gg/fksQBjS" class="btn-warm">Join On Discord</a>
+        <a href="#program" class="btn-ghost">What we do</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<section class="founding-note reveal">
+  <div class="founding-note-inner">
+    <p class="founding-note-text">
+      Community = Unity + Diversity
+    </p>
   </div>
 </section>
 
-<section class="statement-bump">
-  <h2>Community = <br><span style="opacity:0.5; font-style: italic;">Unity + Diversity</span></h2>
-  <p style="margin-top:40px; font-size: 22px; max-width: 700px; font-weight: 300;">
-    Our goals: Increase happiness and minimize harm through personal and professional development.
-  </p>
+<section id="intentions" class="intentions-clean">
+  <div class="intentions-clean-inner">
+    <div class="intentions-clean-head reveal">
+      <p class="s-tag">Five Intentions</p>
+      <h2>The Five Intentions</h2>
+      <p class="body-text">
+        A shared framework for thinking, living, and relating to others.
+      </p>
+    </div>
+
+    <div class="intentions-clean-list reveal">
+      <div class="intentions-clean-item">
+        <span class="intentions-clean-num">01</span>
+        <div class="intentions-clean-content">
+          <h3>Devotion to Self Improvement</h3>
+          <p>
+            A personal devotion to self-improvement: physical, intellectual, emotional, and spiritual/philosophical.<br><br>
+            We all want to be treated with respect, so we will always treat others with respect.
+          </p>
+        </div>
+      </div>
+
+      <div class="intentions-clean-item">
+        <span class="intentions-clean-num">02</span>
+        <div class="intentions-clean-content">
+          <h3>Be Transparent &amp; Open Minded</h3>
+          <p>
+            Recognize and consider embracing everyone’s subjective truths.<br><br>
+            We will actively consider opinions different from our own that we may have the opportunity to learn new truths from them.<br><br>
+            Don’t believe anything with 100% certainty. To do so closes your mind to new truths.<br><br>
+            Be true to yourself, and be willing to share your authentic self with others.
+          </p>
+        </div>
+      </div>
+
+      <div class="intentions-clean-item">
+        <span class="intentions-clean-num">03</span>
+        <div class="intentions-clean-content">
+          <h3>Committed to Critical Thinking</h3>
+          <p>
+            Teach people to trust and improve our own judgement and rational thought rather than following blindly.<br><br>
+            Seek truth about objective reality learnable through experimentation and the senses.
+          </p>
+        </div>
+      </div>
+
+      <div class="intentions-clean-item">
+        <span class="intentions-clean-num">04</span>
+        <div class="intentions-clean-content">
+          <h3>Maximize Happiness While Minimizing Harm</h3>
+          <p>
+            Have as much freedom as possible to pursue happiness while minimizing significant harm (for yourself and all others), which is what we consider to be doing more good.<br><br>
+            Determine a balance between maximizing freedom, minimizing harm/suffering, and maximizing happiness for oneself and others.
+          </p>
+        </div>
+      </div>
+
+      <div class="intentions-clean-item">
+        <span class="intentions-clean-num">05</span>
+        <div class="intentions-clean-content">
+          <h3>Eager to Give and Receive Love</h3>
+          <p>
+            We all want to be loved, so why don't we try to put more love into the world towards at least other humans and ideally all other sentient beings?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="intentions">
-  <h2 style="margin-bottom: 60px;">The Five Intentions</h2>
-  
-  <div class="intention-row">
-    <div class="int-num">01</div>
-    <div class="int-content">
-      <h3>Devotion to Self-Improvement</h3>
-      <p>A commitment to growth—intellectual, physical, and emotional. We treat all individuals with respect.</p>
+<section id="goals" class="main-program">
+  <div class="main-program-inner">
+    <div class="main-program-left reveal">
+      <p class="s-tag">Goals</p>
+      <h2>Our community<br><em>goals</em></h2>
+      <p class="body-text">
+        Our organization is small but growing quickly. We have ambitious and virtuous goals and you can help achieve them!
+      </p>
     </div>
-  </div>
 
-  <div class="intention-row">
-    <div class="int-num">02</div>
-    <div class="int-content">
-      <h3>Transparency & Open-Mindedness</h3>
-      <p>Embrace everyone's subjective truths. Don't believe anything with 100% certainty; to do so closes the mind.</p>
-    </div>
-  </div>
+    <div class="main-program-right reveal">
+      <div class="program-block">
+        <div class="program-kicker">Goal 01</div>
+        <h3>Is Polite</h3>
+        <p>Create warm, compassionate, open minded community with an enriching, meaningful social life.</p>
+      </div>
 
-  <div class="intention-row">
-    <div class="int-num">03</div>
-    <div class="int-content">
-      <h3>Critical Thinking</h3>
-      <p>Trust your own judgment and rational thought rather than following blindly. Seek objective reality through experimentation.</p>
-    </div>
-  </div>
-  
-  <div class="intention-row">
-    <div class="int-num">04</div>
-    <div class="int-content">
-      <h3>Maximize Happiness, Minimize Harm</h3>
-      <p>Pursue freedom while ensuring we minimize significant harm for ourselves and all sentient beings.</p>
-    </div>
-  </div>
+      <div class="program-block">
+        <div class="program-kicker">Goal 02</div>
+        <h3>Is Prosperous</h3>
+        <p>Help everyone make enough money that money no longer buys happiness.</p>
+      </div>
 
-  <div class="intention-row" style="border-bottom: 1px solid var(--border);">
-    <div class="int-num">05</div>
-    <div class="int-content">
-      <h3>Giving & Receiving Love</h3>
-      <p>We all want to be loved; we strive to put more love into the world for all sentient beings.</p>
+      <div class="program-block">
+        <div class="program-kicker">Goal 03</div>
+        <h3>Shares Good Ideas</h3>
+        <p>Create and spread ideas that maximize happiness and minimize harm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="program" class="main-program">
+  <div class="main-program-inner">
+    <div class="main-program-left reveal">
+      <p class="s-tag">What We Do</p>
+      <h2>Personal &amp;<br><em>Professional</em><br>Development</h2>
+      <p class="body-text">
+        Our conversations are about the five intentions, personal and professional development topics, and anything else of interest to the group.
+      </p>
+    </div>
+
+    <div class="main-program-right reveal">
+      <div class="program-block">
+        <div class="program-kicker">Personal Development</div>
+        <h3>Our conversations are about</h3>
+        <p>
+          The five intentions.<br>
+          Personal and professional development topics.<br>
+          Anything else of interest to the group.
+        </p>
+        <div class="program-links">
+          <a href="https://www.youtube.com/channel/UCmixGB9GdrptyEWovEj80zg" class="text-link">Watch the video for samples →</a>
+        </div>
+      </div>
+
+      <div class="program-block">
+        <div class="program-kicker">Professional Development</div>
+        <h3>We help people</h3>
+        <p>
+          Identify what their dream job is.<br>
+          Get a valuable skillset in that job.<br>
+          Learn to excel in their current job.<br>
+          Network with experienced professionals.
+        </p>
+        <div class="program-links">
+          <a href="https://docs.google.com/document/d/1nQwC81iMnGUnyN6jNBuQfwIVmSeh5HOtcVzHK4O85jU/edit" class="text-link">Check out our job training below →</a>
+        </div>
+      </div>
+
+      <div class="program-mini-grid">
+        <div class="mini-item">
+          <span>Product</span>
+          <small>Management</small>
+        </div>
+        <div class="mini-item">
+          <span>Software</span>
+          <small>Development</small>
+        </div>
+        <div class="mini-item">
+          <span>User</span>
+          <small>Experience</small>
+        </div>
+        <div class="mini-item">
+          <span>QA / Sales</span>
+          <small>And more</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="learn-more" class="main-program">
+  <div class="main-program-inner">
+    <div class="main-program-left reveal">
+      <p class="s-tag">Learn More</p>
+      <h2>Who, why,<br><em>where, when</em></h2>
+      <p class="body-text">
+        We’re a new organization and are looking for people who want to teach and learn.
+      </p>
+      <div style="margin-top:32px">
+        <a href="https://discord.gg/fksQBjS" class="btn-warm">Join On Discord</a>
+      </div>
+    </div>
+
+    <div class="main-program-right reveal">
+      <div class="program-block">
+        <div class="program-kicker">Who can you interact with?</div>
+        <p>
+          Prospective members.<br>
+          Members.<br>
+          Teachers.<br>
+          Leaders.
+        </p>
+      </div>
+
+      <div class="program-block">
+        <div class="program-kicker">Where do we meet?</div>
+        <p>
+          Text chat.<br>
+          Voice chat.<br>
+          Video chat.<br>
+          In Person.
+        </p>
+      </div>
+
+      <div class="program-block">
+        <div class="program-kicker">Why participate?</div>
+        <p>
+          To improve yourself personally and professionally.<br>
+          To make the world a better place.
+        </p>
+      </div>
+
+      <div class="program-block">
+        <div class="program-kicker">When can you participate?</div>
+        <p>
+          Informally whenever you’re free.<br>
+          At events.
+        </p>
+      </div>
+
+      <div class="program-block">
+        <div class="program-kicker">How do I join?</div>
+        <p>Join our discord community, everyone is welcome to join!</p>
+      </div>
+
+      <div class="program-block">
+        <div class="program-kicker">What do we discuss?</div>
+        <p>
+          How to help you advance in your career.<br>
+          How to help us all be our best self.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="closing" class="closing reveal">
+  <div class="closing-bg">FTI</div>
+  <div class="closing-inner">
+    <div class="closing-ornament">
+      <div class="closing-ornament-mark"></div>
+    </div>
+    <h2>
+      <em>Dream job training.</em>
+      <strong>Everyone is welcome.</strong>
+    </h2>
+    <p class="closing-sub">
+      Get job training in your dream job, then join the community through Discord, Zoom, or in person in NYC/NJ.
+    </p>
+    <div class="closing-btns">
+      <a href="https://www.freethinkerinstitute.org/product-management/" class="btn-warm">Product Management</a>
+      <a href="https://discord.gg/fksQBjS" class="btn-outline-warm">Join On Discord</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-brand">Free Thinker Institute</div>
-  <p>© 2026 Free Thinker Institute. All rights reserved.</p>
-  <p style="margin-top: 10px;">New York · Online · Global</p>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Free Thinker Institute</div>
+      <p class="footer-desc">
+        Where do we meet? Via Zoom regularly, in person in NYC/NJ, and online 24/7 via Discord.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Dream Job Training</h4>
+      <ul>
+        <li><a href="https://www.freethinkerinstitute.org/product-management/">Product Management</a></li>
+        <li><a href="#">Software Development</a></li>
+        <li><a href="#">User Experience</a></li>
+        <li><a href="#">Sales</a></li>
+        <li><a href="#">Manual Quality Assurance</a></li>
+        <li><a href="#">Automated Quality Assurance</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Community</h4>
+      <ul>
+        <li><a href="https://discord.gg/fksQBjS">Discord</a></li>
+        <li><a href="https://www.meetup.com/freethinkerinstitute">Events</a></li>
+        <li><a href="https://www.youtube.com/channel/UCmixGB9GdrptyEWovEj80zg">YouTube</a></li>
+        <li><a href="#learn-more">Learn More</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:contact@freethinkerinstitute.org">contact@freethinkerinstitute.org</a></li>
+        <li><a href="#">New York, NY 10002</a></li>
+        <li><a href="https://gofund.me">Donate</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Free Thinker Institute. All rights reserved.</p>
+    <a href="mailto:contact@freethinkerinstitute.org">contact@freethinkerinstitute.org</a>
+  </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
