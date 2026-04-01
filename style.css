@@ -668,24 +668,31 @@ footer{
   footer{padding:60px 28px 36px}
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
 }
-/* =========================================
-   ANCHOR FIX — STOP TEXT FROM BEING CUT
-   ========================================= */
+/* ===== ANCHOR FIX FOR FIXED NAV ===== */
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 140px;
 }
 
-section[id],
-div[id],
-footer[id] {
-  scroll-margin-top: 240px;
+#intentions,
+#goals,
+#program,
+#learn-more,
+#closing {
+  scroll-margin-top: 140px;
 }
 
 @media (max-width: 1024px) {
-  section[id],
-  div[id],
-  footer[id] {
-    scroll-margin-top: 120px;
+  html {
+    scroll-padding-top: 100px;
+  }
+
+  #intentions,
+  #goals,
+  #program,
+  #learn-more,
+  #closing {
+    scroll-margin-top: 100px;
   }
 }
