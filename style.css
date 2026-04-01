@@ -1,635 +1,255 @@
-:root{
-  --bg:#eef4fb;
-  --cards:#ffffff;
-  --nav:#dfeaf6;
-  --text:#10233d;
-  --accent:#4e79a7;
-  --muted:#5f7189;
-  --muted-2:#7f90a6;
-  --line:rgba(16,35,61,0.08);
-  --line-strong:rgba(16,35,61,0.14);
-  --shadow:0 20px 50px rgba(44, 87, 137, 0.08);
-  --shadow-soft:0 10px 28px rgba(44, 87, 137, 0.06);
-  --radius:28px;
-  --max:1360px;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:"Inter", sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(circle at 14% 16%, rgba(143,185,231,0.14), transparent 24%),
-    radial-gradient(circle at 82% 14%, rgba(124,169,220,0.12), transparent 22%),
-    linear-gradient(180deg, #eef4fb 0%, #f3f7fc 45%, #f8fbfe 100%);
-  min-height:100vh;
-  overflow-x:hidden;
-  position:relative;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:1;
-  opacity:.06;
-  mix-blend-mode:multiply;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.8'/%3E%3C/svg%3E");
-  background-size:180px 180px;
-}
-
-.cursor-glow{
-  position:fixed;
-  width:28rem;
-  height:28rem;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(119,165,214,0.22) 0%, rgba(119,165,214,0.10) 34%, transparent 70%);
-  transform:translate(-50%, -50%);
-  pointer-events:none;
-  z-index:0;
-  filter:blur(26px);
-  opacity:.8;
-  transition:opacity .25s ease;
-}
-
-.site-shell{
-  position:relative;
-  z-index:2;
-}
-
-.container{
-  width:min(calc(100% - 56px), var(--max));
-  margin:0 auto;
-}
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  padding-top:16px;
-}
-
-.nav-wrap{
-  min-height:84px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-  padding:14px 20px;
-  border-radius:24px;
-  background:rgba(223,234,246,0.55);
-  border:1px solid transparent;
-  backdrop-filter:blur(18px);
-  transition:.35s ease;
-}
-
-.site-header.scrolled .nav-wrap{
-  background:rgba(223,234,246,0.78);
-  border-color:rgba(16,35,61,0.08);
-  box-shadow:0 10px 28px rgba(44, 87, 137, 0.07);
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  text-decoration:none;
-  min-width:0;
-}
-
-.brand-logo{
-  width:62px;
-  height:62px;
-  border-radius:18px;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(255,255,255,0.85);
-  border:1px solid rgba(16,35,61,0.08);
-  box-shadow:var(--shadow-soft);
-  flex-shrink:0;
-}
-
-.brand-logo img{
-  width:78%;
-  height:78%;
-  object-fit:contain;
-  display:block;
-}
-
-.brand-text{
-  color:var(--text);
-  font-size:1rem;
-  font-weight:600;
-  letter-spacing:.01em;
-  white-space:nowrap;
-}
-
-.desktop-nav{
-  display:flex;
-  align-items:center;
-  gap:30px;
-}
-
-.desktop-nav a{
-  text-decoration:none;
-  color:var(--muted);
-  font-size:.95rem;
-  position:relative;
-  transition:.28s ease;
-}
-
-.desktop-nav a:hover{
-  color:var(--text);
-}
-
-.desktop-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-8px;
-  width:0;
-  height:1px;
-  background:var(--accent);
-  transition:width .28s ease;
-}
-
-.desktop-nav a:hover::after{
-  width:100%;
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:46px;
-  padding:0 18px;
-  border-radius:999px;
-  text-decoration:none;
-  font-size:.94rem;
-  font-weight:500;
-  transition:.28s ease;
-  border:1px solid transparent;
-  white-space:nowrap;
-}
-
-.btn-primary{
-  background:var(--accent);
-  color:#fff;
-  box-shadow:0 10px 24px rgba(78,121,167,0.16);
-}
-
-.btn-primary:hover{
-  transform:translateY(-1px);
-  box-shadow:0 16px 34px rgba(78,121,167,0.18);
-  background:#456f9c;
-}
-
-.btn-secondary{
-  background:rgba(255,255,255,0.72);
-  color:var(--text);
-  border-color:rgba(16,35,61,0.08);
-}
-
-.btn-secondary:hover{
-  transform:translateY(-1px);
-  background:#fff;
-  box-shadow:var(--shadow-soft);
-}
-
-.section-first{
-  padding:82px 0 70px;
-}
-
-.section{
-  padding:160px 0;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:minmax(0, 1.05fr) minmax(360px, .8fr);
-  gap:52px;
-  align-items:center;
-  min-height:calc(100vh - 160px);
-}
-
-.hero-copy{
-  position:relative;
-}
-
-.hero-copy::before{
-  content:"";
-  position:absolute;
-  width:420px;
-  height:420px;
-  left:-120px;
-  top:-110px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(127,175,226,0.22) 0%, rgba(127,175,226,0.08) 36%, transparent 70%);
-  filter:blur(12px);
-  pointer-events:none;
-  z-index:0;
-}
-
-.hero-copy > *{
-  position:relative;
-  z-index:2;
-}
-
-.eyebrow,
-.section-kicker,
-.mini-label{
-  color:var(--muted-2);
-  text-transform:uppercase;
-  letter-spacing:.16em;
-  font-size:.72rem;
-}
-
-.hero h1{
-  font-family:"Cormorant Garamond", serif;
-  font-size:clamp(4rem, 8vw, 7.2rem);
-  line-height:.9;
-  font-weight:600;
-  letter-spacing:-0.05em;
-  max-width:8ch;
-  margin:22px 0 28px;
-  color:var(--text);
-}
-
-.hero-text{
-  max-width:58ch;
-  color:var(--muted);
-  font-size:1.06rem;
-  line-height:1.95;
-  margin-bottom:36px;
-}
-
-.hero-actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.hero-panel{
-  position:relative;
-}
-
-.hero-panel-inner{
-  min-height:420px;
-  padding:42px;
-  border-radius:34px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.54));
-  border:1px solid rgba(255,255,255,0.55);
-  box-shadow:
-    0 30px 70px rgba(78,121,167,0.10),
-    inset 0 1px 0 rgba(255,255,255,0.75);
-  backdrop-filter:blur(18px);
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-}
-
-.hero-panel-inner::before{
-  content:"";
-  position:absolute;
-  width:360px;
-  height:360px;
-  right:-80px;
-  top:-90px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(103,157,218,0.22) 0%, rgba(103,157,218,0.08) 40%, transparent 72%);
-  filter:blur(14px);
-}
-
-.hero-panel-inner::after{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  left:-40px;
-  bottom:-50px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(164,204,239,0.30) 0%, rgba(164,204,239,0.08) 44%, transparent 74%);
-  filter:blur(10px);
-}
-
-.hero-panel-inner > *{
-  position:relative;
-  z-index:2;
-}
-
-.hero-panel h2{
-  font-family:"Cormorant Garamond", serif;
-  font-size:clamp(2.2rem, 4vw, 3.7rem);
-  line-height:.96;
-  font-weight:600;
-  letter-spacing:-0.035em;
-  max-width:10ch;
-  margin:16px 0 16px;
-  color:var(--text);
-}
-
-.hero-panel p{
-  color:var(--muted);
-  line-height:1.9;
-  max-width:42ch;
-}
-
-.section-head{
-  display:grid;
-  grid-template-columns:minmax(0,.62fr) minmax(0,1fr);
-  gap:48px;
-  align-items:end;
-  margin-bottom:54px;
-}
-
-.section-left h2{
-  font-family:"Cormorant Garamond", serif;
-  font-size:clamp(2.8rem, 5vw, 4.9rem);
-  line-height:.94;
-  font-weight:600;
-  letter-spacing:-0.045em;
-  max-width:9ch;
-  margin-top:18px;
-  color:var(--text);
-}
-
-.section-right{
-  display:flex;
-  justify-content:flex-end;
-}
-
-.section-right p{
-  max-width:56ch;
-  color:var(--muted);
-  line-height:1.92;
-  font-size:1rem;
-}
-
-.intentions-grid{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:24px;
-}
-
-.editorial-card,
-.goal-card,
-.soft-card{
-  background:rgba(255,255,255,0.88);
-  border:1px solid rgba(16,35,61,0.07);
-  box-shadow:var(--shadow-soft);
-  transition:transform .32s ease, box-shadow .32s ease, border-color .32s ease, opacity .45s ease;
-}
-
-.editorial-card:hover,
-.goal-card:hover,
-.soft-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 24px 48px rgba(44,87,137,0.10);
-  border-color:rgba(78,121,167,0.16);
-}
-
-.editorial-card{
-  padding:32px;
-  border-radius:28px;
-}
-
-.editorial-card.wide{
-  grid-column:1 / -1;
-}
-
-.card-number{
-  color:var(--muted-2);
-  font-size:.78rem;
-  letter-spacing:.16em;
-  margin-bottom:24px;
-}
-
-.editorial-card h3,
-.goal-card h3,
-.soft-card h3{
-  color:var(--text);
-  font-size:1.22rem;
-  line-height:1.38;
-  font-weight:600;
-  margin-bottom:14px;
-  max-width:28ch;
-}
-
-.editorial-card p,
-.goal-card p,
-.soft-card p{
-  color:var(--muted);
-  line-height:1.84;
-}
-
-.goals-grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:24px;
-}
-
-.goal-card{
-  padding:30px;
-  border-radius:28px;
-  position:relative;
-  min-height:270px;
-}
-
-.goal-index{
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(78,121,167,0.10);
-  color:var(--accent);
-  font-size:.86rem;
-  font-weight:600;
-  margin-bottom:24px;
-}
-
-.what-layout{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-}
-
-.soft-card{
-  padding:34px;
-  border-radius:30px;
-  min-height:280px;
-}
-
-.closing-panel{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:30px;
-  align-items:end;
-  padding:46px;
-  border-radius:34px;
-  background:
-    radial-gradient(circle at 20% 24%, rgba(124,169,220,0.12), transparent 24%),
-    linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.76));
-  border:1px solid rgba(16,35,61,0.08);
-  box-shadow:0 24px 58px rgba(44,87,137,0.09);
-  backdrop-filter:blur(10px);
-}
-
-.closing-copy h2{
-  font-family:"Cormorant Garamond", serif;
-  font-size:clamp(2.8rem, 5vw, 4.8rem);
-  line-height:.94;
-  font-weight:600;
-  letter-spacing:-0.045em;
-  color:var(--text);
-  margin:18px 0 14px;
-}
-
-.closing-copy p{
-  max-width:50ch;
-  color:var(--muted);
-  line-height:1.9;
-}
-
-.closing-actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.hero-load{
-  opacity:0;
-  transform:translateY(28px);
-  animation:heroFadeUp 1.1s cubic-bezier(.22,.61,.36,1) forwards;
-}
-
-.hero-copy.hero-load{
-  animation-delay:.08s;
-}
-
-.hero-panel.hero-load{
-  animation-delay:.22s;
-}
-
-@keyframes heroFadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.reveal{
-  opacity:0;
-  transform:translateY(28px);
-  transition:opacity .9s ease, transform .9s ease;
-}
-
-.reveal.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-@media (max-width: 1180px){
-  .hero-grid,
-  .section-head,
-  .what-layout,
-  .closing-panel{
-    grid-template-columns:1fr;
-  }
-
-  .goals-grid{
-    grid-template-columns:1fr;
-  }
-
-  .section-right{
-    justify-content:flex-start;
-  }
-}
-
-@media (max-width: 860px){
-  .container{
-    width:min(calc(100% - 28px), var(--max));
-  }
-
-  .desktop-nav{
-    display:none;
-  }
-
-  .nav-actions{
-    display:none;
-  }
-
-  .nav-wrap{
-    padding:12px 14px;
-    gap:14px;
-  }
-
-  .brand-logo{
-    width:54px;
-    height:54px;
-    border-radius:16px;
-  }
-
-  .brand-text{
-    font-size:.92rem;
-    white-space:normal;
-    line-height:1.1;
-  }
-
-  .section-first{
-    padding:52px 0 36px;
-  }
-
-  .section{
-    padding:110px 0;
-  }
-
-  .hero-grid{
-    min-height:auto;
-    gap:30px;
-  }
-
-  .hero-panel-inner{
-    min-height:auto;
-    padding:28px;
-  }
-
-  .intentions-grid,
-  .what-layout{
-    grid-template-columns:1fr;
-  }
-
-  .editorial-card.wide{
-    grid-column:auto;
-  }
-
-  .closing-panel{
-    padding:30px;
-  }
-
-  .hero h1{
-    max-width:10ch;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Thinker Institute</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <div class="site-shell">
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-wrap">
+        <a href="#" class="brand">
+          <span class="brand-logo">
+            <img src="images/logo.png" alt="Free Thinker Institute logo">
+          </span>
+          <span class="brand-text">Free Thinker Institute</span>
+        </a>
+
+        <nav class="desktop-nav">
+          <a href="#intentions">Intentions</a>
+          <a href="#goals">Goals</a>
+          <a href="#what-we-do">What We Do</a>
+          <a href="#closing">Join</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="#what-we-do" class="btn btn-secondary">Learn More</a>
+          <a href="#closing" class="btn btn-primary">Join Us</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section-first">
+        <div class="container hero-grid">
+          <div class="hero-copy hero-load">
+            <div class="eyebrow">Community · Reflection · Development</div>
+
+            <h1>
+              Think with<br>
+              more clarity.<br>
+              Live with<br>
+              more intention.
+            </h1>
+
+            <p class="hero-text">
+              A modern community for people who care about personal growth,
+              critical thinking, meaningful relationships, and building a more
+              deliberate life — personally and professionally.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#intentions" class="btn btn-primary">Explore the intentions</a>
+              <a href="#what-we-do" class="btn btn-secondary">See what we do</a>
+            </div>
+          </div>
+
+          <div class="hero-panel hero-load">
+            <div class="hero-panel-inner">
+              <div class="mini-label">A shared direction</div>
+              <h2>Clearer thought. Better living. Real community.</h2>
+              <p>
+                The Institute brings together reflection, conversation,
+                self-development, and practical growth in a calm, structured,
+                and open-minded environment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intentions-section" id="intentions">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-left">
+              <div class="section-kicker">01 — Five Intentions</div>
+              <h2>A framework for thoughtful living.</h2>
+            </div>
+
+            <div class="section-right">
+              <p>
+                These intentions shape how the community approaches growth,
+                dialogue, truth, responsibility, and connection. The tone is calm,
+                clear, and grounded — more like principles than slogans.
+              </p>
+            </div>
+          </div>
+
+          <div class="intentions-grid">
+            <article class="editorial-card reveal">
+              <div class="card-number">01</div>
+              <h3>Devotion to self-improvement</h3>
+              <p>
+                Physical, intellectual, emotional, and philosophical growth.
+                A serious relationship to becoming more capable, aware, and honest.
+              </p>
+            </article>
+
+            <article class="editorial-card reveal">
+              <div class="card-number">02</div>
+              <h3>Transparency and open-mindedness</h3>
+              <p>
+                Stay willing to refine your thinking. Consider other perspectives
+                carefully, without collapsing into certainty too quickly.
+              </p>
+            </article>
+
+            <article class="editorial-card reveal">
+              <div class="card-number">03</div>
+              <h3>Commitment to critical thinking</h3>
+              <p>
+                Learn to trust and sharpen your own judgment through reason,
+                reflection, experience, and attention.
+              </p>
+            </article>
+
+            <article class="editorial-card reveal">
+              <div class="card-number">04</div>
+              <h3>Maximize happiness while minimizing harm</h3>
+              <p>
+                Seek a meaningful balance between freedom, care, responsibility,
+                and the desire to reduce unnecessary suffering.
+              </p>
+            </article>
+
+            <article class="editorial-card wide reveal">
+              <div class="card-number">05</div>
+              <h3>Eager to give and receive love</h3>
+              <p>
+                A community is built not only on ideas, but also on generosity,
+                humanity, kindness, and the willingness to be present for others.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section goals-section" id="goals">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-left">
+              <div class="section-kicker">02 — Goals</div>
+              <h2>A clear structure with ambitious aims.</h2>
+            </div>
+
+            <div class="section-right">
+              <p>
+                The goal is not scale for its own sake. The goal is to create a
+                space that is useful, intelligent, socially warm, and materially
+                supportive of people’s lives.
+              </p>
+            </div>
+          </div>
+
+          <div class="goals-grid">
+            <article class="goal-card reveal">
+              <span class="goal-index">01</span>
+              <h3>A warm and thoughtful community</h3>
+              <p>
+                Open-minded, respectful, enriching, and genuinely alive.
+              </p>
+            </article>
+
+            <article class="goal-card reveal">
+              <span class="goal-index">02</span>
+              <h3>Material and professional development</h3>
+              <p>
+                Support that helps people become more secure, capable, and free.
+              </p>
+            </article>
+
+            <article class="goal-card reveal">
+              <span class="goal-index">03</span>
+              <h3>Ideas that improve life</h3>
+              <p>
+                Shared frameworks that help maximize well-being and reduce harm.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section what-section" id="what-we-do">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="section-left">
+              <div class="section-kicker">03 — What We Do</div>
+              <h2>Personal and professional development.</h2>
+            </div>
+
+            <div class="section-right">
+              <p>
+                Conversations move between inner life and outer life:
+                meaning, habits, relationships, work, ambition, skills,
+                and building a life that feels more deliberate.
+              </p>
+            </div>
+          </div>
+
+          <div class="what-layout">
+            <article class="soft-card reveal">
+              <div class="mini-label">Personal</div>
+              <h3>Conversations with depth</h3>
+              <p>
+                Self-development, relationships, values, reflection,
+                and the five intentions as lived practice.
+              </p>
+            </article>
+
+            <article class="soft-card reveal">
+              <div class="mini-label">Professional</div>
+              <h3>Dream job training</h3>
+              <p>
+                Direction, skill growth, role clarity, and how to improve
+                in the work you are moving toward.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section closing-section" id="closing">
+        <div class="container">
+          <div class="closing-panel reveal">
+            <div class="closing-copy">
+              <div class="section-kicker">04 — Closing</div>
+              <h2>Everyone is welcome.</h2>
+              <p>
+                Start with conversation. Stay for the clarity, growth,
+                and direction that comes from learning together in a more
+                intentional way.
+              </p>
+            </div>
+
+            <div class="closing-actions">
+              <a href="#" class="btn btn-primary">Join the community</a>
+              <a href="#intentions" class="btn btn-secondary">Read the intentions</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
