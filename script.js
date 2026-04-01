@@ -1,25 +1,38 @@
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.08 });
-
-document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
-const nav = document.querySelector("nav");
-const introLoader = document.getElementById("intro-loader");
+const header = document.getElementById("siteHeader");
+const glow = document.getElementById("cursorGlow");
+const reveals = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
-  if (!nav) return;
-  nav.style.padding = window.scrollY > 60
-    ? (window.innerWidth > 1024 ? "14px 48px" : "12px 18px")
-    : (window.innerWidth > 1024 ? "18px 48px" : "14px 18px");
+  if (window.scrollY > 18) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 });
 
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    if (introLoader) introLoader.classList.add("hide");
-  }, 1900);
+window.addEventListener("mousemove", (e) => {
+  if (!glow) return;
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
 });
+
+window.addEventListener("mouseleave", () => {
+  if (!glow) return;
+  glow.style.opacity = ".35";
+});
+
+window.addEventListener("mouseenter", () => {
+  if (!glow) return;
+  glow.style.opacity = ".8";
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.16 });
+
+reveals.forEach(el => observer.observe(el));
