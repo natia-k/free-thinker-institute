@@ -1,39 +1,57 @@
-const header = document.querySelector(".site-header");
+const header = document.getElementById("siteHeader");
 const glow = document.getElementById("cursorGlow");
-const reveals = document.querySelectorAll(".reveal");
+const revealItems = document.querySelectorAll(".reveal");
+const mobileToggle = document.getElementById("mobileToggle");
+const mobileMenu = document.getElementById("mobileMenu");
 
 window.addEventListener("scroll", () => {
   if (!header) return;
-  if (window.scrollY > 12) {
+  if (window.scrollY > 10) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
   }
 });
 
-if (glow) {
-  window.addEventListener("mousemove", (e) => {
-    glow.style.left = `${e.clientX}px`;
-    glow.style.top = `${e.clientY}px`;
-  });
+window.addEventListener("mousemove", (e) => {
+  if (!glow) return;
+  glow.style.left = `${e.clientX}px`;
+  glow.style.top = `${e.clientY}px`;
+});
 
-  document.addEventListener("mouseleave", () => {
-    glow.style.opacity = "0";
-  });
+window.addEventListener("mouseleave", () => {
+  if (!glow) return;
+  glow.style.opacity = ".32";
+});
 
-  document.addEventListener("mouseenter", () => {
-    glow.style.opacity = ".8";
-  });
-}
+window.addEventListener("mouseenter", () => {
+  if (!glow) return;
+  glow.style.opacity = ".75";
+});
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
     }
   });
 }, {
   threshold: 0.14
 });
 
-reveals.forEach((item) => observer.observe(item));
+revealItems.forEach((item) => observer.observe(item));
+
+if (mobileToggle && mobileMenu) {
+  mobileToggle.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
