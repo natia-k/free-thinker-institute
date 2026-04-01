@@ -164,11 +164,11 @@ nav ul a:hover{color:#ffffff}
   left:10px;
   bottom:30px;
   font-family:'Playfair Display',serif;
-  font-size:clamp(180px,24vw,320px);
+  font-size:clamp(120px,18vw,220px);
   font-style:italic;
   font-weight:700;
   line-height:1;
-  color:rgba(76,120,168,0.05);
+  color:rgba(76,120,168,0.04);
   pointer-events:none;
   user-select:none;
 }
@@ -184,13 +184,15 @@ nav ul a:hover{color:#ffffff}
 
 .hero-grid{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 480px;
-  gap:72px;
+  grid-template-columns:minmax(0,620px) 420px;
+  gap:56px;
   align-items:center;
 }
 
 .hero-left{
-  max-width:760px;
+  max-width:620px;
+  position:relative;
+  z-index:2;
 }
 
 .hero-overline{
@@ -215,16 +217,18 @@ nav ul a:hover{color:#ffffff}
 
 .hero-headline{
   font-family:'Playfair Display',serif;
-  font-size:clamp(62px,8vw,118px);
+  font-size:clamp(54px,7vw,96px);
   font-weight:400;
-  line-height:0.93;
+  line-height:0.94;
   letter-spacing:-0.03em;
   color:var(--charcoal);
+  max-width:620px;
 }
 
 .hero-headline .italic{
   font-style:italic;
   color:var(--terra);
+  font-size:0.88em;
 }
 
 .hero-divider{
@@ -284,15 +288,19 @@ nav ul a:hover{color:#ffffff}
 /* HERO UI */
 .hero-ui{
   position:relative;
+  width:100%;
+  max-width:420px;
+  margin-left:auto;
 }
 
 .ui-window{
   border-radius:30px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.35));
+  background:linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,255,255,0.42));
   border:1px solid rgba(255,255,255,0.5);
   box-shadow:0 30px 80px rgba(29,44,61,0.10);
   backdrop-filter:blur(14px);
   overflow:hidden;
+  width:100%;
 }
 
 .ui-topbar{
@@ -1048,9 +1056,9 @@ section[id]{
   }
 
   .hero-bg-letter{
-    font-size:clamp(120px,30vw,220px);
+    font-size:clamp(90px,24vw,160px);
     left:0;
-    bottom:110px;
+    bottom:120px;
   }
 
   .hero-inner{
@@ -1059,11 +1067,16 @@ section[id]{
 
   .hero-grid{
     grid-template-columns:1fr;
-    gap:36px;
+    gap:32px;
   }
 
   .hero-headline{
-    font-size:clamp(46px,14vw,78px);
+    font-size:clamp(44px,14vw,72px);
+    max-width:100%;
+  }
+
+  .hero-ui{
+    max-width:100%;
   }
 
   .hero-scroll{
