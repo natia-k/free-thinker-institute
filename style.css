@@ -1,26 +1,25 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --parch:#F5F0E8;
-  --parch2:#EDE8DC;
-  --parch3:#E4DDD0;
-  --charcoal:#2C2A25;
-  --charcoal2:#3D3A34;
-  --terra:#A0603A;
-  --terra2:#C27B52;
-  --sand:#C8B99A;
-  --sand2:#D4C4A8;
-  --muted:#8C836F;
-  --muted2:#A89D8A;
-  --ink:rgba(44,42,37,0.85);
-  --ink2:rgba(44,42,37,0.5);
-  --ink3:rgba(44,42,37,0.25);
-  --ink4:rgba(44,42,37,0.1);
+  --parch:#eef4fb;
+  --parch2:#e3edf8;
+  --parch3:#d6e5f4;
+  --charcoal:#10233d;
+  --charcoal2:#1b3557;
+  --terra:#2f6fb3;
+  --terra2:#4f8fd3;
+  --sand:#9db9d6;
+  --sand2:#bfd2e6;
+  --muted:#5f7692;
+  --muted2:#7f95af;
+  --ink:rgba(16,35,61,0.85);
+  --ink2:rgba(16,35,61,0.5);
+  --ink3:rgba(16,35,61,0.25);
+  --ink4:rgba(16,35,61,0.1);
 }
-
 html{scroll-behavior:smooth}
 body{
-  background:var(--parch);
+  background:linear-gradient(180deg, #eef4fb 0%, #e8f0f9 40%, #edf3fa 100%);
   color:var(--charcoal);
   font-family:'Lora',serif;
   line-height:1.7;
@@ -38,7 +37,6 @@ body::before{
   background-size:256px 256px;
 }
 
-/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -49,34 +47,52 @@ nav{
   align-items:center;
   justify-content:space-between;
   padding:28px 80px;
-  background:rgba(245,240,232,0.9);
+  background:rgba(238,244,251,0.88);
   backdrop-filter:blur(20px);
   transition:padding .4s;
 }
+
+.founding-note,
+.closing{
+  background:var(--parch2);
+}
+
+.program-mini-grid{
+  background:rgba(16,35,61,0.08);
+}
+
+.mini-item{
+  background:#f4f8fc;
+}
 .logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+
+.logo-image{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  display:block;
+  flex-shrink:0;
+}
+
+.logo-text{
   font-family:'Playfair Display',serif;
   font-size:17px;
   font-weight:500;
   letter-spacing:0.02em;
   color:var(--charcoal);
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:14px;
+  line-height:1;
 }
-.logo-mark{
-  width:34px;
-  height:34px;
-  border:1px solid var(--sand);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:'DM Sans',sans-serif;
-  font-size:9px;
-  font-weight:500;
-  letter-spacing:0.12em;
-  color:var(--muted);
 }
 nav ul{
   list-style:none;
