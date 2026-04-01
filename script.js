@@ -4,45 +4,23 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.classList.add("visible");
     }
   });
-}, { threshold: 0.07 });
+}, { threshold: 0.08 });
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-document.querySelectorAll(".reveal").forEach((el, i) => {
-  const rect = el.getBoundingClientRect();
-  if (rect.top < window.innerHeight) {
-    setTimeout(() => el.classList.add("visible"), i * 100);
-  }
-});
-
 const nav = document.querySelector("nav");
+const introLoader = document.getElementById("intro-loader");
 
 window.addEventListener("scroll", () => {
+  if (!nav) return;
+
   nav.style.padding = window.scrollY > 60
-    ? (window.innerWidth > 1024 ? "18px 80px" : "14px 28px")
-    : (window.innerWidth > 1024 ? "28px 80px" : "20px 28px");
+    ? (window.innerWidth > 1024 ? "14px 48px" : "12px 18px")
+    : (window.innerWidth > 1024 ? "18px 48px" : "14px 18px");
 });
-
-function scrollToHashWithOffset() {
-  if (!window.location.hash) return;
-
-  const target = document.querySelector(window.location.hash);
-  if (!target) return;
-
-  const navHeight = nav ? nav.offsetHeight : 100;
-  const extraOffset = window.innerWidth > 1024 ? 30 : 20;
-  const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - extraOffset;
-
-  window.scrollTo({
-    top,
-    behavior: "auto"
-  });
-}
 
 window.addEventListener("load", () => {
-  setTimeout(scrollToHashWithOffset, 50);
-});
-
-window.addEventListener("hashchange", () => {
-  setTimeout(scrollToHashWithOffset, 0);
+  setTimeout(() => {
+    if (introLoader) introLoader.classList.add("hide");
+  }, 1900);
 });
