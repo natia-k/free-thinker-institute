@@ -12,36 +12,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="grain"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
 
   <div class="site-shell">
     <header class="site-header" id="siteHeader">
-      <div class="container">
-        <div class="nav-wrap">
-          <a href="#" class="brand">
-            <span class="brand-logo">
-              <img src="images/logo.png" alt="Free Thinker Institute logo">
-            </span>
-            <span class="brand-text">Free Thinker Institute</span>
-          </a>
+      <div class="container nav-wrap">
+        <a href="#" class="brand" aria-label="Free Thinker Institute home">
+          <span class="brand-logo">
+            <img src="images/logo.png" alt="Free Thinker Institute logo">
+          </span>
+          <span class="brand-text">Free Thinker Institute</span>
+        </a>
 
-          <nav class="desktop-nav">
-            <a href="#intentions">Intentions</a>
-            <a href="#goals">Goals</a>
-            <a href="#what-we-do">What We Do</a>
-            <a href="#closing">Join</a>
-          </nav>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#intentions">Intentions</a>
+          <a href="#goals">Goals</a>
+          <a href="#what-we-do">What We Do</a>
+          <a href="#closing">Join</a>
+        </nav>
 
-          <div class="nav-actions">
-            <a href="#what-we-do" class="btn btn-secondary">Learn More</a>
-            <a href="#closing" class="btn btn-primary">Join Us</a>
-          </div>
+        <div class="nav-actions">
+          <a href="#closing" class="btn btn-primary">Join Us</a>
         </div>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#intentions">Intentions</a>
+        <a href="#goals">Goals</a>
+        <a href="#what-we-do">What We Do</a>
+        <a href="#closing">Join</a>
       </div>
     </header>
 
     <main>
-      <section class="hero section-first">
+      <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy hero-load">
             <div class="eyebrow">Community · Reflection · Development</div>
@@ -65,21 +74,27 @@
             </div>
           </div>
 
-          <div class="hero-panel hero-load">
-            <div class="hero-panel-inner">
-              <div class="mini-label">A shared direction</div>
-              <h2>Clearer thought. Better living. Real community.</h2>
-              <p>
-                The Institute brings together reflection, conversation,
-                self-development, and practical growth in a calm, structured,
-                and open-minded environment.
-              </p>
+          <div class="hero-visual hero-load" aria-hidden="true">
+            <div class="visual-panel">
+              <div class="visual-ring visual-ring-1"></div>
+              <div class="visual-ring visual-ring-2"></div>
+              <div class="visual-ring visual-ring-3"></div>
+
+              <div class="visual-glass">
+                <div class="mini-label">A shared direction</div>
+                <h2>Clearer thought. Better living. Real community.</h2>
+                <p>
+                  The Institute brings together reflection, conversation,
+                  self-development, and practical growth in a calm, structured,
+                  and open-minded environment.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section intentions-section" id="intentions">
+      <section class="section" id="intentions">
         <div class="container">
           <div class="section-head reveal">
             <div class="section-left">
@@ -133,7 +148,7 @@
               </p>
             </article>
 
-            <article class="editorial-card wide reveal">
+            <article class="editorial-card editorial-card-wide reveal">
               <div class="card-number">05</div>
               <h3>Eager to give and receive love</h3>
               <p>
@@ -145,7 +160,7 @@
         </div>
       </section>
 
-      <section class="section goals-section" id="goals">
+      <section class="section" id="goals">
         <div class="container">
           <div class="section-head reveal">
             <div class="section-left">
@@ -164,7 +179,7 @@
 
           <div class="goals-grid">
             <article class="goal-card reveal">
-              <span class="goal-index">01</span>
+              <div class="goal-badge">01</div>
               <h3>A warm and thoughtful community</h3>
               <p>
                 Open-minded, respectful, enriching, and genuinely alive.
@@ -172,7 +187,7 @@
             </article>
 
             <article class="goal-card reveal">
-              <span class="goal-index">02</span>
+              <div class="goal-badge">02</div>
               <h3>Material and professional development</h3>
               <p>
                 Support that helps people become more secure, capable, and free.
@@ -180,7 +195,7 @@
             </article>
 
             <article class="goal-card reveal">
-              <span class="goal-index">03</span>
+              <div class="goal-badge">03</div>
               <h3>Ideas that improve life</h3>
               <p>
                 Shared frameworks that help maximize well-being and reduce harm.
@@ -190,7 +205,7 @@
         </div>
       </section>
 
-      <section class="section what-section" id="what-we-do">
+      <section class="section" id="what-we-do">
         <div class="container">
           <div class="section-head reveal">
             <div class="section-left">
@@ -208,7 +223,7 @@
           </div>
 
           <div class="what-layout">
-            <article class="soft-card reveal">
+            <article class="what-panel reveal">
               <div class="mini-label">Personal</div>
               <h3>Conversations with depth</h3>
               <p>
@@ -217,7 +232,7 @@
               </p>
             </article>
 
-            <article class="soft-card reveal">
+            <article class="what-panel reveal">
               <div class="mini-label">Professional</div>
               <h3>Dream job training</h3>
               <p>
@@ -229,7 +244,7 @@
         </div>
       </section>
 
-      <section class="section closing-section" id="closing">
+      <section class="section section-closing" id="closing">
         <div class="container">
           <div class="closing-panel reveal">
             <div class="closing-copy">
