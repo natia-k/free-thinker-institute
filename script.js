@@ -1,9 +1,10 @@
 const header = document.getElementById("siteHeader");
 const glow = document.getElementById("cursorGlow");
-const reveals = document.querySelectorAll(".reveal");
+const revealItems = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 18) {
+  if (!header) return;
+  if (window.scrollY > 10) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
@@ -12,8 +13,8 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("mousemove", (e) => {
   if (!glow) return;
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
+  glow.style.left = `${e.clientX}px`;
+  glow.style.top = `${e.clientY}px`;
 });
 
 window.addEventListener("mouseleave", () => {
@@ -23,16 +24,18 @@ window.addEventListener("mouseleave", () => {
 
 window.addEventListener("mouseenter", () => {
   if (!glow) return;
-  glow.style.opacity = ".8";
+  glow.style.opacity = ".75";
 });
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.16 });
+}, {
+  threshold: 0.14
+});
 
-reveals.forEach(el => observer.observe(el));
+revealItems.forEach((item) => observer.observe(item));
