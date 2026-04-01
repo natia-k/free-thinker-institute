@@ -19,12 +19,12 @@ window.addEventListener("mousemove", (e) => {
 
 window.addEventListener("mouseleave", () => {
   if (!glow) return;
-  glow.style.opacity = ".35";
+  glow.style.opacity = ".32";
 });
 
 window.addEventListener("mouseenter", () => {
   if (!glow) return;
-  glow.style.opacity = ".75";
+  glow.style.opacity = ".8";
 });
 
 const observer = new IntersectionObserver((entries) => {
