@@ -1,4 +1,3 @@
-/* ── HERO WORD CYCLE ── */
 const heroWords = ["Love.", "Freedom.", "Growth.", "Courage.", "Wisdom."];
 let hIdx = 0;
 const heroEl = document.getElementById("hero-cycle");
@@ -13,7 +12,6 @@ if (heroEl) {
     setTimeout(() => {
       hIdx = (hIdx + 1) % heroWords.length;
       heroEl.textContent = heroWords[hIdx];
-
       heroEl.style.transition = "none";
       heroEl.style.transform = "translateY(-18px)";
       heroEl.style.opacity = "0";
@@ -30,7 +28,6 @@ if (heroEl) {
   }, 3000);
 }
 
-/* ── STATEMENT CYCLE ── */
 const stWords = [
   "Practical Reason.",
   "Open Minds.",
@@ -53,7 +50,6 @@ if (stEl) {
     setTimeout(() => {
       sIdx = (sIdx + 1) % stWords.length;
       stEl.textContent = stWords[sIdx];
-
       stEl.style.transition = "none";
       stEl.style.transform = "translateY(-14px)";
       stEl.style.opacity = "0";
@@ -70,7 +66,6 @@ if (stEl) {
   }, 2800);
 }
 
-/* ── SCROLL REVEAL ── */
 const srEls = document.querySelectorAll(".sr");
 
 if (srEls.length) {
