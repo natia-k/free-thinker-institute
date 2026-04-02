@@ -86,3 +86,23 @@ if (srEls.length) {
 
   srEls.forEach((el) => io.observe(el));
 }
+const revealEls = document.querySelectorAll(".reveal-up");
+
+if (revealEls.length) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -8% 0px"
+    }
+  );
+
+  revealEls.forEach((el) => revealObserver.observe(el));
+}
