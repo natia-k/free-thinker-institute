@@ -32,20 +32,20 @@ a {
   color: inherit;
 }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 200;
+  z-index: 300;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 48px;
-  height: 64px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
+  height: 72px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--ink-line);
 }
 
@@ -95,7 +95,8 @@ nav {
   text-transform: uppercase;
   text-decoration: none;
   color: var(--black);
-  opacity: 0.55;
+  opacity: 0.58;
+  transition: opacity 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -110,27 +111,31 @@ nav {
   text-decoration: none;
   color: var(--white);
   background: var(--black);
-  padding: 10px 22px;
+  padding: 11px 22px;
+  transition: opacity 0.2s ease;
 }
 
-/* HERO */
+.nav-cta:hover {
+  opacity: 0.85;
+}
+
+/* ── HERO ── */
 .hero {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.07), transparent 28%),
+    radial-gradient(circle at 78% 20%, rgba(255, 255, 255, 0.06), transparent 28%),
     linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 120px 48px 80px;
+  align-items: flex-end;
+  padding: 132px 48px 80px;
   position: relative;
   overflow: hidden;
 }
 
 .hero-bg-word {
   position: absolute;
-  right: 2%;
-  top: 8%;
+  right: 1%;
+  top: 7%;
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(220px, 24vw, 420px);
   line-height: 0.8;
@@ -144,23 +149,23 @@ nav {
 .hero-orb {
   position: absolute;
   right: 6%;
-  top: 14%;
+  top: 12%;
   width: 560px;
   height: 560px;
   border-radius: 50%;
   background:
     radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.13) 0%,
       rgba(255, 255, 255, 0.08) 18%,
       rgba(255, 255, 255, 0.04) 34%,
-      rgba(255, 255, 255, 0.015) 50%,
+      rgba(255, 255, 255, 0.015) 52%,
       transparent 72%
     );
   filter: blur(36px);
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: 0.9;
+  opacity: 0.82;
   animation: heroOrbFloat 9s ease-in-out infinite;
   z-index: 1;
 }
@@ -189,7 +194,7 @@ nav {
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.42);
   margin-bottom: 28px;
 }
 
@@ -198,18 +203,18 @@ nav {
   display: block;
   width: 28px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .hero h1 {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(72px, 9vw, 140px);
+  font-size: clamp(76px, 9vw, 144px);
   font-weight: 500;
   line-height: 0.9;
   letter-spacing: -0.04em;
   color: var(--white);
   max-width: 1100px;
-  margin-bottom: 48px;
+  margin-bottom: 42px;
 }
 
 .hero h1 .line {
@@ -255,16 +260,16 @@ nav {
 
 .hero-meta {
   display: grid;
-  grid-template-columns: minmax(320px, 480px) 1fr;
-  gap: 48px;
+  grid-template-columns: minmax(320px, 500px) 1fr;
+  gap: 56px;
   align-items: end;
-  margin-bottom: 40px;
+  margin-bottom: 38px;
 }
 
 .hero-lead {
   font-size: 17px;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.52);
+  color: rgba(255, 255, 255, 0.54);
   font-weight: 300;
 }
 
@@ -291,7 +296,7 @@ nav {
 
 .hero-stat-value {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
 }
 
@@ -315,6 +320,7 @@ nav {
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 30px;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-w.solid {
@@ -322,12 +328,20 @@ nav {
   color: var(--black);
 }
 
+.btn-w.solid:hover {
+  opacity: 0.86;
+}
+
 .btn-w.outline {
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: var(--white);
 }
 
-/* TICKER */
+.btn-w.outline:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── TICKER ── */
 .ticker {
   background: var(--black);
   border-top: 1px solid rgba(255, 255, 255, 0.07);
@@ -360,7 +374,7 @@ nav {
   }
 }
 
-/* SHARED */
+/* ── SHARED ── */
 section {
   padding: 112px 48px;
 }
@@ -397,7 +411,7 @@ section {
   color: var(--white);
 }
 
-/* ABOUT */
+/* ── ABOUT ── */
 .about {
   background: var(--cream);
 }
@@ -442,10 +456,15 @@ section {
   padding: 14px 28px;
   background: var(--black);
   color: var(--white);
+  transition: opacity 0.2s ease;
   margin-top: 8px;
 }
 
-/* PILLARS */
+.btn-blk:hover {
+  opacity: 0.86;
+}
+
+/* ── PILLARS ── */
 .pillars {
   background: var(--white);
 }
@@ -471,6 +490,7 @@ section {
   border-right: 1px solid var(--ink-line);
   border-bottom: 1px solid var(--ink-line);
   background: var(--white);
+  transition: background 0.25s ease;
 }
 
 .pillar:hover {
@@ -519,7 +539,7 @@ section {
   max-width: 48ch;
 }
 
-/* GOALS */
+/* ── GOALS ── */
 .goals {
   background: var(--black);
 }
@@ -542,10 +562,15 @@ section {
   gap: 28px;
   padding: 26px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.2s ease;
 }
 
 .goal-row:last-child {
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.goal-row:hover {
+  border-top-color: rgba(255, 255, 255, 0.18);
 }
 
 .goal-row-num {
@@ -568,7 +593,7 @@ section {
   color: rgba(255, 255, 255, 0.15);
 }
 
-/* STATEMENT */
+/* ── STATEMENT ── */
 .statement {
   background: var(--cream);
   padding: 80px 48px;
@@ -587,7 +612,7 @@ section {
   color: var(--light);
 }
 
-/* COMMUNITY */
+/* ── COMMUNITY ── */
 .community {
   background: var(--white);
 }
@@ -684,6 +709,7 @@ section {
   flex-direction: column;
   justify-content: space-between;
   min-height: 240px;
+  transition: background 0.25s ease;
 }
 
 .community-mini:hover {
@@ -733,7 +759,7 @@ section {
   color: var(--white);
 }
 
-/* MARQUEE */
+/* ── MARQUEE ── */
 .marquee {
   background: var(--black);
   padding: 0;
@@ -793,7 +819,7 @@ section {
   }
 }
 
-/* NEWSLETTER */
+/* ── NEWSLETTER ── */
 .newsletter {
   background: var(--charcoal);
   padding: 100px 48px;
@@ -849,7 +875,7 @@ section {
   text-transform: uppercase;
 }
 
-/* FOOTER */
+/* ── FOOTER ── */
 footer {
   background: var(--black);
   padding: 72px 48px 44px;
@@ -898,10 +924,6 @@ footer {
   font-weight: 300;
 }
 
-.ft-col ul li a:hover {
-  color: var(--white);
-}
-
 .ft-bottom {
   display: flex;
   justify-content: space-between;
@@ -916,7 +938,7 @@ footer {
   font-weight: 300;
 }
 
-/* REVEAL */
+/* ── REVEAL ── */
 .sr {
   opacity: 0;
   transform: translateY(28px);
@@ -940,19 +962,16 @@ footer {
   transition-delay: 0.28s;
 }
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ── */
 @media (max-width: 1100px) {
-  .hero-bottom,
-  .about-grid,
-  .ft-top {
-    flex-direction: column;
-  }
-
   .hero-meta,
   .about-grid,
   .community-top,
   .community-layout,
-  .pillars-top,
+  .pillars-top {
+    grid-template-columns: 1fr;
+  }
+
   .pillars-bottom {
     grid-template-columns: 1fr 1fr;
   }
@@ -985,6 +1004,11 @@ footer {
     font-size: clamp(160px, 26vw, 260px);
     right: 0;
     top: 12%;
+  }
+
+  .ft-top {
+    flex-direction: column;
+    gap: 48px;
   }
 
   .ft-cols {
@@ -1021,7 +1045,6 @@ footer {
     font-size: clamp(54px, 16vw, 88px);
   }
 
-  .pillars-top,
   .pillars-bottom,
   .community-layout,
   .community-top {
