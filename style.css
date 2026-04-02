@@ -131,21 +131,6 @@ nav {
   position: relative;
   overflow: hidden;
 }
-
-.hero-bg-word {
-  position: absolute;
-  right: 1%;
-  top: 7%;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(220px, 24vw, 420px);
-  line-height: 0.8;
-  letter-spacing: -0.06em;
-  color: rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-}
-
 .hero-orb {
   position: absolute;
   right: 6%;
@@ -1000,11 +985,6 @@ footer {
     opacity: 0.7;
   }
 
-  .hero-bg-word {
-    font-size: clamp(160px, 26vw, 260px);
-    right: 0;
-    top: 12%;
-  }
 
   .ft-top {
     flex-direction: column;
