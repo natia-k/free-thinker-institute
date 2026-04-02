@@ -13,7 +13,6 @@ let glowX = mouseX;
 let glowY = mouseY;
 let ticking = false;
 
-/* header scroll */
 function handleHeaderScroll() {
   if (window.scrollY > 16) {
     header.classList.add("scrolled");
@@ -22,8 +21,8 @@ function handleHeaderScroll() {
   }
 }
 
-/* mobile menu */
 function closeMenu() {
+  if (!mobileMenu || !menuToggle) return;
   mobileMenu.classList.remove("open");
   menuToggle.classList.remove("active");
   menuToggle.setAttribute("aria-expanded", "false");
@@ -31,6 +30,7 @@ function closeMenu() {
 }
 
 function openMenu() {
+  if (!mobileMenu || !menuToggle) return;
   mobileMenu.classList.add("open");
   menuToggle.classList.add("active");
   menuToggle.setAttribute("aria-expanded", "true");
@@ -40,11 +40,8 @@ function openMenu() {
 if (menuToggle && mobileMenu) {
   menuToggle.addEventListener("click", () => {
     const isOpen = mobileMenu.classList.contains("open");
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+    if (isOpen) closeMenu();
+    else openMenu();
   });
 
   mobileMenuLinks.forEach((link) => {
@@ -52,7 +49,6 @@ if (menuToggle && mobileMenu) {
   });
 }
 
-/* reveal on scroll */
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -63,7 +59,7 @@ const revealObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.16,
+    threshold: 0.14,
     rootMargin: "0px 0px -40px 0px",
   }
 );
@@ -72,7 +68,6 @@ revealElements.forEach((element) => {
   revealObserver.observe(element);
 });
 
-/* cursor glow */
 function animateGlow() {
   glowX += (mouseX - glowX) * 0.12;
   glowY += (mouseY - glowY) * 0.12;
@@ -96,14 +91,12 @@ window.addEventListener("mouseleave", () => {
 
 animateGlow();
 
-/* parallax orbs */
 function updateParallax() {
   const scrollY = window.scrollY;
 
   orbs.forEach((orb) => {
     const speed = parseFloat(orb.dataset.speed || "0.1");
-    const offset = scrollY * speed;
-    orb.style.transform = `translate3d(0, ${offset}px, 0)`;
+    orb.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
   });
 
   ticking = false;
@@ -118,7 +111,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/* magnetic buttons */
 magneticElements.forEach((element) => {
   element.addEventListener("mousemove", (event) => {
     const rect = element.getBoundingClientRect();
@@ -133,7 +125,6 @@ magneticElements.forEach((element) => {
   });
 });
 
-/* smooth anchor close for mobile */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (event) => {
     const targetId = anchor.getAttribute("href");
@@ -144,7 +135,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
     event.preventDefault();
 
-    const headerOffset = header ? header.offsetHeight : 84;
+    const headerOffset = header ? header.offsetHeight : 88;
     const targetPosition =
       target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
@@ -155,6 +146,5 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-/* initial */
 handleHeaderScroll();
 updateParallax();
