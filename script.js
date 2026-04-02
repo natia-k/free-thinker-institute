@@ -3,59 +3,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById("interactive-title");
   const menuToggle = document.getElementById("menuToggle");
   const mobileMenu = document.getElementById("mobileMenu");
-  const revealElements = document.querySelectorAll(".reveal");
 
-  // 1. Interactive Letters (Magnet Effect)
+  // 1. Magnet Letter Setup
   if (title) {
-    const originalText = title.innerText;
-    title.innerHTML = "";
-    [...originalText].forEach((char) => {
-      const span = document.createElement("span");
-      span.className = "char";
-      span.innerHTML = char === " " ? "&nbsp;" : char;
-      title.appendChild(span);
-    });
-
+    const text = title.innerText;
+    title.innerHTML = [...text].map(c => `<span class="char">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
     const chars = title.querySelectorAll(".char");
-    window.addEventListener("mousemove", (e) => {
-      chars.forEach((char) => {
-        const rect = char.getBoundingClientRect();
-        const charX = rect.left + rect.width / 2;
-        const charY = rect.top + rect.height / 2;
-        const dist = Math.hypot(e.clientX - charX, e.clientY - charY);
 
-        if (dist < 100) {
-          const angle = Math.atan2(e.clientY - charY, e.clientX - charX);
-          const force = (100 - dist) / 100;
-          char.style.transform = `translate(${Math.cos(angle) * force * -15}px, ${Math.sin(angle) * force * -15}px)`;
-          char.style.color = "var(--accent)";
+    window.addEventListener("mousemove", (e) => {
+      const mX = e.clientX;
+      const mY = e.clientY;
+
+      chars.forEach(char => {
+        const r = char.getBoundingClientRect();
+        const cX = r.left + r.width / 2;
+        const cY = r.top + r.height / 2;
+        const dist = Math.hypot(mX - cX, mY - cY);
+
+        if (dist < 120) {
+          const angle = Math.atan2(mY - cY, mX - cX);
+          const force = (120 - dist) / 120;
+          const pushX = Math.cos(angle) * force * -20;
+          const pushY = Math.sin(angle) * force * -20;
+          
+          char.style.transform = `translate(${pushX}px, ${pushY}px)`;
+          char.style.color = "#1a2b6d"; // Midnight Indigo
         } else {
-          char.style.transform = "translate(0,0)";
+          char.style.transform = "translate(0, 0)";
           char.style.color = "";
         }
       });
     });
   }
 
-  // 2. Scroll Logic
+  // 2. Scroll Header Logic
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 20) {
-      header?.classList.add("scrolled");
+    if (window.scrollY > 30) {
+      header.classList.add("scrolled");
     } else {
-      header?.classList.remove("scrolled");
+      header.classList.remove("scrolled");
     }
   });
 
-  // 3. Mobile Menu Toggle
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-      menuToggle.classList.toggle("active");
-    });
-  }
-
-  // 4. Reveal on Scroll
-  const observer = new IntersectionObserver((entries) => {
+  // 3. Intersection Observer for Reveals
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("in-view");
@@ -63,5 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.1 });
 
-  revealElements.forEach(el => observer.observe(el));
+  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+  // 4. Mobile Menu Toggle
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+      menuToggle.classList.toggle("active");
+    });
+  }
 });
