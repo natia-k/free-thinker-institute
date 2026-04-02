@@ -5,7 +5,7 @@ const heroEl = document.getElementById("hero-cycle");
 if (heroEl) {
   setInterval(() => {
     heroEl.style.transition =
-      "transform 0.38s cubic-bezier(0.16,1,0.3,1), opacity 0.38s";
+      "transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s ease";
     heroEl.style.opacity = "0";
     heroEl.style.transform = "translateY(18px)";
 
@@ -19,7 +19,7 @@ if (heroEl) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           heroEl.style.transition =
-            "transform 0.42s cubic-bezier(0.16,1,0.3,1), opacity 0.42s";
+            "transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s ease";
           heroEl.style.transform = "translateY(0)";
           heroEl.style.opacity = "1";
         });
@@ -43,7 +43,7 @@ const stEl = document.getElementById("st-word");
 if (stEl) {
   setInterval(() => {
     stEl.style.transition =
-      "transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.35s";
+      "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease";
     stEl.style.opacity = "0";
     stEl.style.transform = "translateY(14px)";
 
@@ -57,7 +57,7 @@ if (stEl) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           stEl.style.transition =
-            "transform 0.42s cubic-bezier(0.16,1,0.3,1), opacity 0.42s";
+            "transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s ease";
           stEl.style.transform = "translateY(0)";
           stEl.style.opacity = "1";
         });
@@ -86,6 +86,7 @@ if (srEls.length) {
 
   srEls.forEach((el) => io.observe(el));
 }
+
 const revealEls = document.querySelectorAll(".reveal-up");
 
 if (revealEls.length) {
@@ -93,7 +94,7 @@ if (revealEls.length) {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
+          entry.target.classList.add("visible");
           revealObserver.unobserve(entry.target);
         }
       });
