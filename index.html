@@ -4,600 +4,323 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free Thinker Institute</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #f5f0e8;
-      --text: #1f1f1b;
-      --muted: #6d685f;
-      --line: rgba(31, 31, 27, 0.12);
-      --accent: #5f6757;
-      --max: 1400px;
-      --pad: 32px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 64px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 50;
-      background: rgba(245, 240, 232, 0.72);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid transparent;
-      transition: 0.3s ease;
-    }
-
-    .site-header.scrolled {
-      border-color: var(--line);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 0;
-    }
-
-    .brand {
-      font-size: 0.9rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      font-size: 0.95rem;
-      color: var(--muted);
-      transition: 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      padding: 10px 16px;
-      border: 1px solid var(--text);
-      border-radius: 999px;
-      font-size: 0.92rem;
-      transition: 0.25s ease;
-    }
-
-    .nav-cta:hover {
-      background: var(--text);
-      color: var(--bg);
-    }
-
-    main {
-      padding-top: 88px;
-    }
-
-    section {
-      padding: 120px 0;
-    }
-
-    .hero {
-      min-height: calc(100vh - 88px);
-      display: flex;
-      align-items: center;
-      padding: 80px 0 100px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 80px;
-      align-items: end;
-    }
-
-    .eyebrow {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    .hero h1,
-    .manifesto-statement,
-    .section-title,
-    .final-cta h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 0.95;
-    }
-
-    .hero h1 {
-      font-size: clamp(4rem, 9vw, 8.8rem);
-      max-width: 900px;
-    }
-
-    .hero-text {
-      margin-top: 28px;
-      max-width: 520px;
-      font-size: 1.06rem;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      margin-top: 36px;
-      flex-wrap: wrap;
-    }
-
-    .button-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: var(--text);
-      color: var(--bg);
-      transition: 0.25s ease;
-    }
-
-    .button-primary:hover {
-      transform: translateY(-1px);
-      opacity: 0.92;
-    }
-
-    .text-link {
-      color: var(--muted);
-      transition: 0.25s ease;
-    }
-
-    .text-link:hover {
-      color: var(--text);
-    }
-
-    .hero-note {
-      align-self: end;
-      color: var(--muted);
-      font-size: 0.95rem;
-      max-width: 280px;
-      padding-bottom: 12px;
-    }
-
-    .divider {
-      border-top: 1px solid var(--line);
-    }
-
-    .section-intro {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 40px;
-      margin-bottom: 44px;
-      align-items: start;
-    }
-
-    .section-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-top: 8px;
-    }
-
-    .manifesto-statement {
-      font-size: clamp(2.6rem, 5.5vw, 5.2rem);
-      max-width: 900px;
-    }
-
-    .intentions-list {
-      margin-top: 48px;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
-      border-top: 1px solid var(--line);
-      padding-top: 28px;
-    }
-
-    .intentions-list div {
-      font-size: 0.98rem;
-      color: var(--muted);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 72px;
-      align-items: start;
-    }
-
-    .section-title {
-      font-size: clamp(2.2rem, 4vw, 4.2rem);
-    }
-
-    .about-copy p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 22px;
-    }
-
-    .program-list {
-      display: grid;
-      gap: 28px;
-      margin-top: 24px;
-    }
-
-    .program-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 32px;
-      padding: 28px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .program-number {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 3rem;
-      line-height: 1;
-      color: var(--muted);
-    }
-
-    .program-item h3 {
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .program-item p {
-      color: var(--muted);
-      max-width: 680px;
-    }
-
-    .participation-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      margin-top: 30px;
-      border-top: 1px solid var(--line);
-      padding-top: 28px;
-    }
-
-    .participation-item h4 {
-      font-size: 0.82rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .participation-item p {
-      color: var(--text);
-      max-width: 240px;
-    }
-
-    .final-cta {
-      text-align: center;
-      padding: 160px 0;
-    }
-
-    .final-cta h2 {
-      font-size: clamp(2.8rem, 6vw, 5.6rem);
-      max-width: 900px;
-      margin: 0 auto 24px;
-    }
-
-    .final-cta p {
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 32px;
-      font-size: 1.05rem;
-    }
-
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 24px 0 36px;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .about-grid,
-      .section-intro {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
-      .intentions-list,
-      .participation-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-note {
-        max-width: 520px;
-        padding-bottom: 0;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .container {
-        width: min(var(--max), calc(100% - 32px));
-      }
-
-      section {
-        padding: 88px 0;
-      }
-
-      .nav {
-        padding: 16px 0;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 48px 0 72px;
-      }
-
-      .hero h1 {
-        font-size: clamp(3.2rem, 16vw, 5.3rem);
-      }
-
-      .intentions-list,
-      .participation-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .program-item {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .final-cta {
-        padding: 110px 0;
-      }
-    }
-  </style>
+  <meta
+    name="description"
+    content="A community for thoughtful conversation, personal growth, and meaningful connection."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="container nav">
-      <a href="#" class="brand">Free Thinker Institute</a>
+  <div class="grain"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-      <nav class="nav-links">
+  <div class="bg-orb orb-1" data-speed="0.18"></div>
+  <div class="bg-orb orb-2" data-speed="0.1"></div>
+  <div class="bg-orb orb-3" data-speed="0.14"></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a href="#" class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-text">Free Thinker Institute</span>
+      </a>
+
+      <nav class="desktop-nav">
         <a href="#intentions">Intentions</a>
         <a href="#about">About</a>
-        <a href="#program">What Happens</a>
+        <a href="#practice">Practice</a>
         <a href="#join">Join</a>
       </nav>
 
-      <a class="nav-cta" href="https://discord.gg/" target="_blank" rel="noopener noreferrer">Join</a>
+      <div class="nav-actions">
+        <a
+          class="nav-cta"
+          href="https://discord.gg/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join the circle
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#intentions">Intentions</a>
+      <a href="#about">About</a>
+      <a href="#practice">Practice</a>
+      <a href="#join">Join</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Berlin · Community · Growth</div>
-          <h1>
-            Think with clarity.<br>
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Berlin · Community · Growth</p>
+
+          <h1 class="hero-title">
+            Think with clarity.<br />
             Build a better life together.
           </h1>
+
           <p class="hero-text">
-            A community for thoughtful conversation, personal growth, and meaningful connection —
-            online and in person.
+            A calmer space for thoughtful conversation, personal growth,
+            and meaningful connection — online and in person.
           </p>
 
           <div class="hero-actions">
-            <a class="button-primary" href="https://discord.gg/" target="_blank" rel="noopener noreferrer">Join the community</a>
-            <a class="text-link" href="#intentions">Read our intentions</a>
+            <a
+              class="button-primary magnetic"
+              href="https://discord.gg/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join the community
+            </a>
+
+            <a class="text-link" href="#intentions">
+              Read our intentions
+            </a>
           </div>
         </div>
 
-        <p class="hero-note">
-          Built for people who want depth over noise, curiosity over performance,
-          and growth that feels human.
-        </p>
+        <div class="hero-side reveal reveal-delay">
+          <div class="hero-panel">
+            <div class="panel-line"></div>
+            <p>
+              Built for people who want depth over noise, curiosity over
+              performance, and growth that still feels human.
+            </p>
+
+            <div class="hero-diagram">
+              <div class="dot dot-a"></div>
+              <div class="dot dot-b"></div>
+              <div class="dot dot-c"></div>
+              <svg viewBox="0 0 300 220" aria-hidden="true">
+                <path d="M40 150 C90 40, 190 20, 250 130" />
+                <path d="M70 180 C130 100, 160 80, 235 75" />
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="hero-bottom-line"></div>
     </section>
 
-    <section class="divider" id="intentions">
+    <section class="manifesto section-line" id="intentions">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-head reveal">
           <div class="section-label">Our Intentions</div>
-          <div>
-            <div class="manifesto-statement">
+          <div class="section-heading-wrap">
+            <h2 class="manifesto-title">
               Better lives begin with better questions.
-            </div>
-
-            <div class="intentions-list">
-              <div>Devotion to self-improvement</div>
-              <div>Openness and transparency</div>
-              <div>Critical thinking</div>
-              <div>Happiness with less harm</div>
-              <div>Giving and receiving love</div>
-            </div>
+            </h2>
           </div>
+        </div>
+
+        <div class="intentions-grid reveal reveal-delay">
+          <article class="intention-card">
+            <span>01</span>
+            <h3>Self-improvement</h3>
+            <p>
+              A serious but humane devotion to growth, reflection,
+              and becoming more capable over time.
+            </p>
+          </article>
+
+          <article class="intention-card">
+            <span>02</span>
+            <h3>Openness</h3>
+            <p>
+              A culture of honesty, transparency, and conversations
+              that are grounded rather than performative.
+            </p>
+          </article>
+
+          <article class="intention-card">
+            <span>03</span>
+            <h3>Critical thinking</h3>
+            <p>
+              Learning to ask clearer questions, hold nuance,
+              and think with more independence.
+            </p>
+          </article>
+
+          <article class="intention-card">
+            <span>04</span>
+            <h3>Less harm</h3>
+            <p>
+              Seeking happiness, progress, and ambition without
+              losing care for ourselves or others.
+            </p>
+          </article>
+
+          <article class="intention-card">
+            <span>05</span>
+            <h3>Love</h3>
+            <p>
+              Giving and receiving support, generosity, trust,
+              and a deeper sense of belonging.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <section class="about section-line" id="about">
       <div class="container about-grid">
-        <div>
+        <div class="about-left reveal">
           <div class="section-label">What This Is</div>
-          <h2 class="section-title">A community built for depth, not noise.</h2>
+          <h2 class="section-title">
+            A community built for depth, not noise.
+          </h2>
         </div>
 
-        <div class="about-copy">
+        <div class="about-right reveal reveal-delay">
           <p>
-            Free Thinker Institute brings people together to think more clearly, grow with intention,
-            and support one another in building better lives.
+            Free Thinker Institute brings people together to think more clearly,
+            grow with intention, and support one another in building better lives.
           </p>
+
           <p>
-            Conversations move between personal development, professional direction, and the deeper
-            questions that shape how we live. The goal is not performance, but presence. Not empty
+            Conversations move between personal development, professional direction,
+            and the deeper questions that shape how we live. The goal is not empty
             motivation, but meaningful change.
           </p>
+
+          <p>
+            It is a place for people who want something slower, sharper,
+            more generous, and more honest than the usual online noise.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="divider" id="program">
+    <section class="practice section-line" id="practice">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-head reveal">
           <div class="section-label">What Happens Here</div>
           <h2 class="section-title">A calmer structure for real growth.</h2>
         </div>
 
-        <div class="program-list">
-          <div class="program-item">
-            <div class="program-number">01</div>
-            <div>
+        <div class="practice-list">
+          <article class="practice-item reveal">
+            <div class="practice-number">01</div>
+            <div class="practice-content">
               <h3>Conversations</h3>
               <p>
-                Thoughtful discussions around personal development, critical thinking,
-                and the questions that shape a meaningful life.
+                Thoughtful discussions around personal development,
+                ideas that matter, and the questions that shape a meaningful life.
               </p>
             </div>
-          </div>
+          </article>
 
-          <div class="program-item">
-            <div class="program-number">02</div>
-            <div>
+          <article class="practice-item reveal">
+            <div class="practice-number">02</div>
+            <div class="practice-content">
               <h3>Growth</h3>
               <p>
-                Support for building confidence, clarity, self-awareness, discipline,
-                and stronger judgment in everyday life.
+                Support for building confidence, self-awareness, discipline,
+                emotional clarity, and stronger judgment in everyday life.
               </p>
             </div>
-          </div>
+          </article>
 
-          <div class="program-item">
-            <div class="program-number">03</div>
-            <div>
+          <article class="practice-item reveal">
+            <div class="practice-number">03</div>
+            <div class="practice-content">
               <h3>Career Direction</h3>
               <p>
-                Guidance for identifying dream jobs, developing useful skills,
-                and learning from people with real experience.
+                Guidance for finding meaningful work, building useful skills,
+                and learning from people with real-world experience.
               </p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="participation section-line">
       <div class="container">
-        <div class="section-intro">
+        <div class="section-head reveal">
           <div class="section-label">Participation</div>
-          <h2 class="section-title">Open to anyone willing to engage with honesty and curiosity.</h2>
+          <h2 class="section-title">
+            Open to anyone willing to engage with honesty and curiosity.
+          </h2>
         </div>
 
-        <div class="participation-grid">
-          <div class="participation-item">
-            <h4>Who</h4>
+        <div class="participation-grid reveal reveal-delay">
+          <div class="participation-card">
+            <h3>Who</h3>
             <p>Members, prospective members, teachers, leaders, and curious minds.</p>
           </div>
 
-          <div class="participation-item">
-            <h4>Where</h4>
+          <div class="participation-card">
+            <h3>Where</h3>
             <p>Discord, Zoom, voice, video, and occasional in-person gatherings.</p>
           </div>
 
-          <div class="participation-item">
-            <h4>Why</h4>
+          <div class="participation-card">
+            <h3>Why</h3>
             <p>To grow, connect, contribute, and build a more thoughtful life.</p>
           </div>
 
-          <div class="participation-item">
-            <h4>When</h4>
+          <div class="participation-card">
+            <h3>When</h3>
             <p>Anytime informally, and during organised conversations and events.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="divider final-cta" id="join">
-      <div class="container">
+    <section class="final-cta section-line" id="join">
+      <div class="container final-cta-inner reveal">
+        <div class="section-label">Join</div>
         <h2>Ready to join a more thoughtful kind of community?</h2>
         <p>
           Enter the conversation, meet others who care about growth,
           and help build something more meaningful.
         </p>
-        <a class="button-primary" href="https://discord.gg/" target="_blank" rel="noopener noreferrer">Join on Discord</a>
+
+        <a
+          class="button-primary magnetic"
+          href="https://discord.gg/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join on Discord
+        </a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-row">
-      <div>Free Thinker Institute</div>
-      <div>Thoughtful conversation · Personal growth · Meaningful connection</div>
+      <p>Free Thinker Institute</p>
+      <p>Thoughtful conversation · Personal growth · Meaningful connection</p>
     </div>
   </footer>
 
-  <script>
-    const header = document.getElementById("siteHeader");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 20) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
