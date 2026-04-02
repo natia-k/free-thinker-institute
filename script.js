@@ -1,47 +1,84 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const title = document.getElementById("interactive-title");
-  const menuToggle = document.getElementById("menuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
+/* ── HERO WORD CYCLE ── */
+const heroWords = ["Love.", "Freedom.", "Growth.", "Truth.", "Courage."];
+let hIdx = 0;
+const heroEl = document.getElementById("hero-cycle");
 
-  // 1. Magnet Effect (Now pushes letters away)
-  if (title) {
-    const text = title.innerText;
-    title.innerHTML = [...text].map(c => `<span class="char">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
-    const chars = title.querySelectorAll(".char");
+if (heroEl) {
+  setInterval(() => {
+    heroEl.style.opacity = "0";
+    heroEl.style.transform = "translateY(-100%)";
 
-    window.addEventListener("mousemove", (e) => {
-      chars.forEach(char => {
-        const r = char.getBoundingClientRect();
-        const cX = r.left + r.width / 2;
-        const cY = r.top + r.height / 2;
-        const dist = Math.hypot(e.clientX - cX, e.clientY - cY);
+    setTimeout(() => {
+      hIdx = (hIdx + 1) % heroWords.length;
+      heroEl.textContent = heroWords[hIdx];
+      heroEl.style.transition = "none";
+      heroEl.style.transform = "translateY(100%)";
+      heroEl.style.opacity = "0";
 
-        if (dist < 100) {
-          const angle = Math.atan2(e.clientY - cY, e.clientX - cX);
-          const f = (100 - dist) / 100;
-          char.style.transform = `translate(${Math.cos(angle) * f * -15}px, ${Math.sin(angle) * f * -15}px)`;
-          char.style.color = "#1a2b6d"; // Midnight Indigo
-        } else {
-          char.style.transform = "translate(0,0)";
-          char.style.color = "";
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          heroEl.style.transition =
+            "transform 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.45s";
+          heroEl.style.transform = "translateY(0)";
+          heroEl.style.opacity = "1";
+        })
+      );
+    }, 350);
+  }, 2400);
+}
+
+/* ── STATEMENT CYCLE ── */
+const stWords = [
+  "Practical Reason.",
+  "Open Minds.",
+  "Truth Seeking.",
+  "Radical Kindness.",
+  "Critical Thought.",
+  "Real Community."
+];
+
+let sIdx = 0;
+const stEl = document.getElementById("st-word");
+
+if (stEl) {
+  setInterval(() => {
+    stEl.style.opacity = "0";
+    stEl.style.transform = "translateY(-14px)";
+
+    setTimeout(() => {
+      sIdx = (sIdx + 1) % stWords.length;
+      stEl.textContent = stWords[sIdx];
+      stEl.style.transition = "none";
+      stEl.style.transform = "translateY(14px)";
+      stEl.style.opacity = "0";
+
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          stEl.style.transition =
+            "transform 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.45s";
+          stEl.style.transform = "translateY(0)";
+          stEl.style.opacity = "1";
+        })
+      );
+    }, 320);
+  }, 2700);
+}
+
+/* ── SCROLL REVEAL ── */
+const srEls = document.querySelectorAll(".sr");
+
+if (srEls.length) {
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("on");
+          io.unobserve(entry.target);
         }
       });
-    });
-  }
+    },
+    { threshold: 0.07 }
+  );
 
-  // 2. Mobile Menu Logic
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-    });
-  }
-
-  // 3. Reveal Animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("in-view");
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-});
+  srEls.forEach((el) => io.observe(el));
+}
