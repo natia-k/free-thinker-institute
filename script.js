@@ -17,7 +17,44 @@ if (cycleWords.length > 1) {
     }, 650);
 
     cycleIndex = nextIndex;
-  }, 2400);
+  }, 2600);
+}
+
+const beliefWords = [
+  "Truth Seeking.",
+  "Open Minds.",
+  "Radical Kindness.",
+  "Practical Reason.",
+  "Real Community."
+];
+
+const beliefEl = document.getElementById("beliefWord");
+let beliefIndex = 0;
+
+if (beliefEl) {
+  setInterval(() => {
+    beliefEl.style.transition =
+      "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease";
+    beliefEl.style.opacity = "0";
+    beliefEl.style.transform = "translateY(14px)";
+
+    setTimeout(() => {
+      beliefIndex = (beliefIndex + 1) % beliefWords.length;
+      beliefEl.textContent = beliefWords[beliefIndex];
+      beliefEl.style.transition = "none";
+      beliefEl.style.transform = "translateY(-14px)";
+      beliefEl.style.opacity = "0";
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          beliefEl.style.transition =
+            "transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s ease";
+          beliefEl.style.transform = "translateY(0)";
+          beliefEl.style.opacity = "1";
+        });
+      });
+    }, 240);
+  }, 2800);
 }
 
 const photoCursor = document.getElementById("photoCursor");
@@ -27,18 +64,12 @@ photoWraps.forEach((wrap) => {
   const img = wrap.querySelector("img");
 
   wrap.addEventListener("mouseenter", () => {
-    if (photoCursor) {
-      photoCursor.style.opacity = "1";
-    }
+    if (photoCursor) photoCursor.style.opacity = "1";
   });
 
   wrap.addEventListener("mouseleave", () => {
-    if (photoCursor) {
-      photoCursor.style.opacity = "0";
-    }
-    if (img) {
-      img.style.filter = "saturate(.45) brightness(.65)";
-    }
+    if (photoCursor) photoCursor.style.opacity = "0";
+    if (img) img.style.filter = "saturate(.45) brightness(.65)";
   });
 
   wrap.addEventListener("mousemove", (e) => {
@@ -66,3 +97,15 @@ photoWraps.forEach((wrap) => {
     img.style.filter = `saturate(${saturation}) brightness(${brightness})`;
   });
 });
+
+const newsletterForm = document.querySelector(".newsletter-form");
+if (newsletterForm) {
+  newsletterForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const input = newsletterForm.querySelector("input");
+    if (input && input.value.trim()) {
+      input.value = "";
+      input.placeholder = "Thanks for signing up";
+    }
+  });
+}
