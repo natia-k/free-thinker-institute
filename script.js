@@ -1,36 +1,68 @@
-const words = [
-  "Connection.",
-  "Freedom.",
-  "Growth.",
-  "Wisdom.",
-  "Love.",
-  "Truth."
-];
+const cycleWords = document.querySelectorAll(".cycle-word");
+let cycleIndex = 0;
 
-const changingText = document.querySelector(".accent-blue");
-
-let currentWord = 0;
-
-if (changingText) {
+if (cycleWords.length > 1) {
   setInterval(() => {
-    changingText.style.opacity = "0";
-    changingText.style.transform = "translateY(18px)";
+    const current = cycleWords[cycleIndex];
+    const nextIndex = (cycleIndex + 1) % cycleWords.length;
+    const next = cycleWords[nextIndex];
+
+    current.classList.remove("active");
+    current.classList.add("exit");
+
+    next.classList.add("active");
 
     setTimeout(() => {
-      currentWord = (currentWord + 1) % words.length;
-      changingText.textContent = words[currentWord];
+      current.classList.remove("exit");
+    }, 650);
 
-      changingText.style.transition = "none";
-      changingText.style.transform = "translateY(-18px)";
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          changingText.style.transition =
-            "all 0.45s cubic-bezier(0.16,1,0.3,1)";
-          changingText.style.opacity = "1";
-          changingText.style.transform = "translateY(0)";
-        });
-      });
-    }, 240);
-  }, 2800);
+    cycleIndex = nextIndex;
+  }, 2400);
 }
+
+const photoCursor = document.getElementById("photoCursor");
+const photoWraps = document.querySelectorAll("[data-photo]");
+
+photoWraps.forEach((wrap) => {
+  const img = wrap.querySelector("img");
+
+  wrap.addEventListener("mouseenter", () => {
+    if (photoCursor) {
+      photoCursor.style.opacity = "1";
+    }
+  });
+
+  wrap.addEventListener("mouseleave", () => {
+    if (photoCursor) {
+      photoCursor.style.opacity = "0";
+    }
+    if (img) {
+      img.style.filter = "saturate(.45) brightness(.65)";
+    }
+  });
+
+  wrap.addEventListener("mousemove", (e) => {
+    if (photoCursor) {
+      photoCursor.style.left = `${e.clientX}px`;
+      photoCursor.style.top = `${e.clientY}px`;
+    }
+
+    if (!img) return;
+
+    const rect = wrap.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const dx = Math.abs(x - centerX) / centerX;
+    const dy = Math.abs(y - centerY) / centerY;
+    const distance = Math.min(1, Math.sqrt(dx * dx + dy * dy));
+
+    const brightness = 0.65 + (1 - distance) * 0.35;
+    const saturation = 0.45 + (1 - distance) * 0.35;
+
+    img.style.filter = `saturate(${saturation}) brightness(${brightness})`;
+  });
+});
