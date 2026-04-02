@@ -1,126 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Thinker Institute | Increase Happiness</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Thinker Institute | Driving Global Progress</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a14;
+            --muted: #666660;
+            --accent: #1a2b6d; /* Midnight Indigo */
+            --line: rgba(0, 0, 0, 0.1);
+            --transition: 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1440px; margin: 0 auto; padding: 0 50px; }
+
+        /* --- HEADER NAVIGATION (institute.global style) --- */
+        .site-header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-wrap { height: 100px; display: flex; align-items: center; justify-content: space-between; position: relative; }
+        
+        .brand { 
+            font-weight: 800; font-size: 14px; letter-spacing: 0.2em; 
+            text-decoration: none; color: var(--text); text-transform: uppercase;
+            flex: 1;
+        }
+
+        .desktop-nav { 
+            display: flex; gap: 45px; 
+            position: absolute; left: 50%; transform: translateX(-50%);
+        }
+
+        .desktop-nav a { 
+            text-decoration: none; color: var(--muted); 
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .desktop-nav a:hover { color: var(--accent); }
+
+        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
+        .nav-cta {
+            background: var(--text); color: white;
+            padding: 12px 28px; font-size: 11px; font-weight: 700;
+            text-decoration: none; text-transform: uppercase;
+            transition: all 0.4s ease;
+        }
+        .nav-cta:hover { background: var(--accent); transform: translateY(-2px); }
+
+        /* --- HERO SECTION --- */
+        .hero { padding: 260px 0 140px; min-height: 90vh; display: flex; align-items: center; }
+        
+        .section-label { 
+            display: block; font-size: 12px; font-weight: 700; 
+            color: var(--accent); text-transform: uppercase; 
+            margin-bottom: 35px; letter-spacing: 0.15em;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 9.5vw, 9.5rem);
+            line-height: 0.85; letter-spacing: -0.04em;
+            margin-bottom: 80px;
+            max-width: 1300px;
+        }
+
+        /* Magnet Character Styling */
+        .char { 
+            display: inline-block; white-space: pre; 
+            transition: transform 0.2s ease-out, color 0.4s ease;
+            will-change: transform;
+        }
+
+        .hero-footer { 
+            display: flex; justify-content: space-between; align-items: flex-end; 
+            border-top: 2px solid var(--text); padding-top: 50px;
+        }
+
+        .hero-subtitle { font-size: 1.5rem; color: var(--muted); max-width: 600px; font-weight: 300; }
+
+        /* --- GRID SYSTEM --- */
+        .grid-section { padding: 150px 0; border-bottom: 1px solid var(--line); }
+        .bg-soft { background: #fbfbf9; }
+
+        .institute-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+            margin-top: 70px;
+        }
+
+        .grid-card {
+            padding: 90px 60px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+            background: transparent; transition: background 0.6s ease;
+        }
+        .grid-card:hover { background: #ffffff; }
+
+        .card-num { color: var(--accent); font-weight: 800; font-size: 13px; margin-bottom: 35px; display: block; }
+        .grid-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 38px; margin-bottom: 25px; font-weight: 500; }
+        .grid-card p { color: var(--muted); font-size: 18px; line-height: 1.6; }
+
+        /* --- REVEAL ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1.4s var(--transition); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1200px) {
+            .institute-grid { grid-template-columns: repeat(2, 1fr); }
+            .desktop-nav { display: none; }
+        }
+        @media (max-width: 768px) {
+            .institute-grid { grid-template-columns: 1fr; }
+            .hero-footer { flex-direction: column; align-items: flex-start; gap: 40px; }
+            .container { padding: 0 30px; }
+            .hero-title { font-size: 4.5rem; }
+            .nav-wrap { height: 80px; }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="grain"></div>
-
-  <header class="site-header" id="siteHeader">
+<header class="site-header">
     <div class="container nav-wrap">
-      <div class="nav-left">
-        <a href="#" class="brand">FREE THINKER INSTITUTE</a>
-      </div>
-
-      <nav class="desktop-nav">
-        <a href="#intentions">Intentions</a>
-        <a href="#goals">Goals</a>
-        <a href="#what-we-do">What We Do</a>
-        <a href="#training">Training</a>
-      </nav>
-
-      <div class="nav-right">
-        <a class="nav-cta" href="https://discord.gg/" target="_blank">Join Discord</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-          <span></span><span></span>
-        </button>
-      </div>
+        <a href="#" class="brand">Free Thinker Institute</a>
+        <nav class="desktop-nav">
+            <a href="#intentions">Intentions</a>
+            <a href="#goals">Goals</a>
+            <a href="#training">Training</a>
+        </nav>
+        <div class="nav-right">
+            <a href="https://discord.gg/" class="nav-cta">Join Discord</a>
+        </div>
     </div>
+</header>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#intentions">Intentions</a>
-      <a href="#goals">Goals</a>
-      <a href="#what-we-do">What We Do</a>
-      <a href="#training">Training</a>
-      <a href="https://discord.gg/" class="mobile-cta">Join Discord</a>
-    </div>
-  </header>
-
-  <main>
+<main>
     <section class="hero">
-      <div class="container">
-        <div class="hero-inner">
-          <p class="eyebrow reveal">Warm · Open-minded · Growth-oriented</p>
-          <h1 class="hero-title" id="interactive-title">Increase happiness. Minimize harm.</h1>
-          <div class="hero-footer reveal">
-            <p class="hero-subtitle">A high-impact community advancing human progress through integrated development.</p>
-            <div class="hero-actions">
-              <a class="button-primary" href="https://discord.gg/" target="_blank">ENTER THE COMMUNITY</a>
+        <div class="container">
+            <span class="section-label reveal">Global Initiative</span>
+            <h1 class="hero-title" id="interactive-title">Increase happiness. Minimize harm.</h1>
+            <div class="hero-footer reveal">
+                <p class="hero-subtitle">Unity through diversity. Advancing human progress through integrated personal and professional development.</p>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <section class="institute-grid-section" id="intentions">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-label">Our Philosophy</span>
-          <h2 class="section-title-serif">Better lives begin with better questions.</h2>
+    <section class="grid-section" id="intentions">
+        <div class="container">
+            <span class="section-label">The Five Intentions</span>
+            <div class="institute-grid">
+                <div class="grid-card reveal">
+                    <span class="card-num">01</span>
+                    <h3>Self Improvement</h3>
+                    <p>A devotion to physical, intellectual, emotional, and philosophical growth. Strive for a constant state of evolution and treat everyone with respect.</p>
+                </div>
+                <div class="grid-card reveal">
+                    <span class="card-num">02</span>
+                    <h3>Transparency</h3>
+                    <p>Be true to yourself. Share your authentic self and consider opinions and perspectives that differ from your own.</p>
+                </div>
+                <div class="grid-card reveal">
+                    <span class="card-num">03</span>
+                    <h3>Critical Thinking</h3>
+                    <p>Trust and improve your own judgment. Seek objective reality through reason, evidence, and open-minded experimentation.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="grid-layout reveal">
-          <div class="grid-card">
-            <span class="num">01</span>
-            <h3>Self Improvement</h3>
-            <p>A personal devotion to physical, intellectual, and emotional growth.</p>
-          </div>
-          <div class="grid-card">
-            <span class="num">02</span>
-            <h3>Transparency</h3>
-            <p>Recognize subjective truths and share your authentic self with the world.</p>
-          </div>
-          <div class="grid-card">
-            <span class="num">03</span>
-            <h3>Critical Thinking</h3>
-            <p>Improve judgment and rational thought to navigate with purpose.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="institute-grid-section bg-soft" id="goals">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-label">Our Goals</span>
-          <h2 class="section-title-serif">Driving collective impact.</h2>
+    <section class="grid-section bg-soft" id="goals">
+        <div class="container">
+            <span class="section-label">Our Core Goals</span>
+            <div class="institute-grid">
+                <div class="grid-card reveal">
+                    <span class="card-num">04</span>
+                    <h3>Maximize Freedom</h3>
+                    <p>Pursue happiness while minimizing harm to yourself and others. Freedom of thought is the engine of collective progress.</p>
+                </div>
+                <div class="grid-card reveal">
+                    <span class="card-num">05</span>
+                    <h3>Prosperity</h3>
+                    <p>Helping members achieve financial independence so that resources serve as a tool for mission-driven work and happiness.</p>
+                </div>
+                <div class="grid-card reveal">
+                    <span class="card-num">06</span>
+                    <h3>Compassionate Ideas</h3>
+                    <p>Spreading concepts that maximize collective well-being and empathy in a complex, globalized world.</p>
+                </div>
+            </div>
         </div>
-        <div class="grid-layout reveal">
-          <div class="grid-card">
-            <span class="num">04</span>
-            <h3>Minimize Harm</h3>
-            <p>Developing frameworks to reduce suffering in professional environments.</p>
-          </div>
-          <div class="grid-card">
-            <span class="num">05</span>
-            <h3>Global Growth</h3>
-            <p>Fostering networks that prioritize human well-being over raw profit.</p>
-          </div>
-          <div class="grid-card">
-            <span class="num">06</span>
-            <h3>Community</h3>
-            <p>A safe space for free thinkers to collaborate on large-scale problems.</p>
-          </div>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 Free Thinker Institute</p>
-    </div>
-  </footer>
+    <section class="grid-section" id="training">
+        <div class="container">
+            <span class="section-label">Dream Job Training</span>
+            <div class="institute-grid">
+                <div class="grid-card reveal">
+                    <h3>Skill Tracks</h3>
+                    <p>Training in Product Management, Software Engineering, UX Design, and Quality Assurance.</p>
+                </div>
+                <div class="grid-card reveal">
+                    <h3>Network Access</h3>
+                    <p>Direct paths to networking with high-level professionals and identifying your ideal role.</p>
+                </div>
+                <div class="grid-card reveal">
+                    <h3>Career Placement</h3>
+                    <p>Strategies for excelling in your role while positioning yourself for significant advancement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
-  <script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const title = document.getElementById('interactive-title');
+        
+        // MAGNET LETTERS
+        if (title) {
+            const originalText = title.innerText;
+            title.innerHTML = [...originalText].map(char => 
+                `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`
+            ).join('');
+            
+            const chars = title.querySelectorAll('.char');
+
+            window.addEventListener('mousemove', (e) => {
+                chars.forEach(char => {
+                    const rect = char.getBoundingClientRect();
+                    const charX = rect.left + rect.width / 2;
+                    const charY = rect.top + rect.height / 2;
+                    const distance = Math.hypot(e.clientX - charX, e.clientY - charY);
+
+                    if (distance < 120) {
+                        const angle = Math.atan2(e.clientY - charY, e.clientX - charX);
+                        const force = (120 - distance) / 120;
+                        char.style.transform = `translate(${Math.cos(angle) * force * -20}px, ${Math.sin(angle) * force * -20}px)`;
+                        char.style.color = "#1a2b6d"; 
+                    } else {
+                        char.style.transform = 'translate(0, 0)';
+                        char.style.color = '';
+                    }
+                });
+            });
+        }
+
+        // REVEAL ON SCROLL
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+</script>
+
 </body>
 </html>
