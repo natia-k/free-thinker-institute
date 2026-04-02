@@ -3,7 +3,6 @@ const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
 const cursorGlow = document.getElementById("cursorGlow");
 const revealElements = document.querySelectorAll(".reveal");
-const orbs = document.querySelectorAll(".bg-orb");
 const magneticElements = document.querySelectorAll(".magnetic");
 const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
 
@@ -11,7 +10,6 @@ let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 let glowX = mouseX;
 let glowY = mouseY;
-let ticking = false;
 
 function handleHeaderScroll() {
   if (window.scrollY > 16) {
@@ -91,25 +89,7 @@ window.addEventListener("mouseleave", () => {
 
 animateGlow();
 
-function updateParallax() {
-  const scrollY = window.scrollY;
-
-  orbs.forEach((orb) => {
-    const speed = parseFloat(orb.dataset.speed || "0.1");
-    orb.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
-  });
-
-  ticking = false;
-}
-
-window.addEventListener("scroll", () => {
-  handleHeaderScroll();
-
-  if (!ticking) {
-    window.requestAnimationFrame(updateParallax);
-    ticking = true;
-  }
-});
+window.addEventListener("scroll", handleHeaderScroll);
 
 magneticElements.forEach((element) => {
   element.addEventListener("mousemove", (event) => {
@@ -147,4 +127,3 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 handleHeaderScroll();
-updateParallax();
