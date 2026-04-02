@@ -3,138 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Thinker Institute | Driving Global Progress</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Free Thinker Institute | Official</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg: #ffffff;
-            --text: #1a1a14;
-            --muted: #666660;
-            --accent: #1a2b6d; /* Midnight Indigo */
-            --line: rgba(0, 0, 0, 0.1);
-            --transition: 800ms cubic-bezier(0.19, 1, 0.22, 1);
+            --text: #0f1720;
+            --muted: #5b6470;
+            --accent: #0d2a7a;
+            --line: rgba(15, 23, 32, 0.08);
+            --soft-bg: #f5f7fa;
+            --transition: 700ms cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: var(--bg); 
-            color: var(--text); 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        .container { max-width: 1440px; margin: 0 auto; padding: 0 50px; }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
 
-        /* --- HEADER NAVIGATION (institute.global style) --- */
+        /* HEADER */
         .site-header {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--line);
         }
 
-        .nav-wrap { height: 100px; display: flex; align-items: center; justify-content: space-between; position: relative; }
-        
-        .brand { 
-            font-weight: 800; font-size: 14px; letter-spacing: 0.2em; 
-            text-decoration: none; color: var(--text); text-transform: uppercase;
-            flex: 1;
+        .nav-wrap {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
         }
 
-        .desktop-nav { 
-            display: flex; gap: 45px; 
-            position: absolute; left: 50%; transform: translateX(-50%);
+        .brand {
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            color: var(--text);
+            text-transform: uppercase;
         }
 
-        .desktop-nav a { 
-            text-decoration: none; color: var(--muted); 
-            font-size: 11px; font-weight: 700; text-transform: uppercase;
+        .desktop-nav {
+            display: flex;
+            gap: 40px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .desktop-nav a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
             transition: color 0.3s ease;
+            letter-spacing: 0.06em;
         }
 
-        .desktop-nav a:hover { color: var(--accent); }
+        .desktop-nav a:hover {
+            color: var(--accent);
+        }
 
-        .nav-right { flex: 1; display: flex; justify-content: flex-end; }
         .nav-cta {
-            background: var(--text); color: white;
-            padding: 12px 28px; font-size: 11px; font-weight: 700;
-            text-decoration: none; text-transform: uppercase;
-            transition: all 0.4s ease;
+            background: var(--accent);
+            color: white;
+            padding: 14px 30px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
         }
-        .nav-cta:hover { background: var(--accent); transform: translateY(-2px); }
 
-        /* --- HERO SECTION --- */
-        .hero { padding: 260px 0 140px; min-height: 90vh; display: flex; align-items: center; }
-        
-        .section-label { 
-            display: block; font-size: 12px; font-weight: 700; 
-            color: var(--accent); text-transform: uppercase; 
-            margin-bottom: 35px; letter-spacing: 0.15em;
+        .nav-cta:hover {
+            background: #081d56;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 260px 0 140px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            letter-spacing: 0.15em;
         }
 
         .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.5rem, 9.5vw, 9.5rem);
-            line-height: 0.85; letter-spacing: -0.04em;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            line-height: 0.9;
+            letter-spacing: -0.06em;
             margin-bottom: 80px;
-            max-width: 1300px;
+            max-width: 1200px;
+            font-weight: 800;
         }
 
-        /* Magnet Character Styling */
-        .char { 
-            display: inline-block; white-space: pre; 
+        .char {
+            display: inline-block;
+            white-space: pre;
             transition: transform 0.2s ease-out, color 0.4s ease;
             will-change: transform;
         }
 
-        .hero-footer { 
-            display: flex; justify-content: space-between; align-items: flex-end; 
-            border-top: 2px solid var(--text); padding-top: 50px;
+        .hero-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 2px solid var(--text);
+            padding-top: 50px;
         }
 
-        .hero-subtitle { font-size: 1.5rem; color: var(--muted); max-width: 600px; font-weight: 300; }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--muted);
+            max-width: 600px;
+            font-weight: 400;
+        }
 
-        /* --- GRID SYSTEM --- */
-        .grid-section { padding: 150px 0; border-bottom: 1px solid var(--line); }
-        .bg-soft { background: #fbfbf9; }
+        /* SECTIONS */
+        .grid-section {
+            padding: 150px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .bg-soft {
+            background: var(--soft-bg);
+        }
+
+        .section-intro {
+            max-width: 800px;
+            margin-bottom: 60px;
+        }
+
+        .section-intro h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .section-intro p {
+            color: var(--muted);
+            font-size: 18px;
+        }
 
         .institute-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            border-top: 1px solid var(--line); border-left: 1px solid var(--line);
-            margin-top: 70px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
         }
 
         .grid-card {
-            padding: 90px 60px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
-            background: transparent; transition: background 0.6s ease;
+            padding: 80px 50px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            transition: background 0.4s ease, transform 0.4s ease;
+            background: white;
         }
-        .grid-card:hover { background: #ffffff; }
 
-        .card-num { color: var(--accent); font-weight: 800; font-size: 13px; margin-bottom: 35px; display: block; }
-        .grid-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 38px; margin-bottom: 25px; font-weight: 500; }
-        .grid-card p { color: var(--muted); font-size: 18px; line-height: 1.6; }
-
-        /* --- REVEAL ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1.4s var(--transition); }
-        .reveal.in-view { opacity: 1; transform: translateY(0); }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1200px) {
-            .institute-grid { grid-template-columns: repeat(2, 1fr); }
-            .desktop-nav { display: none; }
+        .grid-card:hover {
+            background: #f8fafc;
+            transform: translateY(-4px);
         }
+
+        .card-num {
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 13px;
+            margin-bottom: 35px;
+            display: block;
+        }
+
+        .grid-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .grid-card p {
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* SPLIT */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .split-card {
+            padding: 60px;
+            background: white;
+            border: 1px solid var(--line);
+        }
+
+        .split-card h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+
+        .split-card ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .split-card li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--muted);
+        }
+
+        .split-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 1.4s var(--transition);
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1100px) {
+            .institute-grid,
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+        }
+
         @media (max-width: 768px) {
-            .institute-grid { grid-template-columns: 1fr; }
-            .hero-footer { flex-direction: column; align-items: flex-start; gap: 40px; }
-            .container { padding: 0 30px; }
-            .hero-title { font-size: 4.5rem; }
-            .nav-wrap { height: 80px; }
+            .container {
+                padding: 0 30px;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .section-intro h2 {
+                font-size: 42px;
+            }
         }
     </style>
 </head>
@@ -143,46 +315,56 @@
 <header class="site-header">
     <div class="container nav-wrap">
         <a href="#" class="brand">Free Thinker Institute</a>
+
         <nav class="desktop-nav">
             <a href="#intentions">Intentions</a>
             <a href="#goals">Goals</a>
+            <a href="#whatwedo">What We Do</a>
             <a href="#training">Training</a>
         </nav>
-        <div class="nav-right">
-            <a href="https://discord.gg/" class="nav-cta">Join Discord</a>
-        </div>
+
+        <a href="https://discord.gg/" class="nav-cta">Join Discord</a>
     </div>
 </header>
 
 <main>
     <section class="hero">
         <div class="container">
-            <span class="section-label reveal">Global Initiative</span>
+            <span class="section-label reveal">Community = Unity + Diversity</span>
             <h1 class="hero-title" id="interactive-title">Increase happiness. Minimize harm.</h1>
             <div class="hero-footer reveal">
-                <p class="hero-subtitle">Unity through diversity. Advancing human progress through integrated personal and professional development.</p>
+                <p class="hero-subtitle">
+                    A high-impact community advancing human progress through integrated development.
+                </p>
             </div>
         </div>
     </section>
 
     <section class="grid-section" id="intentions">
         <div class="container">
-            <span class="section-label">The Five Intentions</span>
+            <div class="section-intro reveal">
+                <span class="section-label">01 — Five Intentions</span>
+                <h2>A framework for thoughtful living.</h2>
+                <p>These intentions shape how the community approaches growth, dialogue, truth, and connection.</p>
+            </div>
+
             <div class="institute-grid">
                 <div class="grid-card reveal">
                     <span class="card-num">01</span>
-                    <h3>Self Improvement</h3>
-                    <p>A devotion to physical, intellectual, emotional, and philosophical growth. Strive for a constant state of evolution and treat everyone with respect.</p>
+                    <h3>Devotion to self-improvement</h3>
+                    <p>Physical, intellectual, emotional, and philosophical growth.</p>
                 </div>
+
                 <div class="grid-card reveal">
                     <span class="card-num">02</span>
-                    <h3>Transparency</h3>
-                    <p>Be true to yourself. Share your authentic self and consider opinions and perspectives that differ from your own.</p>
+                    <h3>Transparency & Open-mindedness</h3>
+                    <p>Stay willing to refine your thinking and perspectives.</p>
                 </div>
+
                 <div class="grid-card reveal">
                     <span class="card-num">03</span>
                     <h3>Critical Thinking</h3>
-                    <p>Trust and improve your own judgment. Seek objective reality through reason, evidence, and open-minded experimentation.</p>
+                    <p>Improve judgment and rational thought.</p>
                 </div>
             </div>
         </div>
@@ -190,42 +372,57 @@
 
     <section class="grid-section bg-soft" id="goals">
         <div class="container">
-            <span class="section-label">Our Core Goals</span>
+            <div class="section-intro reveal">
+                <span class="section-label">02 — Global Goals</span>
+                <h2>Ambitious and virtuous objectives.</h2>
+            </div>
+
             <div class="institute-grid">
                 <div class="grid-card reveal">
                     <span class="card-num">04</span>
-                    <h3>Maximize Freedom</h3>
-                    <p>Pursue happiness while minimizing harm to yourself and others. Freedom of thought is the engine of collective progress.</p>
+                    <h3>Is Polite</h3>
+                    <p>Create a warm and compassionate community.</p>
                 </div>
+
                 <div class="grid-card reveal">
                     <span class="card-num">05</span>
-                    <h3>Prosperity</h3>
-                    <p>Helping members achieve financial independence so that resources serve as a tool for mission-driven work and happiness.</p>
+                    <h3>Is Prosperous</h3>
+                    <p>Help everyone achieve financial freedom.</p>
                 </div>
+
                 <div class="grid-card reveal">
                     <span class="card-num">06</span>
-                    <h3>Compassionate Ideas</h3>
-                    <p>Spreading concepts that maximize collective well-being and empathy in a complex, globalized world.</p>
+                    <h3>Shares Good Ideas</h3>
+                    <p>Create and spread ideas globally.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="grid-section" id="training">
+    <section class="grid-section" id="whatwedo">
         <div class="container">
-            <span class="section-label">Dream Job Training</span>
-            <div class="institute-grid">
-                <div class="grid-card reveal">
-                    <h3>Skill Tracks</h3>
-                    <p>Training in Product Management, Software Engineering, UX Design, and Quality Assurance.</p>
+            <div class="section-intro reveal">
+                <span class="section-label">03 — Our Focus</span>
+                <h2>Personal & Professional Development.</h2>
+            </div>
+
+            <div class="split-grid reveal">
+                <div class="split-card">
+                    <h3>Personal Development</h3>
+                    <ul>
+                        <li>The five intentions</li>
+                        <li>Personal development topics</li>
+                        <li>Anything else of interest</li>
+                    </ul>
                 </div>
-                <div class="grid-card reveal">
-                    <h3>Network Access</h3>
-                    <p>Direct paths to networking with high-level professionals and identifying your ideal role.</p>
-                </div>
-                <div class="grid-card reveal">
-                    <h3>Career Placement</h3>
-                    <p>Strategies for excelling in your role while positioning yourself for significant advancement.</p>
+
+                <div class="split-card">
+                    <h3>Professional Development</h3>
+                    <ul>
+                        <li>Identify your dream job</li>
+                        <li>Build a valuable skillset</li>
+                        <li>Network with professionals</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -233,49 +430,53 @@
 </main>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const title = document.getElementById('interactive-title');
-        
-        // MAGNET LETTERS
-        if (title) {
-            const originalText = title.innerText;
-            title.innerHTML = [...originalText].map(char => 
-                `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`
-            ).join('');
-            
-            const chars = title.querySelectorAll('.char');
+document.addEventListener('DOMContentLoaded', () => {
+    const title = document.getElementById('interactive-title');
 
-            window.addEventListener('mousemove', (e) => {
-                chars.forEach(char => {
-                    const rect = char.getBoundingClientRect();
-                    const charX = rect.left + rect.width / 2;
-                    const charY = rect.top + rect.height / 2;
-                    const distance = Math.hypot(e.clientX - charX, e.clientY - charY);
+    if (title) {
+        title.innerHTML = [...title.innerText]
+            .map(c => `<span class="char">${c === ' ' ? '&nbsp;' : c}</span>`)
+            .join('');
 
-                    if (distance < 120) {
-                        const angle = Math.atan2(e.clientY - charY, e.clientX - charX);
-                        const force = (120 - distance) / 120;
-                        char.style.transform = `translate(${Math.cos(angle) * force * -20}px, ${Math.sin(angle) * force * -20}px)`;
-                        char.style.color = "#1a2b6d"; 
-                    } else {
-                        char.style.transform = 'translate(0, 0)';
-                        char.style.color = '';
-                    }
-                });
-            });
-        }
+        const chars = title.querySelectorAll('.char');
 
-        // REVEAL ON SCROLL
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
+        window.addEventListener('mousemove', (e) => {
+            chars.forEach(char => {
+                const r = char.getBoundingClientRect();
+                const dist = Math.hypot(
+                    e.clientX - (r.left + r.width / 2),
+                    e.clientY - (r.top + r.height / 2)
+                );
+
+                if (dist < 100) {
+                    const angle = Math.atan2(
+                        e.clientY - (r.top + r.height / 2),
+                        e.clientX - (r.left + r.width / 2)
+                    );
+
+                    char.style.transform =
+                        `translate(${Math.cos(angle) * (100 - dist) * -0.2}px,
+                                   ${Math.sin(angle) * (100 - dist) * -0.2}px)`;
+
+                    char.style.color = "#0d2a7a";
+                } else {
+                    char.style.transform = '';
+                    char.style.color = '';
                 }
             });
-        }, { threshold: 0.1 });
+        });
+    }
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
 </script>
 
 </body>
