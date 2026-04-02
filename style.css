@@ -132,7 +132,33 @@ nav {
   position: relative;
   overflow: hidden;
 }
+.hero-glow {
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.03) 40%,
+    transparent 72%
+  );
+  filter: blur(50px);
+  animation: floatGlow 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
 
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
 .hero::after {
   content: "";
   position: absolute;
