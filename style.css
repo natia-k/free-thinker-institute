@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -28,6 +30,10 @@ body {
   color: var(--black);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
 }
 
 /* ── NAV ── */
@@ -163,7 +169,6 @@ nav {
   }
 }
 
-/* cycling word */
 .cycle-outer {
   display: inline-block;
   overflow: hidden;
@@ -494,46 +499,131 @@ section {
   transition: opacity 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── COMMUNITY CARDS ── */
+/* ── COMMUNITY ── */
 .community {
   background: var(--white);
 }
 
-.comm-grid {
+.community-top {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 72px;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: end;
+  margin-top: 24px;
+  margin-bottom: 72px;
+}
+
+.community-intro {
+  max-width: 460px;
+  justify-self: end;
+}
+
+.community-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--mid);
+  font-weight: 300;
+}
+
+.community-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 0;
   border-top: 1px solid var(--ink-line);
   border-left: 1px solid var(--ink-line);
 }
 
-.comm-card {
-  padding: 52px 44px;
+.community-feature {
+  min-height: 720px;
+  background:
+    linear-gradient(rgba(10, 10, 10, 0.24), rgba(10, 10, 10, 0.52)),
+    url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80")
+      center/cover no-repeat;
   border-right: 1px solid var(--ink-line);
   border-bottom: 1px solid var(--ink-line);
-  transition: background 0.25s;
+  display: flex;
+  align-items: flex-end;
 }
 
-.comm-card:hover {
+.community-feature-inner {
+  padding: 44px;
+  max-width: 640px;
+}
+
+.community-kicker {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.community-feature .community-kicker {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.community-feature h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 4vw, 64px);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.community-feature p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 300;
+  margin-bottom: 28px;
+  max-width: 560px;
+}
+
+.community-side {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.community-mini {
+  padding: 40px 36px;
+  border-right: 1px solid var(--ink-line);
+  border-bottom: 1px solid var(--ink-line);
+  background: var(--white);
+  transition: background 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 240px;
+}
+
+.community-mini:hover {
   background: var(--cream);
 }
 
-.comm-card h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 40px;
-  letter-spacing: -0.02em;
-  color: var(--black);
-  margin-bottom: 18px;
-  font-weight: 500;
-  line-height: 1.05;
+.community-mini .community-kicker {
+  color: var(--mid);
 }
 
-.comm-card p {
-  font-size: 15px;
+.community-mini h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.community-mini p {
+  font-size: 14px;
   line-height: 1.75;
   color: var(--mid);
   font-weight: 300;
-  margin-bottom: 32px;
+  margin-bottom: 22px;
 }
 
 .arr-link {
@@ -556,6 +646,14 @@ section {
 
 .arr-link:hover {
   gap: 16px;
+}
+
+.arr-link.light {
+  color: var(--white);
+}
+
+.arr-link.light::after {
+  color: var(--white);
 }
 
 /* ── MARQUEE ── */
@@ -781,10 +879,26 @@ footer {
 @media (max-width: 1100px) {
   .hero-bottom,
   .about-grid,
-  .comm-grid,
   .ft-top {
-    grid-template-columns: 1fr;
     flex-direction: column;
+  }
+
+  .about-grid,
+  .community-top,
+  .community-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .community-intro {
+    justify-self: start;
+  }
+
+  .community-side {
+    grid-template-rows: auto;
+  }
+
+  .community-feature {
+    min-height: 520px;
   }
 
   .pillars-grid {
@@ -824,9 +938,21 @@ footer {
     font-size: clamp(54px, 16vw, 88px);
   }
 
-  .pillars-grid,
-  .comm-grid {
+  .pillars-grid {
     grid-template-columns: 1fr;
+  }
+
+  .community-feature-inner,
+  .community-mini {
+    padding: 28px 22px;
+  }
+
+  .community-feature {
+    min-height: 420px;
+  }
+
+  .community-mini h3 {
+    font-size: 30px;
   }
 
   .nl-form {
