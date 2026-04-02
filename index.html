@@ -3,57 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Thinker Institute | Driving Global Growth</title>
+  <title>Free Thinker Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="cursor-follower" id="cursorFollower"></div>
+  <div class="grain"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <header class="tbi-header">
-    <div class="nav-container">
-      <a href="#" class="logo">
-        <span class="logo-bold">FREE THINKER</span> <span class="logo-light">INSTITUTE</span>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a href="#" class="brand">
+        <img src="logo.png" alt="Logo" class="brand-logo" />
+        <span class="brand-text">Free Thinker Institute</span>
       </a>
-      <nav class="main-nav">
+
+      <nav class="desktop-nav">
         <a href="#intentions">Intentions</a>
         <a href="#goals">Goals</a>
-        <a href="#what-we-do">Insights</a>
+        <a href="#what-we-do">What We Do</a>
         <a href="#dream-job">Training</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a href="https://discord.gg/" class="cta-minimal">JOIN THE NETWORK</a>
+
+      <div class="nav-actions">
+        <a class="nav-cta" href="https://discord.gg/" target="_blank">Join Discord</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#intentions">Intentions</a>
+      <a href="#goals">Goals</a>
+      <a href="#what-we-do">What We Do</a>
+      <a href="#dream-job">Training</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
   <main>
-    <section class="hero-tbi">
+    <section class="hero">
       <div class="container">
-        <h1 class="interactive-title" id="heroTitle">
-          <span>Increase Happiness.</span><br>
-          <span class="dimmed">Minimize Harm.</span>
-        </h1>
-        <div class="hero-meta">
-          <p class="eyebrow">GLOBAL INITIATIVE</p>
-          <p class="hero-description">
-            A high-impact community advancing human progress through 
-            integrated personal and professional development.
-          </p>
+        <p class="eyebrow reveal">Warm · Open-minded · Growth-oriented</p>
+        <h1 class="hero-title" id="interactive-title">Increase happiness. Minimize harm.</h1>
+        <div class="hero-footer reveal reveal-delay">
+          <p class="hero-subtitle">Through personal and professional development.</p>
+          <a class="button-primary" href="https://discord.gg/" target="_blank">Join on Discord</a>
         </div>
       </div>
     </section>
 
-    <section class="grid-section" id="intentions">
+    <section class="grid-section section-line" id="intentions">
       <div class="container">
-        <div class="grid-header">
-          <h2 class="section-heading">The Five Intentions</h2>
+        <div class="section-head reveal">
+          <span class="section-label">Five Intentions</span>
+          <h2 class="section-title-serif">Better lives begin with better questions.</h2>
         </div>
-        <div class="tbi-grid">
+        
+        <div class="institute-grid reveal">
           <div class="grid-item">
             <span class="num">01</span>
             <h3>Self Improvement</h3>
-            <p>A devotion to physical, intellectual, and emotional evolution.</p>
+            <p>A personal devotion to physical, intellectual, and emotional growth.</p>
           </div>
+          <div class="grid-item">
+            <span class="num">02</span>
+            <h3>Transparency</h3>
+            <p>Recognize subjective truths and share your authentic self with others.</p>
           </div>
+          <div class="grid-item">
+            <span class="num">03</span>
+            <h3>Critical Thinking</h3>
+            <p>Improve judgment and rational thought rather than following blindly.</p>
+          </div>
+          <div class="grid-item">
+            <span class="num">04</span>
+            <h3>Ethics</h3>
+            <p>Pursue happiness while minimizing significant harm to others.</p>
+          </div>
+          <div class="grid-item">
+            <span class="num">05</span>
+            <h3>Compassion</h3>
+            <p>Put more love into the world through support and real care.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
