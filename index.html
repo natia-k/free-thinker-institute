@@ -3,366 +3,459 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Thinker Institute</title>
-  <meta
-    name="description"
-    content="A warm, compassionate, open-minded community focused on personal and professional development."
-  />
+  <title>Free Thinker Institute | Official</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f1720;
+      --muted: #5b6470;
+      --accent: #0d2a7a;
+      --line: rgba(15, 23, 32, 0.08);
+      --soft-bg: #f5f7fa;
+      --transition: 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 50px;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-wrap {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      color: var(--text);
+      text-transform: uppercase;
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: 40px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .desktop-nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      letter-spacing: 0.06em;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: white;
+      padding: 14px 30px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background: #081d56;
+    }
+
+    .hero {
+      padding: 260px 0 140px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 35px;
+      letter-spacing: 0.15em;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      margin-bottom: 80px;
+      max-width: 1200px;
+      font-weight: 800;
+    }
+
+    .char {
+      display: inline-block;
+      white-space: pre;
+      transition: transform 0.2s ease-out, color 0.4s ease;
+      will-change: transform;
+    }
+
+    .hero-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 2px solid var(--text);
+      padding-top: 50px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--muted);
+      max-width: 600px;
+      font-weight: 400;
+    }
+
+    .grid-section {
+      padding: 150px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .bg-soft {
+      background: var(--soft-bg);
+    }
+
+    .section-intro {
+      max-width: 800px;
+      margin-bottom: 60px;
+    }
+
+    .section-intro h2 {
+      font-size: 56px;
+      margin-bottom: 20px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .section-intro p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .institute-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .grid-card {
+      padding: 80px 50px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.4s ease, transform 0.4s ease;
+      background: white;
+    }
+
+    .grid-card:hover {
+      background: #f8fafc;
+      transform: translateY(-4px);
+    }
+
+    .card-num {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 35px;
+      display: block;
+    }
+
+    .grid-card h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .grid-card p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .goals-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .goal-feature {
+      background: white;
+      padding: 90px 70px;
+      border: 1px solid var(--line);
+    }
+
+    .goal-feature h3 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 25px;
+      letter-spacing: -0.04em;
+    }
+
+    .goal-feature p {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .goal-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .goal-small {
+      background: white;
+      padding: 50px;
+      border: 1px solid var(--line);
+    }
+
+    .goal-small h3 {
+      font-size: 28px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .goal-small p {
+      color: var(--muted);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 1.4s var(--transition);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .institute-grid,
+      .goals-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .goal-side {
+        grid-template-rows: auto;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="grain"></div>
-  <div class="cursor-glow" id="cursorGlow"></div>
-
-  <header class="site-header" id="siteHeader">
+  <header class="site-header">
     <div class="container nav-wrap">
-      <a href="#" class="brand">
-        <img src="logo.png" alt="Free Thinker Institute logo" class="brand-logo" />
-        <span class="brand-text">Free Thinker Institute</span>
-      </a>
+      <a href="#" class="brand">Free Thinker Institute</a>
 
-      <nav class="desktop-nav" aria-label="Main navigation">
+      <nav class="desktop-nav">
         <a href="#intentions">Intentions</a>
         <a href="#goals">Goals</a>
-        <a href="#what-we-do">What We Do</a>
-        <a href="#learn-more">Learn More</a>
-        <a href="#dream-job">Dream Job Training</a>
-        <a href="#contact">Contact</a>
       </nav>
 
-      <div class="nav-actions">
-        <a
-          class="nav-cta magnetic"
-          href="https://discord.gg/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Join on Discord
-        </a>
-
-        <button
-          class="menu-toggle"
-          id="menuToggle"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-          type="button"
-        >
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#intentions">Intentions</a>
-      <a href="#goals">Goals</a>
-      <a href="#what-we-do">What We Do</a>
-      <a href="#learn-more">Learn More</a>
-      <a href="#dream-job">Dream Job Training</a>
-      <a href="#contact">Contact</a>
+      <a href="#" class="nav-cta">Join Discord</a>
     </div>
   </header>
 
   <main>
-    <section class="hero editorial-hero">
-      <div class="hero-media">
-        <img src="hero.jpg" alt="People in conversation" />
-        <div class="hero-overlay"></div>
-      </div>
-
-      <div class="container hero-content reveal">
-        <p class="eyebrow">WELCOME TO FTI</p>
-
-        <h1 class="hero-title">
-          Increase happiness.<br />
-          Minimize harm.
+    <section class="hero">
+      <div class="container">
+        <span class="section-label reveal">Community = Unity + Diversity</span>
+        <h1 class="hero-title" id="interactive-title">
+          Increase happiness. Minimize harm.
         </h1>
-
-        <p class="hero-subtitle">
-          Through personal and professional development.
-        </p>
-
-        <div class="hero-actions">
-          <a
-            class="button-primary magnetic"
-            href="https://discord.gg/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Join on Discord
-          </a>
-
-          <a class="hero-link" href="#intentions">Explore our intentions</a>
+        <div class="hero-footer reveal">
+          <p class="hero-subtitle">
+            A high-impact community advancing human progress through integrated
+            development.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="manifesto section-line" id="intentions">
+    <section class="grid-section" id="intentions">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Five Intentions</div>
-          <div>
-            <h2 class="manifesto-title">
-              Better lives begin with better questions.
-            </h2>
+        <div class="section-intro reveal">
+          <span class="section-label">01 — Five Intentions</span>
+          <h2>A framework for thoughtful living.</h2>
+        </div>
+
+        <div class="institute-grid">
+          <div class="grid-card reveal">
+            <span class="card-num">01</span>
+            <h3>Self Improvement</h3>
+            <p>Continuous intellectual and personal growth.</p>
+          </div>
+
+          <div class="grid-card reveal">
+            <span class="card-num">02</span>
+            <h3>Transparency</h3>
+            <p>Authenticity and openness in thought and action.</p>
+          </div>
+
+          <div class="grid-card reveal">
+            <span class="card-num">03</span>
+            <h3>Critical Thinking</h3>
+            <p>Evidence-based logic and reasoning.</p>
           </div>
         </div>
-
-        <div class="intentions-grid reveal reveal-delay">
-          <article class="intention-card">
-            <span>01</span>
-            <h3>Devotion to Self Improvement</h3>
-            <p>
-              A personal devotion to self-improvement: physical, intellectual,
-              emotional, and spiritual or philosophical.
-            </p>
-          </article>
-
-          <article class="intention-card">
-            <span>02</span>
-            <h3>Be Transparent & Open Minded</h3>
-            <p>
-              Recognize subjective truths, stay open to perspectives different
-              from your own, and share your authentic self with others.
-            </p>
-          </article>
-
-          <article class="intention-card">
-            <span>03</span>
-            <h3>Critical Thinking</h3>
-            <p>
-              Improve judgment and rational thought rather than following
-              blindly. Seek truth through reflection, reality, and experience.
-            </p>
-          </article>
-
-          <article class="intention-card">
-            <span>04</span>
-            <h3>Maximize Happiness, Minimize Harm</h3>
-            <p>
-              Pursue freedom, happiness, and progress while minimizing
-              significant harm to yourself and others.
-            </p>
-          </article>
-
-          <article class="intention-card">
-            <span>05</span>
-            <h3>Give and Receive Love</h3>
-            <p>
-              Put more love into the world through support, generosity,
-              respect, and real care for other human beings.
-            </p>
-          </article>
-        </div>
       </div>
     </section>
 
-    <section class="about section-line" id="goals">
-      <div class="container about-grid">
-        <div class="about-left reveal">
-          <div class="section-label">Goals</div>
-          <h2 class="section-title">
-            A community that is polite, prosperous, and full of good ideas.
-          </h2>
-        </div>
-
-        <div class="about-right reveal reveal-delay">
-          <p>
-            The organization is still small, but growing. Its goals are
-            ambitious and value-driven: create a warm, compassionate,
-            open-minded community with an enriching and meaningful social life.
-          </p>
-
-          <p>
-            It also aims to help people become more prosperous, build valuable
-            skills, and make enough money that money no longer determines their
-            happiness.
-          </p>
-
-          <p>
-            Just as importantly, it wants to create and spread ideas that
-            maximize happiness and minimize harm.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="practice section-line" id="what-we-do">
+    <section class="grid-section bg-soft" id="goals">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">What We Do</div>
-          <h2 class="section-title">
-            Personal development and professional development.
-          </h2>
+        <div class="section-intro reveal">
+          <span class="section-label">02 — Global Goals</span>
+          <h2>Ambitious and virtuous objectives.</h2>
         </div>
 
-        <div class="practice-list">
-          <article class="practice-item reveal">
-            <div class="practice-number">01</div>
-            <div class="practice-content">
-              <h3>Personal Development</h3>
+        <div class="goals-layout reveal">
+          <div class="goal-feature">
+            <span class="card-num">04</span>
+            <h3>Prosperity</h3>
+            <p>
+              Help people reach financial independence so money becomes a tool
+              for freedom, growth, and meaningful contribution.
+            </p>
+          </div>
+
+          <div class="goal-side">
+            <div class="goal-small">
+              <span class="card-num">05</span>
+              <h3>Compassion</h3>
+              <p>Create a thoughtful and emotionally intelligent community.</p>
+            </div>
+
+            <div class="goal-small">
+              <span class="card-num">06</span>
+              <h3>Ideas</h3>
               <p>
-                Conversations around the five intentions, personal development,
-                professional development topics, and anything else of interest
-                to the group.
+                Develop concepts that maximize collective well-being globally.
               </p>
             </div>
-          </article>
-
-          <article class="practice-item reveal">
-            <div class="practice-number">02</div>
-            <div class="practice-content">
-              <h3>Professional Development</h3>
-              <p>
-                Help identifying dream jobs, building a valuable skillset,
-                excelling in current work, and networking with experienced
-                professionals.
-              </p>
-            </div>
-          </article>
-
-          <article class="practice-item reveal">
-            <div class="practice-number">03</div>
-            <div class="practice-content">
-              <h3>Teach and Learn</h3>
-              <p>
-                A new organization looking for people who want to teach,
-                learn, contribute, and shape the culture together.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div class="section-cta reveal reveal-delay">
-          <a
-            class="button-secondary magnetic"
-            href="https://discord.gg/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Join and get involved
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="participation section-line" id="learn-more">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Learn More</div>
-          <h2 class="section-title">
-            Who, where, why, when, and how.
-          </h2>
-        </div>
-
-        <div class="participation-grid reveal reveal-delay">
-          <article class="participation-card">
-            <h3>Who</h3>
-            <p>Prospective members, members, teachers, and leaders.</p>
-          </article>
-
-          <article class="participation-card">
-            <h3>Where</h3>
-            <p>Text chat, voice chat, video chat, and in-person gatherings.</p>
-          </article>
-
-          <article class="participation-card">
-            <h3>Why</h3>
-            <p>To improve personally and professionally, and help make the world better.</p>
-          </article>
-
-          <article class="participation-card">
-            <h3>When</h3>
-            <p>Informally whenever you’re free, and during events.</p>
-          </article>
-
-          <article class="participation-card">
-            <h3>How to Join</h3>
-            <p>Join the Discord community. Everyone is welcome to join.</p>
-          </article>
-
-          <article class="participation-card">
-            <h3>What We Discuss</h3>
-            <p>Career advancement, self-improvement, and how to become our best selves.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="dream-job section-line" id="dream-job">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Dream Job Training</div>
-          <h2 class="section-title">Get job training in your dream job.</h2>
-        </div>
-
-        <div class="dream-job-grid reveal reveal-delay">
-          <div class="dream-job-card">Product Management</div>
-          <div class="dream-job-card">Software Development</div>
-          <div class="dream-job-card">User Experience</div>
-          <div class="dream-job-card">Sales</div>
-          <div class="dream-job-card">Manual Quality Assurance</div>
-          <div class="dream-job-card">Automated Quality Assurance</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta section-line">
-      <div class="container final-cta-inner reveal">
-        <div class="section-label">Get Involved</div>
-        <h2>Write in the “get involved” channel to get involved.</h2>
-        <p>
-          Join the community, meet others who care about growth,
-          and help build something meaningful together.
-        </p>
-
-        <a
-          class="button-primary magnetic"
-          href="https://discord.gg/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Join on Discord
-        </a>
-      </div>
-    </section>
-
-    <section class="contact-section section-line" id="contact">
-      <div class="container contact-grid reveal">
-        <div>
-          <div class="section-label">Contact</div>
-          <h2 class="section-title">Get in touch.</h2>
-        </div>
-
-        <div class="contact-info">
-          <p><strong>Email</strong><br />contact@freethinkerinstitute.org</p>
-          <p><strong>Location</strong><br />New York, NY 10002</p>
-          <p>
-            <strong>Meetings</strong><br />
-            Zoom regularly, in person in NYC/NJ, and online 24/7 via Discord.
-          </p>
-          <p><strong>Donate</strong><br /><a href="#">Click here to donate</a></p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-row">
-      <p>Free Thinker Institute</p>
-      <p>Thoughtful conversation · Personal growth · Meaningful connection</p>
-    </div>
-  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const title = document.getElementById("interactive-title");
 
-  <script src="script.js"></script>
+      if (title) {
+        title.innerHTML = [...title.innerText]
+          .map(
+            (c) =>
+              `<span class="char">${c === " " ? "&nbsp;" : c}</span>`
+          )
+          .join("");
+
+        const chars = title.querySelectorAll(".char");
+
+        window.addEventListener("mousemove", (e) => {
+          chars.forEach((char) => {
+            const r = char.getBoundingClientRect();
+            const dist = Math.hypot(
+              e.clientX - (r.left + r.width / 2),
+              e.clientY - (r.top + r.height / 2)
+            );
+
+            if (dist < 100) {
+              const angle = Math.atan2(
+                e.clientY - (r.top + r.height / 2),
+                e.clientX - (r.left + r.width / 2)
+              );
+
+              char.style.transform = `translate(${Math.cos(angle) *
+                (100 - dist) *
+                -0.2}px, ${Math.sin(angle) * (100 - dist) * -0.2}px)`;
+
+              char.style.color = "#0d2a7a";
+            } else {
+              char.style.transform = "";
+              char.style.color = "";
+            }
+          });
+        });
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
