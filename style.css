@@ -733,6 +733,8 @@ section {
     font-size: 38px;
   }
 }
+  }
+}
 /* ── GOALS ── */
 .goals {
   background: var(--black);
