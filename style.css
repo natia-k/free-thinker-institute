@@ -58,7 +58,15 @@ nav {
   align-items: center;
   gap: 14px;
   text-decoration: none;
-  color: var(--black);
+  background: rgba(10, 10, 10, 0.96);
+  padding: 10px 16px;
+  border-radius: 2px;
+  color: var(--white);
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.92;
 }
 
 .logo-image {
@@ -80,7 +88,9 @@ nav {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--white);
 }
+
 .nav-links {
   display: flex;
   gap: 36px;
@@ -132,9 +142,44 @@ nav {
   overflow: hidden;
 }
 
+.hero-orb {
+  position: absolute;
+  right: 6%;
+  top: 14%;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.08) 18%,
+      rgba(255, 255, 255, 0.04) 34%,
+      rgba(255, 255, 255, 0.015) 50%,
+      transparent 72%
+    );
+  filter: blur(36px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: heroOrbFloat 9s ease-in-out infinite;
+}
+
+@keyframes heroOrbFloat {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) translateX(-8px) scale(1.03);
+  }
+}
+
 .hero-intro {
   max-width: 1240px;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-eyebrow {
@@ -964,6 +1009,14 @@ footer {
     min-height: 520px;
   }
 
+  .hero-orb {
+    width: 420px;
+    height: 420px;
+    right: -4%;
+    top: 18%;
+    opacity: 0.7;
+  }
+
   .pillars-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1017,6 +1070,27 @@ footer {
 
   .community-mini h3 {
     font-size: 30px;
+  }
+
+  .hero-orb {
+    width: 280px;
+    height: 280px;
+    right: -10%;
+    top: 20%;
+    opacity: 0.5;
+  }
+
+  .logo-image {
+    height: 28px;
+  }
+
+  .logo {
+    gap: 10px;
+    padding: 8px 12px;
+  }
+
+  .logo-line {
+    font-size: 9px;
   }
 
   .nl-form {
