@@ -1,5 +1,5 @@
 /* ── HERO WORD CYCLE ── */
-const heroWords = ["Love.", "Freedom.", "Growth.", "Truth.", "Courage."];
+const heroWords = ["Love.", "Freedom.", "Growth.", "Courage.", "Wisdom."];
 let hIdx = 0;
 const heroEl = document.getElementById("hero-cycle");
 
