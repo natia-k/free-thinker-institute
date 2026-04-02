@@ -97,7 +97,7 @@ magneticElements.forEach((element) => {
     const relX = event.clientX - rect.left - rect.width / 2;
     const relY = event.clientY - rect.top - rect.height / 2;
 
-    element.style.transform = `translate(${relX * 0.08}px, ${relY * 0.08}px)`;
+    element.style.transform = `translate(${relX * 0.06}px, ${relY * 0.06}px)`;
   });
 
   element.addEventListener("mouseleave", () => {
