@@ -1,129 +1,116 @@
-const header = document.getElementById("siteHeader");
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
-const cursorGlow = document.getElementById("cursorGlow");
-const revealElements = document.querySelectorAll(".reveal");
-const magneticElements = document.querySelectorAll(".magnetic");
-const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
+/**
+ * Free Thinker Institute - Professional Interaction Script
+ * Features: Magnet letters, smooth cursor follower, and scroll-reveal
+ */
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let glowX = mouseX;
-let glowY = mouseY;
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".site-header");
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const heroTitle = document.getElementById("interactive-title");
+  const revealElements = document.querySelectorAll(".reveal");
+  
+  // --- 1. MAGNET LETTERS LOGIC ---
+  if (heroTitle) {
+    // Wrap every letter in a span for individual movement
+    const text = heroTitle.innerText;
+    heroTitle.innerHTML = text
+      .split("")
+      .map((char) => `<span class="char">${char === " " ? "&nbsp;" : char}</span>`)
+      .join("");
 
-function handleHeaderScroll() {
-  if (window.scrollY > 16) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
+    const chars = document.querySelectorAll(".char");
+
+    window.addEventListener("mousemove", (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      chars.forEach((char) => {
+        const rect = char.getBoundingClientRect();
+        const charX = rect.left + rect.width / 2;
+        const charY = rect.top + rect.height / 2;
+
+        const dist = Math.hypot(mouseX - charX, mouseY - charY);
+
+        if (dist < 100) { // Interaction radius
+          const angle = Math.atan2(mouseY - charY, mouseX - charX);
+          // Calculate push strength (closer = stronger push)
+          const force = (100 - dist) / 100; 
+          const pushX = Math.cos(angle) * (force * -20);
+          const pushY = Math.sin(angle) * (force * -20);
+
+          char.style.transform = `translate(${pushX}px, ${pushY}px)`;
+          char.style.color = "var(--accent)"; // High-end blue highlight
+        } else {
+          char.style.transform = `translate(0, 0)`;
+          char.style.color = "";
+        }
+      });
+    });
   }
-}
 
-function closeMenu() {
-  if (!mobileMenu || !menuToggle) return;
-  mobileMenu.classList.remove("open");
-  menuToggle.classList.remove("active");
-  menuToggle.setAttribute("aria-expanded", "false");
-  document.body.classList.remove("menu-open");
-}
+  // --- 2. SMOOTH SCROLL HEADER ---
+  function handleHeaderScroll() {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }
+  window.addEventListener("scroll", handleHeaderScroll);
 
-function openMenu() {
-  if (!mobileMenu || !menuToggle) return;
-  mobileMenu.classList.add("open");
-  menuToggle.classList.add("active");
-  menuToggle.setAttribute("aria-expanded", "true");
-  document.body.classList.add("menu-open");
-}
+  // --- 3. MOBILE MENU ---
+  if (menuToggle && mobileMenu) {
+    const toggleMenu = () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      menuToggle.classList.toggle("active");
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    };
 
-if (menuToggle && mobileMenu) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = mobileMenu.classList.contains("open");
-    if (isOpen) closeMenu();
-    else openMenu();
-  });
+    menuToggle.addEventListener("click", toggleMenu);
+    
+    // Close menu when clicking links
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuToggle.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    });
+  }
 
-  mobileMenuLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-}
+  // --- 4. REVEAL ON SCROLL (Intersection Observer) ---
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        revealObserver.unobserve(entry.target);
+  revealElements.forEach((el) => revealObserver.observe(el));
+
+  // --- 5. SMOOTH ANCHOR LINKS ---
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const offset = header.offsetHeight || 80;
+        const targetPos = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: targetPos,
+          behavior: "smooth",
+        });
       }
     });
-  },
-  {
-    threshold: 0.14,
-    rootMargin: "0px 0px -40px 0px",
-  }
-);
-
-revealElements.forEach((element) => {
-  revealObserver.observe(element);
-});
-
-function animateGlow() {
-  glowX += (mouseX - glowX) * 0.12;
-  glowY += (mouseY - glowY) * 0.12;
-
-  if (cursorGlow) {
-    cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px)`;
-  }
-
-  requestAnimationFrame(animateGlow);
-}
-
-window.addEventListener("mousemove", (event) => {
-  document.body.classList.add("has-mouse");
-  mouseX = event.clientX;
-  mouseY = event.clientY;
-});
-
-window.addEventListener("mouseleave", () => {
-  document.body.classList.remove("has-mouse");
-});
-
-animateGlow();
-
-window.addEventListener("scroll", handleHeaderScroll);
-
-magneticElements.forEach((element) => {
-  element.addEventListener("mousemove", (event) => {
-    const rect = element.getBoundingClientRect();
-    const relX = event.clientX - rect.left - rect.width / 2;
-    const relY = event.clientY - rect.top - rect.height / 2;
-
-    element.style.transform = `translate(${relX * 0.06}px, ${relY * 0.06}px)`;
-  });
-
-  element.addEventListener("mouseleave", () => {
-    element.style.transform = "translate(0, 0)";
   });
 });
-
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", (event) => {
-    const targetId = anchor.getAttribute("href");
-    if (!targetId || targetId === "#") return;
-
-    const target = document.querySelector(targetId);
-    if (!target) return;
-
-    event.preventDefault();
-
-    const headerOffset = header ? header.offsetHeight : 88;
-    const targetPosition =
-      target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-    });
-  });
-});
-
-handleHeaderScroll();
