@@ -123,28 +123,18 @@ nav {
 .hero {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 78% 20%, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 78% 26%, rgba(255, 255, 255, 0.08), transparent 26%),
     linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+  background-size: 140px 100%, auto, auto;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding: 132px 48px 80px;
   position: relative;
   overflow: hidden;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 140px 100%;
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero::after {
   content: "";
   position: absolute;
   top: 0;
@@ -183,9 +173,17 @@ nav {
   z-index: 1;
 }
 
-.hero-intro {
-  max-width: 1240px;
+.hero-grid {
   width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 72px;
+  align-items: end;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-intro {
   position: relative;
   z-index: 2;
 }
@@ -216,8 +214,8 @@ nav {
   line-height: 0.9;
   letter-spacing: -0.04em;
   color: var(--white);
-  max-width: 1100px;
-  margin-bottom: 42px;
+  max-width: 800px;
+  margin-bottom: 34px;
 }
 
 .hero h1 .line {
@@ -261,27 +259,58 @@ nav {
   transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s;
 }
 
-.hero-meta {
-  display: grid;
-  grid-template-columns: minmax(320px, 500px) 1fr;
-  gap: 56px;
-  align-items: end;
-  margin-bottom: 38px;
+.hero-lead {
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.56);
+  font-weight: 300;
+  margin-bottom: 36px;
 }
 
-.hero-lead {
-  font-size: 17px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.54);
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-side {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  padding-left: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-side-block {
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-side-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.hero-side-block p {
+  max-width: 420px;
+  font-size: 18px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
   font-weight: 300;
 }
 
-.hero-stats {
+.hero-side-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 18px;
+  padding-top: 8px;
 }
 
 .hero-stat {
@@ -301,19 +330,6 @@ nav {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
-}
-
-.hero-bottom {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 48px;
-}
-
-.hero-btns {
-  display: flex;
-  gap: 14px;
-  flex-shrink: 0;
 }
 
 .btn-w {
@@ -907,7 +923,7 @@ footer {
 
 .ft-col h4 {
   font-size: 10px;
-  letter-spacing: 2.5em;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.3);
   margin-bottom: 22px;
@@ -957,7 +973,7 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1100px) {
-  .hero-meta,
+  .hero-grid,
   .about-grid,
   .community-top,
   .community-layout,
@@ -969,8 +985,15 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 
-  .hero-stats {
-    grid-template-columns: 1fr;
+  .hero-side {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-left: 0;
+    padding-top: 28px;
+  }
+
+  .hero-side-stats {
+    grid-template-columns: 1fr 1fr;
   }
 
   .community-intro {
@@ -1026,15 +1049,22 @@ footer {
   .hero {
     padding-top: 110px;
     padding-bottom: 48px;
+    background-size: 90px 100%, auto, auto;
   }
 
   .hero h1 {
     font-size: clamp(54px, 16vw, 88px);
   }
 
+  .hero-lead,
+  .hero-side-block p {
+    font-size: 16px;
+  }
+
   .pillars-bottom,
   .community-layout,
-  .community-top {
+  .community-top,
+  .hero-side-stats {
     grid-template-columns: 1fr;
   }
 
@@ -1084,4 +1114,109 @@ footer {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: none;
   }
-}
+} and html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Thinker Institute</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a class="logo" href="#">
+      <img src="logo.png" alt="Free Thinker Institute logo" class="logo-image" />
+      <span class="logo-text">
+        <span class="logo-line">Free Thinker</span>
+        <span class="logo-line">Institute</span>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#pillars">Pillars</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#community">Community</a></li>
+    </ul>
+
+    <a class="nav-cta" href="#community">Join Us</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-orb"></div>
+
+    <div class="hero-intro">
+      <div class="hero-eyebrow">Free Thinker Institute — New York, NY</div>
+
+      <h1>
+        <span class="line"><span class="inner">Reason.</span></span>
+        <span class="line"><span class="inner">Truth.</span></span>
+        <span class="line">
+          <span class="inner">
+            <span class="cycle-outer">
+              <span class="cycle-inner" id="hero-cycle">Freedom.</span>
+            </span>
+          </span>
+        </span>
+      </h1>
+
+      <div class="hero-meta">
+        <p class="hero-lead">
+          A community devoted to critical thinking, open-mindedness, and the pursuit
+          of happiness — for ourselves and all others.
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-label">Focus</span>
+            <span class="hero-stat-value">Reason + Growth</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Based In</span>
+            <span class="hero-stat-value">New York</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Community</span>
+            <span class="hero-stat-value">Open to All</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-btns">
+          <a class="btn-w solid" href="#community">Explore Events</a>
+          <a class="btn-w outline" href="#pillars">Our Pillars</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Critical Thinking</span><span class="sep">—</span>
+      <span>Open-Mindedness</span><span class="sep">—</span>
+      <span>Reason &amp; Intuition</span><span class="sep">—</span>
+      <span>Maximize Happiness</span><span class="sep">—</span>
+      <span>Minimize Harm</span><span class="sep">—</span>
+      <span>Truth Seeking</span><span class="sep">—</span>
+      <span>Self-Improvement</span><span class="sep">—</span>
+      <span>Give &amp; Receive Love</span><span class="sep">—</span>
+      <span>Critical Thinking</span><span class="sep">—</span>
+      <span>Open-Mindedness</span><span class="sep">—</span>
+      <span>Reason &amp; Intuition</span><span class="sep">—</span>
+      <span>Maximize Happiness</span><span class="sep">—</span>
+      <span>Minimize Harm</span><span class="sep">—</span>
+      <span>Truth Seeking</span><span class="sep">—</span>
+      <span>Self-Improvement</span><span class="sep">—</span>
+      <span>Give &amp; Receive Love</span><span class="sep">—</span>
+    </div>
+  </div> integrate do not break anything, fix everything and give me full css and full html be carefull
