@@ -126,6 +126,7 @@ nav {
   color: var(--warm-white) !important;
   padding: .55rem 1.35rem !important;
   transition: opacity .2s !important;
+  border-radius: 999px;
 }
 
 .nav-cta:hover {
@@ -306,20 +307,6 @@ nav {
   border-radius: 28px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.08);
   filter: saturate(.8) contrast(1.01) brightness(.93);
-}
-
-.hero-image-note {
-  position: absolute;
-  right: 90px;
-  bottom: 95px;
-  max-width: 240px;
-  background: rgba(17,17,16,.72);
-  color: rgba(250,250,248,.92);
-  padding: .95rem 1rem;
-  font-size: .82rem;
-  line-height: 1.6;
-  font-weight: 300;
-  backdrop-filter: blur(10px);
 }
 
 .ticker-wrap {
@@ -892,11 +879,6 @@ nav {
   background: var(--off-white);
 }
 
-.comm-card:nth-child(4),
-.comm-card:nth-child(5) {
-  border-bottom: none;
-}
-
 .comm-card-tag {
   font-size: 9.5px;
   letter-spacing: .2em;
@@ -945,7 +927,6 @@ nav {
   min-height: 720px;
   display: flex;
   border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
 }
 
 .comm-feature-image {
@@ -1168,11 +1149,6 @@ footer {
   .hero-right {
     padding: 40px;
   }
-
-  .hero-image-note {
-    right: 55px;
-    bottom: 60px;
-  }
 }
 
 @media (max-width: 900px) {
@@ -1199,11 +1175,6 @@ footer {
 
   .hero-real-image {
     height: 54vw;
-  }
-
-  .hero-image-note {
-    right: 28px;
-    bottom: 28px;
   }
 
   .about {
@@ -1248,6 +1219,7 @@ footer {
   .comm-card-featured {
     grid-row: auto;
     min-height: 420px;
+    border-right: none;
   }
 
   .comm-card {
@@ -1329,11 +1301,5 @@ footer {
 
   .nav-logo-box {
     padding: 10px 14px;
-  }
-
-  .hero-image-note {
-    max-width: 180px;
-    font-size: .76rem;
-    padding: .75rem .8rem;
   }
 }
