@@ -1,11 +1,20 @@
 const cycleWords = document.querySelectorAll(".cycle-word");
 let cycleIndex = 0;
+let cycleInterval = null;
 
-if (cycleWords.length > 1) {
-  setInterval(() => {
+function startCycle() {
+  if (cycleWords.length <= 1) return;
+
+  if (cycleInterval) {
+    clearInterval(cycleInterval);
+  }
+
+  cycleInterval = setInterval(() => {
     const current = cycleWords[cycleIndex];
     const nextIndex = (cycleIndex + 1) % cycleWords.length;
     const next = cycleWords[nextIndex];
+
+    if (!current || !next) return;
 
     current.classList.remove("active");
     current.classList.add("exit");
@@ -19,6 +28,8 @@ if (cycleWords.length > 1) {
     cycleIndex = nextIndex;
   }, 2400);
 }
+
+startCycle();
 
 const photoCursor = document.getElementById("photoCursor");
 const photoWraps = document.querySelectorAll("[data-photo]");
