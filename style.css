@@ -196,26 +196,30 @@ nav {
 .line-cycling {
   position: relative;
   display: block;
-  min-height: 1.2em;
+  min-height: 1.15em;
+  width: 100%;
 }
 
 .cycle-word {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(14px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   white-space: nowrap;
+  pointer-events: none;
 }
 
 .cycle-word.active {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .blue-word {
   color: #3f63dd;
+  display: inline-block;
 }
 .hero-heading .line {
   display: block;
