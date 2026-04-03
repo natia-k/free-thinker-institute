@@ -89,15 +89,15 @@ if (newsletterForm) {
     }
   });
 }
-const cycleWords = document.querySelectorAll(".cycle-word");
-let cycleIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const cycleWords = document.querySelectorAll(".cycle-word");
+  let cycleIndex = 0;
 
-if (cycleWords.length > 1) {
-  setInterval(() => {
-    cycleWords[cycleIndex].classList.remove("active");
-
-    cycleIndex = (cycleIndex + 1) % cycleWords.length;
-
-    cycleWords[cycleIndex].classList.add("active");
-  }, 2400);
-}
+  if (cycleWords.length > 1) {
+    setInterval(() => {
+      cycleWords[cycleIndex].classList.remove("active");
+      cycleIndex = (cycleIndex + 1) % cycleWords.length;
+      cycleWords[cycleIndex].classList.add("active");
+    }, 2400);
+  }
+});
