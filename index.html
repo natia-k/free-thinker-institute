@@ -16,34 +16,23 @@
 <body>
   <div id="photoCursor"></div>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="nav-logo" href="#top">
-        <img src="original-logo.png" alt="Free Thinker Institute" class="brand-logo" />
-      </a>
+  <nav>
+    <a class="nav-logo" href="#top">
+      <img src="original-logo.png" alt="Free Thinker Institute logo" class="brand-logo" />
+    </a>
 
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#intentions">Intentions</a>
-        <a href="#goals">Goals</a>
-        <a href="#what-we-do">What We Do</a>
-        <a href="#learn-more">Learn More</a>
-        <a href="#community">Community</a>
-        <a href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Events</a>
-        <a href="#dream-job-training">Dream Job Training</a>
-        <a href="https://www.freethinkerinstitute.org/blog/" target="_blank" rel="noopener">Blog</a>
-      </nav>
-
-      <a
-        class="nav-cta"
-        href="https://discord.gg/fksQBjS"
-        target="_blank"
-        rel="noopener"
-      >
-        Join Us
-      </a>
+    <div class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#intentions">Five Intentions</a>
+      <a href="#goals">Goals</a>
+      <a href="#what-we-do">What We Do</a>
+      <a href="#learn-more">Learn More</a>
+      <a href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Events</a>
+      <a href="#dream-job-training">Dream Job Training</a>
+      <a href="https://www.freethinkerinstitute.org/blog/" target="_blank" rel="noopener">Blog</a>
+      <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="nav-cta">Join Us</a>
     </div>
-  </header>
+  </nav>
 
   <section class="hero" id="top">
     <div class="hero-left">
@@ -62,9 +51,8 @@
       </h1>
 
       <p class="hero-sub">
-        A warm, open-minded community devoted to critical thinking,
-        meaningful connection, and the pursuit of a better life for
-        ourselves and others.
+        A warm, open-minded community devoted to critical thinking, meaningful
+        connection, and the pursuit of a better life for ourselves and others.
       </p>
 
       <div class="hero-meta">
@@ -83,12 +71,7 @@
       </div>
 
       <div class="hero-actions">
-        <a
-          href="https://www.freethinkerinstitute.org/events/"
-          target="_blank"
-          rel="noopener"
-          class="btn-primary"
-        >
+        <a href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener" class="btn-primary">
           Explore Events
         </a>
         <a href="#intentions" class="btn-ghost">Five Intentions</a>
@@ -96,15 +79,35 @@
     </div>
 
     <div class="hero-right">
-      <img
-        class="hero-photo"
-        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80"
-        alt="Community gathering"
-      />
-      <div class="hero-note">
-        Thoughtful conversation,<br />
-        meaningful connection,<br />
-        and shared growth.
+      <div class="geo-line-v"></div>
+      <div class="geo-line-h"></div>
+      <div class="geo-circle-outer"></div>
+      <div class="geo-circle-mid"></div>
+
+      <div class="geo-circle-inner">
+        <svg class="geo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="50" y1="92" x2="50" y2="18" stroke="#FAFAF8" stroke-width="6" stroke-linecap="round"/>
+          <line x1="50" y1="54" x2="24" y2="34" stroke="#FAFAF8" stroke-width="5" stroke-linecap="round"/>
+          <line x1="50" y1="44" x2="73" y2="27" stroke="#FAFAF8" stroke-width="5" stroke-linecap="round"/>
+          <line x1="50" y1="68" x2="30" y2="55" stroke="#FAFAF8" stroke-width="4" stroke-linecap="round"/>
+          <line x1="50" y1="62" x2="70" y2="50" stroke="#FAFAF8" stroke-width="4" stroke-linecap="round"/>
+          <line x1="24" y1="34" x2="12" y2="20" stroke="#FAFAF8" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="24" y1="34" x2="34" y2="17" stroke="#FAFAF8" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="73" y1="27" x2="62" y2="13" stroke="#FAFAF8" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="73" y1="27" x2="84" y2="14" stroke="#FAFAF8" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="50" cy="92" r="5" fill="#FAFAF8"/>
+        </svg>
+      </div>
+
+      <div class="geo-dot" style="top:calc(50% - min(27.5vw,210px) - 2.5px);left:calc(50% - 2.5px)"></div>
+      <div class="geo-dot" style="bottom:calc(50% - min(27.5vw,210px) - 2.5px);left:calc(50% - 2.5px)"></div>
+      <div class="geo-dot" style="top:calc(50% - 2.5px);left:calc(50% - min(27.5vw,210px) - 2.5px)"></div>
+      <div class="geo-dot" style="top:calc(50% - 2.5px);right:calc(50% - min(27.5vw,210px) - 2.5px)"></div>
+
+      <div class="geo-quote">
+        "The employment of reason<br />
+        allows us to gain wisdom<br />
+        and make better decisions."
       </div>
     </div>
   </section>
@@ -142,127 +145,138 @@
 
     <div class="about-content">
       <div class="section-label">Who We Are</div>
-      <h2 class="about-heading">
-        A thoughtful community<br />
-        for growth and dialogue.
-      </h2>
+      <h2 class="about-heading">A community shaped by<br /><em>reflection and growth.</em></h2>
 
-      <div class="about-grid">
-        <div class="about-pull">
-          We are a community of people trying to become wiser, kinder,
-          and more grounded in how we live.
-        </div>
-
-        <div class="about-body">
-          <p>
-            We care about reason, openness, self-improvement, honesty, and the
-            courage to keep learning.
-          </p>
-          <p>
-            We believe better lives are shaped through reflection, sincere
-            conversation, and thoughtful action.
-          </p>
-          <p>
-            Our aim is not perfection, but meaningful progress — individually
-            and together.
-          </p>
-        </div>
+      <div class="about-body">
+        <p>
+          We are a group of people trying to become wiser, more grounded,
+          and more thoughtful in the way we live, relate, and work.
+        </p>
+        <p>
+          The Free Thinker Institute values reason, openness, honesty,
+          self-improvement, and meaningful connection. We believe good lives
+          are built through reflection, sincerity, and better decisions.
+        </p>
+        <p>
+          Our aim is to learn, question, grow, and support one another in
+          creating more happiness and less harm where we can.
+        </p>
       </div>
-
-      <a href="#intentions" class="btn-primary btn-small">Our Intentions</a>
     </div>
   </section>
 
-  <section class="pillars" id="intentions">
-    <div class="section-topline">
-      <a href="#intentions" class="pillars-chip">Our Intentions</a>
-    </div>
-
-    <div class="pillars-header">
+  <section class="intentions" id="intentions">
+    <div class="intentions-header">
       <div>
         <div class="section-label">Five Intentions</div>
-        <h2 class="pillars-heading">
-          A shared framework for living, thinking,
-          and growing together.
-        </h2>
+        <h2 class="intentions-heading">A shared framework for<br /><em>living and growing.</em></h2>
       </div>
+      <p class="intentions-intro">
+        Five core commitments that shape the community’s spirit, conversations,
+        and aspirations.
+      </p>
     </div>
 
-    <div class="pillars-grid">
-      <article class="pillar-card">
-        <div class="pillar-meta">
-          <span class="pillar-icon">✦</span>
-          <span class="pillar-id">01</span>
+    <div class="intentions-grid">
+      <article class="intention-card">
+        <div class="intention-top">
+          <span class="intention-icon">✦</span>
+          <span class="intention-number">01</span>
         </div>
-        <h3 class="pillar-title">Devotion to Self Improvement</h3>
-        <p class="pillar-body">
-          A sincere commitment to growing physically, intellectually,
-          emotionally, and philosophically over time.
+        <h3>Devotion to Self Improvement</h3>
+        <p>
+          A commitment to growing physically, intellectually, emotionally,
+          and philosophically over time.
         </p>
       </article>
 
-      <article class="pillar-card">
-        <div class="pillar-meta">
-          <span class="pillar-icon">◌</span>
-          <span class="pillar-id">02</span>
+      <article class="intention-card">
+        <div class="intention-top">
+          <span class="intention-icon">◌</span>
+          <span class="intention-number">02</span>
         </div>
-        <h3 class="pillar-title">Be Transparent &amp; Open Minded</h3>
-        <p class="pillar-body">
-          Stay honest about who you are, remain open to different perspectives,
-          and resist becoming rigid in your beliefs.
+        <h3>Be Transparent &amp; Open Minded</h3>
+        <p>
+          Stay honest about who you are, stay open to different viewpoints,
+          and resist becoming fixed in your assumptions.
         </p>
       </article>
 
-      <article class="pillar-card">
-        <div class="pillar-meta">
-          <span class="pillar-icon">✳</span>
-          <span class="pillar-id">03</span>
+      <article class="intention-card">
+        <div class="intention-top">
+          <span class="intention-icon">✳</span>
+          <span class="intention-number">03</span>
         </div>
-        <h3 class="pillar-title">Committed to Critical Thinking</h3>
-        <p class="pillar-body">
-          Use reflection, evidence, and careful judgment to better distinguish
-          truth from confusion, noise, and impulse.
+        <h3>Committed to Critical Thinking</h3>
+        <p>
+          Use evidence, reflection, and clear judgment to better distinguish
+          truth from confusion and noise.
         </p>
       </article>
 
-      <article class="pillar-card">
-        <div class="pillar-meta">
-          <span class="pillar-icon">○</span>
-          <span class="pillar-id">04</span>
+      <article class="intention-card">
+        <div class="intention-top">
+          <span class="intention-icon">○</span>
+          <span class="intention-number">04</span>
         </div>
-        <h3 class="pillar-title">Maximize Happiness While Minimizing Harm</h3>
-        <p class="pillar-body">
-          Seek a life with freedom, wellbeing, and fulfillment while being
-          mindful of harm to yourself and others.
+        <h3>Maximize Happiness While Minimizing Harm</h3>
+        <p>
+          Seek freedom, fulfillment, and wellbeing while remaining mindful
+          of harm to yourself and others.
         </p>
       </article>
 
-      <article class="pillar-card">
-        <div class="pillar-meta">
-          <span class="pillar-icon">♡</span>
-          <span class="pillar-id">05</span>
+      <article class="intention-card">
+        <div class="intention-top">
+          <span class="intention-icon">♡</span>
+          <span class="intention-number">05</span>
         </div>
-        <h3 class="pillar-title">Eager to Give and Receive Love</h3>
-        <p class="pillar-body">
-          Build a warmer world through compassion, affection, sincerity,
-          and meaningful human connection.
+        <h3>Eager to Give and Receive Love</h3>
+        <p>
+          Create more warmth, compassion, affection, and meaningful connection
+          in the lives around you.
         </p>
       </article>
     </div>
   </section>
+
+  <div class="photo-strip" id="photoStrip">
+    <div class="photo-wrap" data-photo>
+      <img
+        src="https://images.unsplash.com/photo-1543269664-7eef42226a21?w=1400&q=80&fit=crop"
+        alt="Community gathering"
+      />
+    </div>
+    <div class="photo-wrap" data-photo>
+      <img
+        src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80&fit=crop"
+        alt="Hands together"
+      />
+    </div>
+    <div class="photo-wrap" data-photo>
+      <img
+        src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&q=80&fit=crop"
+        alt="People in discussion"
+      />
+    </div>
+  </div>
 
   <section class="goals" id="goals">
     <div class="goals-inner">
       <div class="goals-header">
-        <div class="section-label section-label-light">Goals</div>
-        <h2 class="goals-heading">A growing community with clear ambitions.</h2>
+        <div class="section-label">Goals</div>
+        <h2 class="goals-heading">A growing community with<br /><em>clear ambitions.</em></h2>
+        <p class="goals-sub">
+          The aim is not only discussion, but building a culture that is warmer,
+          wiser, and more helpful in real life.
+        </p>
       </div>
 
       <div class="goals-list">
         <div class="goal-item">
           <div class="goal-num">01</div>
           <div class="goal-text">
-            Build a welcoming and thoughtful community with a richer social life.
+            Build a warm, thoughtful, and open-minded community with a richer social life.
           </div>
           <div class="goal-arrow">→</div>
         </div>
@@ -287,44 +301,44 @@
   </section>
 
   <section class="what-we-do" id="what-we-do">
-    <div class="section-label">What We Do</div>
-    <h2 class="what-heading">Personal and professional development.</h2>
+    <div class="what-header">
+      <div>
+        <div class="section-label">What We Do</div>
+        <h2 class="what-heading">Personal and professional<br /><em>development.</em></h2>
+      </div>
+      <p class="what-intro">
+        The community explores both inner growth and practical progress in work and life.
+      </p>
+    </div>
 
     <div class="what-grid">
       <article class="what-card">
-        <div class="what-kicker">Personal Development</div>
+        <span class="what-kicker">Personal Development</span>
         <h3>Reflect, question, and grow.</h3>
         <p>
-          We explore themes around self-improvement, values, relationships,
-          perspective, wellbeing, and the way we want to live.
+          Conversations often explore values, self-improvement, relationships,
+          perspective, meaning, and the kind of life we want to build.
         </p>
         <ul>
           <li>Reason, openness, and self-awareness</li>
-          <li>How values shape everyday decisions</li>
-          <li>Meaningful conversation and shared learning</li>
+          <li>Values and everyday decision-making</li>
+          <li>Conversation as a tool for insight</li>
         </ul>
       </article>
 
       <article class="what-card">
-        <div class="what-kicker">Professional Development</div>
+        <span class="what-kicker">Professional Development</span>
         <h3>Move toward better work.</h3>
         <p>
-          We support one another in identifying meaningful career directions,
-          building useful skills, and becoming stronger in the work we do.
+          Members support one another in identifying meaningful career paths,
+          building useful skills, and improving in the work they do.
         </p>
         <ul>
           <li>Clarifying your direction</li>
-          <li>Learning from more experienced people</li>
+          <li>Learning from experienced people</li>
           <li>Developing practical career skills</li>
         </ul>
       </article>
-    </div>
-  </section>
-
-  <section class="belief-band">
-    <div class="belief-text">
-      <span class="belief-muted">We believe in</span><br />
-      <span id="beliefWord">Truth Seeking.</span>
     </div>
   </section>
 
@@ -379,123 +393,78 @@
     </div>
   </section>
 
+  <section class="conviction">
+    <p class="conviction-text">
+      We believe reason, openness, and care are not abstract ideals —
+      they are <em>practical tools</em> for building better lives.
+    </p>
+  </section>
+
   <section class="community" id="community">
     <div class="community-inner">
-      <div class="section-label">Get Involved</div>
-
       <div class="community-header">
-        <h2 class="community-heading">Join the Community</h2>
+        <div>
+          <div class="section-label">Get Involved</div>
+          <h2 class="community-heading">Join the<br /><em>community.</em></h2>
+        </div>
         <p class="community-intro">
-          Meet people committed to reflection, openness, meaningful work,
-          and a more thoughtful way of living together.
+          Meet people committed to reflection, openness, thoughtful conversation,
+          and a more meaningful way of living together.
         </p>
       </div>
 
-      <div class="community-main">
-        <article class="community-feature">
-          <div class="community-feature-image">
-            <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=80&fit=crop"
-              alt="Attend events"
-            />
-            <div class="community-feature-overlay">
-              <div class="community-kicker">Featured</div>
-              <h3>Attend Events</h3>
-              <p>
-                Explore gatherings, discussions, and resources designed to help
-                people connect, reflect, and grow.
-              </p>
-              <a
-                class="comm-card-link light"
-                href="https://www.freethinkerinstitute.org/events/"
-                target="_blank"
-                rel="noopener"
-              >
-                Browse Events
-              </a>
-            </div>
-          </div>
+      <div class="community-cards">
+        <article class="comm-card">
+          <span class="comm-card-tag">Featured</span>
+          <h3 class="comm-card-title">Attend Events</h3>
+          <p class="comm-card-body">
+            Explore gatherings, discussions, and resources designed to help people connect,
+            reflect, and grow.
+          </p>
+          <a class="comm-card-link" href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">
+            Browse Events
+          </a>
         </article>
 
-        <div class="community-side">
-          <article class="comm-card">
-            <div class="comm-card-tag">Connect</div>
-            <h3 class="comm-card-title">Join Discord</h3>
-            <p class="comm-card-body">
-              Join the online community and take part in conversation from anywhere.
-            </p>
-            <a
-              class="comm-card-link"
-              href="https://discord.gg/fksQBjS"
-              target="_blank"
-              rel="noopener"
-            >
-              Open Discord
-            </a>
-          </article>
+        <article class="comm-card">
+          <span class="comm-card-tag">Connect</span>
+          <h3 class="comm-card-title">Join Discord</h3>
+          <p class="comm-card-body">
+            Join the online community and take part in ongoing conversation from anywhere.
+          </p>
+          <a class="comm-card-link" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">
+            Open Discord
+          </a>
+        </article>
 
-          <article class="comm-card">
-            <div class="comm-card-tag">Contribute</div>
-            <h3 class="comm-card-title">Speak or Nominate</h3>
-            <p class="comm-card-body">
-              Suggest a topic, contribute an idea, or reach out about participating.
-            </p>
-            <a
-              class="comm-card-link"
-              href="mailto:Garrett@FreeThinkerInstitute.com"
-            >
-              Get In Touch
-            </a>
-          </article>
+        <article class="comm-card">
+          <span class="comm-card-tag">Contribute</span>
+          <h3 class="comm-card-title">Speak or Nominate</h3>
+          <p class="comm-card-body">
+            Suggest a topic, contribute an idea, or reach out about participation.
+          </p>
+          <a class="comm-card-link" href="mailto:Garrett@FreeThinkerInstitute.com">
+            Get in Touch
+          </a>
+        </article>
 
-          <article class="comm-card">
-            <div class="comm-card-tag">Updates</div>
-            <h3 class="comm-card-title">Mailing List</h3>
-            <p class="comm-card-body">
-              Receive announcements, invitations, and future updates from the community.
-            </p>
-            <a class="comm-card-link" href="#mailing-list">Subscribe</a>
-          </article>
-        </div>
+        <article class="comm-card">
+          <span class="comm-card-tag">Updates</span>
+          <h3 class="comm-card-title">Mailing List</h3>
+          <p class="comm-card-body">
+            Receive announcements, invitations, and future updates from the community.
+          </p>
+          <a class="comm-card-link" href="#mailing-list">
+            Subscribe
+          </a>
+        </article>
       </div>
-    </div>
-  </section>
-
-  <div class="ticker-wrap bottom-ticker" aria-hidden="true">
-    <div class="ticker">
-      <span>Truth</span><span>—</span>
-      <span class="hi">Openness</span><span>—</span>
-      <span>Freedom</span><span>—</span>
-      <span class="hi">Reason</span><span>—</span>
-      <span>Truth</span><span>—</span>
-      <span class="hi">Openness</span><span>—</span>
-      <span>Freedom</span><span>—</span>
-      <span class="hi">Reason</span><span>—</span>
-    </div>
-  </div>
-
-  <section class="info-cards">
-    <div class="info-card-grid">
-      <article class="info-box">
-        <h3>Where We Meet</h3>
-        <p>Via Zoom regularly, in person in NYC / NJ, and online anytime through Discord.</p>
-      </article>
-
-      <article class="info-box">
-        <h3>Get in Touch</h3>
-        <p><a href="mailto:Garrett@FreeThinkerInstitute.com">Garrett@FreeThinkerInstitute.com</a></p>
-      </article>
-
-      <article class="info-box">
-        <h3>Location</h3>
-        <p>New York, NY</p>
-      </article>
     </div>
   </section>
 
   <section class="newsletter" id="mailing-list">
     <div class="newsletter-inner">
-      <h2 class="newsletter-heading">Intelligence in your inbox.</h2>
+      <h2 class="newsletter-heading">Intelligence in<br /><em>your inbox.</em></h2>
       <p class="newsletter-sub">
         Get the latest ideas on growth, dialogue, and community — delivered monthly.
       </p>
@@ -512,7 +481,7 @@
       <div class="footer-brand">
         <div class="footer-brand-name">Free Thinker Institute</div>
         <div class="footer-brand-sub">
-          Thoughtful dialogue, growth, and meaningful connection.
+          A community for thoughtful dialogue, reflection, and personal and professional growth.
         </div>
       </div>
 
@@ -523,11 +492,12 @@
         <a href="#goals">Goals</a>
         <a href="#what-we-do">What We Do</a>
         <a href="#learn-more">Learn More</a>
+        <a href="#dream-job-training">Dream Job Training</a>
       </div>
 
       <div class="footer-col">
         <div class="footer-col-label">Community</div>
-        <a href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Meetup Events</a>
+        <a href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Events</a>
         <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Discord</a>
         <a href="https://www.freethinkerinstitute.org/blog/" target="_blank" rel="noopener">Blog</a>
       </div>
@@ -542,7 +512,7 @@
 
     <div class="footer-bottom">
       <div class="footer-copy">© Free Thinker Institute</div>
-      <a class="footer-link" href="#top">Back to top</a>
+      <a class="footer-link" href="https://www.freethinkerinstitute.org/" target="_blank" rel="noopener">Visit Official Site</a>
     </div>
   </footer>
 
