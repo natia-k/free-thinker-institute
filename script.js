@@ -103,3 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealItems.forEach((item) => observer.observe(item));
 });
+const flipCards = document.querySelectorAll(".intention-flip");
+
+flipCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("active");
+  });
+});
