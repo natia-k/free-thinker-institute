@@ -71,7 +71,6 @@ nav {
 .nav-logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
   color: var(--ink);
 }
 
@@ -449,7 +448,6 @@ nav {
   max-width: 520px;
 }
 
-/* 6 FLIP CARDS */
 .intentions-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -457,17 +455,16 @@ nav {
 }
 
 .intention-flip {
-  perspective: 1200px;
-  min-height: 390px;
+  perspective: 1400px;
+  min-height: 395px;
 }
 
 .intention-inner {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 390px;
+  min-height: 395px;
   transform-style: preserve-3d;
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .intention-flip:hover .intention-inner,
@@ -479,77 +476,118 @@ nav {
 .intention-face {
   position: absolute;
   inset: 0;
+  min-height: 395px;
+  padding: 26px 28px 24px;
   backface-visibility: hidden;
-  border: 1px solid var(--border);
-  background: #ebe4dd;
-  padding: 30px 28px;
-  min-height: 390px;
+  border: 1px solid #e7dfd8;
+  background: #ece6e1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .intention-front {
-  background: #ebe4dd;
+  color: #222;
+  justify-content: flex-start;
 }
 
 .intention-back {
   background: #111110;
-  color: var(--warm-white);
+  color: #f5f2ed;
   transform: rotateY(180deg);
+  justify-content: space-between;
 }
 
 .intention-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 28px;
+  margin-bottom: 42px;
+  min-height: 24px;
 }
 
 .intention-icon {
   font-size: 22px;
-  color: #7d7a98;
   line-height: 1;
+  color: #7f7ba3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .intention-number {
   font-size: 10px;
-  letter-spacing: .18em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(20,20,20,.38);
+  color: rgba(17, 17, 16, 0.34);
+  line-height: 1;
 }
 
 .intention-front h3,
 .intention-back h3 {
   font-family: var(--serif);
-  font-size: clamp(1.7rem, 2vw, 2.3rem);
-  line-height: 1.08;
-  letter-spacing: -.03em;
   font-weight: 400;
-  max-width: 12ch;
-  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
 }
 
 .intention-front h3 {
-  color: #2b2b2b;
+  font-size: clamp(2rem, 2.3vw, 3rem);
+  line-height: 0.95;
+  color: #262626;
+  max-width: 10ch;
+  margin-top: 36px;
 }
 
 .intention-back h3 {
-  color: var(--warm-white);
+  font-size: 1.5rem;
+  line-height: 1.02;
+  color: #f7f3ee;
+  max-width: 11ch;
+  margin-bottom: 1.2rem;
 }
 
 .intention-back p {
   font-size: 15px;
-  line-height: 1.8;
-  color: rgba(250,250,248,.82);
+  line-height: 1.9;
+  color: rgba(247, 243, 238, 0.82);
   font-weight: 300;
+  max-width: 26ch;
 }
 
 .intention-hint {
+  margin-top: auto;
   font-size: 10px;
-  letter-spacing: .18em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(20,20,20,.4);
+  color: rgba(17, 17, 16, 0.35);
+  line-height: 1;
+  padding-top: 24px;
+}
+
+.intention-back .intention-top {
+  margin-bottom: 24px;
+}
+
+.intention-back .intention-number {
+  color: rgba(247, 243, 238, 0.34);
+}
+
+.intention-back .intention-icon {
+  color: #8c89af;
+}
+
+.intention-back p::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #6f79b6;
+  margin-bottom: 18px;
+}
+
+.intention-flip:hover .intention-face,
+.intention-flip.active .intention-face {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.05);
 }
 
 .photo-strip {
@@ -1031,11 +1069,6 @@ nav {
   margin-bottom: 1.25rem;
 }
 
-.newsletter-heading em {
-  font-style: italic;
-  color: var(--accent);
-}
-
 .newsletter-sub {
   font-size: 1rem;
   color: var(--ink-light);
@@ -1166,8 +1199,6 @@ footer {
   color: var(--warm-white);
 }
 
-/* ===== SCROLL REVEAL EFFECT ===== */
-
 .reveal-up {
   opacity: 0;
   transform: translateY(34px);
@@ -1209,7 +1240,7 @@ footer {
 
 @media (max-width: 1100px) {
   .intentions-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .what-grid,
@@ -1354,6 +1385,32 @@ footer {
   }
 }
 
+@media (max-width: 700px) {
+  .intention-flip,
+  .intention-inner,
+  .intention-face {
+    min-height: 360px;
+  }
+
+  .intention-face {
+    padding: 22px 22px 20px;
+  }
+
+  .intention-front h3 {
+    font-size: 1.9rem;
+    margin-top: 26px;
+  }
+
+  .intention-back h3 {
+    font-size: 1.35rem;
+  }
+
+  .intention-back p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+}
+
 @media (max-width: 600px) {
   .hero-meta {
     grid-template-columns: 1fr;
@@ -1375,15 +1432,5 @@ footer {
 
   .featured-title {
     font-size: 2rem;
-  }
-
-  .intention-face {
-    padding: 24px 22px;
-    min-height: 360px;
-  }
-
-  .intention-front h3,
-  .intention-back h3 {
-    font-size: 1.6rem;
   }
 }
