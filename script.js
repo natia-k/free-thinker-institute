@@ -110,3 +110,10 @@ flipCards.forEach((card) => {
     card.classList.toggle("active");
   });
 });
+const flipCards = document.querySelectorAll(".intention-flip");
+
+flipCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("active");
+  });
+});
