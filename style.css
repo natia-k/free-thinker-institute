@@ -305,8 +305,8 @@ nav {
 
 .hero-real-image {
   width: 100%;
- max-width: 860px;
-height: 560px;
+  max-width: 860px;
+  height: 560px;
   object-fit: cover;
   border-radius: 28px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.08);
@@ -449,43 +449,61 @@ height: 560px;
   max-width: 520px;
 }
 
+/* 6 FLIP CARDS */
 .intentions-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
 
-.intention-card {
+.intention-flip {
+  perspective: 1200px;
+  min-height: 390px;
+}
+
+.intention-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intention-flip:hover .intention-inner,
+.intention-flip.active .intention-inner,
+.intention-flip:focus-within .intention-inner {
+  transform: rotateY(180deg);
+}
+
+.intention-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border: 1px solid var(--border);
   background: #ebe4dd;
-  min-height: 440px;
-  padding: 28px 26px 30px;
+  padding: 30px 28px;
+  min-height: 390px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  transition: transform .35s ease, background .35s ease;
+  justify-content: space-between;
 }
 
-.intention-card:hover {
-  transform: translateY(-4px);
-  background: #e6ded6;
+.intention-front {
+  background: #ebe4dd;
 }
 
-.intention-card:nth-child(1),
-.intention-card:nth-child(2) {
-  grid-column: span 3;
-}
-
-.intention-card:nth-child(3),
-.intention-card:nth-child(4),
-.intention-card:nth-child(5) {
-  grid-column: span 2;
+.intention-back {
+  background: #111110;
+  color: var(--warm-white);
+  transform: rotateY(180deg);
 }
 
 .intention-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 42px;
+  margin-bottom: 28px;
 }
 
 .intention-icon {
@@ -501,23 +519,37 @@ height: 560px;
   color: rgba(20,20,20,.38);
 }
 
-.intention-card h3 {
-  font-family: var(--sans);
-  font-size: clamp(24px, 2.2vw, 38px);
-  line-height: 1.12;
+.intention-front h3,
+.intention-back h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 2vw, 2.3rem);
+  line-height: 1.08;
   letter-spacing: -.03em;
   font-weight: 400;
-  color: #2b2b2b;
-  max-width: 13ch;
-  margin-bottom: 18px;
+  max-width: 12ch;
+  margin-bottom: 1rem;
 }
 
-.intention-card p {
-  font-size: 14px;
-  line-height: 1.72;
-  color: rgba(30,30,30,.68);
-  max-width: 34ch;
+.intention-front h3 {
+  color: #2b2b2b;
+}
+
+.intention-back h3 {
+  color: var(--warm-white);
+}
+
+.intention-back p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(250,250,248,.82);
   font-weight: 300;
+}
+
+.intention-hint {
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(20,20,20,.4);
 }
 
 .photo-strip {
@@ -1173,24 +1205,11 @@ footer {
   .footer-top {
     grid-template-columns: 1fr 1fr;
   }
-
-  .intention-card {
-    min-height: 480px;
-  }
 }
 
 @media (max-width: 1100px) {
   .intentions-grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .intention-card,
-  .intention-card:nth-child(1),
-  .intention-card:nth-child(2),
-  .intention-card:nth-child(3),
-  .intention-card:nth-child(4),
-  .intention-card:nth-child(5) {
-    grid-column: span 1;
   }
 
   .what-grid,
@@ -1325,35 +1344,6 @@ footer {
     padding: 4rem 1.5rem;
   }
 
-  .goals-inner,
-  .community-inner {
-    max-width: 100%;
-  }
-
-  .goal-item {
-    grid-template-columns: 54px 1fr 24px;
-    gap: 1rem;
-  }
-
-  .goal-text {
-    max-width: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-meta {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-meta-item {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: .75rem;
-  }
-
-  .hero-meta-item:last-child {
-    border-bottom: none;
-  }
-
   .newsletter-form {
     flex-direction: column;
   }
@@ -1362,42 +1352,38 @@ footer {
     border-right: 1px solid var(--border);
     border-bottom: none;
   }
+}
 
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: .8rem;
+@media (max-width: 600px) {
+  .hero-meta {
+    grid-template-columns: 1fr;
+    gap: .75rem;
   }
 
-  .nav-logo-text {
-    font-size: 10px;
+  .goal-item {
+    grid-template-columns: 50px 1fr 24px;
+    gap: 1rem;
   }
 
-  .nav-logo-box {
-    padding: 10px 14px;
+  .goal-text {
+    font-size: 1.05rem;
   }
 
-  .hero-heading {
-    font-size: clamp(2.6rem, 11vw, 4rem);
+  .conviction-text {
+    font-size: 1.45rem;
   }
 
-  .hero-sub,
-  .about-body p,
-  .intentions-intro,
-  .goals-sub,
-  .what-intro,
-  .community-intro,
-  .newsletter-sub {
-    font-size: .96rem;
+  .featured-title {
+    font-size: 2rem;
   }
 
-  .intention-card {
-    min-height: auto;
+  .intention-face {
+    padding: 24px 22px;
+    min-height: 360px;
   }
 
-  .learn-card,
-  .what-card,
-  .comm-card {
-    min-height: auto;
+  .intention-front h3,
+  .intention-back h3 {
+    font-size: 1.6rem;
   }
 }
