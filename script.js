@@ -102,18 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   revealItems.forEach((item) => observer.observe(item));
-});
-const flipCards = document.querySelectorAll(".intention-flip");
 
-flipCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    card.classList.toggle("active");
-  });
-});
-const flipCards = document.querySelectorAll(".intention-flip");
+  const flipCards = document.querySelectorAll(".intention-flip");
 
-flipCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    card.classList.toggle("active");
+  flipCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("active");
+    });
+
+    card.addEventListener("keypress", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.classList.toggle("active");
+      }
+    });
   });
 });
