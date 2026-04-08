@@ -67,9 +67,29 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-        }
-      });
+        const rim = document.getElementById('wheelRim');
+const nodes = document.querySelectorAll('.wheel-node');
+const contents = document.querySelectorAll('.wheel-center-content');
 
+nodes.forEach(node => {
+  node.addEventListener('click', () => {
+    const index = node.getAttribute('data-index');
+    const rotation = (index - 1) * (-60);
+    
+    rim.style.transform = `rotate(${rotation}deg)`;
+    
+    nodes.forEach(n => {
+      const i = n.getAttribute('style').match(/--i:(\d+)/)[1];
+      // Keep icons upright while spinning
+      n.style.transform = `rotate(calc(${i} * 60deg)) translate(310px) rotate(calc(${i} * -60deg + ${-rotation}deg))`;
+      n.classList.remove('active');
+    });
+    
+    node.classList.add('active');
+    contents.forEach(c => c.classList.remove('active'));
+    document.getElementById(`content-${index}`).classList.add('active');
+  });
+});
       wrap.addEventListener("mousemove", (e) => {
         photoCursor.style.left = `${e.clientX}px`;
         photoCursor.style.top = `${e.clientY}px`;
