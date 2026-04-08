@@ -4,596 +4,2174 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free Thinker Institute</title>
+  <meta name="description" content="Free Thinker Institute — personal and professional development through truth-seeking, critical thinking, and meaningful community." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #101726;
+      --panel-2: #151d2d;
+      --ink: #f7f3eb;
+      --muted: #a7b1c5;
+      --border: rgba(255,255,255,.10);
+      --border-strong: rgba(255,255,255,.16);
+      --soft: #f4efe7;
+      --soft-2: #ebe2d3;
+      --ink-dark: #111318;
+      --ink-mid: #485062;
+      --blue: #8fb0ff;
+      --blue-2: #6a7cff;
+      --violet: #8870ff;
+      --gold: #caa66a;
+      --glow: rgba(143,176,255,.24);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Inter", system-ui, sans-serif;
+      --radius: 28px;
+      --shadow: 0 30px 80px rgba(0,0,0,.24);
+      --shadow-soft: 0 18px 40px rgba(0,0,0,.12);
+      --max: 1240px;
+    }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--soft);
+      color: var(--ink-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .page-shell {
+      position: relative;
+      min-height: 100vh;
+      isolation: isolate;
+    }
+
+    .aurora {
+      position: fixed;
+      inset: -20% -10% auto -10%;
+      height: 70vh;
+      pointer-events: none;
+      z-index: -2;
+      filter: blur(50px);
+      opacity: .9;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(91,111,255,.30), transparent 22%),
+        radial-gradient(circle at 72% 18%, rgba(141,108,255,.22), transparent 24%),
+        radial-gradient(circle at 52% 45%, rgba(215,176,111,.14), transparent 20%),
+        radial-gradient(circle at 85% 55%, rgba(91,111,255,.16), transparent 24%);
+      animation: auroraShift 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes auroraShift {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      100% { transform: translate3d(0,30px,0) scale(1.08); }
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(243,238,230,.72);
+      border-bottom: 1px solid rgba(19,20,22,.08);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #0f1420 0%, #182034 100%);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      letter-spacing: .18em;
+      box-shadow: 0 14px 30px rgba(0,0,0,.16);
+      border: 1px solid rgba(255,255,255,.10);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::before {
+      content: \"\";
+      position: absolute;
+      inset: -20% -40% auto auto;
+      width: 42px;
+      height: 42px;
+      background: radial-gradient(circle, rgba(143,176,255,.35), transparent 60%);
+      pointer-events: none;
+    }
+
+    .brand-mark span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      color: #5a6270;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover { color: #111; }
+
+    .nav-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: #111;
+      color: white;
+    }
+
+    .hero {
+      position: relative;
+      padding: 70px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: 24px 0 12px;
+    }
+
+    .eyebrow, .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #5a6270;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow::before,
+    .section-kicker::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: rgba(17,17,17,.25);
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 8vw, 6.8rem);
+      line-height: .92;
+      letter-spacing: -.045em;
+      font-weight: 400;
+      max-width: 10ch;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--blue-2);
+    }
+
+    .hero-sub {
+      max-width: 520px;
+      color: #5c6472;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin: 28px 0 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      transition: transform .2s ease, opacity .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-dark { background: #111; color: white; }
+    .btn-light { border: 1px solid rgba(17,17,17,.14); color: #111; }
+    .btn-light:hover { background: #111; color: white; }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      border-top: 1px solid rgba(17,17,17,.10);
+      padding-top: 18px;
+      max-width: 760px;
+    }
+
+    .meta-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #7a8291;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: .95rem;
+      font-weight: 500;
+      color: #17191e;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 640px;
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(13,17,23,.94), rgba(18,24,34,.95)),
+        radial-gradient(circle at top left, rgba(132,163,255,.2), transparent 35%);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 58px 58px;
+      opacity: .22;
+      mix-blend-mode: screen;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 68% 35%, rgba(132,163,255,.30), transparent 18%),
+        radial-gradient(circle at 48% 22%, rgba(141,108,255,.24), transparent 14%),
+        radial-gradient(circle at 62% 72%, rgba(215,176,111,.16), transparent 18%);
+      pointer-events: none;
+    }
+
+    .hero-figure {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-figure img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: screen;
+      opacity: .4;
+      filter: saturate(.55) contrast(1.08) brightness(.88);
+    }
+
+    .hero-mask {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-window {
+      font-size: clamp(3.6rem, 8vw, 7rem);
+      line-height: .84;
+      font-weight: 800;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.42);
+      text-shadow: 0 0 20px rgba(143,176,255,.10);
+    }
+
+    .hero-note {
+      max-width: 360px;
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .ticker-wrap {
+      background: #10131a;
+      padding: .9rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .ticker {
+      display: inline-flex;
+      animation: ticker 30s linear infinite;
+    }
+
+    .ticker span {
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.42);
+      padding: 0 1.75rem;
+    }
+
+    .ticker span.hi { color: rgba(255,255,255,.82); }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .about,
+    .intentions,
+    .goals,
+    .what-we-do,
+    .learn-more,
+    .community,
+    .newsletter,
+    .conviction {
+      scroll-margin-top: 110px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+    }
+
+    .about-img-wrap { overflow: hidden; }
+    .about-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.65) contrast(1.05);
+    }
+
+    .about-content {
+      background: var(--soft);
+      padding: 6rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-heading,
+    .intentions-heading,
+    .goals-heading,
+    .what-heading,
+    .learn-heading,
+    .community-heading,
+    .newsletter-heading {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+
+    .about-heading em,
+    .intentions-heading em,
+    .goals-heading em,
+    .what-heading em,
+    .learn-heading em,
+    .community-heading em,
+    .newsletter-heading em {
+      font-style: italic;
+      color: var(--blue-2);
+    }
+
+    .about-body p,
+    .intentions-intro,
+    .goals-sub,
+    .what-intro,
+    .newsletter-sub,
+    .community-intro {
+      font-size: 1rem;
+      color: #596171;
+      line-height: 1.85;
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    .about-body p + p { margin-top: 1rem; }
+
+    /* Dream Job Training done later in document */
+
+    .intentions {
+      padding: 7rem 0;
+      background: var(--warm-white);
+    }
+
+    .intentions-header,
+    .what-header,
+    .community-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .intentions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .intention-flip {
+      perspective: 1400px;
+      min-height: 395px;
+      height: 395px;
+    }
+
+    .intention-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform .78s cubic-bezier(.16,1,.3,1);
+    }
+
+    .intention-flip:hover .intention-inner,
+    .intention-flip.active .intention-inner,
+    .intention-flip:focus-within .intention-inner {
+      transform: rotateY(180deg);
+    }
+
+    .intention-face {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 26px 28px 24px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border: 1px solid #e7dfd8;
+      background: linear-gradient(180deg, #f5efe7 0%, #ebe3da 100%);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 24px;
+      transition: box-shadow .25s ease, transform .25s ease;
+    }
+
+    .intention-front { color: #222; justify-content: flex-start; }
+
+    .intention-back {
+      background:
+        radial-gradient(circle at top right, rgba(132,163,255,.16), transparent 24%),
+        linear-gradient(180deg, #11131a 0%, #191d26 100%);
+      color: #f5f2ed;
+      transform: rotateY(180deg);
+      justify-content: space-between;
+    }
+
+    .intention-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 34px;
+      min-height: 24px;
+    }
+
+    .intention-icon {
+      font-size: 20px;
+      line-height: 1;
+      color: #7f7ba3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .intention-number {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: rgba(17,17,16,.34);
+    }
+
+    .intention-front h3,
+    .intention-back h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -.03em;
+    }
+
+    .intention-front h3 {
+      font-size: clamp(1.9rem, 2.2vw, 2.9rem);
+      line-height: .95;
+      color: #262626;
+      max-width: 10ch;
+      margin-top: 26px;
+    }
+
+    .intention-back h3 {
+      font-size: 1.45rem;
+      line-height: 1.05;
+      color: #f7f3ee;
+      max-width: 11ch;
+      margin-bottom: 1rem;
+    }
+
+    .intention-back p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(247,243,238,.82);
+      font-weight: 300;
+      max-width: 26ch;
+    }
+
+    .intention-hint {
+      margin-top: auto;
+      padding-top: 20px;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(17,17,16,.35);
+      line-height: 1;
+    }
+
+    .intention-back .intention-top { margin-bottom: 20px; }
+    .intention-back .intention-number { color: rgba(247,243,238,.34); }
+    .intention-back .intention-icon { color: #8c89af; }
+
+    .intention-back p::before {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #6f79b6;
+      margin-bottom: 16px;
+    }
+
+    .intention-flip:hover .intention-face,
+    .intention-flip.active .intention-face {
+      box-shadow: 0 22px 50px rgba(0,0,0,.08);
+    }
+
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      height: 460px;
+      gap: 3px;
+      background: #111;
+    }
+
+    .photo-wrap {
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.45) brightness(.65);
+      transition: filter .08s linear;
+    }
+
+    .goals {
+      padding: 7rem 0;
+      background: var(--soft);
+    }
+
+    .goals-inner {
+      width: min(1100px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .goals-header { margin-bottom: 4rem; }
+
+    .goals-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .goal-item {
+      display: grid;
+      grid-template-columns: 72px 1fr 36px;
+      align-items: center;
+      padding: 1.875rem 0;
+      border-bottom: 1px solid rgba(17,17,17,.10);
+      gap: 2rem;
+    }
+
+    .goal-item:first-child { border-top: 1px solid rgba(17,17,17,.10); }
+    .goal-item:hover .goal-arrow { opacity: 1; transform: translateX(5px); }
+    .goal-item:hover .goal-num { color: #17191e; }
+
+    .goal-num {
+      font-family: var(--serif);
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: #d2c9bb;
+      line-height: 1;
+      transition: color .25s;
+    }
+
+    .goal-text {
+      font-family: var(--serif);
+      font-size: 1.3125rem;
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: -.01em;
+      color: #17191e;
+      max-width: 34ch;
+    }
+
+    .goal-arrow {
+      font-size: 1.1rem;
+      color: var(--blue-2);
+      opacity: 0;
+      transition: all .3s;
+      text-align: right;
+    }
+
+    .what-we-do {
+      padding: 7rem 0;
+      background: var(--warm-white);
+    }
+
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .what-card {
+      background: var(--soft);
+      padding: 34px 30px;
+      border: 1px solid rgba(17,17,17,.10);
+      min-height: 420px;
+      border-radius: 24px;
+    }
+
+    .what-kicker {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #7a8291;
+    }
+
+    .what-card h3 {
+      font-family: var(--serif);
+      font-size: 2.1rem;
+      line-height: 1.02;
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+
+    .what-card p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #596171;
+      margin-bottom: 18px;
+      font-weight: 300;
+    }
+
+    .what-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .what-card ul li {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #17191e;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .what-card ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #7a8291;
+    }
+
+    .learn-more {
+      padding: 7rem 0;
+      background: linear-gradient(180deg, #090d16 0%, #0f1624 52%, #121a2b 100%);
+      color: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .learn-more::before {
+      content: \"\";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(143,176,255,.14), transparent 20%),
+        radial-gradient(circle at 82% 12%, rgba(136,112,255,.12), transparent 22%),
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: auto, auto, 46px 46px, 46px 46px;
+      pointer-events: none;
+      opacity: .45;
+    }
+
+    .learn-more .container { position: relative; z-index: 2; }
+
+    .learn-heading,
+    .community-heading,
+    .newsletter-heading { color: var(--ink); }
+
+    .learn-more .section-kicker,
+    .learn-more .section-kicker::before {
+      color: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.22);
+    }
+
+    .learn-more .learn-heading {
+      color: #fff;
+      margin-bottom: 2.8rem;
+    }
+
+    .learn-more .learn-heading em {
+      color: #9fb7ff;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .bento-item {
+      position: relative;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      overflow: hidden;
+      min-height: 250px;
+      border-radius: 24px;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background .3s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+    }
+
+    .bento-item::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(260px circle at var(--mouse-x) var(--mouse-y), rgba(132,163,255,.20), transparent 38%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+    }
+
+    .bento-item:hover::before { opacity: 1; }
+
+    .bento-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.20);
+      border-color: rgba(132,163,255,.24);
+      background: rgba(255,255,255,.06);
+    }
+
+    .bento-content {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bento-tall {
+      grid-column: span 4;
+      grid-row: span 2;
+      min-height: 520px;
+    }
+
+    .bento-wide {
+      grid-column: span 8;
+    }
+
+    .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta) {
+      grid-column: span 4;
+    }
+
+    .bento-cta {
+      grid-column: span 8;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+    }
+
+    .bento-kicker {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 16px;
+    }
+
+    .bento-content h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.1vw, 2.3rem);
+      line-height: 1.05;
+      font-weight: 400;
+      margin-bottom: 12px;
+      letter-spacing: -.03em;
+      color: white;
+    }
+
+    .bento-content p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,.82);
+      max-width: 36ch;
+    }
+
+    .bento-badge,
+    .pill {
+      margin-top: auto;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.04);
+    }
+
+    .user-pill-stack {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .bento-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: white;
+      transition: gap .2s ease;
+    }
+
+    .bento-link:hover { gap: 1rem; }
+
+    .career-editorial {
+      padding: 9rem 0;
+      background: var(--warm-white);
+      border-top: 1px solid rgba(17,17,17,.08);
+    }
+
+    .editorial-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .editorial-header {
+      max-width: 760px;
+      margin-bottom: 72px;
+    }
+
+    .editorial-label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #7a8291;
+      margin-bottom: 22px;
+    }
+
+    .editorial-title {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 1.05;
+      color: #17191e;
+      font-weight: 400;
+      margin-bottom: 22px;
+      letter-spacing: -.03em;
+    }
+
+    .editorial-title em {
+      font-style: italic;
+      color: var(--blue-2);
+      font-weight: 400;
+    }
+
+    .editorial-intro {
+      font-size: 1.05rem;
+      color: #596171;
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    .editorial-spotlight {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: 28px;
+      background: linear-gradient(180deg, #f7f4ee 0%, #efebe3 100%);
+      padding: 38px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .editorial-spotlight::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 20%, rgba(63,99,221,.08), transparent 25%);
+      pointer-events: none;
+    }
+
+    .spotlight-kicker {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #7a8291;
+      margin-bottom: 16px;
+    }
+
+    .spotlight-copy h3 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: .95;
+      font-weight: 400;
+      letter-spacing: -.03em;
+      margin-bottom: 14px;
+    }
+
+    .spotlight-copy p {
+      max-width: 34ch;
+      color: #596171;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .spotlight-lines {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+
+    .spotlight-lines span {
+      display: block;
+      width: 1px;
+      height: 140px;
+      background: linear-gradient(180deg, transparent, #cfc7ba, transparent);
+    }
+
+    .spotlight-lines span:nth-child(2) { height: 190px; }
+    .spotlight-lines span:nth-child(3) { height: 110px; }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(17,17,17,.10);
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .editorial-card {
+      position: relative;
+      background: var(--warm-white);
+      padding: 36px 32px 34px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .35s ease, background-color .35s ease, box-shadow .35s ease;
+      overflow: hidden;
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+    }
+
+    .editorial-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(240px circle at var(--mouse-x) var(--mouse-y), rgba(132,163,255,.12), transparent 34%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+    }
+
+    .editorial-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue-2);
+      transition: width .35s ease;
+    }
+
+    .editorial-card:hover {
+      background: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.05);
+    }
+
+    .editorial-card:hover::before { opacity: 1; }
+    .editorial-card:hover::after { width: 100%; }
+
+    .card-meta {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #7a8291;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-body {
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-body h3 {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      line-height: 1.02;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: #17191e;
+      letter-spacing: -.02em;
+    }
+
+    .card-body p {
+      font-size: 15px;
+      color: #596171;
+      line-height: 1.8;
+      max-width: 30ch;
+    }
+
+    .card-arrow {
+      align-self: flex-end;
+      font-size: 1rem;
+      color: var(--blue-2);
+      opacity: .3;
+      transition: transform .25s ease, opacity .25s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .editorial-card:hover .card-arrow {
+      transform: translate(3px, -3px);
+      opacity: 1;
+    }
+
+    .conviction {
+      padding: 6rem 3.5rem;
+      background: linear-gradient(180deg, #111318 0%, #0d1016 100%);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .conviction-text {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-weight: 400;
+      color: var(--warm-white);
+      line-height: 1.42;
+      letter-spacing: -.015em;
+      max-width: 920px;
+      margin: 0 auto;
+      text-wrap: balance;
+    }
+
+    .conviction-text em {
+      font-style: italic;
+      color: rgba(250,250,248,.72);
+    }
+
+    .community {
+      padding: 7rem 0;
+      background: var(--warm-white);
+    }
+
+    .community-inner {
+      width: min(1100px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .community-cards {
+      display: grid;
+      grid-template-columns: 1.35fr .95fr;
+      grid-template-rows: repeat(3, 1fr);
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .comm-card {
+      padding: 2.5rem;
+      border-right: 1px solid rgba(17,17,17,.10);
+      border-bottom: 1px solid rgba(17,17,17,.10);
+      display: flex;
+      flex-direction: column;
+      gap: .875rem;
+      transition: background .2s;
+      background: var(--warm-white);
+      min-height: 220px;
+    }
+
+    .community-cards > .comm-card:not(.comm-card-featured) { border-right: none; }
+    .community-cards > .comm-card:not(.comm-card-featured):hover { background: var(--soft); }
+
+    .comm-card-tag {
+      font-size: 9.5px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #7a8291;
+    }
+
+    .comm-card-title {
+      font-family: var(--serif);
+      font-size: 1.4375rem;
+      font-weight: 500;
+      color: #17191e;
+      letter-spacing: -.01em;
+    }
+
+    .comm-card-body {
+      font-size: .9375rem;
+      color: #596171;
+      line-height: 1.75;
+      font-weight: 300;
+      flex: 1;
+    }
+
+    .comm-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--blue-2);
+      font-weight: 500;
+      margin-top: .375rem;
+      transition: gap .2s;
+    }
+
+    .comm-card-link:hover { gap: .9rem; }
+
+    .comm-card-featured {
+      grid-row: 1 / span 3;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      border-right: 1px solid rgba(17,17,17,.10);
+    }
+
+    .comm-feature-image {
+      position: absolute;
+      inset: 0;
+    }
+
+    .comm-feature-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.82) brightness(.92);
+    }
+
+    .comm-feature-overlay {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      padding: 2rem 2rem 2.2rem;
+      background: linear-gradient(to top, rgba(17,17,16,.58), rgba(17,17,16,.06));
+      color: var(--warm-white);
+      width: 100%;
+    }
+
+    .comm-card-tag.light { color: rgba(250,250,248,.72); }
+
+    .featured-title {
+      color: var(--warm-white);
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1;
+    }
+
+    .featured-body { color: rgba(250,250,248,.84); }
+    .comm-card-link.light { color: var(--warm-white); }
+
+    .newsletter {
+      padding: 6rem 0;
+      background: var(--soft);
+    }
+
+    .newsletter-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      text-align: center;
+      width: calc(100% - 48px);
+    }
+
+    .newsletter-sub {
+      margin-bottom: 2.5rem;
+      color: #596171;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: .8125rem 1.2rem;
+      border: 1px solid rgba(17,17,17,.10);
+      border-right: none;
+      background: var(--warm-white);
+      font-family: var(--sans);
+      font-size: .9375rem;
+      color: #17191e;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .newsletter-input::placeholder { color: #7a8291; }
+    .newsletter-input:focus { border-color: #17191e; }
+
+    .newsletter-btn {
+      background: #111;
+      color: var(--warm-white);
+      border: none;
+      padding: .8125rem 1.5rem;
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: opacity .2s;
+    }
+
+    .newsletter-btn:hover { opacity: .7; }
+
+    footer {
+      background: #111;
+      padding: 4.5rem 3.5rem 2.5rem;
+      color: var(--warm-white);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand-name {
+      font-family: var(--serif);
+      font-size: 1.625rem;
+      font-weight: 400;
+      color: var(--warm-white);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .footer-brand-sub {
+      font-size: .875rem;
+      color: rgba(250,250,248,.48);
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 300px;
+    }
+
+    .footer-col-label {
+      font-size: 9.5px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(250,250,248,.32);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: rgba(250,250,248,.64);
+      font-size: .9rem;
+      font-weight: 300;
+      margin-bottom: .6rem;
+      transition: color .2s;
+      line-height: 1.55;
+    }
+
+    .footer-col a:hover { color: var(--warm-white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(250,250,248,.1);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: .8125rem;
+      color: rgba(250,250,248,.26);
+      font-weight: 300;
+    }
+
+    .footer-link {
+      font-size: .8125rem;
+      color: rgba(250,250,248,.38);
+      letter-spacing: .08em;
+      transition: color .2s;
+    }
+
+    .footer-link:hover { color: var(--warm-white); }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(34px);
+      filter: blur(8px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.9s ease;
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .reveal-delay-1 { transition-delay: .08s; }
+    .reveal-delay-2 { transition-delay: .18s; }
+    .reveal-delay-3 { transition-delay: .28s; }
+
+    @media (max-width: 1200px) {
+      .hero-heading { font-size: clamp(3.2rem, 5vw, 5.6rem); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 1100px) {
+      .intentions-grid { grid-template-columns: repeat(2, 1fr); }
+      .what-grid,
+      .footer-top,
+      .intentions-header,
+      .what-header,
+      .community-header,
+      .editorial-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-right { padding: 40px; }
+      .hero-real-image { height: 520px; }
+      .bento-grid { grid-template-columns: repeat(6, 1fr); }
+      .bento-tall,
+      .bento-wide,
+      .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta),
+      .bento-cta {
+        grid-column: span 3;
+        grid-row: auto;
+        min-height: 260px;
+      }
+      .editorial-spotlight { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; background-size: 90px 100%, auto; }
+      .hero-left { padding: 6rem 1.5rem 3rem; }
+      .hero-right { padding: 1.5rem; }
+      .hero-real-image { height: 54vw; max-width: 100%; }
+      .line-cycling { min-height: 1.08em; }
+      .cycle-word { white-space: normal; }
+      .about { grid-template-columns: 1fr; }
+      .about-img-wrap { height: 55vw; }
+      .about-content,
+      .intentions,
+      .goals,
+      .what-we-do,
+      .learn-more,
+      .community,
+      .newsletter { padding: 4.5rem 1.5rem; }
+      .career-editorial { padding: 5.5rem 0; }
+      .intentions-header,
+      .what-header,
+      .community-header,
+      .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
+      .intentions-grid,
+      .what-grid,
+      .editorial-grid { grid-template-columns: 1fr; }
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-tall,
+      .bento-wide,
+      .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta),
+      .bento-cta { grid-column: auto; }
+      .community-cards { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .comm-card-featured { grid-row: auto; min-height: 420px; border-right: none; }
+      .comm-card { border-right: none; }
+      .community-cards > .comm-card:not(.comm-card-featured) { border-bottom: 1px solid rgba(17,17,17,.10); }
+      .community-cards > .comm-card:last-child { border-bottom: none; }
+      .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .photo-wrap img { height: 240px; }
+      .photo-wrap:last-child { display: none; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .conviction { padding: 4rem 1.5rem; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-input { border-right: 1px solid rgba(17,17,17,.10); border-bottom: none; }
+    }
+
+    @media (max-width: 700px) {
+      .intention-flip { min-height: 360px; height: 360px; }
+      .intention-face { padding: 22px 22px 20px; }
+      .intention-front h3 { font-size: 1.8rem; margin-top: 20px; }
+      .intention-back h3 { font-size: 1.3rem; }
+      .intention-back p { font-size: 14px; line-height: 1.72; }
+      .editorial-container { padding: 0 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-meta { grid-template-columns: 1fr; gap: .75rem; }
+      .goal-item { grid-template-columns: 50px 1fr 24px; gap: 1rem; }
+      .goal-text { font-size: 1.05rem; }
+      .conviction-text { font-size: 1.45rem; }
+      .featured-title { font-size: 2rem; }
+      .hero-window { font-size: 3.2rem; }
+      .hero-visual { min-height: 520px; }
+    }
+  </style>
 </head>
 <body>
-  <div id="photoCursor"></div>
+  <div class="page-shell">
+    <div class="aurora"></div>
 
-  <nav>
-    <a class="nav-logo" href="#top">
-      <div class="nav-logo-box">
-        <img src="original-logo.png" alt="Free Thinker Institute logo" class="nav-logo-img" />
-        <div class="nav-logo-text">Free Thinker<br>Institute</div>
-      </div>
-    </a>
+    <nav>
+      <div class="nav-inner">
+        <a class="brand" href="#top">
+          <span class="brand-mark"><span>FTI</span></span>
+          <span>Free Thinker Institute</span>
+        </a>
 
-    <div class="nav-links">
-      <a href="#top">Home</a>
-      <a href="#intentions">Six Intentions</a>
-      <a href="#goals">Goals</a>
-      <a href="#what-we-do">What We Do</a>
-      <a href="#learn-more">Participation</a>
-      <a href="#dream-job-training">Dream Job Training</a>
-      <a href="#community">Community</a>
-      <a href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Events</a>
-      <a href="https://www.freethinkerinstitute.org/blog/" target="_blank" rel="noopener">Blog</a>
-      <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="nav-cta">Join Us</a>
-    </div>
-  </nav>
-
-  <section class="hero" id="top">
-    <div class="hero-left">
-      <div class="hero-eyebrow reveal-up">Free Thinker Institute — New York, NY</div>
-
-      <h1 class="hero-heading reveal-up reveal-delay-1">
-        <span class="line">Want to join a</span>
-        <span class="line">warm, compassionate,</span>
-        <span class="line line-cycling" aria-label="Cycling values">
-          <span class="cycle-word active"><span class="blue-word">community</span></span>
-          <span class="cycle-word">space for <span class="blue-word">growth</span></span>
-          <span class="cycle-word">future <span class="blue-word">thinkers</span></span>
-        </span>
-      </h1>
-
-      <p class="hero-sub reveal-up reveal-delay-2">
-        The goal: increase happiness and minimize harm through personal
-        and professional development.
-      </p>
-
-      <div class="hero-meta reveal-up reveal-delay-3">
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Focus</div>
-          <div class="hero-meta-value">Happiness + Harm Reduction</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Based In</div>
-          <div class="hero-meta-value">New York</div>
-        </div>
-        <div class="hero-meta-item">
-          <div class="hero-meta-label">Community</div>
-          <div class="hero-meta-value">Open to All</div>
+        <div class="nav-links">
+          <a href="#top">Home</a>
+          <a href="#intentions">Six Intentions</a>
+          <a href="#goals">Goals</a>
+          <a href="#what-we-do">What We Do</a>
+          <a href="#learn-more">Participation</a>
+          <a href="#dream-job-training">Dream Job Training</a>
+          <a href="#community">Community</a>
+          <a href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Events</a>
+          <a href="https://www.freethinkerinstitute.org/blog/" target="_blank" rel="noopener">Blog</a>
+          <a class="nav-cta" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Join Us</a>
         </div>
       </div>
+    </nav>
 
-      <div class="hero-actions reveal-up reveal-delay-3">
-        <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="btn-primary">Join On Discord</a>
-        <a href="#intentions" class="btn-ghost">Six Intentions</a>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow reveal-up">Living in truth, thinking with reason</div>
+          <h1 class="reveal-up reveal-delay-1">Think <em>free.</em> Build a more meaningful life.</h1>
+          <p class="hero-sub reveal-up reveal-delay-2">
+            A community for people who want stronger thinking, more honest dialogue, and practical paths toward personal and professional growth.
+          </p>
+
+          <div class="hero-actions reveal-up reveal-delay-3">
+            <a class="btn btn-dark" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Join on Discord</a>
+            <a class="btn btn-light" href="#dream-job-training">Explore Pathways</a>
+          </div>
+
+          <div class="hero-meta reveal-up reveal-delay-3">
+            <div>
+              <div class="meta-label">Focus</div>
+              <div class="meta-value">Happiness + Harm Reduction</div>
+            </div>
+            <div>
+              <div class="meta-label">Based In</div>
+              <div class="meta-value">New York</div>
+            </div>
+            <div>
+              <div class="meta-label">Community</div>
+              <div class="meta-value">Open to All</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-up reveal-delay-2">
+          <div class="hero-overlay"></div>
+          <div class="hero-figure">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1600&q=80" alt="Modern collaborative workspace" />
+          </div>
+          <div class="hero-mask">
+            <div class="hero-window">Think<br>Free</div>
+            <p class="hero-note">A more luminous, high-contrast direction inspired by premium product sites — but still grounded, human, and aligned with the Institute’s values.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker">
+        <span class="hi">Critical Thinking</span><span>—</span>
+        <span>Open-Mindedness</span><span>—</span>
+        <span class="hi">Reason &amp; Intuition</span><span>—</span>
+        <span>Truth Seeking</span><span>—</span>
+        <span class="hi">Self-Improvement</span><span>—</span>
+        <span>Minimize Harm</span><span>—</span>
+        <span class="hi">Give &amp; Receive Love</span><span>—</span>
+        <span>Critical Thinking</span><span>—</span>
+        <span class="hi">Open-Mindedness</span><span>—</span>
+        <span>Reason &amp; Intuition</span><span>—</span>
+        <span class="hi">Truth Seeking</span><span>—</span>
+        <span>Self-Improvement</span><span>—</span>
+        <span class="hi">Minimize Harm</span><span>—</span>
+        <span>Give &amp; Receive Love</span><span>—</span>
       </div>
     </div>
 
-    <div class="hero-right reveal-up reveal-delay-2">
-      <img
-        class="hero-real-image"
-        src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1600&q=80"
-        alt="Community gathering in conversation"
-      />
-    </div>
-  </section>
+    <section class="about" id="about">
+      <div class="about-img-wrap">
+        <img class="about-img" src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=1200&q=80&fit=crop" alt="Community discussion" loading="lazy" />
+      </div>
+      <div class="about-content">
+        <div class="section-kicker reveal-up">Who We Are</div>
+        <h2 class="about-heading reveal-up reveal-delay-1">Community =<br><em>Unity + Diversity</em></h2>
+        <div class="about-body">
+          <p class="reveal-up reveal-delay-1">We are building a warm, compassionate, open minded community centered on increasing happiness and minimizing harm.</p>
+          <p class="reveal-up reveal-delay-2">The organization brings people together around personal and professional development, thoughtful discussion, and meaningful connection.</p>
+          <p class="reveal-up reveal-delay-3">Everyone is welcome to join, learn, and help make these goals real.</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker">
-      <span class="hi">Critical Thinking</span><span>—</span>
-      <span>Open-Mindedness</span><span>—</span>
-      <span class="hi">Reason &amp; Intuition</span><span>—</span>
-      <span>Truth Seeking</span><span>—</span>
-      <span class="hi">Self-Improvement</span><span>—</span>
-      <span>Minimize Harm</span><span>—</span>
-      <span class="hi">Give &amp; Receive Love</span><span>—</span>
-      <span>Critical Thinking</span><span>—</span>
-      <span class="hi">Open-Mindedness</span><span>—</span>
-      <span>Reason &amp; Intuition</span><span>—</span>
-      <span class="hi">Truth Seeking</span><span>—</span>
-      <span>Self-Improvement</span><span>—</span>
-      <span class="hi">Minimize Harm</span><span>—</span>
-      <span>Give &amp; Receive Love</span><span>—</span>
+    <section class="intentions" id="intentions">
+      <div class="container">
+        <div class="intentions-header">
+          <div>
+            <div class="section-kicker reveal-up">Six Intentions</div>
+            <h2 class="intentions-heading reveal-up reveal-delay-1">A shared framework for<br><em>living and growing.</em></h2>
+          </div>
+          <p class="intentions-intro reveal-up reveal-delay-2">Six intentions shape how we think, relate, grow, seek truth, minimize harm, and build community together.</p>
+        </div>
+
+        <div class="intentions-grid">
+          <article class="intention-flip reveal-up" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top"><span class="intention-icon">✦</span><span class="intention-number">01</span></div>
+                <h3>Reason, Intuition &amp; Fairness</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+              <div class="intention-face intention-back">
+                <div class="intention-top"><span class="intention-icon">✦</span><span class="intention-number">01</span></div>
+                <h3>Reason, Intuition &amp; Fairness</h3>
+                <p>Always be polite while using reason and intuition to become the best version of yourself, seek truth, and be fair.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up reveal-delay-1" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top"><span class="intention-icon">◌</span><span class="intention-number">02</span></div>
+                <h3>Self-Discovery &amp; Self-Improvement</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+              <div class="intention-face intention-back">
+                <div class="intention-top"><span class="intention-icon">◌</span><span class="intention-number">02</span></div>
+                <h3>Self-Discovery &amp; Self-Improvement</h3>
+                <p>Commit to physical, intellectual, philosophical, emotional, and spiritual growth as a voluntary personal devotion.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up reveal-delay-2" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top"><span class="intention-icon">♡</span><span class="intention-number">03</span></div>
+                <h3>Respect, Transparency &amp; Open-Mindedness</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+              <div class="intention-face intention-back">
+                <div class="intention-top"><span class="intention-icon">♡</span><span class="intention-number">03</span></div>
+                <h3>Respect, Transparency &amp; Open-Mindedness</h3>
+                <p>Treat others with respect, be transparent about who you are, and stay open to new ideas that may improve your understanding.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top"><span class="intention-icon">○</span><span class="intention-number">04</span></div>
+                <h3>Truth &amp; Deep Understanding</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+              <div class="intention-face intention-back">
+                <div class="intention-top"><span class="intention-icon">○</span><span class="intention-number">04</span></div>
+                <h3>Truth &amp; Deep Understanding</h3>
+                <p>Seek objective and subjective truths, listen deeply to others, and have the courage to consider that you may be wrong.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up reveal-delay-1" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top"><span class="intention-icon">✳</span><span class="intention-number">05</span></div>
+                <h3>Commitment to Critical Thinking</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+              <div class="intention-face intention-back">
+                <div class="intention-top"><span class="intention-icon">✳</span><span class="intention-number">05</span></div>
+                <h3>Commitment to Critical Thinking</h3>
+                <p>Gather evidence, evaluate it with logic and reason, distinguish fact from fiction, and question beliefs — including your own.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up reveal-delay-2" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top"><span class="intention-icon">△</span><span class="intention-number">06</span></div>
+                <h3>Minimize Harm, Maximize Flourishing &amp; Love</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+              <div class="intention-face intention-back">
+                <div class="intention-top"><span class="intention-icon">△</span><span class="intention-number">06</span></div>
+                <h3>Minimize Harm, Maximize Flourishing &amp; Love</h3>
+                <p>Minimize significant unnecessary harm, try to maximize flourishing, and be eager to give, receive, and reciprocate love.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="photo-strip" id="photoStrip">
+      <div class="photo-wrap" data-photo>
+        <img src="https://images.unsplash.com/photo-1543269664-7eef42226a21?w=1400&q=80&fit=crop" alt="Community gathering" />
+      </div>
+      <div class="photo-wrap" data-photo>
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80&fit=crop" alt="Hands together" />
+      </div>
+      <div class="photo-wrap" data-photo>
+        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&q=80&fit=crop" alt="People in discussion" />
+      </div>
     </div>
+
+    <section class="goals" id="goals">
+      <div class="goals-inner">
+        <div class="goals-header">
+          <div class="section-kicker reveal-up">Goals</div>
+          <h2 class="goals-heading reveal-up reveal-delay-1">Our organization is<br><em>small but growing quickly.</em></h2>
+          <p class="goals-sub reveal-up reveal-delay-2">We have ambitious and virtuous goals and you can help achieve them.</p>
+        </div>
+
+        <div class="goals-list">
+          <div class="goal-item reveal-up">
+            <div class="goal-num">01</div>
+            <div class="goal-text">Create a warm, compassionate, open minded community with meaningful social life.</div>
+            <div class="goal-arrow">→</div>
+          </div>
+          <div class="goal-item reveal-up reveal-delay-1">
+            <div class="goal-num">02</div>
+            <div class="goal-text">Help people make enough money that money no longer buys happiness.</div>
+            <div class="goal-arrow">→</div>
+          </div>
+          <div class="goal-item reveal-up reveal-delay-2">
+            <div class="goal-num">03</div>
+            <div class="goal-text">Create and spread ideas that maximize happiness and minimize harm.</div>
+            <div class="goal-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="what-we-do" id="what-we-do">
+      <div class="container">
+        <div class="what-header">
+          <div>
+            <div class="section-kicker reveal-up">What We Do</div>
+            <h2 class="what-heading reveal-up reveal-delay-1">Personal and professional<br><em>development.</em></h2>
+          </div>
+          <p class="what-intro reveal-up reveal-delay-2">The community is focused on thoughtful discussion, growth, and helping people move forward in life and work.</p>
+        </div>
+
+        <div class="what-grid">
+          <article class="what-card reveal-up">
+            <span class="what-kicker">Personal Development</span>
+            <h3>Our conversations are about</h3>
+            <p>The six intentions, personal and professional development topics, and anything else of interest to the group.</p>
+            <ul>
+              <li>The six intentions</li>
+              <li>Personal and professional development topics</li>
+              <li>Anything else of interest to the group</li>
+            </ul>
+          </article>
+
+          <article class="what-card reveal-up reveal-delay-1">
+            <span class="what-kicker">Professional Development</span>
+            <h3>We help people</h3>
+            <p>Identify their dream job, build valuable skills, improve at work, and connect with experienced professionals.</p>
+            <ul>
+              <li>Identify what their dream job is</li>
+              <li>Get a valuable skillset in that job</li>
+              <li>Learn to excel in their current job</li>
+              <li>Network with experienced professionals</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="learn-more" id="learn-more">
+      <div class="container">
+        <div class="section-kicker reveal-up">Participation</div>
+        <h2 class="learn-heading reveal-up reveal-delay-1">How it all <em>works.</em></h2>
+
+        <div class="bento-grid">
+          <article class="bento-item bento-tall reveal-up">
+            <div class="bento-content">
+              <span class="bento-kicker">01 / Purpose</span>
+              <h3>Why participate?</h3>
+              <p>Develop professionally, think more clearly, and build a more meaningful life with others.</p>
+              <div class="bento-badge">Growth Focused</div>
+            </div>
+          </article>
+
+          <article class="bento-item bento-wide reveal-up reveal-delay-1">
+            <div class="bento-content">
+              <span class="bento-kicker">02 / People</span>
+              <h3>Who you'll meet</h3>
+              <p>A diverse mix of members, teachers, and leaders committed to thoughtful dialogue and personal growth.</p>
+              <div class="user-pill-stack">
+                <span class="pill">Teachers</span>
+                <span class="pill">Thinkers</span>
+                <span class="pill">Leaders</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-item reveal-up reveal-delay-2">
+            <div class="bento-content">
+              <span class="bento-kicker">03 / Format</span>
+              <h3>Where?</h3>
+              <p>Text, voice, video, or in person — whichever format fits best.</p>
+            </div>
+          </article>
+
+          <article class="bento-item reveal-up reveal-delay-3">
+            <div class="bento-content">
+              <span class="bento-kicker">04 / Timing</span>
+              <h3>When?</h3>
+              <p>Join anytime on Discord and take part in scheduled events.</p>
+            </div>
+          </article>
+
+          <article class="bento-item bento-cta reveal-up">
+            <div class="bento-content">
+              <span class="bento-kicker">05 / Join</span>
+              <h3>Ready to start?</h3>
+              <p>Join the community and start the conversation.</p>
+              <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="bento-link">Join Conversation →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="career-editorial" id="dream-job-training">
+      <div class="editorial-container">
+        <header class="editorial-header reveal-up">
+          <span class="editorial-label">Professional Pathways</span>
+          <h2 class="editorial-title">Build a career with <em>clarity and direction.</em></h2>
+          <p class="editorial-intro">We help people develop practical skills, stronger thinking, and the confidence to move into meaningful work.</p>
+        </header>
+
+        <div class="editorial-spotlight reveal-up reveal-delay-1">
+          <div class="spotlight-copy">
+            <span class="spotlight-kicker">Featured Path</span>
+            <h3>Software Development</h3>
+            <p>Build strong technical foundations and learn how to create digital products through clean, scalable code.</p>
+          </div>
+          <div class="spotlight-lines"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="editorial-card reveal-up expand-card" tabindex="0">
+            <div class="card-meta">01 / Leadership</div>
+            <div class="card-body">
+              <h3>Product Management</h3>
+              <p>Learn how to connect vision, strategy, and execution to guide products from idea to launch.</p>
+            </div>
+            <span class="card-arrow">↗</span>
+            <div class="expand-panel">
+              <div class="expand-inner">
+                <p>Focus areas: product thinking, roadmaps, prioritization, user needs, and team communication.</p>
+                <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="editorial-card reveal-up reveal-delay-1 expand-card" tabindex="0">
+            <div class="card-meta">02 / Experience</div>
+            <div class="card-body">
+              <h3>User Experience</h3>
+              <p>Understand people, design better systems, and create interfaces that feel intuitive and useful.</p>
+            </div>
+            <span class="card-arrow">↗</span>
+            <div class="expand-panel">
+              <div class="expand-inner">
+                <p>Focus areas: research, flows, wireframes, interface design, systems thinking, and usability.</p>
+                <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="editorial-card reveal-up reveal-delay-2 expand-card" tabindex="0">
+            <div class="card-meta">03 / Growth</div>
+            <div class="card-body">
+              <h3>Sales</h3>
+              <p>Develop communication, trust, and strategic thinking to create value through strong relationships.</p>
+            </div>
+            <span class="card-arrow">↗</span>
+            <div class="expand-panel">
+              <div class="expand-inner">
+                <p>Focus areas: communication, discovery, positioning, negotiation, and long-term relationship building.</p>
+                <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="editorial-card reveal-up expand-card" tabindex="0">
+            <div class="card-meta">04 / Precision</div>
+            <div class="card-body">
+              <h3>Manual Quality Assurance</h3>
+              <p>Train your eye for detail and learn how to test products carefully, thoughtfully, and thoroughly.</p>
+            </div>
+            <span class="card-arrow">↗</span>
+            <div class="expand-panel">
+              <div class="expand-inner">
+                <p>Focus areas: test cases, product behavior, careful review, edge cases, and reliability checks.</p>
+                <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="editorial-card reveal-up reveal-delay-1 expand-card" tabindex="0">
+            <div class="card-meta">05 / Systems</div>
+            <div class="card-body">
+              <h3>Automated Quality Assurance</h3>
+              <p>Learn how to build testing systems that improve consistency, reliability, and long-term product quality.</p>
+            </div>
+            <span class="card-arrow">↗</span>
+            <div class="expand-panel">
+              <div class="expand-inner">
+                <p>Focus areas: test automation, scripts, frameworks, repeatability, and software reliability at scale.</p>
+                <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="conviction">
+      <p class="conviction-text reveal-up">We believe reason, openness, and care are not abstract ideals — they are <em>practical tools</em> for building better lives.</p>
+    </section>
+
+    <section class="community" id="community">
+      <div class="community-inner">
+        <div class="community-header">
+          <div>
+            <div class="section-kicker reveal-up">Get Involved</div>
+            <h2 class="community-heading reveal-up reveal-delay-1">Join the<br><em>community.</em></h2>
+          </div>
+          <p class="community-intro reveal-up reveal-delay-2">Meet people committed to reflection, openness, meaningful work, and a more thoughtful way of living together.</p>
+        </div>
+
+        <div class="community-cards">
+          <article class="comm-card comm-card-featured reveal-up">
+            <div class="comm-feature-image">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80" alt="Attend Events" />
+            </div>
+            <div class="comm-feature-overlay">
+              <span class="comm-card-tag light">Featured</span>
+              <h3 class="comm-card-title featured-title">Attend Events</h3>
+              <p class="comm-card-body featured-body">Explore gatherings, discussions, and resources designed to help people connect, reflect, and grow.</p>
+              <a class="comm-card-link light" href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Browse Events</a>
+            </div>
+          </article>
+
+          <article class="comm-card reveal-up reveal-delay-1">
+            <span class="comm-card-tag">Connect</span>
+            <h3 class="comm-card-title">Join Discord</h3>
+            <p class="comm-card-body">Join our Discord community. Everyone is welcome.</p>
+            <a class="comm-card-link" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Open Discord</a>
+          </article>
+
+          <article class="comm-card reveal-up reveal-delay-2">
+            <span class="comm-card-tag">Get Involved</span>
+            <h3 class="comm-card-title">Teach or Learn</h3>
+            <p class="comm-card-body">We’re a growing organization looking for people who want to teach and learn together.</p>
+            <a class="comm-card-link" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Get Involved</a>
+          </article>
+
+          <article class="comm-card reveal-up reveal-delay-3">
+            <span class="comm-card-tag">Updates</span>
+            <h3 class="comm-card-title">Mailing List</h3>
+            <p class="comm-card-body">Join our mailing list for future updates and announcements.</p>
+            <a class="comm-card-link" href="#mailing-list">Subscribe</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="mailing-list">
+      <div class="newsletter-inner">
+        <h2 class="newsletter-heading reveal-up">Join our mailing list</h2>
+        <p class="newsletter-sub reveal-up reveal-delay-1">Get future updates and announcements from the community.</p>
+        <form class="newsletter-form reveal-up reveal-delay-2">
+          <input class="newsletter-input" type="email" placeholder="your@email.com" />
+          <button class="newsletter-btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand reveal-up">
+          <div class="footer-brand-name">Free Thinker Institute</div>
+          <div class="footer-brand-sub">Increase happiness and minimize harm through personal and professional development.</div>
+        </div>
+
+        <div class="footer-col reveal-up reveal-delay-1">
+          <div class="footer-col-label">Where do we meet?</div>
+          <a href="#">Via Zoom regularly</a>
+          <a href="#">In person in NYC/NJ</a>
+          <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Online 24/7 via Discord</a>
+        </div>
+
+        <div class="footer-col reveal-up reveal-delay-2">
+          <div class="footer-col-label">Get in touch</div>
+          <a href="mailto:contact@freethinkerinstitute.org">contact@freethinkerinstitute.org</a>
+          <a href="#">New York, NY 10002</a>
+          <a href="https://www.freethinkerinstitute.org/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        </div>
+
+        <div class="footer-col reveal-up reveal-delay-3">
+          <div class="footer-col-label">Support</div>
+          <a href="https://gofund.me/" target="_blank" rel="noopener">Donate</a>
+          <a href="#mailing-list">Join our mailing list</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom reveal-up">
+        <div class="footer-copy">© Free Thinker Institute</div>
+        <a class="footer-link" href="https://www.freethinkerinstitute.org/" target="_blank" rel="noopener">Visit Official Site</a>
+      </div>
+    </footer>
   </div>
 
-  <section class="about" id="about">
-    <div class="about-img-wrap">
-      <img
-        class="about-img"
-        src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=1200&q=80&fit=crop"
-        alt="Community discussion"
-        loading="lazy"
-      />
-    </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cycleWords = document.querySelectorAll(".cycle-word");
+      let cycleIndex = 0;
+      let cycleInterval = null;
 
-    <div class="about-content">
-      <div class="section-label reveal-up">Who We Are</div>
-      <h2 class="about-heading reveal-up reveal-delay-1">Community =<br><em>Unity + Diversity</em></h2>
+      function startCycle() {
+        if (cycleWords.length <= 1) return;
+        if (cycleInterval) clearInterval(cycleInterval);
 
-      <div class="about-body">
-        <p class="reveal-up reveal-delay-1">
-          We are building a warm, compassionate, open minded community centered on increasing happiness and minimizing harm.
-        </p>
-        <p class="reveal-up reveal-delay-2">
-          The organization brings people together around personal and professional development, thoughtful discussion, and meaningful connection.
-        </p>
-        <p class="reveal-up reveal-delay-3">
-          Everyone is welcome to join, learn, and help make these goals real.
-        </p>
-      </div>
-    </div>
-  </section>
+        cycleInterval = setInterval(() => {
+          const current = cycleWords[cycleIndex];
+          const nextIndex = (cycleIndex + 1) % cycleWords.length;
+          const next = cycleWords[nextIndex];
+          if (!current || !next) return;
+          current.classList.remove("active");
+          next.classList.add("active");
+          cycleIndex = nextIndex;
+        }, 2400);
+      }
 
-  <section class="intentions" id="intentions">
-    <div class="intentions-header">
-      <div>
-        <div class="section-label reveal-up">Six Intentions</div>
-        <h2 class="intentions-heading reveal-up reveal-delay-1">A shared framework for<br><em>living and growing.</em></h2>
-      </div>
-      <p class="intentions-intro reveal-up reveal-delay-2">
-        Six intentions shape how we think, relate, grow, seek truth, minimize harm, and build community together.
-      </p>
-    </div>
+      startCycle();
 
-    <div class="intentions-grid">
-      <article class="intention-flip reveal-up" tabindex="0">
-        <div class="intention-inner">
-          <div class="intention-face intention-front">
-            <div class="intention-top">
-              <span class="intention-icon">✦</span>
-              <span class="intention-number">01</span>
-            </div>
-            <h3>Reason, Intuition &amp; Fairness</h3>
-            <span class="intention-hint">Hover / Tap</span>
-          </div>
-          <div class="intention-face intention-back">
-            <div class="intention-top">
-              <span class="intention-icon">✦</span>
-              <span class="intention-number">01</span>
-            </div>
-            <h3>Reason, Intuition &amp; Fairness</h3>
-            <p>Always be polite while using reason and intuition to become the best version of yourself, seek truth, and be fair.</p>
-          </div>
-        </div>
-      </article>
+      const photoCursor = document.getElementById("photoCursor");
+      const photoWraps = document.querySelectorAll("[data-photo]");
 
-      <article class="intention-flip reveal-up reveal-delay-1" tabindex="0">
-        <div class="intention-inner">
-          <div class="intention-face intention-front">
-            <div class="intention-top">
-              <span class="intention-icon">◌</span>
-              <span class="intention-number">02</span>
-            </div>
-            <h3>Self-Discovery &amp; Self-Improvement</h3>
-            <span class="intention-hint">Hover / Tap</span>
-          </div>
-          <div class="intention-face intention-back">
-            <div class="intention-top">
-              <span class="intention-icon">◌</span>
-              <span class="intention-number">02</span>
-            </div>
-            <h3>Self-Discovery &amp; Self-Improvement</h3>
-            <p>Commit to physical, intellectual, philosophical, emotional, and spiritual growth as a voluntary personal devotion.</p>
-          </div>
-        </div>
-      </article>
+      if (photoCursor && photoWraps.length) {
+        photoWraps.forEach((wrap) => {
+          const img = wrap.querySelector("img");
 
-      <article class="intention-flip reveal-up reveal-delay-2" tabindex="0">
-        <div class="intention-inner">
-          <div class="intention-face intention-front">
-            <div class="intention-top">
-              <span class="intention-icon">♡</span>
-              <span class="intention-number">03</span>
-            </div>
-            <h3>Respect, Transparency &amp; Open-Mindedness</h3>
-            <span class="intention-hint">Hover / Tap</span>
-          </div>
-          <div class="intention-face intention-back">
-            <div class="intention-top">
-              <span class="intention-icon">♡</span>
-              <span class="intention-number">03</span>
-            </div>
-            <h3>Respect, Transparency &amp; Open-Mindedness</h3>
-            <p>Treat others with respect, be transparent about who you are, and stay open to new ideas that may improve your understanding.</p>
-          </div>
-        </div>
-      </article>
+          wrap.addEventListener("mouseenter", () => {
+            photoCursor.style.opacity = "1";
+          });
 
-      <article class="intention-flip reveal-up" tabindex="0">
-        <div class="intention-inner">
-          <div class="intention-face intention-front">
-            <div class="intention-top">
-              <span class="intention-icon">○</span>
-              <span class="intention-number">04</span>
-            </div>
-            <h3>Truth &amp; Deep Understanding</h3>
-            <span class="intention-hint">Hover / Tap</span>
-          </div>
-          <div class="intention-face intention-back">
-            <div class="intention-top">
-              <span class="intention-icon">○</span>
-              <span class="intention-number">04</span>
-            </div>
-            <h3>Truth &amp; Deep Understanding</h3>
-            <p>Seek objective and subjective truths, listen deeply to others, and have the courage to consider that you may be wrong.</p>
-          </div>
-        </div>
-      </article>
+          wrap.addEventListener("mouseleave", () => {
+            photoCursor.style.opacity = "0";
+            if (img) img.style.filter = "saturate(.45) brightness(.65)";
+          });
 
-      <article class="intention-flip reveal-up reveal-delay-1" tabindex="0">
-        <div class="intention-inner">
-          <div class="intention-face intention-front">
-            <div class="intention-top">
-              <span class="intention-icon">✳</span>
-              <span class="intention-number">05</span>
-            </div>
-            <h3>Commitment to Critical Thinking</h3>
-            <span class="intention-hint">Hover / Tap</span>
-          </div>
-          <div class="intention-face intention-back">
-            <div class="intention-top">
-              <span class="intention-icon">✳</span>
-              <span class="intention-number">05</span>
-            </div>
-            <h3>Commitment to Critical Thinking</h3>
-            <p>Gather evidence, evaluate it with logic and reason, distinguish fact from fiction, and question beliefs — including your own.</p>
-          </div>
-        </div>
-      </article>
+          wrap.addEventListener("mousemove", (e) => {
+            photoCursor.style.left = `${e.clientX}px`;
+            photoCursor.style.top = `${e.clientY}px`;
+            if (!img) return;
+            const rect = wrap.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const dx = Math.abs(x - centerX) / centerX;
+            const dy = Math.abs(y - centerY) / centerY;
+            const distance = Math.min(1, Math.sqrt(dx * dx + dy * dy));
+            const brightness = 0.65 + (1 - distance) * 0.35;
+            const saturation = 0.45 + (1 - distance) * 0.35;
+            img.style.filter = `saturate(${saturation}) brightness(${brightness})`;
+          });
+        });
+      }
 
-      <article class="intention-flip reveal-up reveal-delay-2" tabindex="0">
-        <div class="intention-inner">
-          <div class="intention-face intention-front">
-            <div class="intention-top">
-              <span class="intention-icon">△</span>
-              <span class="intention-number">06</span>
-            </div>
-            <h3>Minimize Harm, Maximize Flourishing &amp; Love</h3>
-            <span class="intention-hint">Hover / Tap</span>
-          </div>
-          <div class="intention-face intention-back">
-            <div class="intention-top">
-              <span class="intention-icon">△</span>
-              <span class="intention-number">06</span>
-            </div>
-            <h3>Minimize Harm, Maximize Flourishing &amp; Love</h3>
-            <p>Minimize significant unnecessary harm, try to maximize flourishing, and be eager to give, receive, and reciprocate love.</p>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
+      const newsletterForm = document.querySelector(".newsletter-form");
+      if (newsletterForm) {
+        newsletterForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const input = newsletterForm.querySelector("input");
+          if (input && input.value.trim()) {
+            input.value = "";
+            input.placeholder = "Thanks for signing up";
+          }
+        });
+      }
 
-  <div class="photo-strip" id="photoStrip">
-    <div class="photo-wrap" data-photo>
-      <img src="https://images.unsplash.com/photo-1543269664-7eef42226a21?w=1400&q=80&fit=crop" alt="Community gathering" />
-    </div>
-    <div class="photo-wrap" data-photo>
-      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80&fit=crop" alt="Hands together" />
-    </div>
-    <div class="photo-wrap" data-photo>
-      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&q=80&fit=crop" alt="People in discussion" />
-    </div>
-  </div>
+      const revealItems = document.querySelectorAll(".reveal-up");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+      revealItems.forEach((item) => observer.observe(item));
 
-  <section class="goals" id="goals">
-    <div class="goals-inner">
-      <div class="goals-header">
-        <div class="section-label reveal-up">Goals</div>
-        <h2 class="goals-heading reveal-up reveal-delay-1">Our organization is<br><em>small but growing quickly.</em></h2>
-        <p class="goals-sub reveal-up reveal-delay-2">
-          We have ambitious and virtuous goals and you can help achieve them.
-        </p>
-      </div>
+      const flipCards = document.querySelectorAll(".intention-flip");
+      flipCards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (window.innerWidth <= 900) {
+            e.preventDefault();
+            card.classList.toggle("active");
+          }
+        });
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            card.classList.toggle("active");
+          }
+        });
+      });
 
-      <div class="goals-list">
-        <div class="goal-item reveal-up">
-          <div class="goal-num">01</div>
-          <div class="goal-text">Create a warm, compassionate, open minded community with meaningful social life.</div>
-          <div class="goal-arrow">→</div>
-        </div>
+      const glowCards = document.querySelectorAll(".bento-item, .editorial-card");
+      glowCards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+        });
+      });
 
-        <div class="goal-item reveal-up reveal-delay-1">
-          <div class="goal-num">02</div>
-          <div class="goal-text">Help people make enough money that money no longer buys happiness.</div>
-          <div class="goal-arrow">→</div>
-        </div>
+      const expandCards = document.querySelectorAll(".expand-card");
+      expandCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const wasOpen = card.classList.contains("open");
+          expandCards.forEach((c) => c.classList.remove("open"));
+          if (!wasOpen) card.classList.add("open");
+        });
 
-        <div class="goal-item reveal-up reveal-delay-2">
-          <div class="goal-num">03</div>
-          <div class="goal-text">Create and spread ideas that maximize happiness and minimize harm.</div>
-          <div class="goal-arrow">→</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="what-we-do" id="what-we-do">
-    <div class="what-header">
-      <div>
-        <div class="section-label reveal-up">What We Do</div>
-        <h2 class="what-heading reveal-up reveal-delay-1">Personal and professional<br><em>development.</em></h2>
-      </div>
-      <p class="what-intro reveal-up reveal-delay-2">
-        The community is focused on thoughtful discussion, growth, and helping people move forward in life and work.
-      </p>
-    </div>
-
-    <div class="what-grid">
-      <article class="what-card reveal-up">
-        <span class="what-kicker">Personal Development</span>
-        <h3>Our conversations are about</h3>
-        <p>The six intentions, personal and professional development topics, and anything else of interest to the group.</p>
-        <ul>
-          <li>The six intentions</li>
-          <li>Personal and professional development topics</li>
-          <li>Anything else of interest to the group</li>
-        </ul>
-      </article>
-
-      <article class="what-card reveal-up reveal-delay-1">
-        <span class="what-kicker">Professional Development</span>
-        <h3>We help people</h3>
-        <p>Identify their dream job, build valuable skills, improve at work, and connect with experienced professionals.</p>
-        <ul>
-          <li>Identify what their dream job is</li>
-          <li>Get a valuable skillset in that job</li>
-          <li>Learn to excel in their current job</li>
-          <li>Network with experienced professionals</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="learn-more" id="learn-more">
-    <div class="section-label reveal-up">Participation</div>
-    <h2 class="learn-heading reveal-up reveal-delay-1">How it all <em>works.</em></h2>
-
-    <div class="bento-grid">
-      <article class="bento-item bento-tall reveal-up">
-        <div class="bento-content">
-          <span class="bento-kicker">01 / Purpose</span>
-          <h3>Why participate?</h3>
-          <p>Develop professionally, think more clearly, and build a more meaningful life with others.</p>
-          <div class="bento-badge">Growth Focused</div>
-        </div>
-      </article>
-
-      <article class="bento-item bento-wide reveal-up reveal-delay-1">
-        <div class="bento-content">
-          <span class="bento-kicker">02 / People</span>
-          <h3>Who you'll meet</h3>
-          <p>A diverse mix of members, teachers, and leaders committed to thoughtful dialogue and personal growth.</p>
-          <div class="user-pill-stack">
-            <span class="pill">Teachers</span>
-            <span class="pill">Thinkers</span>
-            <span class="pill">Leaders</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="bento-item reveal-up reveal-delay-2">
-        <div class="bento-content">
-          <span class="bento-kicker">03 / Format</span>
-          <h3>Where?</h3>
-          <p>Text, voice, video, or in person — whichever format fits best.</p>
-        </div>
-      </article>
-
-      <article class="bento-item reveal-up reveal-delay-3">
-        <div class="bento-content">
-          <span class="bento-kicker">04 / Timing</span>
-          <h3>When?</h3>
-          <p>Join anytime on Discord and take part in scheduled events.</p>
-        </div>
-      </article>
-
-      <article class="bento-item bento-cta reveal-up">
-        <div class="bento-content">
-          <span class="bento-kicker">05 / Join</span>
-          <h3>Ready to start?</h3>
-          <p>Join the community and start the conversation.</p>
-          <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="bento-link">Join Conversation →</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="career-editorial" id="dream-job-training">
-    <div class="editorial-container">
-      <header class="editorial-header reveal-up">
-        <span class="editorial-label">Professional Pathways</span>
-        <h2 class="editorial-title">Build a career with <em>clarity and direction.</em></h2>
-        <p class="editorial-intro">We help people develop practical skills, stronger thinking, and the confidence to move into meaningful work.</p>
-      </header>
-
-      <div class="editorial-spotlight reveal-up reveal-delay-1">
-        <div class="spotlight-copy">
-          <span class="spotlight-kicker">Featured Path</span>
-          <h3>Software Development</h3>
-          <p>Build strong technical foundations and learn how to create digital products through clean, scalable code.</p>
-        </div>
-        <div class="spotlight-lines">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-
-      <div class="editorial-grid">
-        <article class="editorial-card reveal-up">
-          <div class="card-meta">01 / Leadership</div>
-          <div class="card-body">
-            <h3>Product Management</h3>
-            <p>Learn how to connect vision, strategy, and execution to guide products from idea to launch.</p>
-          </div>
-          <span class="card-arrow">↗</span>
-        </article>
-
-        <article class="editorial-card reveal-up reveal-delay-1">
-          <div class="card-meta">02 / Experience</div>
-          <div class="card-body">
-            <h3>User Experience</h3>
-            <p>Understand people, design better systems, and create interfaces that feel intuitive and useful.</p>
-          </div>
-          <span class="card-arrow">↗</span>
-        </article>
-
-        <article class="editorial-card reveal-up reveal-delay-2">
-          <div class="card-meta">03 / Growth</div>
-          <div class="card-body">
-            <h3>Sales</h3>
-            <p>Develop communication, trust, and strategic thinking to create value through strong relationships.</p>
-          </div>
-          <span class="card-arrow">↗</span>
-        </article>
-
-        <article class="editorial-card reveal-up">
-          <div class="card-meta">04 / Precision</div>
-          <div class="card-body">
-            <h3>Manual Quality Assurance</h3>
-            <p>Train your eye for detail and learn how to test products carefully, thoughtfully, and thoroughly.</p>
-          </div>
-          <span class="card-arrow">↗</span>
-        </article>
-
-        <article class="editorial-card reveal-up reveal-delay-1">
-          <div class="card-meta">05 / Systems</div>
-          <div class="card-body">
-            <h3>Automated Quality Assurance</h3>
-            <p>Learn how to build testing systems that improve consistency, reliability, and long-term product quality.</p>
-          </div>
-          <span class="card-arrow">↗</span>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="conviction">
-    <p class="conviction-text reveal-up">
-      We believe reason, openness, and care are not abstract ideals —
-      they are <em>practical tools</em> for building better lives.
-    </p>
-  </section>
-
-  <section class="community" id="community">
-    <div class="community-inner">
-      <div class="community-header">
-        <div>
-          <div class="section-label reveal-up">Get Involved</div>
-          <h2 class="community-heading reveal-up reveal-delay-1">Join the<br><em>community.</em></h2>
-        </div>
-        <p class="community-intro reveal-up reveal-delay-2">
-          Meet people committed to reflection, openness, meaningful work, and a more thoughtful way of living together.
-        </p>
-      </div>
-
-      <div class="community-cards">
-        <article class="comm-card comm-card-featured reveal-up">
-          <div class="comm-feature-image">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80" alt="Attend Events" />
-          </div>
-
-          <div class="comm-feature-overlay">
-            <span class="comm-card-tag light">Featured</span>
-            <h3 class="comm-card-title featured-title">Attend Events</h3>
-            <p class="comm-card-body featured-body">
-              Explore gatherings, discussions, and resources designed to help people connect, reflect, and grow.
-            </p>
-            <a class="comm-card-link light" href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">
-              Browse Events
-            </a>
-          </div>
-        </article>
-
-        <article class="comm-card reveal-up reveal-delay-1">
-          <span class="comm-card-tag">Connect</span>
-          <h3 class="comm-card-title">Join Discord</h3>
-          <p class="comm-card-body">
-            Join our Discord community. Everyone is welcome.
-          </p>
-          <a class="comm-card-link" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Open Discord</a>
-        </article>
-
-        <article class="comm-card reveal-up reveal-delay-2">
-          <span class="comm-card-tag">Get Involved</span>
-          <h3 class="comm-card-title">Teach or Learn</h3>
-          <p class="comm-card-body">
-            We’re a growing organization looking for people who want to teach and learn together.
-          </p>
-          <a class="comm-card-link" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Get Involved</a>
-        </article>
-
-        <article class="comm-card reveal-up reveal-delay-3">
-          <span class="comm-card-tag">Updates</span>
-          <h3 class="comm-card-title">Mailing List</h3>
-          <p class="comm-card-body">
-            Join our mailing list for future updates and announcements.
-          </p>
-          <a class="comm-card-link" href="#mailing-list">Subscribe</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="newsletter" id="mailing-list">
-    <div class="newsletter-inner">
-      <h2 class="newsletter-heading reveal-up">Join our mailing list</h2>
-      <p class="newsletter-sub reveal-up reveal-delay-1">
-        Get future updates and announcements from the community.
-      </p>
-
-      <form class="newsletter-form reveal-up reveal-delay-2">
-        <input class="newsletter-input" type="email" placeholder="your@email.com" />
-        <button class="newsletter-btn" type="submit">Submit</button>
-      </form>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand reveal-up">
-        <div class="footer-brand-name">Free Thinker Institute</div>
-        <div class="footer-brand-sub">
-          Increase happiness and minimize harm through personal and professional development.
-        </div>
-      </div>
-
-      <div class="footer-col reveal-up reveal-delay-1">
-        <div class="footer-col-label">Where do we meet?</div>
-        <a href="#">Via Zoom regularly</a>
-        <a href="#">In person in NYC/NJ</a>
-        <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Online 24/7 via Discord</a>
-      </div>
-
-      <div class="footer-col reveal-up reveal-delay-2">
-        <div class="footer-col-label">Get in touch</div>
-        <a href="mailto:contact@freethinkerinstitute.org">contact@freethinkerinstitute.org</a>
-        <a href="#">New York, NY 10002</a>
-        <a href="https://www.freethinkerinstitute.org/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
-      </div>
-
-      <div class="footer-col reveal-up reveal-delay-3">
-        <div class="footer-col-label">Support</div>
-        <a href="https://gofund.me/" target="_blank" rel="noopener">Donate</a>
-        <a href="#mailing-list">Join our mailing list</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom reveal-up">
-      <div class="footer-copy">© Free Thinker Institute</div>
-      <a class="footer-link" href="https://www.freethinkerinstitute.org/" target="_blank" rel="noopener">Visit Official Site</a>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const wasOpen = card.classList.contains("open");
+            expandCards.forEach((c) => c.classList.remove("open"));
+            if (!wasOpen) card.classList.add("open");
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
