@@ -2051,3 +2051,259 @@ footer {
   overflow: hidden;
   white-space: nowrap;
 }
+
+
+/* ===== Premium heading treatment + cinematic hero polish ===== */
+.about-heading .premium-line {
+  display: inline-block;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  background: linear-gradient(90deg, var(--ink) 0%, var(--gold) 24%, var(--cyan) 58%, var(--violet) 84%, var(--ink) 100%);
+  background-size: 240% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 24px rgba(215, 176, 111, 0.08), 0 0 42px rgba(0, 242, 255, 0.06);
+}
+
+.about-heading .premium-line-shimmer {
+  animation: shimmer 7.5s linear infinite;
+  position: relative;
+}
+
+.about-heading .premium-line-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 22%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0.04) 60%, transparent 78%);
+  transform: translateX(-42%);
+  mix-blend-mode: screen;
+  animation: premium-text-sheen 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes premium-text-sheen {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(-42%);
+  }
+  16%, 64% {
+    opacity: 0;
+  }
+  34% {
+    opacity: 0.42;
+    transform: translateX(42%);
+  }
+}
+
+.hero {
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(215, 176, 111, 0.14), transparent 28%),
+    radial-gradient(circle at 68% 34%, rgba(141, 108, 255, 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 32%, transparent 68%, rgba(255,255,255,0.015));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-bg {
+  overflow: hidden;
+}
+
+.hero-ambient,
+.hero-beam,
+.hero-rings,
+.hero-title-glow {
+  pointer-events: none;
+}
+
+.hero-ambient {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(110px);
+  opacity: 0.9;
+  will-change: transform;
+}
+
+.hero-ambient-gold {
+  width: min(44rem, 68vw);
+  height: min(26rem, 42vw);
+  left: -8%;
+  top: 6%;
+  background: radial-gradient(circle at 35% 50%, rgba(215, 176, 111, 0.30), rgba(215, 176, 111, 0.14) 36%, transparent 72%);
+  animation: heroAmbientDrift1 18s ease-in-out infinite alternate;
+}
+
+.hero-ambient-violet {
+  width: min(38rem, 60vw);
+  height: min(24rem, 38vw);
+  right: -8%;
+  top: 2%;
+  background: radial-gradient(circle at 50% 50%, rgba(141, 108, 255, 0.28), rgba(141, 108, 255, 0.10) 38%, transparent 72%);
+  animation: heroAmbientDrift2 22s ease-in-out infinite alternate;
+}
+
+.hero-ambient-cyan {
+  width: min(34rem, 52vw);
+  height: min(20rem, 30vw);
+  right: 12%;
+  bottom: 4%;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.16), rgba(0, 242, 255, 0.08) 34%, transparent 70%);
+  animation: heroAmbientDrift3 20s ease-in-out infinite alternate;
+}
+
+.hero-beam {
+  position: absolute;
+  inset: auto;
+  width: 42vw;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), rgba(255,255,255,0.02), transparent);
+  filter: blur(0.4px);
+  opacity: 0.55;
+}
+
+.hero-beam-1 {
+  top: 18%;
+  left: 6%;
+  transform: rotate(-11deg);
+}
+
+.hero-beam-2 {
+  bottom: 18%;
+  right: 2%;
+  transform: rotate(14deg);
+  opacity: 0.32;
+}
+
+.hero-rings {
+  position: absolute;
+  width: 56rem;
+  height: 56rem;
+  left: 46%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0.24;
+  background:
+    radial-gradient(circle, transparent 47%, rgba(255,255,255,0.04) 47.4%, transparent 48.2%),
+    radial-gradient(circle, transparent 57%, rgba(255,255,255,0.035) 57.4%, transparent 58.1%),
+    radial-gradient(circle, transparent 67%, rgba(255,255,255,0.03) 67.4%, transparent 68.1%);
+  mask-image: radial-gradient(circle at center, black 20%, transparent 78%);
+}
+
+.hero-title-shell {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title-glow {
+  position: absolute;
+  width: min(44rem, 86vw);
+  height: min(22rem, 46vw);
+  left: -6%;
+  top: 8%;
+  background: radial-gradient(circle at 30% 45%, rgba(215, 176, 111, 0.18), transparent 34%), radial-gradient(circle at 68% 44%, rgba(141, 108, 255, 0.14), transparent 38%), radial-gradient(circle at 56% 58%, rgba(0, 242, 255, 0.10), transparent 28%);
+  filter: blur(44px);
+  opacity: 0.95;
+  z-index: -1;
+}
+
+.hero-title {
+  position: relative;
+  z-index: 1;
+  text-wrap: balance;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  position: relative;
+  max-width: 58ch;
+}
+
+.hero-text::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 0.5rem;
+  width: 1px;
+  height: calc(100% - 1rem);
+  background: linear-gradient(180deg, rgba(215,176,111,0), rgba(215,176,111,0.45), rgba(0,242,255,0.18), rgba(0,242,255,0));
+  opacity: 0.8;
+}
+
+.hero-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025) 36%, rgba(255, 255, 255, 0.02) 100%),
+    linear-gradient(180deg, rgba(17, 22, 35, 0.82), rgba(10, 14, 23, 0.92));
+  box-shadow: 0 36px 110px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(28px - 1px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01) 22%, transparent 50%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.hero-pill {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+@keyframes heroAmbientDrift1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(2vw, -1.4vw, 0) scale(1.08); }
+}
+
+@keyframes heroAmbientDrift2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-2.2vw, 1.6vw, 0) scale(1.1); }
+}
+
+@keyframes heroAmbientDrift3 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(1.4vw, -1.2vw, 0) scale(1.06); }
+}
+
+@media (max-width: 900px) {
+  .hero-title-glow {
+    width: 100%;
+    left: -2%;
+    top: 12%;
+    filter: blur(36px);
+    opacity: 0.82;
+  }
+
+  .hero-rings,
+  .hero-beam {
+    display: none;
+  }
+
+  .hero-text::before {
+    left: -10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-heading .premium-line {
+    line-height: 1.08;
+  }
+
+  .hero-text::before {
+    display: none;
+  }
+}
