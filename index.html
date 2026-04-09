@@ -8,35 +8,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;1,200&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg:          #080b12;
-      --panel:       rgba(14,18,28,0.82);
-      --panel-2:     rgba(18,23,36,0.70);
-      --ink:         #f0ece4;
-      --ink-dim:     rgba(240,236,228,0.62);
-      --ink-ghost:   rgba(240,236,228,0.26);
-      --border:      rgba(255,255,255,0.07);
-      --border-hi:   rgba(255,255,255,0.14);
-      --gold:        #d7b06f;
-      --violet:      #8d6cff;
-      --cyan:        #00f2ff;
-      --deep:        #0b0e14;
-      --blue:        #6a9dff;
-      --glow-gold:   rgba(215,176,111,0.22);
-      --glow-violet: rgba(141,108,255,0.22);
-      --glow-cyan:   rgba(0,242,255,0.18);
-      --serif:       "Cormorant Garamond", Georgia, serif;
-      --sans:        "DM Sans", system-ui, sans-serif;
-      --radius:      20px;
+      --bg: #080b12;
+      --panel: rgba(14,18,28,0.82);
+      --panel-2: rgba(18,23,36,0.70);
+      --ink: #f0ece4;
+      --ink-dim: rgba(240,236,228,0.62);
+      --ink-ghost: rgba(240,236,228,0.26);
+      --border: rgba(255,255,255,0.07);
+      --border-hi: rgba(255,255,255,0.14);
+      --gold: #d7b06f;
+      --violet: #8d6cff;
+      --cyan: #00f2ff;
+      --deep: #0b0e14;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "DM Sans", system-ui, sans-serif;
+      --radius: 20px;
       --ease-spring: cubic-bezier(0.4, 0, 0.2, 1);
-      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
-      --max:         1240px;
-      --mx: 0px;
-      --my: 0px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --max: 1240px;
+      --mx: 50%;
+      --my: 50%;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -47,8 +49,15 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
     .noise-filter {
       position: fixed;
@@ -64,7 +73,11 @@
       animation: grain-motion 18s steps(6) infinite;
     }
 
-    .noise-filter svg { width: 100%; height: 100%; display:none; }
+    .noise-filter svg {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
 
     @keyframes grain-motion {
       0%, 100% { transform: translate(0, 0); }
@@ -90,30 +103,38 @@
     }
 
     .blob-1 {
-      width: 70vw; height: 70vw;
+      width: 70vw;
+      height: 70vw;
       background: radial-gradient(circle, rgba(215,176,111,0.28) 0%, transparent 65%);
-      top: -20%; left: -10%;
+      top: -20%;
+      left: -10%;
       animation: blob1 22s ease-in-out infinite alternate;
     }
 
     .blob-2 {
-      width: 55vw; height: 55vw;
+      width: 55vw;
+      height: 55vw;
       background: radial-gradient(circle, rgba(141,108,255,0.26) 0%, transparent 65%);
-      top: 5%; right: -12%;
+      top: 5%;
+      right: -12%;
       animation: blob2 18s ease-in-out infinite alternate;
     }
 
     .blob-3 {
-      width: 45vw; height: 45vw;
+      width: 45vw;
+      height: 45vw;
       background: radial-gradient(circle, rgba(0,242,255,0.16) 0%, transparent 65%);
-      bottom: 10%; left: 20%;
+      bottom: 10%;
+      left: 20%;
       animation: blob3 26s ease-in-out infinite alternate;
     }
 
     .blob-4 {
-      width: 38vw; height: 38vw;
+      width: 38vw;
+      height: 38vw;
       background: radial-gradient(circle, rgba(11,14,20,0.95) 0%, transparent 65%);
-      bottom: -5%; right: 5%;
+      bottom: -5%;
+      right: 5%;
       animation: blob4 20s ease-in-out infinite alternate;
     }
 
@@ -141,6 +162,21 @@
       0%   { transform: translate(0, 0) scale(1); }
       60%  { transform: translate(-6vw, -8vh) scale(1.10); }
       100% { transform: translate(5vw, 3vh) scale(.96); }
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 0% center; }
+      100% { background-position: 280% center; }
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @keyframes floatAurora {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      100% { transform: translate3d(28px,-18px,0) scale(1.08); }
     }
 
     .page-shell {
@@ -186,7 +222,8 @@
     }
 
     .brand-mark {
-      width: 42px; height: 42px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       background: linear-gradient(145deg, rgba(141,108,255,.18), rgba(0,242,255,.12));
       border: 1px solid rgba(141,108,255,.3);
@@ -228,7 +265,10 @@
       text-transform: uppercase;
     }
 
-    .nav-links a { transition: color .2s var(--ease-spring); }
+    .nav-links a {
+      transition: color .2s var(--ease-spring);
+    }
+
     .nav-links a:hover { color: var(--ink); }
 
     .nav-cta {
@@ -239,7 +279,7 @@
       color: var(--cyan) !important;
       position: relative;
       overflow: hidden;
-      transition: border-color .25s var(--ease-spring), box-shadow .25s var(--ease-spring) !important;
+      transition: border-color .25s var(--ease-spring), box-shadow .25s var(--ease-spring);
     }
 
     .nav-cta::before {
@@ -258,40 +298,6 @@
 
     .nav-cta:hover::before { opacity: 1; }
 
-    /* EXISTING HERO BASE */
-    .hero {
-      position: relative;
-      padding: 80px 0 64px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 32px;
-      align-items: stretch;
-    }
-
-    .hero-copy { padding: 16px 0 12px; }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 9.5px;
-      letter-spacing: .26em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      margin-bottom: 24px;
-      opacity: .82;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 24px; height: 1px;
-      background: var(--cyan);
-      opacity: .5;
-    }
-
     .section-kicker {
       display: inline-flex;
       align-items: center;
@@ -305,209 +311,30 @@
 
     .section-kicker::before {
       content: "";
-      width: 22px; height: 1px;
+      width: 22px;
+      height: 1px;
       background: var(--ink-ghost);
     }
 
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(3.6rem, 8vw, 7.2rem);
-      line-height: .88;
-      letter-spacing: -.04em;
-      font-weight: 300;
-      max-width: 10ch;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      background: linear-gradient(
-        90deg,
-        var(--gold) 0%,
-        var(--cyan) 28%,
-        var(--violet) 52%,
-        var(--gold) 76%,
-        var(--cyan) 100%
-      );
-      background-size: 280% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 5s linear infinite;
-    }
-
-    @keyframes shimmer {
-      0%   { background-position: 0% center; }
-      100% { background-position: 280% center; }
-    }
-
-    .kinetic {
-      background: linear-gradient(
-        90deg,
-        #f0ece4 0%,
-        var(--gold) 18%,
-        #f0ece4 32%,
-        var(--cyan) 50%,
-        #f0ece4 66%,
-        var(--violet) 82%,
-        #f0ece4 100%
-      );
+    .kinetic-em {
+      background: linear-gradient(90deg, var(--gold), var(--cyan) 60%, var(--violet));
       background-size: 300% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: shimmer 7s linear infinite;
+      animation: shimmer 6s linear infinite;
     }
 
-    .hero-sub {
-      max-width: 500px;
-      color: var(--ink-dim);
-      font-size: 1rem;
-      line-height: 1.9;
-      font-weight: 300;
-      margin: 28px 0 36px;
-    }
-
-    .hero-actions {
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: 96px 0 64px;
+      min-height: calc(100vh - 72px);
       display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-
-    .btn {
-      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      border-radius: 999px;
-      padding: 13px 24px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-weight: 500;
-      font-family: var(--sans);
-      transition: transform .25s var(--ease-spring), box-shadow .25s var(--ease-spring);
-      cursor: pointer;
-      position: relative;
-      will-change: transform;
-    }
-
-    .btn-dark {
-      background: var(--violet);
-      color: white;
-      box-shadow: 0 0 0 rgba(141,108,255,0);
-    }
-
-    .btn-dark:hover { box-shadow: 0 8px 30px rgba(141,108,255,.35); }
-
-    .btn-light {
-      border: 1px solid var(--border-hi);
-      color: var(--ink-dim);
-      background: transparent;
-    }
-
-    .btn-light:hover {
-      border-color: rgba(0,242,255,.4);
-      color: var(--cyan);
-      box-shadow: 0 0 18px rgba(0,242,255,.10);
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
-      max-width: 700px;
-    }
-
-    .meta-label {
-      font-size: 9.5px;
-      text-transform: uppercase;
-      letter-spacing: .20em;
-      color: var(--ink-ghost);
-      margin-bottom: 4px;
-    }
-
-    .meta-value {
-      font-size: .9rem;
-      font-weight: 400;
-      color: var(--ink);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 600px;
-      border-radius: 28px;
       overflow: hidden;
-      border: 1px solid var(--border-hi);
-      box-shadow: 0 40px 100px rgba(0,0,0,.5);
     }
 
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-      background-size: 52px 52px;
-      opacity: .3;
-      z-index: 1;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 70% 30%, rgba(0,242,255,.20), transparent 22%),
-        radial-gradient(circle at 40% 20%, rgba(141,108,255,.18), transparent 18%),
-        radial-gradient(circle at 60% 75%, rgba(215,176,111,.14), transparent 20%),
-        linear-gradient(160deg, rgba(8,11,18,.7) 0%, rgba(8,11,18,.4) 100%);
-      z-index: 2;
-    }
-
-    .hero-figure {
-      position: absolute;
-      inset: 0;
-    }
-
-    .hero-figure img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      mix-blend-mode: luminosity;
-      opacity: .35;
-      filter: saturate(.4) contrast(1.1);
-    }
-
-    .hero-mask {
-      position: absolute;
-      left: 32px; right: 32px; bottom: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      z-index: 3;
-    }
-
-    .hero-window {
-      font-family: var(--serif);
-      font-size: clamp(3.8rem, 8vw, 7.2rem);
-      line-height: .82;
-      font-weight: 300;
-      letter-spacing: -.05em;
-      text-transform: uppercase;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(240,236,228,.28);
-    }
-
-    .hero-note {
-      max-width: 360px;
-      color: var(--ink-dim);
-      font-size: 13px;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    /* NEW HERO CLASSES */
     .hero-bg {
       position: absolute;
       inset: 0;
@@ -519,7 +346,7 @@
       position: absolute;
       border-radius: 999px;
       filter: blur(90px);
-      opacity: 0.82;
+      opacity: .82;
       animation: floatAurora 14s ease-in-out infinite alternate;
     }
 
@@ -572,6 +399,10 @@
       z-index: 2;
     }
 
+    .hero-copy {
+      padding: 8px 0;
+    }
+
     .hero-kicker {
       display: inline-flex;
       align-items: center;
@@ -615,6 +446,13 @@
       font-size: 1rem;
       line-height: 1.9;
       font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 36px;
     }
 
     .hero-btn {
@@ -682,8 +520,8 @@
       position: absolute;
       width: 240px;
       height: 240px;
-      left: var(--mx, 50%);
-      top: var(--my, 50%);
+      left: var(--mx);
+      top: var(--my);
       transform: translate(-50%, -50%);
       background: radial-gradient(circle, rgba(215,176,111,.20), transparent 70%);
       pointer-events: none;
@@ -756,11 +594,6 @@
       color: rgba(240,236,228,.78);
     }
 
-    @keyframes floatAurora {
-      0% { transform: translate3d(0,0,0) scale(1); }
-      100% { transform: translate3d(28px,-18px,0) scale(1.08); }
-    }
-
     .ticker-wrap {
       background: rgba(8,11,18,.9);
       border-top: 1px solid var(--border);
@@ -772,7 +605,10 @@
       z-index: 2;
     }
 
-    .ticker { display: inline-flex; animation: ticker 32s linear infinite; }
+    .ticker {
+      display: inline-flex;
+      animation: ticker 32s linear infinite;
+    }
 
     .ticker span {
       font-size: 9.5px;
@@ -784,11 +620,6 @@
 
     .ticker span.hi { color: rgba(240,236,228,.7); }
 
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
     .about {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -797,10 +628,14 @@
       z-index: 2;
     }
 
-    .about-img-wrap { overflow: hidden; position: relative; }
+    .about-img-wrap {
+      overflow: hidden;
+      position: relative;
+    }
 
     .about-img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       filter: saturate(.5) contrast(1.1) brightness(.7);
     }
@@ -831,9 +666,11 @@
       margin-bottom: 1.5rem;
     }
 
-    .about-heading em { font-style: italic; }
+    .about-heading em {
+      font-style: italic;
+    }
 
-    .about-heading em, .kinetic-em {
+    .about-heading em {
       background: linear-gradient(90deg, var(--gold), var(--cyan) 60%, var(--violet));
       background-size: 300% auto;
       -webkit-background-clip: text;
@@ -852,14 +689,23 @@
 
     .about-body p + p { margin-top: .875rem; }
 
-    .intentions, .goals, .what-we-do, .learn-more,
-    .career-editorial, .community, .newsletter, .conviction {
+    .intentions,
+    .goals,
+    .what-we-do,
+    .learn-more,
+    .career-editorial,
+    .community,
+    .newsletter,
+    .conviction {
       scroll-margin-top: 100px;
       position: relative;
       z-index: 2;
     }
 
-    .intentions { padding: 7rem 0; background: transparent; }
+    .intentions {
+      padding: 7rem 0;
+      background: transparent;
+    }
 
     .intentions-header {
       display: grid;
@@ -885,116 +731,105 @@
       max-width: 480px;
     }
 
-    .intentions-grid {
+    /* SIX INTENTIONS BENTO */
+    .intentions-bento {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 50px;
     }
 
-    .intention-flip { perspective: 1600px; min-height: 420px; height: 420px; cursor: pointer; }
+    .flip-card {
+      perspective: 1600px;
+      min-height: 260px;
+      cursor: pointer;
+    }
 
-    .intention-inner {
+    .large-card {
+      grid-column: span 6;
+      grid-row: span 2;
+      min-height: 540px;
+    }
+
+    .medium-card {
+      grid-column: span 3;
+      min-height: 260px;
+    }
+
+    .small-card {
+      grid-column: span 3;
+      min-height: 220px;
+    }
+
+    .wide-card {
+      grid-column: span 6;
+      min-height: 220px;
+    }
+
+    .flip-inner {
       position: relative;
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
       transform-style: preserve-3d;
       transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .intention-flip:hover .intention-inner,
-    .intention-flip.active .intention-inner,
-    .intention-flip:focus-within .intention-inner { transform: rotateY(180deg); }
+    .flip-card:hover .flip-inner,
+    .flip-card.active .flip-inner {
+      transform: rotateY(180deg);
+    }
 
-    .intention-face {
+    .flip-front,
+    .flip-back {
       position: absolute;
       inset: 0;
-      width: 100%; height: 100%;
-      padding: 28px;
+      border-radius: 24px;
+      padding: 30px;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(20,24,35,0.55);
+      backdrop-filter: blur(26px) saturate(180%);
+      -webkit-backdrop-filter: blur(26px) saturate(180%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.25);
       display: flex;
       flex-direction: column;
-      overflow: hidden;
-      backdrop-filter: blur(24px) saturate(1.55);
-      -webkit-backdrop-filter: blur(24px) saturate(1.55);
-      box-shadow: 0 16px 40px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.04);
     }
 
-    .intention-front {
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)), rgba(10,14,24,.88);
-    }
-
-    .intention-back {
-      background: radial-gradient(circle at top right, rgba(0,242,255,.08), transparent 36%), radial-gradient(circle at top left, rgba(141,108,255,.10), transparent 28%), rgba(16,20,32,.94);
+    .flip-back {
       transform: rotateY(180deg);
-      justify-content: space-between;
-      border-color: rgba(141,108,255,.24);
+      justify-content: center;
     }
 
-    .intention-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      min-height: 24px;
-    }
-
-    .intention-icon { font-size: 18px; color: var(--cyan); opacity: .82; }
-    .intention-back .intention-icon { color: #a88cff; opacity: .9; }
-
-    .intention-number {
-      font-size: 9.5px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.52);
-    }
-
-    .intention-front h3 {
+    .flip-front h3,
+    .flip-back h3 {
       font-family: var(--serif);
-      font-size: clamp(1.95rem, 2.2vw, 2.8rem);
-      line-height: .95;
+      font-size: 2rem;
+      line-height: 1;
       font-weight: 300;
-      color: var(--ink);
-      max-width: 11ch;
+    }
+
+    .flip-back p {
       margin-top: 18px;
-      letter-spacing: -.03em;
+      color: var(--ink-dim);
+      line-height: 1.8;
     }
 
-    .intention-back h3 {
-      font-family: var(--serif);
-      font-size: 1.42rem;
-      line-height: 1.04;
-      font-weight: 300;
-      color: var(--ink);
-      max-width: 12ch;
-      margin-bottom: 12px;
+    .card-number {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--cyan);
+      margin-bottom: 18px;
     }
 
-    .intention-back p {
-      font-size: 14px;
-      line-height: 1.72;
-      color: rgba(240,236,228,.88);
-      font-weight: 300;
-      max-width: none;
-    }
-
-    .intent-application {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(240,236,228,.92);
-    }
-
-    .intent-application strong { color: var(--cyan); font-weight: 500; }
-
-    .intention-hint {
-      margin-top: auto;
-      padding-top: 16px;
-      font-size: 9.5px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.5);
+    .card-hint {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      font-size: 10px;
+      color: var(--ink-ghost);
     }
 
     .photo-strip {
@@ -1007,10 +842,14 @@
       z-index: 2;
     }
 
-    .photo-wrap { position: relative; overflow: hidden; }
+    .photo-wrap {
+      position: relative;
+      overflow: hidden;
+    }
 
     .photo-wrap img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       filter: saturate(.35) brightness(.55);
       transition: filter .12s linear;
@@ -1022,9 +861,14 @@
       border-top: 1px solid var(--border);
     }
 
-    .goals-inner { width: min(1100px, calc(100% - 48px)); margin: 0 auto; }
+    .goals-inner {
+      width: min(1100px, calc(100% - 48px));
+      margin: 0 auto;
+    }
 
-    .goals-header { margin-bottom: 4rem; }
+    .goals-header {
+      margin-bottom: 4rem;
+    }
 
     .goals-heading {
       font-family: var(--serif);
@@ -1041,7 +885,10 @@
       font-weight: 300;
     }
 
-    .goals-list { display: flex; flex-direction: column; }
+    .goals-list {
+      display: flex;
+      flex-direction: column;
+    }
 
     .goal-item {
       display: grid;
@@ -1055,7 +902,11 @@
 
     .goal-item:first-child { border-top: 1px solid var(--border); }
 
-    .goal-item:hover .goal-arrow { opacity: 1; transform: translateX(5px); }
+    .goal-item:hover .goal-arrow {
+      opacity: 1;
+      transform: translateX(5px);
+    }
+
     .goal-item:hover .goal-num { color: var(--cyan); }
 
     .goal-num {
@@ -1112,7 +963,11 @@
       line-height: 1.85;
     }
 
-    .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
 
     .what-card {
       padding: 34px 30px;
@@ -1156,7 +1011,12 @@
       font-weight: 300;
     }
 
-    .what-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .what-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
     .what-card ul li {
       font-size: 14px;
@@ -1166,7 +1026,13 @@
       padding-left: 18px;
     }
 
-    .what-card ul li::before { content: "—"; position: absolute; left: 0; color: var(--cyan); opacity: .5; }
+    .what-card ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+      opacity: .5;
+    }
 
     .learn-more {
       padding: 7rem 0;
@@ -1175,7 +1041,9 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .learn-heading, .community-heading, .newsletter-heading {
+    .learn-heading,
+    .community-heading,
+    .newsletter-heading {
       font-family: var(--serif);
       font-size: clamp(2.4rem, 4vw, 4.2rem);
       font-weight: 300;
@@ -1229,7 +1097,9 @@
     }
 
     .bento-item:hover::before,
-    .editorial-card:hover::before { opacity: 1; }
+    .editorial-card:hover::before {
+      opacity: 1;
+    }
 
     .bento-item:hover {
       transform: translateY(-3px);
@@ -1259,9 +1129,18 @@
 
     .bento-item::after { z-index: 1; }
 
-    .bento-tall { grid-column: span 4; grid-row: span 2; min-height: 500px; }
+    .bento-tall {
+      grid-column: span 4;
+      grid-row: span 2;
+      min-height: 500px;
+    }
+
     .bento-wide { grid-column: span 8; }
-    .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta) { grid-column: span 4; }
+
+    .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta) {
+      grid-column: span 4;
+    }
+
     .bento-cta { grid-column: span 8; }
 
     .bento-kicker {
@@ -1291,7 +1170,8 @@
       max-width: 34ch;
     }
 
-    .bento-badge, .pill {
+    .bento-badge,
+    .pill {
       margin-top: auto;
       width: fit-content;
       padding: 7px 12px;
@@ -1304,7 +1184,12 @@
       background: rgba(255,255,255,.03);
     }
 
-    .user-pill-stack { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
+    .user-pill-stack {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
     .bento-link {
       margin-top: auto;
@@ -1325,9 +1210,16 @@
       background: transparent;
     }
 
-    .editorial-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .editorial-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-    .editorial-header { max-width: 760px; margin-bottom: 64px; }
+    .editorial-header {
+      max-width: 760px;
+      margin-bottom: 64px;
+    }
 
     .editorial-label {
       display: block;
@@ -1466,21 +1358,6 @@
     .editorial-card:nth-child(1) { grid-column: span 8; }
     .editorial-card:nth-child(5) { grid-column: span 8; }
 
-    .editorial-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      padding: 1px;
-      background: conic-gradient(from calc(var(--laser-angle, 0deg) - 60deg), transparent 0%, var(--cyan) 8%, var(--violet) 14%, transparent 22%, transparent 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity .3s var(--ease-spring);
-      pointer-events: none;
-    }
-
     .editorial-card:hover::before,
     .editorial-card.open::before { opacity: 1; }
 
@@ -1493,7 +1370,8 @@
 
     .editorial-card .laser-line {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       height: 1px;
       width: 0;
       background: linear-gradient(90deg, var(--gold), var(--cyan));
@@ -1553,7 +1431,9 @@
     }
 
     .editorial-card:hover .card-arrow,
-    .editorial-card.open .card-arrow { transform: translate(3px, -3px); }
+    .editorial-card.open .card-arrow {
+      transform: translate(3px, -3px);
+    }
 
     .expand-panel {
       max-height: 0;
@@ -1563,7 +1443,10 @@
     }
 
     .editorial-card.open .expand-panel,
-    .editorial-card:hover .expand-panel { max-height: 190px; opacity: 1; }
+    .editorial-card:hover .expand-panel {
+      max-height: 190px;
+      opacity: 1;
+    }
 
     .expand-inner {
       padding-top: 18px;
@@ -1583,7 +1466,10 @@
       transition: opacity .2s, transform .2s;
     }
 
-    .expand-inner a:hover { opacity: .8; transform: translateX(2px); }
+    .expand-inner a:hover {
+      opacity: .8;
+      transform: translateX(2px);
+    }
 
     .pathfinder-shell {
       margin-top: 20px;
@@ -1697,6 +1583,46 @@
       padding-top: 8px;
     }
 
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 13px 24px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-weight: 500;
+      font-family: var(--sans);
+      transition: transform .25s var(--ease-spring), box-shadow .25s var(--ease-spring);
+      cursor: pointer;
+      position: relative;
+      will-change: transform;
+      border: none;
+    }
+
+    .btn-dark {
+      background: var(--violet);
+      color: white;
+      box-shadow: 0 0 0 rgba(141,108,255,0);
+    }
+
+    .btn-dark:hover {
+      box-shadow: 0 8px 30px rgba(141,108,255,.35);
+    }
+
+    .btn-light {
+      border: 1px solid var(--border-hi);
+      color: var(--ink-dim);
+      background: transparent;
+    }
+
+    .btn-light:hover {
+      border-color: rgba(0,242,255,.4);
+      color: var(--cyan);
+      box-shadow: 0 0 18px rgba(0,242,255,.10);
+    }
+
     .quiz-result {
       margin-top: 22px;
       border: 1px solid rgba(0,242,255,.18);
@@ -1764,8 +1690,15 @@
       color: var(--ink-dim);
     }
 
-    .community { padding: 7rem 0; background: transparent; }
-    .community-inner { width: min(1100px, calc(100% - 48px)); margin: 0 auto; }
+    .community {
+      padding: 7rem 0;
+      background: transparent;
+    }
+
+    .community-inner {
+      width: min(1100px, calc(100% - 48px));
+      margin: 0 auto;
+    }
 
     .community-header {
       display: grid;
@@ -1813,7 +1746,9 @@
       transition: background .25s var(--ease-spring);
     }
 
-    .community-cards > .comm-card:not(.comm-card-featured) { border-right: none; }
+    .community-cards > .comm-card:not(.comm-card-featured) {
+      border-right: none;
+    }
 
     .community-cards > .comm-card:not(.comm-card-featured):hover {
       background: rgba(20,26,40,0.75);
@@ -1866,10 +1801,14 @@
       border-right: 1px solid var(--border);
     }
 
-    .comm-feature-image { position: absolute; inset: 0; }
+    .comm-feature-image {
+      position: absolute;
+      inset: 0;
+    }
 
     .comm-feature-image img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       filter: saturate(.7) brightness(.7);
     }
@@ -1910,7 +1849,10 @@
       width: calc(100% - 48px);
     }
 
-    .newsletter-heading { color: var(--ink); margin-bottom: 1rem; }
+    .newsletter-heading {
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
 
     .newsletter-sub {
       margin-bottom: 2.25rem;
@@ -1920,7 +1862,11 @@
       line-height: 1.85;
     }
 
-    .newsletter-form { display: flex; max-width: 400px; margin: 0 auto; }
+    .newsletter-form {
+      display: flex;
+      max-width: 400px;
+      margin: 0 auto;
+    }
 
     .newsletter-input {
       flex: 1;
@@ -1954,7 +1900,10 @@
       transition: opacity .2s, box-shadow .2s;
     }
 
-    .newsletter-btn:hover { opacity: .85; box-shadow: 0 0 20px rgba(141,108,255,.3); }
+    .newsletter-btn:hover {
+      opacity: .85;
+      box-shadow: 0 0 20px rgba(141,108,255,.3);
+    }
 
     footer {
       background: var(--deep);
@@ -2040,168 +1989,141 @@
       will-change: opacity, transform;
     }
 
-    .reveal-up.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+    .reveal-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
     .reveal-delay-1 { transition-delay: .08s; }
     .reveal-delay-2 { transition-delay: .17s; }
     .reveal-delay-3 { transition-delay: .26s; }
 
     @media (max-width: 1100px) {
-      .intentions-grid, .what-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-visual { min-height: 480px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
-      .bento-grid { grid-template-columns: repeat(6, 1fr); }
-      .bento-tall, .bento-wide,
+      .hero-inner,
+      .what-header,
+      .intentions-header,
+      .community-header,
+      .editorial-spotlight,
+      .pathfinder-quiz,
+      .about,
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner { gap: 32px; }
+
+      .bento-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .bento-tall,
+      .bento-wide,
       .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta),
-      .bento-cta { grid-column: span 3; grid-row: auto; min-height: 240px; }
-      .editorial-spotlight, .pathfinder-quiz { grid-template-columns: 1fr; }
+      .bento-cta {
+        grid-column: span 3;
+        grid-row: auto;
+        min-height: 240px;
+      }
     }
 
     @media (max-width: 900px) {
-      .about { grid-template-columns: 1fr; }
       .about-img-wrap { height: 55vw; }
       .about-content { padding: 4rem 2.5rem; }
-      .intentions-header, .what-header, .community-header,
-      .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
-      .intentions-grid, .what-grid, .editorial-grid { grid-template-columns: 1fr; }
-      .bento-grid { grid-template-columns: 1fr; }
-      .bento-tall, .bento-wide,
+
+      .what-grid,
+      .editorial-grid,
+      .intentions-grid,
+      .bento-grid,
+      .community-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-tall,
+      .bento-wide,
       .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta),
-      .bento-cta { grid-column: auto; }
-      .community-cards { grid-template-columns: 1fr; grid-template-rows: auto; }
-      .comm-card-featured { grid-row: auto; min-height: 400px; border-right: none; }
+      .bento-cta {
+        grid-column: auto;
+      }
+
+      .comm-card-featured {
+        grid-row: auto;
+        min-height: 400px;
+        border-right: none;
+      }
+
       .comm-card { border-right: none; }
-      .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+
+      .photo-strip {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+      }
+
       .photo-wrap img { height: 220px; }
       .photo-wrap:last-child { display: none; }
-      footer { padding: 3rem 1.5rem 2rem; }
+
       .conviction { padding: 4rem 1.5rem; }
+      footer { padding: 3rem 1.5rem 2rem; }
+
       .newsletter-form { flex-direction: column; }
-      .newsletter-input { border-right: 1px solid var(--border-hi); border-bottom: none; }
+      .newsletter-input {
+        border-right: 1px solid var(--border-hi);
+        border-bottom: none;
+      }
+
       .pathfinder-shell { padding: 24px; }
       .quiz-actions, .quiz-cta-group { flex-direction: column; }
-      .quiz-actions .btn, .quiz-cta-group .btn { width: 100%; justify-content: center; }
+      .quiz-actions .btn, .quiz-cta-group .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
       .nav-links a:not(.nav-cta) { display: none; }
-      .hero { padding: 72px 0 56px; }
+
+      .hero {
+        padding: 72px 0 56px;
+      }
+
+      .intentions-bento {
+        grid-template-columns: 1fr;
+      }
+
+      .large-card,
+      .medium-card,
+      .small-card,
+      .wide-card {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 260px;
+      }
     }
 
     @media (max-width: 600px) {
-      .hero-meta { grid-template-columns: 1fr; }
-      .goal-item { grid-template-columns: 50px 1fr 24px; gap: 1rem; }
-      .hero-title { font-size: clamp(3rem, 14vw, 4.8rem); }
-      .hero-card { padding: 24px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-btn { width: 100%; }
+      .hero-title {
+        font-size: clamp(3rem, 14vw, 4.8rem);
+      }
+
+      .hero-card {
+        padding: 24px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-btn {
+        width: 100%;
+      }
+
+      .goal-item {
+        grid-template-columns: 50px 1fr 24px;
+        gap: 1rem;
+      }
     }
-
-    @media (max-width: 760px) {
-      .editorial-grid, .intentions-grid { grid-template-columns: 1fr; }
-      .editorial-card, .editorial-card:nth-child(1), .editorial-card:nth-child(5) { min-height: 300px; grid-column: auto; }
-      .intention-flip { min-height: 380px; height: 380px; }
-    }
-    /* your existing CSS above */
-
-
-/* ===== NEW SIX INTENTIONS BENTO ===== */
-.intentions-bento {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
-  margin-top: 50px;
-}
-
-.flip-card {
-  perspective: 1600px;
-  min-height: 260px;
-}
-
-.large-card {
-  grid-column: span 6;
-  grid-row: span 2;
-  min-height: 540px;
-}
-
-.medium-card {
-  grid-column: span 3;
-  min-height: 260px;
-}
-
-.small-card {
-  grid-column: span 3;
-  min-height: 220px;
-}
-
-.wide-card {
-  grid-column: span 6;
-  min-height: 220px;
-}
-
-.flip-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: inherit;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front,
-.flip-back {
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  padding: 30px;
-  backface-visibility: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(20,24,35,0.55);
-  backdrop-filter: blur(26px) saturate(180%);
-  -webkit-backdrop-filter: blur(26px) saturate(180%);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.06),
-    0 20px 60px rgba(0,0,0,0.25);
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-}
-
-.flip-front h3,
-.flip-back h3 {
-  font-family: var(--serif);
-  font-size: 2rem;
-  line-height: 1;
-  font-weight: 300;
-}
-
-.flip-back p {
-  margin-top: 18px;
-  color: var(--ink-dim);
-  line-height: 1.8;
-}
-
-.card-number {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--cyan);
-  margin-bottom: 18px;
-}
-
-.card-hint {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  font-size: 10px;
-  color: var(--ink-ghost);
-}
   </style>
 </head>
 <body>
-
   <div class="noise-filter" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
       <filter id="grain">
@@ -2220,13 +2142,13 @@
   </div>
 
   <div class="page-shell">
-
     <nav>
       <div class="nav-inner">
         <a class="brand" href="#top">
           <span class="brand-mark"><img src="original-logo.png" alt="Free Thinker Institute logo"></span>
           <span>Free Thinker Institute</span>
         </a>
+
         <div class="nav-links">
           <a href="#top">Home</a>
           <a href="#intentions">Six Intentions</a>
@@ -2268,7 +2190,7 @@
 
           <div class="hero-actions">
             <a href="#dream-job-training" class="hero-btn hero-btn-primary">Explore Paths</a>
-            <a href="#dream-job-training" class="hero-btn hero-btn-secondary">Take the Quiz</a>
+            <a href="#pathfinderQuiz" class="hero-btn hero-btn-secondary">Take the Quiz</a>
           </div>
         </div>
 
@@ -2332,104 +2254,103 @@
       </div>
     </section>
 
-  <section class="intentions" id="intentions">
-  <div class="container">
-    <div class="intentions-header">
-      <div>
-        <div class="section-kicker">Six Intentions</div>
-        <h2 class="intentions-heading">
-          A shared framework for
-          <em class="kinetic-em">living and growing.</em>
-        </h2>
+    <section class="intentions" id="intentions">
+      <div class="container">
+        <div class="intentions-header">
+          <div>
+            <div class="section-kicker">Six Intentions</div>
+            <h2 class="intentions-heading">
+              A shared framework for
+              <em class="kinetic-em">living and growing.</em>
+            </h2>
+          </div>
+          <p class="intentions-intro">
+            Six intentions shape how we think, grow, relate, and build meaningful lives.
+          </p>
+        </div>
+
+        <div class="intentions-bento">
+          <article class="flip-card large-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="card-number">01</span>
+                <h3>Reason &amp; Critical Thinking</h3>
+                <span class="card-hint">Hover</span>
+              </div>
+              <div class="flip-back">
+                <h3>Reason &amp; Critical Thinking</h3>
+                <p>Learn how to question assumptions, think clearly, and make better decisions.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card medium-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="card-number">02</span>
+                <h3>Self Discovery</h3>
+              </div>
+              <div class="flip-back">
+                <h3>Self Discovery</h3>
+                <p>Understand how you think, what drives you, and where to grow.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card medium-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="card-number">03</span>
+                <h3>Truth Seeking</h3>
+              </div>
+              <div class="flip-back">
+                <h3>Truth Seeking</h3>
+                <p>Move beyond surface opinions and build deep understanding.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card small-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="card-number">04</span>
+                <h3>Open Mindedness</h3>
+              </div>
+              <div class="flip-back">
+                <h3>Open Mindedness</h3>
+                <p>Stay flexible, curious, and willing to rethink.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card small-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="card-number">05</span>
+                <h3>Compassion</h3>
+              </div>
+              <div class="flip-back">
+                <h3>Compassion</h3>
+                <p>Build relationships rooted in care and understanding.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flip-card wide-card">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="card-number">06</span>
+                <h3>Human Flourishing</h3>
+              </div>
+              <div class="flip-back">
+                <h3>Human Flourishing</h3>
+                <p>Create a life that supports wellbeing, meaning, and growth.</p>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-      <p class="intentions-intro">
-        Six intentions shape how we think, grow, relate, and build meaningful lives.
-      </p>
-    </div>
-
-    <div class="intentions-bento">
-
-      <article class="flip-card large-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">01</span>
-            <h3>Reason & Critical Thinking</h3>
-            <span class="card-hint">Hover</span>
-          </div>
-          <div class="flip-back">
-            <h3>Reason & Critical Thinking</h3>
-            <p>
-              Learn how to question assumptions, think clearly, and make better decisions.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card medium-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">02</span>
-            <h3>Self Discovery</h3>
-          </div>
-          <div class="flip-back">
-            <p>Understand how you think, what drives you, and where to grow.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card medium-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">03</span>
-            <h3>Truth Seeking</h3>
-          </div>
-          <div class="flip-back">
-            <p>Move beyond surface opinions and build deep understanding.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card small-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">04</span>
-            <h3>Open Mindedness</h3>
-          </div>
-          <div class="flip-back">
-            <p>Stay flexible, curious, and willing to rethink.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card small-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">05</span>
-            <h3>Compassion</h3>
-          </div>
-          <div class="flip-back">
-            <p>Build relationships rooted in care and understanding.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card wide-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">06</span>
-            <h3>Human Flourishing</h3>
-          </div>
-          <div class="flip-back">
-            <p>
-              Create a life that supports wellbeing, meaning, and growth.
-            </p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
+    </section>
 
     <div class="photo-strip" id="photoStrip">
       <div class="photo-wrap" data-photo>
@@ -2450,6 +2371,7 @@
           <h2 class="goals-heading reveal-up reveal-delay-1">Our organization is<br><em class="kinetic-em">small but growing quickly.</em></h2>
           <p class="goals-sub reveal-up reveal-delay-2">We have ambitious and virtuous goals and you can help achieve them.</p>
         </div>
+
         <div class="goals-list">
           <div class="goal-item reveal-up">
             <div class="goal-num">01</div>
@@ -2479,6 +2401,7 @@
           </div>
           <p class="what-intro reveal-up reveal-delay-2">The community is focused on thoughtful discussion, growth, and helping people move forward in life and work.</p>
         </div>
+
         <div class="what-grid">
           <article class="what-card reveal-up">
             <span class="what-kicker">Personal Development</span>
@@ -2490,6 +2413,7 @@
               <li>Anything else of interest to the group</li>
             </ul>
           </article>
+
           <article class="what-card reveal-up reveal-delay-1">
             <span class="what-kicker">Professional Development</span>
             <h3>We help people</h3>
@@ -2509,6 +2433,7 @@
       <div class="container">
         <div class="section-kicker reveal-up">Participation</div>
         <h2 class="learn-heading reveal-up reveal-delay-1">How it all <em class="kinetic-em">works.</em></h2>
+
         <div class="bento-grid">
           <article class="bento-item bento-tall reveal-up laser-card">
             <div class="bento-content">
@@ -2518,6 +2443,7 @@
               <div class="bento-badge">Growth Focused</div>
             </div>
           </article>
+
           <article class="bento-item bento-wide reveal-up reveal-delay-1 laser-card">
             <div class="bento-content">
               <span class="bento-kicker">02 / People</span>
@@ -2530,6 +2456,7 @@
               </div>
             </div>
           </article>
+
           <article class="bento-item reveal-up reveal-delay-2 laser-card">
             <div class="bento-content">
               <span class="bento-kicker">03 / Format</span>
@@ -2537,6 +2464,7 @@
               <p>Text, voice, video, or in person — whichever format fits best.</p>
             </div>
           </article>
+
           <article class="bento-item reveal-up reveal-delay-3 laser-card">
             <div class="bento-content">
               <span class="bento-kicker">04 / Timing</span>
@@ -2544,6 +2472,7 @@
               <p>Join anytime on Discord and take part in scheduled events.</p>
             </div>
           </article>
+
           <article class="bento-item bento-cta reveal-up laser-card">
             <div class="bento-content">
               <span class="bento-kicker">05 / Join</span>
@@ -2603,436 +2532,4 @@
                 <p>Focus areas: research, flows, wireframes, interface design, systems thinking, and usability.</p>
                 <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
               </div>
-            </div>
-          </article>
-
-          <article class="editorial-card reveal-up reveal-delay-2 expand-card" tabindex="0">
-            <div class="laser-line"></div>
-            <div class="card-meta">03 / Growth</div>
-            <div class="card-body">
-              <h3>Sales</h3>
-              <p>Develop communication, trust, and strategic thinking to create value through strong relationships.</p>
-            </div>
-            <span class="card-arrow">↗</span>
-            <div class="expand-panel">
-              <div class="expand-inner">
-                <p>Focus areas: communication, discovery, positioning, negotiation, and long-term relationship building.</p>
-                <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="editorial-card reveal-up expand-card" tabindex="0">
-            <div class="laser-line"></div>
-            <div class="card-meta">04 / Precision</div>
-            <div class="card-body">
-              <h3>Manual Quality Assurance</h3>
-              <p>Train your eye for detail and learn how to test products carefully, thoughtfully, and thoroughly.</p>
-            </div>
-            <span class="card-arrow">↗</span>
-            <div class="expand-panel">
-              <div class="expand-inner">
-                <p>Focus areas: test cases, product behavior, careful review, edge cases, and reliability checks.</p>
-                <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="editorial-card reveal-up reveal-delay-1 expand-card" tabindex="0">
-            <div class="laser-line"></div>
-            <div class="card-meta">05 / Systems</div>
-            <div class="card-body">
-              <h3>Automated Quality Assurance</h3>
-              <p>Learn how to build testing systems that improve consistency, reliability, and long-term product quality.</p>
-            </div>
-            <span class="card-arrow">↗</span>
-            <div class="expand-panel">
-              <div class="expand-inner">
-                <p>Focus areas: test automation, scripts, frameworks, repeatability, and software reliability at scale.</p>
-                <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Ask about this path →</a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="pathfinder-shell reveal-up reveal-delay-2">
-          <div class="pathfinder-header">
-            <span class="pathfinder-label">Pathfinder Quiz</span>
-            <h3>Find Your <em>Professional Pathway.</em></h3>
-            <p>A short reflective quiz based on personality, working style, and the six intentions. It is not a rigid label — it is a thoughtful starting point.</p>
-          </div>
-
-          <form class="pathfinder-quiz" id="pathfinderQuiz">
-            <div class="quiz-question">
-              <p class="quiz-number">01</p>
-              <h4>When you face a complex problem, what feels most natural?</h4>
-              <label><input type="radio" name="q1" value="software" required> Build a logical system and solve it step by step.</label>
-              <label><input type="radio" name="q1" value="ux"> Understand the human experience before deciding what to build.</label>
-              <label><input type="radio" name="q1" value="product"> Clarify priorities, trade-offs, and the bigger direction.</label>
-              <label><input type="radio" name="q1" value="manualqa"> Test what could go wrong and look for weak points.</label>
-            </div>
-
-            <div class="quiz-question">
-              <p class="quiz-number">02</p>
-              <h4>Which intention feels closest to your natural strength?</h4>
-              <label><input type="radio" name="q2" value="product" required> Reason, Intuition &amp; Fairness</label>
-              <label><input type="radio" name="q2" value="ux"> Self-Discovery &amp; Self-Improvement</label>
-              <label><input type="radio" name="q2" value="sales"> Respect, Transparency &amp; Open-Mindedness</label>
-              <label><input type="radio" name="q2" value="automatedqa"> Truth &amp; Deep Understanding</label>
-              <label><input type="radio" name="q2" value="manualqa"> Commitment to Critical Thinking</label>
-              <label><input type="radio" name="q2" value="software"> Minimize Harm, Maximize Flourishing &amp; Love</label>
-            </div>
-
-            <div class="quiz-question">
-              <p class="quiz-number">03</p>
-              <h4>What kind of contribution gives you the most energy?</h4>
-              <label><input type="radio" name="q3" value="software" required> Building tools, systems, or technical solutions.</label>
-              <label><input type="radio" name="q3" value="ux"> Improving usability, clarity, and how something feels.</label>
-              <label><input type="radio" name="q3" value="sales"> Communicating value and building trust with people.</label>
-              <label><input type="radio" name="q3" value="manualqa"> Catching issues others overlook.</label>
-            </div>
-
-            <div class="quiz-question">
-              <p class="quiz-number">04</p>
-              <h4>In a team, which role sounds most like you?</h4>
-              <label><input type="radio" name="q4" value="software" required> The builder who wants to make things work.</label>
-              <label><input type="radio" name="q4" value="product"> The strategist who aligns vision and execution.</label>
-              <label><input type="radio" name="q4" value="ux"> The interpreter of user needs and experience.</label>
-              <label><input type="radio" name="q4" value="sales"> The connector who creates momentum and trust.</label>
-              <label><input type="radio" name="q4" value="manualqa"> The reviewer who protects quality and reliability.</label>
-              <label><input type="radio" name="q4" value="automatedqa"> The systems thinker who improves process through structure.</label>
-            </div>
-
-            <div class="quiz-question">
-              <p class="quiz-number">05</p>
-              <h4>Which kind of growth feels most meaningful right now?</h4>
-              <label><input type="radio" name="q5" value="software" required> Technical mastery and problem-solving depth.</label>
-              <label><input type="radio" name="q5" value="product"> Better decision-making and product judgment.</label>
-              <label><input type="radio" name="q5" value="ux"> Deeper understanding of people and behavior.</label>
-              <label><input type="radio" name="q5" value="sales"> Better communication, persuasion, and relationship-building.</label>
-              <label><input type="radio" name="q5" value="manualqa"> Greater precision, structure, and consistency.</label>
-              <label><input type="radio" name="q5" value="automatedqa"> Stronger technical process and scalable quality systems.</label>
-            </div>
-
-            <div class="quiz-actions">
-              <button type="submit" class="btn btn-dark">See My Pathway</button>
-              <button type="button" class="btn btn-light" id="resetPathfinder">Start Again</button>
-            </div>
-          </form>
-
-          <div class="quiz-result" id="quizResult" hidden>
-            <p class="quiz-result-label">Your suggested pathway</p>
-            <h4 id="quizCareerTitle">Software Development</h4>
-            <p id="quizCareerText"></p>
-            <div class="quiz-cta-group">
-              <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="btn btn-dark">Continue the conversation in Discord</a>
-              <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="btn btn-light">Join a community built around growth and reason</a>
-              <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="btn btn-light">Find your path alongside thoughtful people</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="conviction">
-      <p class="conviction-text reveal-up">We believe reason, openness, and care are not abstract ideals — they are <em>practical tools</em> for building better lives.</p>
-    </section>
-
-    <section class="community" id="community">
-      <div class="community-inner">
-        <div class="community-header">
-          <div>
-            <div class="section-kicker reveal-up">Get Involved</div>
-            <h2 class="community-heading reveal-up reveal-delay-1">Join the<br><em class="kinetic-em">community.</em></h2>
-          </div>
-          <p class="community-intro reveal-up reveal-delay-2">Meet people committed to reflection, openness, meaningful work, and a more thoughtful way of living together.</p>
-        </div>
-        <div class="community-cards">
-          <article class="comm-card comm-card-featured reveal-up">
-            <div class="comm-feature-image">
-              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80" alt="Attend Events" />
-            </div>
-            <div class="comm-feature-overlay">
-              <span class="comm-card-tag light">Featured</span>
-              <h3 class="comm-card-title featured-title">Attend Events</h3>
-              <p class="comm-card-body featured-body">Explore gatherings, discussions, and resources designed to help people connect, reflect, and grow.</p>
-              <a class="comm-card-link light" href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Browse Events</a>
-            </div>
-          </article>
-
-          <article class="comm-card reveal-up reveal-delay-1">
-            <span class="comm-card-tag">Connect</span>
-            <h3 class="comm-card-title">Join Discord</h3>
-            <p class="comm-card-body">Join our Discord community. Everyone is welcome.</p>
-            <a class="comm-card-link" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Open Discord</a>
-          </article>
-
-          <article class="comm-card reveal-up reveal-delay-2">
-            <span class="comm-card-tag">Get Involved</span>
-            <h3 class="comm-card-title">Teach or Learn</h3>
-            <p class="comm-card-body">We're a growing organization looking for people who want to teach and learn together.</p>
-            <a class="comm-card-link" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Get Involved</a>
-          </article>
-
-          <article class="comm-card reveal-up reveal-delay-3">
-            <span class="comm-card-tag">Updates</span>
-            <h3 class="comm-card-title">Mailing List</h3>
-            <p class="comm-card-body">Join our mailing list for future updates and announcements.</p>
-            <a class="comm-card-link" href="#mailing-list">Subscribe</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="newsletter" id="mailing-list">
-      <div class="newsletter-inner">
-        <h2 class="newsletter-heading reveal-up">Join our mailing list</h2>
-        <p class="newsletter-sub reveal-up reveal-delay-1">Get future updates and announcements from the community.</p>
-        <form class="newsletter-form reveal-up reveal-delay-2">
-          <input class="newsletter-input" type="email" placeholder="your@email.com" />
-          <button class="newsletter-btn" type="submit">Submit</button>
-        </form>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footer-top">
-        <div class="footer-brand reveal-up">
-          <div class="footer-brand-name">Free Thinker Institute</div>
-          <div class="footer-brand-sub">Increase happiness and minimize harm through personal and professional development.</div>
-        </div>
-        <div class="footer-col reveal-up reveal-delay-1">
-          <div class="footer-col-label">Where do we meet?</div>
-          <a href="#">Via Zoom regularly</a>
-          <a href="#">In person in NYC/NJ</a>
-          <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Online 24/7 via Discord</a>
-        </div>
-        <div class="footer-col reveal-up reveal-delay-2">
-          <div class="footer-col-label">Get in touch</div>
-          <a href="mailto:contact@freethinkerinstitute.org">contact@freethinkerinstitute.org</a>
-          <a href="#">New York, NY 10002</a>
-          <a href="https://www.freethinkerinstitute.org/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
-        </div>
-        <div class="footer-col reveal-up reveal-delay-3">
-          <div class="footer-col-label">Support</div>
-          <a href="https://gofund.me/" target="_blank" rel="noopener">Donate</a>
-          <a href="#mailing-list">Join our mailing list</a>
-        </div>
-      </div>
-      <div class="footer-bottom reveal-up">
-        <div class="footer-copy">© Free Thinker Institute</div>
-        <a class="footer-link" href="https://www.freethinkerinstitute.org/" target="_blank" rel="noopener">Visit Official Site</a>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const laserCards = document.querySelectorAll(".laser-card, .bento-item, .editorial-card");
-      laserCards.forEach(card => {
-        card.addEventListener("mousemove", e => {
-          const rect = card.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          const angle = Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI) + 90;
-          card.style.setProperty("--laser-angle", `${angle}deg`);
-        });
-      });
-
-      document.querySelectorAll(".btn").forEach(btn => {
-        btn.addEventListener("mousemove", e => {
-          const rect = btn.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          const dx = e.clientX - cx;
-          const dy = e.clientY - cy;
-          btn.style.transform = `translate(${dx * 0.12}px, ${dy * 0.12}px) scale(1.03)`;
-        });
-
-        btn.addEventListener("mouseleave", () => {
-          btn.style.transform = "";
-        });
-      });
-
-      document.querySelectorAll(".intention-flip").forEach(card => {
-        card.addEventListener("click", e => {
-          if (window.innerWidth <= 900) {
-            e.preventDefault();
-            card.classList.toggle("active");
-          }
-        });
-
-        card.addEventListener("keydown", e => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            card.classList.toggle("active");
-          }
-        });
-      });
-
-      document.querySelectorAll(".expand-card").forEach(card => {
-        const toggle = () => {
-          const wasOpen = card.classList.contains("open");
-          document.querySelectorAll(".expand-card").forEach(c => c.classList.remove("open"));
-          if (!wasOpen) card.classList.add("open");
-        };
-
-        card.addEventListener("click", toggle);
-        card.addEventListener("keydown", e => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggle();
-          }
-        });
-      });
-
-      document.querySelectorAll("[data-photo]").forEach(wrap => {
-        const img = wrap.querySelector("img");
-        wrap.addEventListener("mousemove", e => {
-          if (!img) return;
-          const rect = wrap.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const dx = Math.abs(x - rect.width / 2) / (rect.width / 2);
-          const dy = Math.abs(y - rect.height / 2) / (rect.height / 2);
-          const d = Math.min(1, Math.sqrt(dx * dx + dy * dy));
-          const brightness = 0.55 + (1 - d) * 0.45;
-          const sat = 0.35 + (1 - d) * 0.45;
-          img.style.filter = `saturate(${sat}) brightness(${brightness})`;
-        });
-
-        wrap.addEventListener("mouseleave", () => {
-          if (img) img.style.filter = "saturate(.35) brightness(.55)";
-        });
-      });
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.10, rootMargin: "0px 0px -36px 0px" });
-
-      document.querySelectorAll(".reveal-up").forEach(el => observer.observe(el));
-
-      const form = document.querySelector(".newsletter-form");
-      if (form) {
-        form.addEventListener("submit", e => {
-          e.preventDefault();
-          const input = form.querySelector("input");
-          if (input && input.value.trim()) {
-            input.value = "";
-            input.placeholder = "Thanks for signing up";
-          }
-        });
-      }
-
-      const pathfinderForm = document.getElementById("pathfinderQuiz");
-      const quizResult = document.getElementById("quizResult");
-      const quizCareerTitle = document.getElementById("quizCareerTitle");
-      const quizCareerText = document.getElementById("quizCareerText");
-      const resetPathfinder = document.getElementById("resetPathfinder");
-
-      const pathwayContent = {
-        software: {
-          title: "Software Development",
-          text: "You are drawn to structure, logic, and building things that work. This path often suits people who enjoy solving problems clearly, learning systems deeply, and turning ideas into functioning products."
-        },
-        product: {
-          title: "Product Management",
-          text: "You think in terms of direction, priorities, and decision-making. This path often fits people who can connect vision, users, and execution while keeping teams aligned around what matters most."
-        },
-        ux: {
-          title: "User Experience",
-          text: "You are attentive to people, behavior, and how things feel in use. This path often suits those who care about clarity, empathy, research, and designing systems that are intuitive and humane."
-        },
-        sales: {
-          title: "Sales",
-          text: "You bring energy to communication, trust-building, and helping people move toward decisions. This path often fits people who are relational, persuasive, and motivated by creating value through connection."
-        },
-        manualqa: {
-          title: "Manual Quality Assurance",
-          text: "You notice what others miss. This path often suits people who are careful, observant, and strong at reviewing details, testing behavior, and protecting quality through disciplined attention."
-        },
-        automatedqa: {
-          title: "Automated Quality Assurance",
-          text: "You care about reliability, repeatability, and building better systems. This path often fits those who like technical structure and want to improve software quality through automation and scalable testing."
-        }
-      };
-
-      if (pathfinderForm && quizResult && quizCareerTitle && quizCareerText) {
-        pathfinderForm.addEventListener("submit", e => {
-          e.preventDefault();
-          const formData = new FormData(pathfinderForm);
-          const scores = {
-            software: 0,
-            product: 0,
-            ux: 0,
-            sales: 0,
-            manualqa: 0,
-            automatedqa: 0
-          };
-
-          for (const value of formData.values()) {
-            if (scores[value] !== undefined) scores[value] += 1;
-          }
-
-          const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-          const topKey = sorted[0][0];
-          const secondKey = sorted[1][0];
-          let finalKey = topKey;
-
-          if (topKey === "manualqa" && secondKey === "automatedqa") finalKey = "automatedqa";
-          if (topKey === "product" && secondKey === "sales") finalKey = "product";
-          if (topKey === "sales" && secondKey === "product") finalKey = "sales";
-
-          quizCareerTitle.textContent = pathwayContent[finalKey].title;
-          quizCareerText.textContent = pathwayContent[finalKey].text;
-          quizResult.hidden = false;
-          quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-
-        if (resetPathfinder) {
-          resetPathfinder.addEventListener("click", () => {
-            pathfinderForm.reset();
-            quizResult.hidden = true;
-          });
-        }
-      }
-
-      document.querySelectorAll(".kinetic-em").forEach(el => {
-        el.style.cssText += `
-          background: linear-gradient(90deg, #d7b06f 0%, #00f2ff 28%, #8d6cff 52%, #d7b06f 76%, #00f2ff 100%);
-          background-size: 300% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: shimmer 6s linear infinite;
-        `;
-      });
-
-      const heroCard = document.getElementById("heroCard");
-      if (heroCard) {
-        heroCard.addEventListener("mousemove", e => {
-          const rect = heroCard.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const rotateY = ((x / rect.width) - 0.5) * 10;
-          const rotateX = ((y / rect.height) - 0.5) * -10;
-
-          heroCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-          heroCard.style.setProperty("--mx", `${x}px`);
-          heroCard.style.setProperty("--my", `${y}px`);
-        });
-
-        heroCard.addEventListener("mouseleave", () => {
-          heroCard.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg)`;
-          heroCard.style.setProperty("--mx", "50%");
-          heroCard.style.setProperty("--my", "50%");
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+           
