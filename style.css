@@ -2040,7 +2040,6 @@ footer {
   position: relative;
   display: inline-block;
   color: rgba(240,236,228,0.22);
-  --fill-width: 0%;
 }
 
 .scroll-write::after {
@@ -2048,8 +2047,7 @@ footer {
   position: absolute;
   inset: 0;
   color: var(--ink);
-  width: var(--fill-width);
+  width: var(--fill-width, 0%);
   overflow: hidden;
   white-space: nowrap;
-  transition: width 0.15s linear;
 }
