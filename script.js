@@ -204,3 +204,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+const scrollWriteEls = document.querySelectorAll(".scroll-write");
+
+function updateScrollWrite() {
+  scrollWriteEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    const windowH = window.innerHeight;
+
+    let progress = (windowH - rect.top) / (windowH * 0.9);
+    progress = Math.max(0, Math.min(1, progress));
+
+    el.style.setProperty("--fill-width", `${progress * 100}%`);
+  });
+}
+
+window.addEventListener("scroll", updateScrollWrite);
+window.addEventListener("resize", updateScrollWrite);
+updateScrollWrite();
