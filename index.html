@@ -2099,6 +2099,105 @@
       .editorial-card, .editorial-card:nth-child(1), .editorial-card:nth-child(5) { min-height: 300px; grid-column: auto; }
       .intention-flip { min-height: 380px; height: 380px; }
     }
+    /* your existing CSS above */
+
+
+/* ===== NEW SIX INTENTIONS BENTO ===== */
+.intentions-bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+  margin-top: 50px;
+}
+
+.flip-card {
+  perspective: 1600px;
+  min-height: 260px;
+}
+
+.large-card {
+  grid-column: span 6;
+  grid-row: span 2;
+  min-height: 540px;
+}
+
+.medium-card {
+  grid-column: span 3;
+  min-height: 260px;
+}
+
+.small-card {
+  grid-column: span 3;
+  min-height: 220px;
+}
+
+.wide-card {
+  grid-column: span 6;
+  min-height: 220px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 30px;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(20,24,35,0.55);
+  backdrop-filter: blur(26px) saturate(180%);
+  -webkit-backdrop-filter: blur(26px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 20px 60px rgba(0,0,0,0.25);
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.flip-front h3,
+.flip-back h3 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.flip-back p {
+  margin-top: 18px;
+  color: var(--ink-dim);
+  line-height: 1.8;
+}
+
+.card-number {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--cyan);
+  margin-bottom: 18px;
+}
+
+.card-hint {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-size: 10px;
+  color: var(--ink-ghost);
+}
   </style>
 </head>
 <body>
@@ -2233,114 +2332,104 @@
       </div>
     </section>
 
-    <section class="intentions" id="intentions">
-      <div class="container">
-        <div class="intentions-header">
-          <div>
-            <div class="section-kicker reveal-up">Six Intentions</div>
-            <h2 class="intentions-heading reveal-up reveal-delay-1">A shared framework for<br><em class="kinetic-em">living and growing.</em></h2>
-          </div>
-          <p class="intentions-intro reveal-up reveal-delay-2">Six intentions shape how we think, relate, grow, seek truth, and build careers with more clarity, depth, and care.</p>
-        </div>
-        <div class="intentions-grid">
-          <article class="intention-flip reveal-up" tabindex="0">
-            <div class="intention-inner">
-              <div class="intention-face intention-front">
-                <div class="intention-top"><span class="intention-icon">✦</span><span class="intention-number">01</span></div>
-                <h3>Reason, Intuition &amp; Fairness</h3>
-                <span class="intention-hint">Hover / Tap</span>
-              </div>
-              <div class="intention-face intention-back">
-                <div class="intention-top"><span class="intention-icon">✦</span><span class="intention-number">01</span></div>
-                <h3>Reason, Intuition &amp; Fairness</h3>
-                <p>Strong judgment comes from balancing clear reasoning, human instinct, and ethical fairness. This intention helps people think well without becoming cold, and care deeply without losing clarity.</p>
-                <p class="intent-application"><strong>Practical Application:</strong> Useful in leadership, hiring, product decisions, conflict resolution, and any role where good judgment affects other people.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="intention-flip reveal-up reveal-delay-1" tabindex="0">
-            <div class="intention-inner">
-              <div class="intention-face intention-front">
-                <div class="intention-top"><span class="intention-icon">◌</span><span class="intention-number">02</span></div>
-                <h3>Self-Discovery &amp; Self-Improvement</h3>
-                <span class="intention-hint">Hover / Tap</span>
-              </div>
-              <div class="intention-face intention-back">
-                <div class="intention-top"><span class="intention-icon">◌</span><span class="intention-number">02</span></div>
-                <h3>Self-Discovery &amp; Self-Improvement</h3>
-                <p>Growth begins with honest self-knowledge. This intention helps people understand how they think, what drives them, and where they can develop with discipline and care.</p>
-                <p class="intent-application"><strong>Practical Application:</strong> Helps people choose better career paths, build confidence, improve weak areas, and grow in ways that are sustainable rather than performative.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="intention-flip reveal-up reveal-delay-2" tabindex="0">
-            <div class="intention-inner">
-              <div class="intention-face intention-front">
-                <div class="intention-top"><span class="intention-icon">♡</span><span class="intention-number">03</span></div>
-                <h3>Respect, Transparency &amp; Open-Mindedness</h3>
-                <span class="intention-hint">Hover / Tap</span>
-              </div>
-              <div class="intention-face intention-back">
-                <div class="intention-top"><span class="intention-icon">♡</span><span class="intention-number">03</span></div>
-                <h3>Respect, Transparency &amp; Open-Mindedness</h3>
-                <p>Real progress depends on trust. This intention encourages respectful dialogue, intellectual humility, and the courage to be honest about what you know, what you do not know, and what may need revision.</p>
-                <p class="intent-application"><strong>Practical Application:</strong> Strengthens teamwork, communication, feedback culture, and the ability to collaborate well across differences.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="intention-flip reveal-up" tabindex="0">
-            <div class="intention-inner">
-              <div class="intention-face intention-front">
-                <div class="intention-top"><span class="intention-icon">○</span><span class="intention-number">04</span></div>
-                <h3>Truth &amp; Deep Understanding</h3>
-                <span class="intention-hint">Hover / Tap</span>
-              </div>
-              <div class="intention-face intention-back">
-                <div class="intention-top"><span class="intention-icon">○</span><span class="intention-number">04</span></div>
-                <h3>Truth &amp; Deep Understanding</h3>
-                <p>We aim for more than quick opinions or surface-level certainty. This intention is about listening deeply, examining reality carefully, and seeking understanding that can stand up under pressure.</p>
-                <p class="intent-application"><strong>Practical Application:</strong> Essential for research, strategy, product discovery, systems thinking, and making better long-term decisions.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="intention-flip reveal-up reveal-delay-1" tabindex="0">
-            <div class="intention-inner">
-              <div class="intention-face intention-front">
-                <div class="intention-top"><span class="intention-icon">✳</span><span class="intention-number">05</span></div>
-                <h3>Commitment to Critical Thinking</h3>
-                <span class="intention-hint">Hover / Tap</span>
-              </div>
-              <div class="intention-face intention-back">
-                <div class="intention-top"><span class="intention-icon">✳</span><span class="intention-number">05</span></div>
-                <h3>Commitment to Critical Thinking</h3>
-                <p>Critical thinking means questioning assumptions, weighing evidence, and refusing to let convenience replace truth. It builds intellectual independence in a noisy world.</p>
-                <p class="intent-application"><strong>Practical Application:</strong> Improves problem-solving in software, business, quality assurance, operations, and any field where clear thinking matters.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="intention-flip reveal-up reveal-delay-2" tabindex="0">
-            <div class="intention-inner">
-              <div class="intention-face intention-front">
-                <div class="intention-top"><span class="intention-icon">△</span><span class="intention-number">06</span></div>
-                <h3>Minimize Harm, Maximize Flourishing &amp; Love</h3>
-                <span class="intention-hint">Hover / Tap</span>
-              </div>
-              <div class="intention-face intention-back">
-                <div class="intention-top"><span class="intention-icon">△</span><span class="intention-number">06</span></div>
-                <h3>Minimize Harm, Maximize Flourishing &amp; Love</h3>
-                <p>A meaningful life is not only about achievement. This intention asks how our choices affect others, how we reduce unnecessary harm, and how we create conditions in which people can genuinely flourish.</p>
-                <p class="intent-application"><strong>Practical Application:</strong> Supports ethical leadership, user-centered design, responsible technology, healthier teams, and more human ways of working.</p>
-              </div>
-            </div>
-          </article>
-        </div>
+  <section class="intentions" id="intentions">
+  <div class="container">
+    <div class="intentions-header">
+      <div>
+        <div class="section-kicker">Six Intentions</div>
+        <h2 class="intentions-heading">
+          A shared framework for
+          <em class="kinetic-em">living and growing.</em>
+        </h2>
       </div>
-    </section>
+      <p class="intentions-intro">
+        Six intentions shape how we think, grow, relate, and build meaningful lives.
+      </p>
+    </div>
+
+    <div class="intentions-bento">
+
+      <article class="flip-card large-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="card-number">01</span>
+            <h3>Reason & Critical Thinking</h3>
+            <span class="card-hint">Hover</span>
+          </div>
+          <div class="flip-back">
+            <h3>Reason & Critical Thinking</h3>
+            <p>
+              Learn how to question assumptions, think clearly, and make better decisions.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card medium-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="card-number">02</span>
+            <h3>Self Discovery</h3>
+          </div>
+          <div class="flip-back">
+            <p>Understand how you think, what drives you, and where to grow.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card medium-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="card-number">03</span>
+            <h3>Truth Seeking</h3>
+          </div>
+          <div class="flip-back">
+            <p>Move beyond surface opinions and build deep understanding.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card small-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="card-number">04</span>
+            <h3>Open Mindedness</h3>
+          </div>
+          <div class="flip-back">
+            <p>Stay flexible, curious, and willing to rethink.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card small-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="card-number">05</span>
+            <h3>Compassion</h3>
+          </div>
+          <div class="flip-back">
+            <p>Build relationships rooted in care and understanding.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="flip-card wide-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="card-number">06</span>
+            <h3>Human Flourishing</h3>
+          </div>
+          <div class="flip-back">
+            <p>
+              Create a life that supports wellbeing, meaning, and growth.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
     <div class="photo-strip" id="photoStrip">
       <div class="photo-wrap" data-photo>
