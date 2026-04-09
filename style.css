@@ -540,7 +540,7 @@ nav {
 
 @keyframes shimmer {
   0% { background-position: 0% center; }
-  100% { background-position: 300% center; }
+  100% { background-position: 220% center; }
 }
 
 .ticker-wrap {
@@ -595,11 +595,13 @@ nav {
 }
 
 .kinetic-em {
-  background: linear-gradient(90deg, var(--gold), var(--cyan) 60%, var(--violet));
-  background-size: 300% auto;
+  font-style: italic;
+  background: linear-gradient(90deg, #d7b06f 0%, #00f2ff 52%, #8d6cff 100%);
+  background-size: 220% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
   animation: shimmer 6s linear infinite;
 }
 
