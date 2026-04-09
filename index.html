@@ -4,2365 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free Thinker Institute</title>
-  <meta name="description" content="Free Thinker Institute — personal and professional development through truth-seeking, critical thinking, and meaningful community." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;1,200&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:          #080b12;
-      --panel:       rgba(14,18,28,0.82);
-      --panel-2:     rgba(18,23,36,0.70);
-      --ink:         #f0ece4;
-      --ink-dim:     rgba(240,236,228,0.62);
-      --ink-ghost:   rgba(240,236,228,0.26);
-      --border:      rgba(255,255,255,0.07);
-      --border-hi:   rgba(255,255,255,0.14);
-      --gold:        #d7b06f;
-      --violet:      #8d6cff;
-      --cyan:        #00f2ff;
-      --deep:        #0b0e14;
-      --blue:        #6a9dff;
-      --glow-gold:   rgba(215,176,111,0.22);
-      --glow-violet: rgba(141,108,255,0.22);
-      --glow-cyan:   rgba(0,242,255,0.18);
-      --serif:       "Cormorant Garamond", Georgia, serif;
-      --sans:        "DM Sans", system-ui, sans-serif;
-      --radius:      20px;
-      --ease-spring: cubic-bezier(0.4, 0, 0.2, 1);
-      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
-      --max:         1240px;
-      --mx: 0px;
-      --my: 0px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-
-    .noise-filter {
-      position: fixed;
-      inset: -120%;
-      width: 240%;
-      height: 240%;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.009;
-      mix-blend-mode: soft-light;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 180px 180px;
-      animation: grain-motion 18s steps(6) infinite;
-    }
-
-    .hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding:120px 8%;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  gap:80px;
-  align-items:center;
-  width:100%;
-}
-
-.hero-kicker{
-  font-size:12px;
-  letter-spacing:0.18em;
-  opacity:0.7;
-  margin-bottom:24px;
-}
-
-.hero-title{
-  font-size:clamp(68px, 8vw, 140px);
-  line-height:0.95;
-  font-weight:400;
-  letter-spacing:-0.03em;
-  max-width:760px;
-}
-
-.hero-title span{
-  background:linear-gradient(90deg,#57b8ff,#7b5cff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.hero-text{
-  margin-top:32px;
-  max-width:540px;
-  font-size:22px;
-  line-height:1.7;
-  opacity:0.82;
-}
-
-.hero-actions{
-  margin-top:40px;
-  display:flex;
-  gap:16px;
-}
-
-.hero-btn{
-  padding:16px 28px;
-  border-radius:999px;
-  text-decoration:none;
-}
-
-.hero-btn.primary{
-  background:linear-gradient(90deg,#7b5cff,#5e7bff);
-  color:white;
-}
-
-.hero-btn.secondary{
-  border:1px solid rgba(255,255,255,0.16);
-  backdrop-filter:blur(18px);
-}
-
-.hero-right{
-  position:relative;
-  height:620px;
-}
-
-.glass-panel{
-  position:relative;
-  width:100%;
-  height:100%;
-}
-
-.glass-card{
-  position:absolute;
-  right:0;
-  top:50%;
-  transform:translateY(-50%);
-  width:420px;
-  padding:40px;
-  border-radius:28px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(28px) saturate(180%);
-  border:1px solid rgba(255,255,255,0.12);
-  box-shadow:0 20px 80px rgba(0,0,0,0.4);
-}
-
-.glass-card h3{
-  font-size:40px;
-  margin:18px 0;
-}
-
-.glass-card p{
-  font-size:18px;
-  line-height:1.8;
-  opacity:0.8;
-}
-
-.glass-orb{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(30px);
-}
-
-.orb-one{
-  width:220px;
-  height:220px;
-  background:rgba(123,92,255,0.28);
-  top:80px;
-  right:120px;
-}
-
-.orb-two{
-  width:180px;
-  height:180px;
-  background:rgba(87,184,255,0.18);
-  bottom:100px;
-  left:20px;
-}
-    .noise-filter svg { width: 100%; height: 100%; display:none; }
-
-    @keyframes grain-motion {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(-2%, 1%); }
-      50% { transform: translate(1%, -2%); }
-      75% { transform: translate(-1%, 2%); }
-    }
-
-    .aurora-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .aurora-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      will-change: transform;
-      mix-blend-mode: screen;
-    }
-
-    .blob-1 {
-      width: 70vw; height: 70vw;
-      background: radial-gradient(circle, rgba(215,176,111,0.28) 0%, transparent 65%);
-      top: -20%; left: -10%;
-      animation: blob1 22s ease-in-out infinite alternate;
-    }
-
-    .blob-2 {
-      width: 55vw; height: 55vw;
-      background: radial-gradient(circle, rgba(141,108,255,0.26) 0%, transparent 65%);
-      top: 5%; right: -12%;
-      animation: blob2 18s ease-in-out infinite alternate;
-    }
-
-    .blob-3 {
-      width: 45vw; height: 45vw;
-      background: radial-gradient(circle, rgba(0,242,255,0.16) 0%, transparent 65%);
-      bottom: 10%; left: 20%;
-      animation: blob3 26s ease-in-out infinite alternate;
-    }
-
-    .blob-4 {
-      width: 38vw; height: 38vw;
-      background: radial-gradient(circle, rgba(11,14,20,0.95) 0%, transparent 65%);
-      bottom: -5%; right: 5%;
-      animation: blob4 20s ease-in-out infinite alternate;
-    }
-
-    @keyframes blob1 {
-      0%   { transform: translate(0, 0) scale(1); }
-      33%  { transform: translate(4vw, 6vh) scale(1.08); }
-      66%  { transform: translate(-3vw, 10vh) scale(.94); }
-      100% { transform: translate(6vw, 3vh) scale(1.05); }
-    }
-
-    @keyframes blob2 {
-      0%   { transform: translate(0, 0) scale(1); }
-      40%  { transform: translate(-5vw, 8vh) scale(1.12); }
-      80%  { transform: translate(3vw, -4vh) scale(.92); }
-      100% { transform: translate(-2vw, 12vh) scale(1.06); }
-    }
-
-    @keyframes blob3 {
-      0%   { transform: translate(0, 0) scale(1); }
-      50%  { transform: translate(8vw, -6vh) scale(1.15); }
-      100% { transform: translate(-4vw, 5vh) scale(.90); }
-    }
-
-    @keyframes blob4 {
-      0%   { transform: translate(0, 0) scale(1); }
-      60%  { transform: translate(-6vw, -8vh) scale(1.10); }
-      100% { transform: translate(5vw, 3vh) scale(.96); }
-    }
-
-    .page-shell {
-      position: relative;
-      z-index: 1;
-      isolation: isolate;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(24px) saturate(1.4);
-      -webkit-backdrop-filter: blur(24px) saturate(1.4);
-      background: rgba(8,11,18,0.72);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      min-height: 72px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 10px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--ink-dim);
-    }
-
-    .brand-mark {
-      width: 42px; height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, rgba(141,108,255,.18), rgba(0,242,255,.12));
-      border: 1px solid rgba(141,108,255,.3);
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
-      flex: 0 0 auto;
-    }
-
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(0,242,255,.2), transparent 55%);
-      pointer-events: none;
-    }
-
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 6px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-      color: var(--ink-ghost);
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-
-    .nav-links a { transition: color .2s var(--ease-spring); }
-    .nav-links a:hover { color: var(--ink); }
-
-    .nav-cta {
-      padding: 9px 18px;
-      border-radius: 999px;
-      background: transparent;
-      border: 1px solid rgba(141,108,255,.5);
-      color: var(--cyan) !important;
-      position: relative;
-      overflow: hidden;
-      transition: border-color .25s var(--ease-spring), box-shadow .25s var(--ease-spring) !important;
-    }
-
-    .nav-cta::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(141,108,255,.15), rgba(0,242,255,.10));
-      opacity: 0;
-      transition: opacity .25s;
-    }
-
-    .nav-cta:hover {
-      border-color: var(--cyan) !important;
-      box-shadow: 0 0 18px rgba(0,242,255,.18) !important;
-    }
-
-    .nav-cta:hover::before { opacity: 1; }
-
-    /* EXISTING HERO BASE */
-    .hero {
-     .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 120px 8%;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.aurora {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(90px);
-  opacity: 0.82;
-  animation: floatAurora 14s ease-in-out infinite alternate;
-}
-
-.aurora-1 {
-  width: 520px;
-  height: 520px;
-  top: 4%;
-  left: -8%;
-  background: radial-gradient(circle, rgba(104,86,255,0.32), transparent 68%);
-}
-
-.aurora-2 {
-  width: 520px;
-  height: 520px;
-  bottom: -10%;
-  right: -6%;
-  background: radial-gradient(circle, rgba(215,176,111,0.18), transparent 70%);
-}
-
-.grid-glow {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(circle at center, black 30%, transparent 82%);
-  opacity: 0.24;
-}
-
-.hero-noise {
-  position: absolute;
-  inset: -100%;
-  width: 300%;
-  height: 300%;
-  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 4px 4px;
-  opacity: 0.03;
-  animation: grain-motion 10s steps(8) infinite;
-}
-
-.hero-inner {
-  width: min(var(--max), calc(100% - 48px));
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-copy {
-  padding: 0;
-}
-
-.hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 10px;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: rgba(240,236,228,.68);
-  margin-bottom: 22px;
-}
-
-.hero-kicker::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  background: rgba(240,236,228,.36);
-}
-
-.hero-title {
-  font-family: var(--serif);
-  font-size: clamp(3.8rem, 8vw, 7rem);
-  line-height: .9;
-  font-weight: 300;
-  letter-spacing: -.04em;
-  max-width: 10ch;
-}
-
-.hero-gradient {
-  background: linear-gradient(90deg, #f6e5c9 0%, #d7b06f 22%, #00f2ff 52%, #8d6cff 78%, #f6e5c9 100%);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 6s linear infinite;
-}
-
-.hero-text {
-  margin-top: 28px;
-  max-width: 560px;
-  color: var(--ink-dim);
-  font-size: 1rem;
-  line-height: 1.9;
-  font-weight: 300;
-}
-
-.hero-actions {
-  margin-top: 34px;
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 0;
-}
-
-.hero-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50px;
-  padding: 0 22px;
-  border-radius: 999px;
-  font-size: 10px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: transform .25s var(--ease-spring), box-shadow .25s var(--ease-spring), border-color .25s var(--ease-spring);
-}
-
-.hero-btn-primary {
-  background: linear-gradient(135deg, rgba(141,108,255,.95), rgba(109,91,255,.88));
-  color: white;
-  box-shadow: 0 10px 30px rgba(141,108,255,.24);
-}
-
-.hero-btn-secondary {
-  border: 1px solid var(--border-hi);
-  color: var(--ink);
-  background: rgba(255,255,255,.02);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.hero-card-wrap {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-card {
-  position: relative;
-  width: min(100%, 430px);
-  padding: 30px;
-  border-radius: 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)), rgba(14,18,28,.78);
-  border: 1px solid rgba(255,255,255,.10);
-  backdrop-filter: blur(26px) saturate(170%);
-  -webkit-backdrop-filter: blur(26px) saturate(170%);
-  box-shadow: 0 28px 80px rgba(0,0,0,.35);
-  transition: transform .22s ease;
-  overflow: hidden;
-}
-
-.hero-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(215,176,111,.25), rgba(0,242,255,.16), rgba(255,255,255,.08));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.hero-card-glow {
-  position: absolute;
-  width: 240px;
-  height: 240px;
-  left: var(--mx, 50%);
-  top: var(--my, 50%);
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(215,176,111,.20), transparent 70%);
-  pointer-events: none;
-  opacity: .65;
-  transition: opacity .25s ease;
-}
-
-.hero-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
-  position: relative;
-  z-index: 2;
-}
-
-.mini-label {
-  font-size: 10px;
-  letter-spacing: .20em;
-  text-transform: uppercase;
-  color: rgba(240,236,228,.54);
-}
-
-.status-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--gold);
-  box-shadow: 0 0 16px rgba(215,176,111,.55);
-}
-
-.hero-card-title {
-  position: relative;
-  z-index: 2;
-  font-family: var(--serif);
-  font-size: 2.1rem;
-  line-height: 1;
-  font-weight: 300;
-  letter-spacing: -.03em;
-  margin-bottom: 14px;
-  color: var(--ink);
-}
-
-.hero-card-text {
-  position: relative;
-  z-index: 2;
-  color: rgba(240,236,228,.78);
-  line-height: 1.8;
-  font-size: .96rem;
-  font-weight: 300;
-  margin-bottom: 22px;
-}
-
-.hero-pill-row {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.hero-pill {
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.03);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(240,236,228,.78);
-}
-
-@keyframes floatAurora {
-  0% { transform: translate3d(0,0,0) scale(1); }
-  100% { transform: translate3d(28px,-18px,0) scale(1.08); }
-}
-
-    /* NEW HERO CLASSES */
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .aurora {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(90px);
-      opacity: 0.82;
-      animation: floatAurora 14s ease-in-out infinite alternate;
-    }
-
-    .aurora-1 {
-      width: 520px;
-      height: 520px;
-      top: 4%;
-      left: -8%;
-      background: radial-gradient(circle, rgba(104,86,255,0.32), transparent 68%);
-    }
-
-    .aurora-2 {
-      width: 520px;
-      height: 520px;
-      bottom: -10%;
-      right: -6%;
-      background: radial-gradient(circle, rgba(215,176,111,0.18), transparent 70%);
-    }
-
-    .grid-glow {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(circle at center, black 30%, transparent 82%);
-      opacity: 0.24;
-    }
-
-    .hero-noise {
-      position: absolute;
-      inset: -100%;
-      width: 300%;
-      height: 300%;
-      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 4px 4px;
-      opacity: 0.03;
-      animation: grain-motion 10s steps(8) infinite;
-    }
-
-    .hero-inner {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 10px;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.68);
-      margin-bottom: 22px;
-    }
-
-    .hero-kicker::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: rgba(240,236,228,.36);
-    }
-
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(3.8rem, 8vw, 7rem);
-      line-height: .9;
-      font-weight: 300;
-      letter-spacing: -.04em;
-      max-width: 10ch;
-    }
-
-    .hero-gradient {
-      background: linear-gradient(90deg, #f6e5c9 0%, #d7b06f 22%, #00f2ff 52%, #8d6cff 78%, #f6e5c9 100%);
-      background-size: 300% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 6s linear infinite;
-    }
-
-    .hero-text {
-      margin-top: 28px;
-      max-width: 560px;
-      color: var(--ink-dim);
-      font-size: 1rem;
-      line-height: 1.9;
-      font-weight: 300;
-    }
-
-    .hero-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-weight: 500;
-      transition: transform .25s var(--ease-spring), box-shadow .25s var(--ease-spring), border-color .25s var(--ease-spring);
-    }
-
-    .hero-btn-primary {
-      background: linear-gradient(135deg, rgba(141,108,255,.95), rgba(109,91,255,.88));
-      color: white;
-      box-shadow: 0 10px 30px rgba(141,108,255,.24);
-    }
-
-    .hero-btn-secondary {
-      border: 1px solid var(--border-hi);
-      color: var(--ink);
-      background: rgba(255,255,255,.02);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-    .hero-card-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-card {
-      position: relative;
-      width: min(100%, 430px);
-      padding: 30px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)), rgba(14,18,28,.78);
-      border: 1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(26px) saturate(170%);
-      -webkit-backdrop-filter: blur(26px) saturate(170%);
-      box-shadow: 0 28px 80px rgba(0,0,0,.35);
-      transition: transform .22s ease;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(215,176,111,.25), rgba(0,242,255,.16), rgba(255,255,255,.08));
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    .hero-card-glow {
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      left: var(--mx, 50%);
-      top: var(--my, 50%);
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(215,176,111,.20), transparent 70%);
-      pointer-events: none;
-      opacity: .65;
-      transition: opacity .25s ease;
-    }
-
-    .hero-card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .mini-label {
-      font-size: 10px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.54);
-    }
-
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--gold);
-      box-shadow: 0 0 16px rgba(215,176,111,.55);
-    }
-
-    .hero-card-title {
-      position: relative;
-      z-index: 2;
-      font-family: var(--serif);
-      font-size: 2.1rem;
-      line-height: 1;
-      font-weight: 300;
-      letter-spacing: -.03em;
-      margin-bottom: 14px;
-      color: var(--ink);
-    }
-
-    .hero-card-text {
-      position: relative;
-      z-index: 2;
-      color: rgba(240,236,228,.78);
-      line-height: 1.8;
-      font-size: .96rem;
-      font-weight: 300;
-      margin-bottom: 22px;
-    }
-
-    .hero-pill-row {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .hero-pill {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.78);
-    }
-
-    @keyframes floatAurora {
-      0% { transform: translate3d(0,0,0) scale(1); }
-      100% { transform: translate3d(28px,-18px,0) scale(1.08); }
-    }
-
-    .ticker-wrap {
-      background: rgba(8,11,18,.9);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: .85rem 0;
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      z-index: 2;
-    }
-
-    .ticker { display: inline-flex; animation: ticker 32s linear infinite; }
-
-    .ticker span {
-      font-size: 9.5px;
-      letter-spacing: .26em;
-      text-transform: uppercase;
-      color: var(--ink-ghost);
-      padding: 0 1.75rem;
-    }
-
-    .ticker span.hi { color: rgba(240,236,228,.7); }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 65vh;
-      position: relative;
-      z-index: 2;
-    }
-
-    .about-img-wrap { overflow: hidden; position: relative; }
-
-    .about-img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: saturate(.5) contrast(1.1) brightness(.7);
-    }
-
-    .about-img-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent 60%, var(--bg) 100%);
-    }
-
-    .about-content {
-      background: rgba(11,14,20,.95);
-      backdrop-filter: blur(24px);
-      padding: 6rem 4.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-left: 1px solid var(--border);
-    }
-
-    .about-heading {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4.2rem);
-      font-weight: 300;
-      line-height: 1.06;
-      letter-spacing: -.03em;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-heading em { font-style: italic; }
-
-    .about-heading em, .kinetic-em {
-      background: linear-gradient(90deg, var(--gold), var(--cyan) 60%, var(--violet));
-      background-size: 300% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 6s linear infinite;
-    }
-
-    .about-body p {
-      font-size: .9375rem;
-      color: var(--ink-dim);
-      line-height: 1.9;
-      font-weight: 300;
-      max-width: 480px;
-    }
-
-    .about-body p + p { margin-top: .875rem; }
-
-    .intentions, .goals, .what-we-do, .learn-more,
-    .career-editorial, .community, .newsletter, .conviction {
-      scroll-margin-top: 100px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .intentions { padding: 7rem 0; background: transparent; }
-
-    .intentions-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
-      margin-bottom: 4rem;
-    }
-
-    .intentions-heading {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      font-weight: 300;
-      line-height: 1.06;
-      letter-spacing: -.03em;
-    }
-
-    .intentions-intro {
-      font-size: .9375rem;
-      color: var(--ink-dim);
-      line-height: 1.9;
-      font-weight: 300;
-      max-width: 480px;
-    }
-
-    .intentions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .intention-flip { perspective: 1600px; min-height: 420px; height: 420px; cursor: pointer; }
-
-    .intention-inner {
-      position: relative;
-      width: 100%; height: 100%;
-      transform-style: preserve-3d;
-      transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .intention-flip:hover .intention-inner,
-    .intention-flip.active .intention-inner,
-    .intention-flip:focus-within .intention-inner { transform: rotateY(180deg); }
-
-    .intention-face {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      padding: 28px;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 22px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      backdrop-filter: blur(24px) saturate(1.55);
-      -webkit-backdrop-filter: blur(24px) saturate(1.55);
-      box-shadow: 0 16px 40px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.04);
-    }
-
-    .intention-front {
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)), rgba(10,14,24,.88);
-    }
-
-    .intention-back {
-      background: radial-gradient(circle at top right, rgba(0,242,255,.08), transparent 36%), radial-gradient(circle at top left, rgba(141,108,255,.10), transparent 28%), rgba(16,20,32,.94);
-      transform: rotateY(180deg);
-      justify-content: space-between;
-      border-color: rgba(141,108,255,.24);
-    }
-
-    .intention-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      min-height: 24px;
-    }
-
-    .intention-icon { font-size: 18px; color: var(--cyan); opacity: .82; }
-    .intention-back .intention-icon { color: #a88cff; opacity: .9; }
-
-    .intention-number {
-      font-size: 9.5px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.52);
-    }
-
-    .intention-front h3 {
-      font-family: var(--serif);
-      font-size: clamp(1.95rem, 2.2vw, 2.8rem);
-      line-height: .95;
-      font-weight: 300;
-      color: var(--ink);
-      max-width: 11ch;
-      margin-top: 18px;
-      letter-spacing: -.03em;
-    }
-
-    .intention-back h3 {
-      font-family: var(--serif);
-      font-size: 1.42rem;
-      line-height: 1.04;
-      font-weight: 300;
-      color: var(--ink);
-      max-width: 12ch;
-      margin-bottom: 12px;
-    }
-
-    .intention-back p {
-      font-size: 14px;
-      line-height: 1.72;
-      color: rgba(240,236,228,.88);
-      font-weight: 300;
-      max-width: none;
-    }
-
-    .intent-application {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(240,236,228,.92);
-    }
-
-    .intent-application strong { color: var(--cyan); font-weight: 500; }
-
-    .intention-hint {
-      margin-top: auto;
-      padding-top: 16px;
-      font-size: 9.5px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.5);
-    }
-
-    .photo-strip {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      height: 440px;
-      gap: 2px;
-      background: var(--bg);
-      position: relative;
-      z-index: 2;
-    }
-
-    .photo-wrap { position: relative; overflow: hidden; }
-
-    .photo-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: saturate(.35) brightness(.55);
-      transition: filter .12s linear;
-    }
-
-    .goals {
-      padding: 7rem 0;
-      background: rgba(8,11,18,.9);
-      border-top: 1px solid var(--border);
-    }
-
-    .goals-inner { width: min(1100px, calc(100% - 48px)); margin: 0 auto; }
-
-    .goals-header { margin-bottom: 4rem; }
-
-    .goals-heading {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      font-weight: 300;
-      line-height: 1.06;
-      letter-spacing: -.03em;
-      margin-bottom: .75rem;
-    }
-
-    .goals-sub {
-      font-size: .9375rem;
-      color: var(--ink-dim);
-      font-weight: 300;
-    }
-
-    .goals-list { display: flex; flex-direction: column; }
-
-    .goal-item {
-      display: grid;
-      grid-template-columns: 72px 1fr 36px;
-      align-items: center;
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--border);
-      gap: 2rem;
-      transition: background .2s;
-    }
-
-    .goal-item:first-child { border-top: 1px solid var(--border); }
-
-    .goal-item:hover .goal-arrow { opacity: 1; transform: translateX(5px); }
-    .goal-item:hover .goal-num { color: var(--cyan); }
-
-    .goal-num {
-      font-family: var(--serif);
-      font-size: 2.2rem;
-      font-weight: 300;
-      color: rgba(240,236,228,.2);
-      line-height: 1;
-      transition: color .25s var(--ease-spring);
-    }
-
-    .goal-text {
-      font-family: var(--serif);
-      font-size: 1.3125rem;
-      font-weight: 300;
-      line-height: 1.35;
-      letter-spacing: -.01em;
-      color: var(--ink);
-    }
-
-    .goal-arrow {
-      font-size: 1.1rem;
-      color: var(--cyan);
-      opacity: 0;
-      transition: all .3s var(--ease-spring);
-      text-align: right;
-    }
-
-    .what-we-do {
-      padding: 7rem 0;
-      background: transparent;
-    }
-
-    .what-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
-      margin-bottom: 4rem;
-    }
-
-    .what-heading {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      font-weight: 300;
-      line-height: 1.06;
-      letter-spacing: -.03em;
-    }
-
-    .what-intro {
-      font-size: .9375rem;
-      color: var(--ink-dim);
-      font-weight: 300;
-      line-height: 1.85;
-    }
-
-    .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-    .what-card {
-      padding: 34px 30px;
-      border: 1px solid var(--border);
-      min-height: 400px;
-      border-radius: 20px;
-      background: rgba(14,18,28,0.65);
-      backdrop-filter: blur(20px) saturate(1.2);
-      -webkit-backdrop-filter: blur(20px) saturate(1.2);
-      transition: border-color .25s var(--ease-spring), box-shadow .25s var(--ease-spring);
-    }
-
-    .what-card:hover {
-      border-color: rgba(0,242,255,.2);
-      box-shadow: 0 20px 60px rgba(0,0,0,.3);
-    }
-
-    .what-kicker {
-      display: inline-block;
-      margin-bottom: 16px;
-      font-size: 9.5px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--ink-ghost);
-    }
-
-    .what-card h3 {
-      font-family: var(--serif);
-      font-size: 2rem;
-      line-height: 1.02;
-      font-weight: 300;
-      margin-bottom: 16px;
-      letter-spacing: -.025em;
-    }
-
-    .what-card p {
-      font-size: .9375rem;
-      line-height: 1.85;
-      color: var(--ink-dim);
-      margin-bottom: 18px;
-      font-weight: 300;
-    }
-
-    .what-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-    .what-card ul li {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--ink);
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .what-card ul li::before { content: "—"; position: absolute; left: 0; color: var(--cyan); opacity: .5; }
-
-    .learn-more {
-      padding: 7rem 0;
-      background: rgba(8,11,18,.95);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .learn-heading, .community-heading, .newsletter-heading {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4.2rem);
-      font-weight: 300;
-      line-height: 1.06;
-      letter-spacing: -.03em;
-      margin-bottom: 2.5rem;
-    }
-
-    .learn-heading em { font-style: italic; }
-
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-
-    .bento-item {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      min-height: 240px;
-      background: rgba(14,18,28,0.68);
-      backdrop-filter: blur(20px) saturate(1.3);
-      -webkit-backdrop-filter: blur(20px) saturate(1.3);
-      transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease-spring);
-    }
-
-    .bento-item::before,
-    .editorial-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: calc(20px + 1px);
-      padding: 1px;
-      background: conic-gradient(
-        from calc(var(--laser-angle, 0deg) - 60deg),
-        transparent 0%,
-        var(--cyan) 8%,
-        var(--violet) 14%,
-        transparent 20%,
-        transparent 100%
-      );
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity .3s var(--ease-spring);
-      pointer-events: none;
-    }
-
-    .bento-item:hover::before,
-    .editorial-card:hover::before { opacity: 1; }
-
-    .bento-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 0 40px rgba(0,242,255,.05);
-    }
-
-    .bento-content {
-      position: relative;
-      z-index: 2;
-      padding: 28px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .bento-item::after,
-    .what-card::after,
-    .editorial-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      opacity: .025;
-      pointer-events: none;
-      border-radius: inherit;
-    }
-
-    .bento-item::after { z-index: 1; }
-
-    .bento-tall { grid-column: span 4; grid-row: span 2; min-height: 500px; }
-    .bento-wide { grid-column: span 8; }
-    .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta) { grid-column: span 4; }
-    .bento-cta { grid-column: span 8; }
-
-    .bento-kicker {
-      display: inline-block;
-      font-size: 9.5px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      color: var(--ink-ghost);
-      margin-bottom: 14px;
-    }
-
-    .bento-content h3 {
-      font-family: var(--serif);
-      font-size: clamp(1.6rem, 2.1vw, 2.2rem);
-      line-height: 1.05;
-      font-weight: 300;
-      margin-bottom: 12px;
-      letter-spacing: -.03em;
-      color: var(--ink);
-    }
-
-    .bento-content p {
-      font-size: .9375rem;
-      line-height: 1.85;
-      color: var(--ink-dim);
-      font-weight: 300;
-      max-width: 34ch;
-    }
-
-    .bento-badge, .pill {
-      margin-top: auto;
-      width: fit-content;
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border-hi);
-      font-size: 9.5px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--ink-dim);
-      background: rgba(255,255,255,.03);
-    }
-
-    .user-pill-stack { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
-
-    .bento-link {
-      margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      font-size: 9.5px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      transition: gap .2s var(--ease-spring);
-    }
-
-    .bento-link:hover { gap: 1rem; }
-
-    .career-editorial {
-      padding: 9rem 0;
-      background: transparent;
-    }
-
-    .editorial-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-    .editorial-header { max-width: 760px; margin-bottom: 64px; }
-
-    .editorial-label {
-      display: block;
-      font-size: 9.5px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--ink-ghost);
-      margin-bottom: 20px;
-    }
-
-    .editorial-title {
-      font-family: var(--serif);
-      font-size: clamp(2.6rem, 5vw, 4rem);
-      line-height: 1.04;
-      color: var(--ink);
-      font-weight: 300;
-      margin-bottom: 20px;
-      letter-spacing: -.03em;
-    }
-
-    .editorial-title em {
-      font-style: italic;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--cyan) 40%, var(--violet) 80%, var(--gold) 100%);
-      background-size: 300% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 6s linear infinite;
-    }
-
-    .editorial-intro {
-      font-size: 1rem;
-      color: var(--ink-dim);
-      max-width: 520px;
-      line-height: 1.85;
-      font-weight: 300;
-    }
-
-    .editorial-spotlight {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 30px;
-      border: 1px solid var(--border-hi);
-      border-radius: 24px;
-      background: rgba(14,18,28,0.75);
-      backdrop-filter: blur(20px) saturate(1.3);
-      -webkit-backdrop-filter: blur(20px) saturate(1.3);
-      padding: 40px;
-      margin-bottom: 20px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 30px 80px rgba(0,0,0,.3);
-    }
-
-    .editorial-spotlight::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 85% 20%, rgba(0,242,255,.09), transparent 30%);
-      pointer-events: none;
-    }
-
-    .spotlight-kicker {
-      display: inline-block;
-      font-size: 9.5px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      opacity: .7;
-      margin-bottom: 14px;
-    }
-
-    .spotlight-copy h3 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 3rem);
-      line-height: .95;
-      font-weight: 300;
-      letter-spacing: -.03em;
-      margin-bottom: 14px;
-      color: var(--ink);
-    }
-
-    .spotlight-copy p {
-      max-width: 34ch;
-      color: var(--ink-dim);
-      line-height: 1.85;
-      font-size: .9375rem;
-      font-weight: 300;
-    }
-
-    .spotlight-lines {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 16px;
-    }
-
-    .spotlight-lines span {
-      display: block;
-      width: 1px;
-      background: linear-gradient(180deg, transparent, var(--border-hi), transparent);
-    }
-
-    .spotlight-lines span:nth-child(1) { height: 130px; }
-    .spotlight-lines span:nth-child(2) { height: 180px; }
-    .spotlight-lines span:nth-child(3) { height: 100px; }
-
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 20px;
-      background: none;
-      border: none;
-      border-radius: 0;
-      overflow: visible;
-    }
-
-    .editorial-card {
-      grid-column: span 4;
-      position: relative;
-      background: rgba(14,18,28,0.72);
-      backdrop-filter: blur(24px) saturate(1.35);
-      -webkit-backdrop-filter: blur(24px) saturate(1.35);
-      padding: 34px 30px 28px;
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,.08);
-      transition: transform .4s var(--ease-spring), background .3s var(--ease-spring), border-color .3s var(--ease-spring), box-shadow .35s var(--ease-spring);
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,.22);
-    }
-
-    .editorial-card:nth-child(1) { grid-column: span 8; }
-    .editorial-card:nth-child(5) { grid-column: span 8; }
-
-    .editorial-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      padding: 1px;
-      background: conic-gradient(from calc(var(--laser-angle, 0deg) - 60deg), transparent 0%, var(--cyan) 8%, var(--violet) 14%, transparent 22%, transparent 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity .3s var(--ease-spring);
-      pointer-events: none;
-    }
-
-    .editorial-card:hover::before,
-    .editorial-card.open::before { opacity: 1; }
-
-    .editorial-card:hover,
-    .editorial-card.open {
-      transform: translateY(-6px);
-      border-color: rgba(0,242,255,.14);
-      box-shadow: 0 32px 84px rgba(0,0,0,.32);
-    }
-
-    .editorial-card .laser-line {
-      position: absolute;
-      top: 0; left: 0;
-      height: 1px;
-      width: 0;
-      background: linear-gradient(90deg, var(--gold), var(--cyan));
-      transition: width .45s var(--ease-out);
-      opacity: .9;
-    }
-
-    .editorial-card:hover .laser-line,
-    .editorial-card.open .laser-line { width: 100%; }
-
-    .card-meta {
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.54);
-      margin-bottom: 18px;
-    }
-
-    .card-body {
-      position: relative;
-      z-index: 1;
-      margin-bottom: auto;
-      transition: transform .36s var(--ease-out);
-    }
-
-    .editorial-card:hover .card-body,
-    .editorial-card.open .card-body { transform: translateY(-8px); }
-
-    .card-body h3 {
-      font-family: var(--serif);
-      font-size: clamp(2.05rem, 2.5vw, 3rem);
-      line-height: .94;
-      letter-spacing: -.035em;
-      font-weight: 300;
-      margin-bottom: 14px;
-      max-width: 10ch;
-      color: var(--ink);
-    }
-
-    .card-body p {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: rgba(240,236,228,.84);
-      max-width: 32ch;
-      margin-bottom: 18px;
-    }
-
-    .card-arrow {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      color: var(--cyan);
-      font-size: 1rem;
-      opacity: .9;
-      z-index: 2;
-      transition: transform .3s var(--ease-spring);
-    }
-
-    .editorial-card:hover .card-arrow,
-    .editorial-card.open .card-arrow { transform: translate(3px, -3px); }
-
-    .expand-panel {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .45s var(--ease-out), opacity .35s var(--ease-out);
-      opacity: .35;
-    }
-
-    .editorial-card.open .expand-panel,
-    .editorial-card:hover .expand-panel { max-height: 190px; opacity: 1; }
-
-    .expand-inner {
-      padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      font-size: 14px;
-      color: rgba(240,236,228,.86);
-      line-height: 1.76;
-    }
-
-    .expand-inner a {
-      color: var(--cyan);
-      font-size: 10px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-top: 12px;
-      transition: opacity .2s, transform .2s;
-    }
-
-    .expand-inner a:hover { opacity: .8; transform: translateX(2px); }
-
-    .pathfinder-shell {
-      margin-top: 20px;
-      border: 1px solid var(--border-hi);
-      border-radius: 24px;
-      background: rgba(14,18,28,0.74);
-      backdrop-filter: blur(22px) saturate(1.3);
-      -webkit-backdrop-filter: blur(22px) saturate(1.3);
-      padding: 36px;
-      box-shadow: 0 30px 80px rgba(0,0,0,.28);
-    }
-
-    .pathfinder-header {
-      max-width: 760px;
-      margin-bottom: 30px;
-    }
-
-    .pathfinder-label {
-      display: inline-block;
-      font-size: 9.5px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      opacity: .75;
-      margin-bottom: 14px;
-    }
-
-    .pathfinder-header h3 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 3rem);
-      line-height: 1.02;
-      font-weight: 300;
-      letter-spacing: -.03em;
-      margin-bottom: 14px;
-      color: var(--ink);
-    }
-
-    .pathfinder-header h3 em {
-      font-style: italic;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--cyan) 40%, var(--violet) 80%, var(--gold) 100%);
-      background-size: 300% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 6s linear infinite;
-    }
-
-    .pathfinder-header p {
-      font-size: .95rem;
-      line-height: 1.85;
-      color: var(--ink-dim);
-      max-width: 620px;
-      font-weight: 300;
-    }
-
-    .pathfinder-quiz {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .quiz-question {
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px 22px 20px;
-      background: rgba(255,255,255,.02);
-      min-height: 100%;
-    }
-
-    .quiz-number {
-      font-size: 9.5px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--ink-ghost);
-      margin-bottom: 12px;
-    }
-
-    .quiz-question h4 {
-      font-family: var(--serif);
-      font-size: 1.45rem;
-      line-height: 1.1;
-      font-weight: 300;
-      color: var(--ink);
-      margin-bottom: 16px;
-      letter-spacing: -.02em;
-    }
-
-    .quiz-question label {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: .92rem;
-      line-height: 1.7;
-      color: var(--ink-dim);
-      cursor: pointer;
-      margin-bottom: 10px;
-      font-weight: 300;
-    }
-
-    .quiz-question input[type="radio"] {
-      margin-top: 4px;
-      accent-color: var(--violet);
-      flex-shrink: 0;
-    }
-
-    .quiz-actions {
-      grid-column: 1 / -1;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding-top: 8px;
-    }
-
-    .quiz-result {
-      margin-top: 22px;
-      border: 1px solid rgba(0,242,255,.18);
-      border-radius: 22px;
-      padding: 28px;
-      background: linear-gradient(180deg, rgba(0,242,255,.06), rgba(141,108,255,.08));
-    }
-
-    .quiz-result-label {
-      font-size: 9.5px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      opacity: .8;
-      margin-bottom: 12px;
-    }
-
-    .quiz-result h4 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3vw, 3rem);
-      line-height: .98;
-      font-weight: 300;
-      color: var(--ink);
-      letter-spacing: -.03em;
-      margin-bottom: 14px;
-    }
-
-    .quiz-result p {
-      font-size: .95rem;
-      line-height: 1.85;
-      color: var(--ink-dim);
-      font-weight: 300;
-      max-width: 720px;
-    }
-
-    .quiz-cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .conviction {
-      padding: 6rem 3.5rem;
-      background: rgba(8,11,18,.95);
-      text-align: center;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .conviction-text {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 3vw, 3rem);
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1.45;
-      letter-spacing: -.015em;
-      max-width: 900px;
-      margin: 0 auto;
-      text-wrap: balance;
-    }
-
-    .conviction-text em {
-      font-style: italic;
-      color: var(--ink-dim);
-    }
-
-    .community { padding: 7rem 0; background: transparent; }
-    .community-inner { width: min(1100px, calc(100% - 48px)); margin: 0 auto; }
-
-    .community-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
-      margin-bottom: 4rem;
-    }
-
-    .community-heading {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4.2rem);
-      font-weight: 300;
-      line-height: 1.06;
-      letter-spacing: -.03em;
-    }
-
-    .community-intro {
-      font-size: .9375rem;
-      color: var(--ink-dim);
-      font-weight: 300;
-      line-height: 1.9;
-    }
-
-    .community-cards {
-      display: grid;
-      grid-template-columns: 1.35fr .95fr;
-      grid-template-rows: repeat(3, 1fr);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      overflow: hidden;
-    }
-
-    .comm-card {
-      padding: 2.25rem;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: .75rem;
-      background: rgba(14,18,28,0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      min-height: 200px;
-      transition: background .25s var(--ease-spring);
-    }
-
-    .community-cards > .comm-card:not(.comm-card-featured) { border-right: none; }
-
-    .community-cards > .comm-card:not(.comm-card-featured):hover {
-      background: rgba(20,26,40,0.75);
-    }
-
-    .comm-card-tag {
-      font-size: 9.5px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--ink-ghost);
-    }
-
-    .comm-card-title {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: var(--ink);
-      letter-spacing: -.015em;
-    }
-
-    .comm-card-body {
-      font-size: .9375rem;
-      color: var(--ink-dim);
-      line-height: 1.78;
-      font-weight: 300;
-      flex: 1;
-    }
-
-    .comm-card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: 9.5px;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-      color: var(--cyan);
-      font-weight: 400;
-      transition: gap .2s var(--ease-spring);
-    }
-
-    .comm-card-link:hover { gap: .9rem; }
-
-    .comm-card-featured {
-      grid-row: 1 / span 3;
-      padding: 0;
-      overflow: hidden;
-      position: relative;
-      min-height: 680px;
-      display: flex;
-      border-right: 1px solid var(--border);
-    }
-
-    .comm-feature-image { position: absolute; inset: 0; }
-
-    .comm-feature-image img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: saturate(.7) brightness(.7);
-    }
-
-    .comm-feature-overlay {
-      position: relative;
-      z-index: 2;
-      margin-top: auto;
-      padding: 2rem;
-      background: linear-gradient(to top, rgba(8,11,18,.72), rgba(8,11,18,.06));
-      color: var(--ink);
-      width: 100%;
-    }
-
-    .comm-card-tag.light { color: var(--ink-dim); }
-
-    .featured-title {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      line-height: 1;
-      font-weight: 300;
-      color: var(--ink);
-    }
-
-    .featured-body { color: var(--ink-dim); }
-    .comm-card-link.light { color: var(--ink); }
-
-    .newsletter {
-      padding: 6rem 0;
-      background: rgba(8,11,18,.96);
-      border-top: 1px solid var(--border);
-    }
-
-    .newsletter-inner {
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: center;
-      width: calc(100% - 48px);
-    }
-
-    .newsletter-heading { color: var(--ink); margin-bottom: 1rem; }
-
-    .newsletter-sub {
-      margin-bottom: 2.25rem;
-      color: var(--ink-dim);
-      font-size: .9375rem;
-      font-weight: 300;
-      line-height: 1.85;
-    }
-
-    .newsletter-form { display: flex; max-width: 400px; margin: 0 auto; }
-
-    .newsletter-input {
-      flex: 1;
-      padding: .8rem 1.2rem;
-      border: 1px solid var(--border-hi);
-      border-right: none;
-      background: rgba(14,18,28,.8);
-      backdrop-filter: blur(12px);
-      font-family: var(--sans);
-      font-size: .9375rem;
-      color: var(--ink);
-      outline: none;
-      transition: border-color .2s var(--ease-spring);
-    }
-
-    .newsletter-input::placeholder { color: var(--ink-ghost); }
-
-    .newsletter-input:focus { border-color: rgba(0,242,255,.4); }
-
-    .newsletter-btn {
-      background: var(--violet);
-      color: white;
-      border: none;
-      padding: .8rem 1.4rem;
-      cursor: pointer;
-      font-family: var(--sans);
-      font-size: 9.5px;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-      font-weight: 500;
-      transition: opacity .2s, box-shadow .2s;
-    }
-
-    .newsletter-btn:hover { opacity: .85; box-shadow: 0 0 20px rgba(141,108,255,.3); }
-
-    footer {
-      background: var(--deep);
-      padding: 4.5rem 3.5rem 2.5rem;
-      color: var(--ink);
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .footer-brand-name {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      font-weight: 300;
-      color: var(--ink);
-      margin-bottom: .875rem;
-      line-height: 1.2;
-    }
-
-    .footer-brand-sub {
-      font-size: .875rem;
-      color: var(--ink-ghost);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 300px;
-    }
-
-    .footer-col-label {
-      font-size: 9.5px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: rgba(240,236,228,.2);
-      margin-bottom: 1.2rem;
-    }
-
-    .footer-col a {
-      display: block;
-      color: var(--ink-ghost);
-      font-size: .875rem;
-      font-weight: 300;
-      margin-bottom: .6rem;
-      transition: color .2s var(--ease-spring);
-    }
-
-    .footer-col a:hover { color: var(--ink); }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-copy {
-      font-size: .8125rem;
-      color: rgba(240,236,228,.2);
-      font-weight: 300;
-    }
-
-    .footer-link {
-      font-size: .8125rem;
-      color: var(--ink-ghost);
-      letter-spacing: .08em;
-      transition: color .2s;
-    }
-
-    .footer-link:hover { color: var(--ink); }
-
-    .reveal-up {
-      opacity: 0;
-      transform: translateY(28px);
-      filter: blur(6px);
-      transition:
-        opacity .8s var(--ease-out),
-        transform .8s var(--ease-out),
-        filter .8s var(--ease-out);
-      will-change: opacity, transform;
-    }
-
-    .reveal-up.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
-    .reveal-delay-1 { transition-delay: .08s; }
-    .reveal-delay-2 { transition-delay: .17s; }
-    .reveal-delay-3 { transition-delay: .26s; }
-
-    @media (max-width: 1100px) {
-      .intentions-grid, .what-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-visual { min-height: 480px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
-      .bento-grid { grid-template-columns: repeat(6, 1fr); }
-      .bento-tall, .bento-wide,
-      .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta),
-      .bento-cta { grid-column: span 3; grid-row: auto; min-height: 240px; }
-      .editorial-spotlight, .pathfinder-quiz { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 900px) {
-      .about { grid-template-columns: 1fr; }
-      .about-img-wrap { height: 55vw; }
-      .about-content { padding: 4rem 2.5rem; }
-      .intentions-header, .what-header, .community-header,
-      .footer-top { grid-template-columns: 1fr; gap: 1.5rem; }
-      .intentions-grid, .what-grid, .editorial-grid { grid-template-columns: 1fr; }
-      .bento-grid { grid-template-columns: 1fr; }
-      .bento-tall, .bento-wide,
-      .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta),
-      .bento-cta { grid-column: auto; }
-      .community-cards { grid-template-columns: 1fr; grid-template-rows: auto; }
-      .comm-card-featured { grid-row: auto; min-height: 400px; border-right: none; }
-      .comm-card { border-right: none; }
-      .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
-      .photo-wrap img { height: 220px; }
-      .photo-wrap:last-child { display: none; }
-      footer { padding: 3rem 1.5rem 2rem; }
-      .conviction { padding: 4rem 1.5rem; }
-      .newsletter-form { flex-direction: column; }
-      .newsletter-input { border-right: 1px solid var(--border-hi); border-bottom: none; }
-      .pathfinder-shell { padding: 24px; }
-      .quiz-actions, .quiz-cta-group { flex-direction: column; }
-      .quiz-actions .btn, .quiz-cta-group .btn { width: 100%; justify-content: center; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .hero { padding: 72px 0 56px; }
-    }
-
-    @media (max-width: 600px) {
-      .hero-meta { grid-template-columns: 1fr; }
-      .goal-item { grid-template-columns: 50px 1fr 24px; gap: 1rem; }
-      .hero-title { font-size: clamp(3rem, 14vw, 4.8rem); }
-      .hero-card { padding: 24px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-btn { width: 100%; }
-    }
-
-    @media (max-width: 760px) {
-      .editorial-grid, .intentions-grid { grid-template-columns: 1fr; }
-      .editorial-card, .editorial-card:nth-child(1), .editorial-card:nth-child(5) { min-height: 300px; grid-column: auto; }
-      .intention-flip { min-height: 380px; height: 380px; }
-    }
-    /* your existing CSS above */
-
-
-/* ===== NEW SIX INTENTIONS BENTO ===== */
-.intentions-bento {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
-  margin-top: 50px;
-}
-
-.flip-card {
-  perspective: 1600px;
-  min-height: 260px;
-}
-
-.large-card {
-  grid-column: span 6;
-  grid-row: span 2;
-  min-height: 540px;
-}
-
-.medium-card {
-  grid-column: span 3;
-  min-height: 260px;
-}
-
-.small-card {
-  grid-column: span 3;
-  min-height: 220px;
-}
-
-.wide-card {
-  grid-column: span 6;
-  min-height: 220px;
-}
-
-.flip-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: inherit;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front,
-.flip-back {
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  padding: 30px;
-  backface-visibility: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(20,24,35,0.55);
-  backdrop-filter: blur(26px) saturate(180%);
-  -webkit-backdrop-filter: blur(26px) saturate(180%);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.06),
-    0 20px 60px rgba(0,0,0,0.25);
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-}
-
-.flip-front h3,
-.flip-back h3 {
-  font-family: var(--serif);
-  font-size: 2rem;
-  line-height: 1;
-  font-weight: 300;
-}
-
-.flip-back p {
-  margin-top: 18px;
-  color: var(--ink-dim);
-  line-height: 1.8;
-}
-
-.card-number {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--cyan);
-  margin-bottom: 18px;
-}
-
-.card-hint {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  font-size: 10px;
-  color: var(--ink-ghost);
-}
-  </style>
+  <meta
+    name="description"
+    content="Free Thinker Institute — personal and professional development through truth-seeking, critical thinking, and meaningful community."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div class="noise-filter" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-      <filter id="grain">
-        <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
-        <feColorMatrix type="saturate" values="0"/>
-      </filter>
-      <rect width="100%" height="100%" filter="url(#grain)"/>
-    </svg>
-  </div>
+  <div class="noise-filter" aria-hidden="true"></div>
 
   <div class="aurora-canvas" aria-hidden="true">
     <div class="aurora-blob blob-1"></div>
@@ -2372,13 +27,15 @@
   </div>
 
   <div class="page-shell">
-
     <nav>
       <div class="nav-inner">
         <a class="brand" href="#top">
-          <span class="brand-mark"><img src="original-logo.png" alt="Free Thinker Institute logo"></span>
+          <span class="brand-mark">
+            <img src="original-logo.png" alt="Free Thinker Institute logo" />
+          </span>
           <span>Free Thinker Institute</span>
         </a>
+
         <div class="nav-links">
           <a href="#top">Home</a>
           <a href="#intentions">Six Intentions</a>
@@ -2394,22 +51,61 @@
       </div>
     </nav>
 
-  <section class="hero" id="top">
-  <div class="hero-bg">
-    <div class="aurora aurora-1"></div>
-    <div class="aurora aurora-2"></div>
-    <div class="grid-glow"></div>
-    <div class="hero-noise"></div>
-  </div>
+    <section class="hero" id="top">
+      <div class="hero-bg">
+        <div class="hero-aurora hero-aurora-1"></div>
+        <div class="hero-aurora hero-aurora-2"></div>
+        <div class="grid-glow"></div>
+      </div>
 
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <p class="hero-kicker">A new kind of online institute</p>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="hero-kicker">A new kind of online institute</p>
 
-      <h1 class="hero-title">
-        Build a life of
-        <span class="hero-gradient">clarity, courage,</span>
-       
+          <h1 class="hero-title">
+            Build a life of
+            <span class="hero-gradient">clarity, courage,</span>
+            and meaningful work.
+          </h1>
+
+          <p class="hero-text">
+            Free Thinker Institute is a digital space for people who want to think
+            deeper, live better, and move toward work that feels intelligent,
+            ethical, and fully alive.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#dream-job-training" class="hero-btn hero-btn-primary">Explore Paths</a>
+            <a href="#dream-job-training" class="hero-btn hero-btn-secondary">Take the Quiz</a>
+          </div>
+        </div>
+
+        <div class="hero-card-wrap">
+          <div class="hero-card" id="heroCard">
+            <div class="hero-card-glow"></div>
+
+            <div class="hero-card-top">
+              <span class="mini-label">Current focus</span>
+              <span class="status-dot"></span>
+            </div>
+
+            <h3 class="hero-card-title">From confusion to direction</h3>
+
+            <p class="hero-card-text">
+              Philosophy, self-knowledge, practical learning, and meaningful career
+              exploration — brought together in one place.
+            </p>
+
+            <div class="hero-pill-row">
+              <span class="hero-pill">Critical Thinking</span>
+              <span class="hero-pill">Career Clarity</span>
+              <span class="hero-pill">Human Flourishing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="ticker-wrap" aria-hidden="true">
       <div class="ticker">
         <span class="hi">Critical Thinking</span><span>—</span>
@@ -2431,117 +127,212 @@
 
     <section class="about" id="about">
       <div class="about-img-wrap">
-        <img class="about-img" src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=1200&q=80&fit=crop" alt="Community discussion" loading="lazy" />
+        <img
+          class="about-img"
+          src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=1200&q=80&fit=crop"
+          alt="Community discussion"
+          loading="lazy"
+        />
       </div>
+
       <div class="about-content">
         <div class="section-kicker reveal-up">Who We Are</div>
-        <h2 class="about-heading reveal-up reveal-delay-1">Community =<br><em>Unity + Diversity</em></h2>
+        <h2 class="about-heading reveal-up reveal-delay-1">
+          Community =<br /><em>Unity + Diversity</em>
+        </h2>
+
         <div class="about-body">
-          <p class="reveal-up reveal-delay-1">We are building a warm, compassionate, open minded community centered on increasing happiness and minimizing harm.</p>
-          <p class="reveal-up reveal-delay-2">The organization brings people together around personal and professional development, thoughtful discussion, and meaningful connection.</p>
-          <p class="reveal-up reveal-delay-3">Everyone is welcome to join, learn, and help make these goals real.</p>
+          <p class="reveal-up reveal-delay-1">
+            We are building a warm, compassionate, open minded community centered on
+            increasing happiness and minimizing harm.
+          </p>
+          <p class="reveal-up reveal-delay-2">
+            The organization brings people together around personal and professional
+            development, thoughtful discussion, and meaningful connection.
+          </p>
+          <p class="reveal-up reveal-delay-3">
+            Everyone is welcome to join, learn, and help make these goals real.
+          </p>
         </div>
       </div>
     </section>
 
-  <section class="intentions" id="intentions">
-  <div class="container">
-    <div class="intentions-header">
-      <div>
-        <div class="section-kicker">Six Intentions</div>
-        <h2 class="intentions-heading">
-          A shared framework for
-          <em class="kinetic-em">living and growing.</em>
-        </h2>
+    <section class="intentions" id="intentions">
+      <div class="container">
+        <div class="intentions-header">
+          <div>
+            <div class="section-kicker reveal-up">Six Intentions</div>
+            <h2 class="intentions-heading reveal-up reveal-delay-1">
+              A shared framework for<br />
+              <em class="kinetic-em">living and growing.</em>
+            </h2>
+          </div>
+
+          <p class="intentions-intro reveal-up reveal-delay-2">
+            Six intentions shape how we think, relate, grow, seek truth, and build
+            careers with more clarity, depth, and care.
+          </p>
+        </div>
+
+        <div class="intentions-grid">
+          <article class="intention-flip reveal-up" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top">
+                  <span class="intention-icon">✦</span>
+                  <span class="intention-number">01</span>
+                </div>
+                <h3>Reason, Intuition &amp; Fairness</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+
+              <div class="intention-face intention-back">
+                <div class="intention-top">
+                  <span class="intention-icon">✦</span>
+                  <span class="intention-number">01</span>
+                </div>
+                <h3>Reason, Intuition &amp; Fairness</h3>
+                <p>
+                  Strong judgment comes from balancing clear reasoning, human instinct,
+                  and ethical fairness. This intention helps people think well without
+                  becoming cold, and care deeply without losing clarity.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up reveal-delay-1" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top">
+                  <span class="intention-icon">◌</span>
+                  <span class="intention-number">02</span>
+                </div>
+                <h3>Self-Discovery &amp; Self-Improvement</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+
+              <div class="intention-face intention-back">
+                <div class="intention-top">
+                  <span class="intention-icon">◌</span>
+                  <span class="intention-number">02</span>
+                </div>
+                <h3>Self-Discovery &amp; Self-Improvement</h3>
+                <p>
+                  Growth begins with honest self-knowledge. This intention helps people
+                  understand how they think, what drives them, and where they can
+                  develop with discipline and care.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up reveal-delay-2" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top">
+                  <span class="intention-icon">♡</span>
+                  <span class="intention-number">03</span>
+                </div>
+                <h3>Respect, Transparency &amp; Open-Mindedness</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+
+              <div class="intention-face intention-back">
+                <div class="intention-top">
+                  <span class="intention-icon">♡</span>
+                  <span class="intention-number">03</span>
+                </div>
+                <h3>Respect, Transparency &amp; Open-Mindedness</h3>
+                <p>
+                  Real progress depends on trust. This intention encourages respectful
+                  dialogue, intellectual humility, and the courage to be honest about
+                  what you know and what may need revision.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top">
+                  <span class="intention-icon">○</span>
+                  <span class="intention-number">04</span>
+                </div>
+                <h3>Truth &amp; Deep Understanding</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+
+              <div class="intention-face intention-back">
+                <div class="intention-top">
+                  <span class="intention-icon">○</span>
+                  <span class="intention-number">04</span>
+                </div>
+                <h3>Truth &amp; Deep Understanding</h3>
+                <p>
+                  We aim for more than quick opinions or surface-level certainty. This
+                  intention is about listening deeply, examining reality carefully, and
+                  seeking understanding that can stand up under pressure.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up reveal-delay-1" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top">
+                  <span class="intention-icon">✳</span>
+                  <span class="intention-number">05</span>
+                </div>
+                <h3>Commitment to Critical Thinking</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+
+              <div class="intention-face intention-back">
+                <div class="intention-top">
+                  <span class="intention-icon">✳</span>
+                  <span class="intention-number">05</span>
+                </div>
+                <h3>Commitment to Critical Thinking</h3>
+                <p>
+                  Critical thinking means questioning assumptions, weighing evidence,
+                  and refusing to let convenience replace truth. It builds intellectual
+                  independence in a noisy world.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="intention-flip reveal-up reveal-delay-2" tabindex="0">
+            <div class="intention-inner">
+              <div class="intention-face intention-front">
+                <div class="intention-top">
+                  <span class="intention-icon">△</span>
+                  <span class="intention-number">06</span>
+                </div>
+                <h3>Minimize Harm, Maximize Flourishing &amp; Love</h3>
+                <span class="intention-hint">Hover / Tap</span>
+              </div>
+
+              <div class="intention-face intention-back">
+                <div class="intention-top">
+                  <span class="intention-icon">△</span>
+                  <span class="intention-number">06</span>
+                </div>
+                <h3>Minimize Harm, Maximize Flourishing &amp; Love</h3>
+                <p>
+                  A meaningful life is not only about achievement. This intention asks
+                  how our choices affect others, how we reduce unnecessary harm, and
+                  how we create conditions in which people can genuinely flourish.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-      <p class="intentions-intro">
-        Six intentions shape how we think, grow, relate, and build meaningful lives.
-      </p>
-    </div>
-
-    <div class="intentions-bento">
-
-      <article class="flip-card large-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">01</span>
-            <h3>Reason & Critical Thinking</h3>
-            <span class="card-hint">Hover</span>
-          </div>
-          <div class="flip-back">
-            <h3>Reason & Critical Thinking</h3>
-            <p>
-              Learn how to question assumptions, think clearly, and make better decisions.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card medium-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">02</span>
-            <h3>Self Discovery</h3>
-          </div>
-          <div class="flip-back">
-            <p>Understand how you think, what drives you, and where to grow.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card medium-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">03</span>
-            <h3>Truth Seeking</h3>
-          </div>
-          <div class="flip-back">
-            <p>Move beyond surface opinions and build deep understanding.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card small-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">04</span>
-            <h3>Open Mindedness</h3>
-          </div>
-          <div class="flip-back">
-            <p>Stay flexible, curious, and willing to rethink.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card small-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">05</span>
-            <h3>Compassion</h3>
-          </div>
-          <div class="flip-back">
-            <p>Build relationships rooted in care and understanding.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="flip-card wide-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <span class="card-number">06</span>
-            <h3>Human Flourishing</h3>
-          </div>
-          <div class="flip-back">
-            <p>
-              Create a life that supports wellbeing, meaning, and growth.
-            </p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
+    </section>
 
     <div class="photo-strip" id="photoStrip">
       <div class="photo-wrap" data-photo>
@@ -2559,9 +350,14 @@
       <div class="goals-inner">
         <div class="goals-header">
           <div class="section-kicker reveal-up">Goals</div>
-          <h2 class="goals-heading reveal-up reveal-delay-1">Our organization is<br><em class="kinetic-em">small but growing quickly.</em></h2>
-          <p class="goals-sub reveal-up reveal-delay-2">We have ambitious and virtuous goals and you can help achieve them.</p>
+          <h2 class="goals-heading reveal-up reveal-delay-1">
+            Our organization is<br /><em class="kinetic-em">small but growing quickly.</em>
+          </h2>
+          <p class="goals-sub reveal-up reveal-delay-2">
+            We have ambitious and virtuous goals and you can help achieve them.
+          </p>
         </div>
+
         <div class="goals-list">
           <div class="goal-item reveal-up">
             <div class="goal-num">01</div>
@@ -2587,25 +383,38 @@
         <div class="what-header">
           <div>
             <div class="section-kicker reveal-up">What We Do</div>
-            <h2 class="what-heading reveal-up reveal-delay-1">Personal and professional<br><em class="kinetic-em">development.</em></h2>
+            <h2 class="what-heading reveal-up reveal-delay-1">
+              Personal and professional<br /><em class="kinetic-em">development.</em>
+            </h2>
           </div>
-          <p class="what-intro reveal-up reveal-delay-2">The community is focused on thoughtful discussion, growth, and helping people move forward in life and work.</p>
+          <p class="what-intro reveal-up reveal-delay-2">
+            The community is focused on thoughtful discussion, growth, and helping
+            people move forward in life and work.
+          </p>
         </div>
+
         <div class="what-grid">
           <article class="what-card reveal-up">
             <span class="what-kicker">Personal Development</span>
             <h3>Our conversations are about</h3>
-            <p>The six intentions, personal and professional development topics, and anything else of interest to the group.</p>
+            <p>
+              The six intentions, personal and professional development topics, and
+              anything else of interest to the group.
+            </p>
             <ul>
               <li>The six intentions</li>
               <li>Personal and professional development topics</li>
               <li>Anything else of interest to the group</li>
             </ul>
           </article>
+
           <article class="what-card reveal-up reveal-delay-1">
             <span class="what-kicker">Professional Development</span>
             <h3>We help people</h3>
-            <p>Identify their dream job, build valuable skills, improve at work, and connect with experienced professionals.</p>
+            <p>
+              Identify their dream job, build valuable skills, improve at work, and
+              connect with experienced professionals.
+            </p>
             <ul>
               <li>Identify what their dream job is</li>
               <li>Get a valuable skillset in that job</li>
@@ -2621,6 +430,7 @@
       <div class="container">
         <div class="section-kicker reveal-up">Participation</div>
         <h2 class="learn-heading reveal-up reveal-delay-1">How it all <em class="kinetic-em">works.</em></h2>
+
         <div class="bento-grid">
           <article class="bento-item bento-tall reveal-up laser-card">
             <div class="bento-content">
@@ -2630,6 +440,7 @@
               <div class="bento-badge">Growth Focused</div>
             </div>
           </article>
+
           <article class="bento-item bento-wide reveal-up reveal-delay-1 laser-card">
             <div class="bento-content">
               <span class="bento-kicker">02 / People</span>
@@ -2642,6 +453,7 @@
               </div>
             </div>
           </article>
+
           <article class="bento-item reveal-up reveal-delay-2 laser-card">
             <div class="bento-content">
               <span class="bento-kicker">03 / Format</span>
@@ -2649,6 +461,7 @@
               <p>Text, voice, video, or in person — whichever format fits best.</p>
             </div>
           </article>
+
           <article class="bento-item reveal-up reveal-delay-3 laser-card">
             <div class="bento-content">
               <span class="bento-kicker">04 / Timing</span>
@@ -2656,6 +469,7 @@
               <p>Join anytime on Discord and take part in scheduled events.</p>
             </div>
           </article>
+
           <article class="bento-item bento-cta reveal-up laser-card">
             <div class="bento-content">
               <span class="bento-kicker">05 / Join</span>
@@ -2673,7 +487,10 @@
         <header class="editorial-header reveal-up">
           <span class="editorial-label">Professional Pathways</span>
           <h2 class="editorial-title">Build a career with <em>clarity and direction.</em></h2>
-          <p class="editorial-intro">We help people develop practical skills, stronger thinking, and the confidence to move into meaningful work.</p>
+          <p class="editorial-intro">
+            We help people develop practical skills, stronger thinking, and the confidence
+            to move into meaningful work.
+          </p>
         </header>
 
         <div class="editorial-spotlight reveal-up reveal-delay-1">
@@ -2771,59 +588,62 @@
           <div class="pathfinder-header">
             <span class="pathfinder-label">Pathfinder Quiz</span>
             <h3>Find Your <em>Professional Pathway.</em></h3>
-            <p>A short reflective quiz based on personality, working style, and the six intentions. It is not a rigid label — it is a thoughtful starting point.</p>
+            <p>
+              A short reflective quiz based on personality, working style, and the six
+              intentions. It is not a rigid label — it is a thoughtful starting point.
+            </p>
           </div>
 
           <form class="pathfinder-quiz" id="pathfinderQuiz">
             <div class="quiz-question">
               <p class="quiz-number">01</p>
               <h4>When you face a complex problem, what feels most natural?</h4>
-              <label><input type="radio" name="q1" value="software" required> Build a logical system and solve it step by step.</label>
-              <label><input type="radio" name="q1" value="ux"> Understand the human experience before deciding what to build.</label>
-              <label><input type="radio" name="q1" value="product"> Clarify priorities, trade-offs, and the bigger direction.</label>
-              <label><input type="radio" name="q1" value="manualqa"> Test what could go wrong and look for weak points.</label>
+              <label><input type="radio" name="q1" value="software" required /> Build a logical system and solve it step by step.</label>
+              <label><input type="radio" name="q1" value="ux" /> Understand the human experience before deciding what to build.</label>
+              <label><input type="radio" name="q1" value="product" /> Clarify priorities, trade-offs, and the bigger direction.</label>
+              <label><input type="radio" name="q1" value="manualqa" /> Test what could go wrong and look for weak points.</label>
             </div>
 
             <div class="quiz-question">
               <p class="quiz-number">02</p>
               <h4>Which intention feels closest to your natural strength?</h4>
-              <label><input type="radio" name="q2" value="product" required> Reason, Intuition &amp; Fairness</label>
-              <label><input type="radio" name="q2" value="ux"> Self-Discovery &amp; Self-Improvement</label>
-              <label><input type="radio" name="q2" value="sales"> Respect, Transparency &amp; Open-Mindedness</label>
-              <label><input type="radio" name="q2" value="automatedqa"> Truth &amp; Deep Understanding</label>
-              <label><input type="radio" name="q2" value="manualqa"> Commitment to Critical Thinking</label>
-              <label><input type="radio" name="q2" value="software"> Minimize Harm, Maximize Flourishing &amp; Love</label>
+              <label><input type="radio" name="q2" value="product" required /> Reason, Intuition &amp; Fairness</label>
+              <label><input type="radio" name="q2" value="ux" /> Self-Discovery &amp; Self-Improvement</label>
+              <label><input type="radio" name="q2" value="sales" /> Respect, Transparency &amp; Open-Mindedness</label>
+              <label><input type="radio" name="q2" value="automatedqa" /> Truth &amp; Deep Understanding</label>
+              <label><input type="radio" name="q2" value="manualqa" /> Commitment to Critical Thinking</label>
+              <label><input type="radio" name="q2" value="software" /> Minimize Harm, Maximize Flourishing &amp; Love</label>
             </div>
 
             <div class="quiz-question">
               <p class="quiz-number">03</p>
               <h4>What kind of contribution gives you the most energy?</h4>
-              <label><input type="radio" name="q3" value="software" required> Building tools, systems, or technical solutions.</label>
-              <label><input type="radio" name="q3" value="ux"> Improving usability, clarity, and how something feels.</label>
-              <label><input type="radio" name="q3" value="sales"> Communicating value and building trust with people.</label>
-              <label><input type="radio" name="q3" value="manualqa"> Catching issues others overlook.</label>
+              <label><input type="radio" name="q3" value="software" required /> Building tools, systems, or technical solutions.</label>
+              <label><input type="radio" name="q3" value="ux" /> Improving usability, clarity, and how something feels.</label>
+              <label><input type="radio" name="q3" value="sales" /> Communicating value and building trust with people.</label>
+              <label><input type="radio" name="q3" value="manualqa" /> Catching issues others overlook.</label>
             </div>
 
             <div class="quiz-question">
               <p class="quiz-number">04</p>
               <h4>In a team, which role sounds most like you?</h4>
-              <label><input type="radio" name="q4" value="software" required> The builder who wants to make things work.</label>
-              <label><input type="radio" name="q4" value="product"> The strategist who aligns vision and execution.</label>
-              <label><input type="radio" name="q4" value="ux"> The interpreter of user needs and experience.</label>
-              <label><input type="radio" name="q4" value="sales"> The connector who creates momentum and trust.</label>
-              <label><input type="radio" name="q4" value="manualqa"> The reviewer who protects quality and reliability.</label>
-              <label><input type="radio" name="q4" value="automatedqa"> The systems thinker who improves process through structure.</label>
+              <label><input type="radio" name="q4" value="software" required /> The builder who wants to make things work.</label>
+              <label><input type="radio" name="q4" value="product" /> The strategist who aligns vision and execution.</label>
+              <label><input type="radio" name="q4" value="ux" /> The interpreter of user needs and experience.</label>
+              <label><input type="radio" name="q4" value="sales" /> The connector who creates momentum and trust.</label>
+              <label><input type="radio" name="q4" value="manualqa" /> The reviewer who protects quality and reliability.</label>
+              <label><input type="radio" name="q4" value="automatedqa" /> The systems thinker who improves process through structure.</label>
             </div>
 
             <div class="quiz-question">
               <p class="quiz-number">05</p>
               <h4>Which kind of growth feels most meaningful right now?</h4>
-              <label><input type="radio" name="q5" value="software" required> Technical mastery and problem-solving depth.</label>
-              <label><input type="radio" name="q5" value="product"> Better decision-making and product judgment.</label>
-              <label><input type="radio" name="q5" value="ux"> Deeper understanding of people and behavior.</label>
-              <label><input type="radio" name="q5" value="sales"> Better communication, persuasion, and relationship-building.</label>
-              <label><input type="radio" name="q5" value="manualqa"> Greater precision, structure, and consistency.</label>
-              <label><input type="radio" name="q5" value="automatedqa"> Stronger technical process and scalable quality systems.</label>
+              <label><input type="radio" name="q5" value="software" required /> Technical mastery and problem-solving depth.</label>
+              <label><input type="radio" name="q5" value="product" /> Better decision-making and product judgment.</label>
+              <label><input type="radio" name="q5" value="ux" /> Deeper understanding of people and behavior.</label>
+              <label><input type="radio" name="q5" value="sales" /> Better communication, persuasion, and relationship-building.</label>
+              <label><input type="radio" name="q5" value="manualqa" /> Greater precision, structure, and consistency.</label>
+              <label><input type="radio" name="q5" value="automatedqa" /> Stronger technical process and scalable quality systems.</label>
             </div>
 
             <div class="quiz-actions">
@@ -2838,8 +658,6 @@
             <p id="quizCareerText"></p>
             <div class="quiz-cta-group">
               <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="btn btn-dark">Continue the conversation in Discord</a>
-              <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="btn btn-light">Join a community built around growth and reason</a>
-              <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener" class="btn btn-light">Find your path alongside thoughtful people</a>
             </div>
           </div>
         </div>
@@ -2847,7 +665,10 @@
     </section>
 
     <section class="conviction">
-      <p class="conviction-text reveal-up">We believe reason, openness, and care are not abstract ideals — they are <em>practical tools</em> for building better lives.</p>
+      <p class="conviction-text reveal-up">
+        We believe reason, openness, and care are not abstract ideals — they are
+        <em>practical tools</em> for building better lives.
+      </p>
     </section>
 
     <section class="community" id="community">
@@ -2855,19 +676,31 @@
         <div class="community-header">
           <div>
             <div class="section-kicker reveal-up">Get Involved</div>
-            <h2 class="community-heading reveal-up reveal-delay-1">Join the<br><em class="kinetic-em">community.</em></h2>
+            <h2 class="community-heading reveal-up reveal-delay-1">
+              Join the<br /><em class="kinetic-em">community.</em>
+            </h2>
           </div>
-          <p class="community-intro reveal-up reveal-delay-2">Meet people committed to reflection, openness, meaningful work, and a more thoughtful way of living together.</p>
+          <p class="community-intro reveal-up reveal-delay-2">
+            Meet people committed to reflection, openness, meaningful work, and a
+            more thoughtful way of living together.
+          </p>
         </div>
+
         <div class="community-cards">
           <article class="comm-card comm-card-featured reveal-up">
             <div class="comm-feature-image">
-              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80" alt="Attend Events" />
+              <img
+                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80"
+                alt="Attend Events"
+              />
             </div>
             <div class="comm-feature-overlay">
               <span class="comm-card-tag light">Featured</span>
               <h3 class="comm-card-title featured-title">Attend Events</h3>
-              <p class="comm-card-body featured-body">Explore gatherings, discussions, and resources designed to help people connect, reflect, and grow.</p>
+              <p class="comm-card-body featured-body">
+                Explore gatherings, discussions, and resources designed to help
+                people connect, reflect, and grow.
+              </p>
               <a class="comm-card-link light" href="https://www.freethinkerinstitute.org/events/" target="_blank" rel="noopener">Browse Events</a>
             </div>
           </article>
@@ -2899,7 +732,9 @@
     <section class="newsletter" id="mailing-list">
       <div class="newsletter-inner">
         <h2 class="newsletter-heading reveal-up">Join our mailing list</h2>
-        <p class="newsletter-sub reveal-up reveal-delay-1">Get future updates and announcements from the community.</p>
+        <p class="newsletter-sub reveal-up reveal-delay-1">
+          Get future updates and announcements from the community.
+        </p>
         <form class="newsletter-form reveal-up reveal-delay-2">
           <input class="newsletter-input" type="email" placeholder="your@email.com" />
           <button class="newsletter-btn" type="submit">Submit</button>
@@ -2911,26 +746,32 @@
       <div class="footer-top">
         <div class="footer-brand reveal-up">
           <div class="footer-brand-name">Free Thinker Institute</div>
-          <div class="footer-brand-sub">Increase happiness and minimize harm through personal and professional development.</div>
+          <div class="footer-brand-sub">
+            Increase happiness and minimize harm through personal and professional development.
+          </div>
         </div>
+
         <div class="footer-col reveal-up reveal-delay-1">
           <div class="footer-col-label">Where do we meet?</div>
           <a href="#">Via Zoom regularly</a>
           <a href="#">In person in NYC/NJ</a>
           <a href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Online 24/7 via Discord</a>
         </div>
+
         <div class="footer-col reveal-up reveal-delay-2">
           <div class="footer-col-label">Get in touch</div>
           <a href="mailto:contact@freethinkerinstitute.org">contact@freethinkerinstitute.org</a>
           <a href="#">New York, NY 10002</a>
           <a href="https://www.freethinkerinstitute.org/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
         </div>
+
         <div class="footer-col reveal-up reveal-delay-3">
           <div class="footer-col-label">Support</div>
           <a href="https://gofund.me/" target="_blank" rel="noopener">Donate</a>
           <a href="#mailing-list">Join our mailing list</a>
         </div>
       </div>
+
       <div class="footer-bottom reveal-up">
         <div class="footer-copy">© Free Thinker Institute</div>
         <a class="footer-link" href="https://www.freethinkerinstitute.org/" target="_blank" rel="noopener">Visit Official Site</a>
@@ -2938,247 +779,6 @@
     </footer>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const laserCards = document.querySelectorAll(".laser-card, .bento-item, .editorial-card");
-      laserCards.forEach(card => {
-        card.addEventListener("mousemove", e => {
-          const rect = card.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          const angle = Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI) + 90;
-          card.style.setProperty("--laser-angle", `${angle}deg`);
-        });
-      });
-
-      document.querySelectorAll(".btn").forEach(btn => {
-        btn.addEventListener("mousemove", e => {
-          const rect = btn.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          const dx = e.clientX - cx;
-          const dy = e.clientY - cy;
-          btn.style.transform = `translate(${dx * 0.12}px, ${dy * 0.12}px) scale(1.03)`;
-        });
-
-        btn.addEventListener("mouseleave", () => {
-          btn.style.transform = "";
-        });
-      });
-
-      document.querySelectorAll(".intention-flip").forEach(card => {
-        card.addEventListener("click", e => {
-          if (window.innerWidth <= 900) {
-            e.preventDefault();
-            card.classList.toggle("active");
-          }
-        });
-
-        card.addEventListener("keydown", e => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            card.classList.toggle("active");
-          }
-        });
-      });
-
-      document.querySelectorAll(".expand-card").forEach(card => {
-        const toggle = () => {
-          const wasOpen = card.classList.contains("open");
-          document.querySelectorAll(".expand-card").forEach(c => c.classList.remove("open"));
-          if (!wasOpen) card.classList.add("open");
-        };
-
-        card.addEventListener("click", toggle);
-        card.addEventListener("keydown", e => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggle();
-          }
-        });
-      });
-
-      document.querySelectorAll("[data-photo]").forEach(wrap => {
-        const img = wrap.querySelector("img");
-        wrap.addEventListener("mousemove", e => {
-          if (!img) return;
-          const rect = wrap.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const dx = Math.abs(x - rect.width / 2) / (rect.width / 2);
-          const dy = Math.abs(y - rect.height / 2) / (rect.height / 2);
-          const d = Math.min(1, Math.sqrt(dx * dx + dy * dy));
-          const brightness = 0.55 + (1 - d) * 0.45;
-          const sat = 0.35 + (1 - d) * 0.45;
-          img.style.filter = `saturate(${sat}) brightness(${brightness})`;
-        });
-
-        wrap.addEventListener("mouseleave", () => {
-          if (img) img.style.filter = "saturate(.35) brightness(.55)";
-        });
-      });
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.10, rootMargin: "0px 0px -36px 0px" });
-
-      document.querySelectorAll(".reveal-up").forEach(el => observer.observe(el));
-
-      const form = document.querySelector(".newsletter-form");
-      if (form) {
-        form.addEventListener("submit", e => {
-          e.preventDefault();
-          const input = form.querySelector("input");
-          if (input && input.value.trim()) {
-            input.value = "";
-            input.placeholder = "Thanks for signing up";
-          }
-        });
-      }
-
-      const pathfinderForm = document.getElementById("pathfinderQuiz");
-      const quizResult = document.getElementById("quizResult");
-      const quizCareerTitle = document.getElementById("quizCareerTitle");
-      const quizCareerText = document.getElementById("quizCareerText");
-      const resetPathfinder = document.getElementById("resetPathfinder");
-
-      const pathwayContent = {
-        software: {
-          title: "Software Development",
-          text: "You are drawn to structure, logic, and building things that work. This path often suits people who enjoy solving problems clearly, learning systems deeply, and turning ideas into functioning products."
-        },
-        product: {
-          title: "Product Management",
-          text: "You think in terms of direction, priorities, and decision-making. This path often fits people who can connect vision, users, and execution while keeping teams aligned around what matters most."
-        },
-        ux: {
-          title: "User Experience",
-          text: "You are attentive to people, behavior, and how things feel in use. This path often suits those who care about clarity, empathy, research, and designing systems that are intuitive and humane."
-        },
-        sales: {
-          title: "Sales",
-          text: "You bring energy to communication, trust-building, and helping people move toward decisions. This path often fits people who are relational, persuasive, and motivated by creating value through connection."
-        },
-        manualqa: {
-          title: "Manual Quality Assurance",
-          text: "You notice what others miss. This path often suits people who are careful, observant, and strong at reviewing details, testing behavior, and protecting quality through disciplined attention."
-        },
-        automatedqa: {
-          title: "Automated Quality Assurance",
-          text: "You care about reliability, repeatability, and building better systems. This path often fits those who like technical structure and want to improve software quality through automation and scalable testing."
-        }
-      };
-
-      if (pathfinderForm && quizResult && quizCareerTitle && quizCareerText) {
-        pathfinderForm.addEventListener("submit", e => {
-          e.preventDefault();
-          const formData = new FormData(pathfinderForm);
-          const scores = {
-            software: 0,
-            product: 0,
-            ux: 0,
-            sales: 0,
-            manualqa: 0,
-            automatedqa: 0
-          };
-
-          for (const value of formData.values()) {
-            if (scores[value] !== undefined) scores[value] += 1;
-          }
-
-          const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-          const topKey = sorted[0][0];
-          const secondKey = sorted[1][0];
-          let finalKey = topKey;
-
-          if (topKey === "manualqa" && secondKey === "automatedqa") finalKey = "automatedqa";
-          if (topKey === "product" && secondKey === "sales") finalKey = "product";
-          if (topKey === "sales" && secondKey === "product") finalKey = "sales";
-
-          quizCareerTitle.textContent = pathwayContent[finalKey].title;
-          quizCareerText.textContent = pathwayContent[finalKey].text;
-          quizResult.hidden = false;
-          quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-
-        if (resetPathfinder) {
-          resetPathfinder.addEventListener("click", () => {
-            pathfinderForm.reset();
-            quizResult.hidden = true;
-          });
-        }
-      }
-
-      document.querySelectorAll(".kinetic-em").forEach(el => {
-        el.style.cssText += `
-          background: linear-gradient(90deg, #d7b06f 0%, #00f2ff 28%, #8d6cff 52%, #d7b06f 76%, #00f2ff 100%);
-          background-size: 300% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: shimmer 6s linear infinite;
-        `;
-      });
-
-      const heroCard = document.getElementById("heroCard");
-      if (heroCard) {
-        heroCard.addEventListener("mousemove", e => {
-          const rect = heroCard.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const rotateY = ((x / rect.width) - 0.5) * 10;
-          const rotateX = ((y / rect.height) - 0.5) * -10;
-
-          heroCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-          heroCard.style.setProperty("--mx", `${x}px`);
-          heroCard.style.setProperty("--my", `${y}px`);
-        });
-
-        heroCard.addEventListener("mouseleave", () => {
-          heroCard.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg)`;
-          heroCard.style.setProperty("--mx", "50%");
-          heroCard.style.setProperty("--my", "50%");
-        });
-      }
-            if (resetPathfinder) {
-        resetPathfinder.addEventListener("click", () => {
-          pathfinderForm.reset();
-          quizResult.hidden = true;
-        });
-      }
-
-      const heroCard = document.getElementById("heroCard");
-
-      if (heroCard) {
-        heroCard.addEventListener("mousemove", e => {
-          const rect = heroCard.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          const rotateY = ((x / rect.width) - 0.5) * 10;
-          const rotateX = ((y / rect.height) - 0.5) * -10;
-
-          heroCard.style.transform =
-            `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-
-          heroCard.style.setProperty("--mx", `${x}px`);
-          heroCard.style.setProperty("--my", `${y}px`);
-        });
-
-        heroCard.addEventListener("mouseleave", () => {
-          heroCard.style.transform =
-            `perspective(1200px) rotateX(0deg) rotateY(0deg)`;
-
-          heroCard.style.setProperty("--mx", "50%");
-          heroCard.style.setProperty("--my", "50%");
-        });
-      }
-
-    });
-</script>
-  </body>
-</html> 
+  <script src="script.js"></script>
+</body>
+</html>
