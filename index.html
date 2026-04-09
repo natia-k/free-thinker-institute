@@ -33,8 +33,8 @@
       --ease-spring: cubic-bezier(0.4, 0, 0.2, 1);
       --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
       --max:         1240px;
-      /* laser border vars — set per card via JS */
-      --mx: 0px; --my: 0px;
+      --mx: 50%;
+      --my: 50%;
     }
 
     /* ─── RESET ───────────────────────────────────────────────── */
@@ -52,25 +52,27 @@
 
     /* ─── NOISE TEXTURE (SVG filter) ─────────────────────────── */
     .noise-filter {
-  position: fixed;
-  inset: -120%;
-  width: 240%;
-  height: 240%;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.009;   /* VERY LOW */
-  mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  animation: grain-motion 18s steps(6) infinite;
-}
+      position: fixed;
+      inset: -120%;
+      width: 240%;
+      height: 240%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.009;
+      mix-blend-mode: soft-light;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      animation: grain-motion 18s steps(6) infinite;
+    }
     .noise-filter svg { width: 100%; height: 100%; display:none; }
+
     @keyframes grain-motion {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(-2%, 1%); }
-  50% { transform: translate(1%, -2%); }
-  75% { transform: translate(-1%, 2%); }
-}
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-2%, 1%); }
+      50% { transform: translate(1%, -2%); }
+      75% { transform: translate(-1%, 2%); }
+    }
+
     /* ─── AURORA (organic 4-blob) ────────────────────────────── */
     .aurora-canvas {
       position: fixed;
@@ -241,32 +243,106 @@
     /* ─── HERO ────────────────────────────────────────────────── */
     .hero {
       position: relative;
-      padding: 80px 0 64px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.03), transparent 30%),
+        linear-gradient(180deg, #040507 0%, #090b10 100%);
+      color: #f6f1e8;
+      padding: 120px 0 80px;
+      isolation: isolate;
     }
-    .hero-grid {
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .aurora {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(90px);
+      opacity: 0.85;
+      animation: floatAurora 12s ease-in-out infinite alternate;
+    }
+
+    .aurora-1 {
+      width: 500px;
+      height: 500px;
+      top: 8%;
+      left: -8%;
+      background: radial-gradient(circle, rgba(104, 86, 255, 0.36), transparent 68%);
+    }
+
+    .aurora-2 {
+      width: 520px;
+      height: 520px;
+      bottom: -10%;
+      right: -6%;
+      background: radial-gradient(circle, rgba(215, 176, 111, 0.22), transparent 70%);
+      animation-duration: 16s;
+    }
+
+    .grid-glow {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 82%);
+      opacity: 0.35;
+    }
+
+    .hero-noise {
+      position: absolute;
+      inset: -100%;
+      width: 300%;
+      height: 300%;
+      background-image: radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 4px 4px;
+      opacity: 0.04;
+      animation: grainMove 9s steps(10) infinite;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 32px;
-      align-items: stretch;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
     }
-    .hero-copy { padding: 16px 0 12px; }
-    .eyebrow {
+
+    .hero-copy {
+      max-width: 720px;
+      padding: 0;
+    }
+
+    .hero-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: 9.5px;
-      letter-spacing: .26em;
+      gap: 10px;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--cyan);
-      margin-bottom: 24px;
-      opacity: .82;
+      color: rgba(246, 241, 232, 0.72);
+      margin-bottom: 22px;
     }
-    .eyebrow::before {
+
+    .hero-kicker::before {
       content: "";
-      width: 24px; height: 1px;
-      background: var(--cyan);
-      opacity: .5;
+      width: 38px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
     }
+
     .section-kicker {
       display: inline-flex;
       align-items: center;
@@ -277,43 +353,36 @@
       color: var(--ink-ghost);
       margin-bottom: 20px;
     }
+
     .section-kicker::before {
       content: "";
       width: 22px; height: 1px;
       background: var(--ink-ghost);
     }
 
-    /* ── KINETIC HEADING ── */
-    .hero h1 {
+    .hero-title {
       font-family: var(--serif);
-      font-size: clamp(3.6rem, 8vw, 7.2rem);
-      line-height: .88;
-      letter-spacing: -.04em;
+      font-size: clamp(3.2rem, 7vw, 6.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
       font-weight: 300;
-      max-width: 10ch;
+      max-width: 9.5ch;
+      margin: 0 0 24px;
     }
-    .hero h1 em {
-      font-style: italic;
-      background: linear-gradient(
-        90deg,
-        var(--gold) 0%,
-        var(--cyan) 28%,
-        var(--violet) 52%,
-        var(--gold) 76%,
-        var(--cyan) 100%
-      );
-      background-size: 280% auto;
+
+    .hero-gradient {
+      display: inline-block;
+      background: linear-gradient(135deg, #fff6e8 0%, #d7b06f 45%, #c6b5ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: shimmer 5s linear infinite;
     }
+
     @keyframes shimmer {
       0%   { background-position: 0% center; }
       100% { background-position: 280% center; }
     }
 
-    /* kinetic applied to any heading with .kinetic class */
     .kinetic {
       background: linear-gradient(
         90deg,
@@ -332,19 +401,202 @@
       animation: shimmer 7s linear infinite;
     }
 
-    .hero-sub {
-      max-width: 500px;
-      color: var(--ink-dim);
-      font-size: 1rem;
-      line-height: 1.9;
-      font-weight: 300;
-      margin: 28px 0 36px;
+    .hero-text {
+      max-width: 620px;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: rgba(246, 241, 232, 0.72);
+      margin-bottom: 34px;
     }
+
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 36px;
+      margin-bottom: 0;
+    }
+
+    .hero-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-btn-primary {
+      background: linear-gradient(135deg, rgba(215,176,111,0.22), rgba(255,255,255,0.08));
+      border: 1px solid rgba(215,176,111,0.45);
+      color: #fff8ee;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset, 0 10px 40px rgba(215,176,111,0.16);
+    }
+
+    .hero-btn-secondary {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+    }
+
+    .hero-card-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      position: relative;
+      width: min(100%, 430px);
+      padding: 28px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow:
+        0 20px 80px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.16);
+      backdrop-filter: blur(26px) saturate(170%);
+      -webkit-backdrop-filter: blur(26px) saturate(170%);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.18s ease;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.28), rgba(215,176,111,0.32), rgba(255,255,255,0.08));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .hero-card-glow {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      left: var(--mx);
+      top: var(--my);
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(215,176,111,0.20), transparent 70%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-card:hover .hero-card-glow {
+      opacity: 1;
+    }
+
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .mini-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 18px rgba(215,176,111,0.7);
+    }
+
+    .hero-card-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+      font-weight: 300;
+    }
+
+    .hero-card-text {
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.84);
+      font-size: 0.9rem;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      max-width: 700px;
+    }
+
+    .meta-label {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: .20em;
+      color: var(--ink-ghost);
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: .9rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    @keyframes floatAurora {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      100% {
+        transform: translate3d(30px, -20px, 0) scale(1.08);
+      }
+    }
+
+    @keyframes grainMove {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-3%, 2%); }
+      50% { transform: translate(2%, -2%); }
+      75% { transform: translate(-2%, -4%); }
+      100% { transform: translate(1%, 3%); }
     }
 
     /* ─── MAGNETIC BUTTONS ────────────────────────────────────── */
@@ -381,94 +633,6 @@
       border-color: rgba(0,242,255,.4);
       color: var(--cyan);
       box-shadow: 0 0 18px rgba(0,242,255,.10);
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
-      max-width: 700px;
-    }
-    .meta-label {
-      font-size: 9.5px;
-      text-transform: uppercase;
-      letter-spacing: .20em;
-      color: var(--ink-ghost);
-      margin-bottom: 4px;
-    }
-    .meta-value {
-      font-size: .9rem;
-      font-weight: 400;
-      color: var(--ink);
-    }
-
-    /* ─── HERO VISUAL ─────────────────────────────────────────── */
-    .hero-visual {
-      position: relative;
-      min-height: 600px;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid var(--border-hi);
-      box-shadow: 0 40px 100px rgba(0,0,0,.5);
-    }
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-      background-size: 52px 52px;
-      opacity: .3;
-      z-index: 1;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 70% 30%, rgba(0,242,255,.20), transparent 22%),
-        radial-gradient(circle at 40% 20%, rgba(141,108,255,.18), transparent 18%),
-        radial-gradient(circle at 60% 75%, rgba(215,176,111,.14), transparent 20%),
-        linear-gradient(160deg, rgba(8,11,18,.7) 0%, rgba(8,11,18,.4) 100%);
-      z-index: 2;
-    }
-    .hero-figure {
-      position: absolute;
-      inset: 0;
-    }
-    .hero-figure img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      mix-blend-mode: luminosity;
-      opacity: .35;
-      filter: saturate(.4) contrast(1.1);
-    }
-    .hero-mask {
-      position: absolute;
-      left: 32px; right: 32px; bottom: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      z-index: 3;
-    }
-    .hero-window {
-      font-family: var(--serif);
-      font-size: clamp(3.8rem, 8vw, 7.2rem);
-      line-height: .82;
-      font-weight: 300;
-      letter-spacing: -.05em;
-      text-transform: uppercase;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(240,236,228,.28);
-    }
-    .hero-note {
-      max-width: 360px;
-      color: var(--ink-dim);
-      font-size: 13px;
-      line-height: 1.8;
-      font-weight: 300;
     }
 
     /* ─── TICKER ──────────────────────────────────────────────── */
@@ -855,9 +1019,7 @@
       backdrop-filter: blur(20px) saturate(1.3);
       -webkit-backdrop-filter: blur(20px) saturate(1.3);
       transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease-spring);
-      /* noise */
     }
-    /* Laser border via pseudo element */
     .bento-item::before,
     .editorial-card::before {
       content: "";
@@ -865,7 +1027,6 @@
       inset: -1px;
       border-radius: calc(20px + 1px);
       padding: 1px;
-      /* conic gradient laser */
       background: conic-gradient(
         from calc(var(--laser-angle, 0deg) - 60deg),
         transparent 0%,
@@ -897,7 +1058,6 @@
       display: flex;
       flex-direction: column;
     }
-    /* noise texture overlay on glass panels */
     .bento-item::after,
     .what-card::after,
     .editorial-card::after {
@@ -1609,14 +1769,17 @@
     /* ─── RESPONSIVE ──────────────────────────────────────────── */
     @media (max-width: 1100px) {
       .intentions-grid, .what-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-visual { min-height: 480px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 34px; }
       .bento-grid { grid-template-columns: repeat(6, 1fr); }
       .bento-tall, .bento-wide,
       .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta),
       .bento-cta { grid-column: span 3; grid-row: auto; min-height: 240px; }
       .editorial-spotlight, .pathfinder-quiz { grid-template-columns: 1fr; }
+      .editorial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .editorial-card, .editorial-card:nth-child(1), .editorial-card:nth-child(5) { grid-column: auto; }
+      .intention-flip { min-height: 400px; height: 400px; }
     }
+
     @media (max-width: 900px) {
       .about { grid-template-columns: 1fr; }
       .about-img-wrap { height: 55vw; }
@@ -1642,28 +1805,30 @@
       .quiz-actions, .quiz-cta-group { flex-direction: column; }
       .quiz-actions .btn, .quiz-cta-group .btn { width: 100%; justify-content: center; }
       .nav-links a:not(.nav-cta) { display: none; }
+      .hero-card-wrap { justify-content: flex-start; }
     }
-    @media (max-width: 600px) {
-      .hero-meta { grid-template-columns: 1fr; }
-      .goal-item { grid-template-columns: 50px 1fr 24px; gap: 1rem; }
-    }
-  
-    @media (max-width: 1100px) {
-      .editorial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .editorial-card, .editorial-card:nth-child(1), .editorial-card:nth-child(5) { grid-column: auto; }
-      .intention-flip { min-height: 400px; height: 400px; }
-    }
+
     @media (max-width: 760px) {
       .editorial-grid, .intentions-grid { grid-template-columns: 1fr; }
       .editorial-card, .editorial-card:nth-child(1), .editorial-card:nth-child(5) { min-height: 300px; }
       .intention-flip { min-height: 380px; height: 380px; }
     }
 
+    @media (max-width: 600px) {
+      .hero { padding: 112px 0 70px; min-height: auto; }
+      .hero-title { font-size: clamp(2.6rem, 14vw, 4.2rem); }
+      .hero-text { font-size: 1rem; }
+      .hero-card { padding: 22px; border-radius: 24px; }
+      .hero-card-title { font-size: 1.55rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-btn { width: 100%; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .goal-item { grid-template-columns: 50px 1fr 24px; gap: 1rem; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Grain noise overlay -->
   <div class="noise-filter" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
       <filter id="grain">
@@ -1674,7 +1839,6 @@
     </svg>
   </div>
 
-  <!-- Aurora blobs -->
   <div class="aurora-canvas" aria-hidden="true">
     <div class="aurora-blob blob-1"></div>
     <div class="aurora-blob blob-2"></div>
@@ -1683,7 +1847,6 @@
   </div>
 
   <div class="page-shell">
-
     <nav>
       <div class="nav-inner">
         <a class="brand" href="#top">
@@ -1706,41 +1869,56 @@
     </nav>
 
     <section class="hero" id="top">
-      <div class="container hero-grid">
+      <div class="hero-bg">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+        <div class="grid-glow"></div>
+        <div class="hero-noise"></div>
+      </div>
+
+      <div class="hero-inner">
         <div class="hero-copy">
-          <div class="eyebrow reveal-up">Living in truth, thinking with reason</div>
-          <h1 class="reveal-up reveal-delay-1">Think <em>free.</em> Build a more meaningful life.</h1>
-          <p class="hero-sub reveal-up reveal-delay-2">
-            A community for people who want stronger thinking, more honest dialogue, and practical paths toward personal and professional growth.
+          <p class="hero-kicker">A new kind of online institute</p>
+
+          <h1 class="hero-title">
+            Build a life of
+            <span class="hero-gradient">clarity, courage,</span>
+            and meaningful work.
+          </h1>
+
+          <p class="hero-text">
+            Free Thinker Institute is a digital space for people who want to think
+            deeper, live better, and move toward work that feels intelligent,
+            ethical, and fully alive.
           </p>
-          <div class="hero-actions reveal-up reveal-delay-3">
-            <a class="btn btn-dark magnetic" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Join on Discord</a>
-            <a class="btn btn-light magnetic" href="#dream-job-training">Explore Pathways</a>
-          </div>
-          <div class="hero-meta reveal-up reveal-delay-3">
-            <div>
-              <div class="meta-label">Focus</div>
-              <div class="meta-value">Happiness + Harm Reduction</div>
-            </div>
-            <div>
-              <div class="meta-label">Based In</div>
-              <div class="meta-value">New York</div>
-            </div>
-            <div>
-              <div class="meta-label">Community</div>
-              <div class="meta-value">Open to All</div>
-            </div>
+
+          <div class="hero-actions">
+            <a href="#dream-job-training" class="hero-btn hero-btn-primary">Explore Paths</a>
+            <a href="#pathfinderQuiz" class="hero-btn hero-btn-secondary">Take the Quiz</a>
           </div>
         </div>
 
-        <div class="hero-visual reveal-up reveal-delay-2">
-          <div class="hero-overlay"></div>
-          <div class="hero-figure">
-            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1600&q=80" alt="Modern collaborative workspace" />
-          </div>
-          <div class="hero-mask">
-            <div class="hero-window">Think<br>Free</div>
-            <p class="hero-note">A high-contrast direction for the Institute — intellectually deep, technically refined, and built for human minds.</p>
+        <div class="hero-card-wrap">
+          <div class="hero-card" id="heroCard">
+            <div class="hero-card-glow"></div>
+
+            <div class="hero-card-top">
+              <span class="mini-label">Current focus</span>
+              <span class="status-dot"></span>
+            </div>
+
+            <h3 class="hero-card-title">From confusion to direction</h3>
+
+            <p class="hero-card-text">
+              Philosophy, self-knowledge, practical learning, and meaningful career
+              exploration — brought together in one place.
+            </p>
+
+            <div class="hero-pill-row">
+              <span class="hero-pill">Critical Thinking</span>
+              <span class="hero-pill">Career Clarity</span>
+              <span class="hero-pill">Human Flourishing</span>
+            </div>
           </div>
         </div>
       </div>
@@ -2271,224 +2449,130 @@
   </div>
 
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-
-    /* ─── 1. LASER BORDER — tracks cursor angle around perimeter ─── */
-    const laserCards = document.querySelectorAll(".laser-card, .bento-item");
-    laserCards.forEach(card => {
-      card.addEventListener("mousemove", e => {
-        const rect = card.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top  + rect.height / 2;
-        const angle = Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI) + 90;
-        card.style.setProperty("--laser-angle", `${angle}deg`);
-      });
-    });
-
-    /* ─── 2. MAGNETIC BUTTONS ──────────────────────────────────── */
-    const magneticBtns = document.querySelectorAll(".magnetic");
-    const MAGNETIC_STRENGTH = 0.32;
-    const MAGNETIC_RADIUS   = 100;
-
-    function onMagneticMove(e) {
-      magneticBtns.forEach(btn => {
-        const rect = btn.getBoundingClientRect();
-        const cx = rect.left + rect.width  / 2;
-        const cy = rect.top  + rect.height / 2;
-        const dx = e.clientX - cx;
-        const dy = e.clientY - cy;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < MAGNETIC_RADIUS) {
-          const pull = (1 - dist / MAGNETIC_RADIUS) * MAGNETIC_STRENGTH;
-          btn.style.transform = `translate(${dx * pull}px, ${dy * pull}px)`;
-        } else {
-          btn.style.transform = "";
-        }
-      });
-    }
-
-    function onMagneticLeave() {
-      magneticBtns.forEach(btn => { btn.style.transform = ""; });
-    }
-
-    document.addEventListener("mousemove", onMagneticMove);
-    document.addEventListener("mouseleave", onMagneticLeave);
-
-    /* also apply magnetic to ALL .btn on hover proximity */
-    document.querySelectorAll(".btn:not(.magnetic)").forEach(btn => {
-      btn.addEventListener("mousemove", e => {
-        const rect = btn.getBoundingClientRect();
-        const cx = rect.left + rect.width  / 2;
-        const cy = rect.top  + rect.height / 2;
-        const dx = e.clientX - cx;
-        const dy = e.clientY - cy;
-        btn.style.transform = `translate(${dx * 0.18}px, ${dy * 0.18}px) scale(1.03)`;
-      });
-      btn.addEventListener("mouseleave", () => {
-        btn.style.transform = "";
-      });
-    });
-
-    /* ─── 3. FLIP CARDS ────────────────────────────────────────── */
-    document.querySelectorAll(".intention-flip").forEach(card => {
-      card.addEventListener("click", e => {
-        if (window.innerWidth <= 900) {
-          e.preventDefault();
-          card.classList.toggle("active");
-        }
-      });
-      card.addEventListener("keydown", e => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          card.classList.toggle("active");
-        }
-      });
-    });
-
-    /* ─── 4. PHOTO STRIP HOVER ─────────────────────────────────── */
-    document.querySelectorAll("[data-photo]").forEach(wrap => {
-      const img = wrap.querySelector("img");
-      wrap.addEventListener("mousemove", e => {
-        if (!img) return;
-        const rect = wrap.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const dx = Math.abs(x - rect.width  / 2) / (rect.width  / 2);
-        const dy = Math.abs(y - rect.height / 2) / (rect.height / 2);
-        const d  = Math.min(1, Math.sqrt(dx*dx + dy*dy));
-        const brightness = 0.55 + (1 - d) * 0.45;
-        const sat        = 0.35 + (1 - d) * 0.45;
-        img.style.filter = `saturate(${sat}) brightness(${brightness})`;
-      });
-      wrap.addEventListener("mouseleave", () => {
-        if (img) img.style.filter = "saturate(.35) brightness(.55)";
-      });
-    });
-
-    /* ─── 5. EXPAND CARDS ──────────────────────────────────────── */
-    document.querySelectorAll(".expand-card").forEach(card => {
-      const toggle = () => {
-        const was = card.classList.contains("open");
-        document.querySelectorAll(".expand-card").forEach(c => c.classList.remove("open"));
-        if (!was) card.classList.add("open");
-      };
-      card.addEventListener("click", toggle);
-      card.addEventListener("keydown", e => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
-      });
-    });
-
-    /* ─── 6. SCROLL REVEAL ─────────────────────────────────────── */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.10, rootMargin: "0px 0px -36px 0px" });
-    document.querySelectorAll(".reveal-up").forEach(el => observer.observe(el));
-
-    /* ─── 7. NEWSLETTER FORM ───────────────────────────────────── */
-    const form = document.querySelector(".newsletter-form");
-    if (form) {
-      form.addEventListener("submit", e => {
-        e.preventDefault();
-        const input = form.querySelector("input");
-        if (input && input.value.trim()) {
-          input.value = "";
-          input.placeholder = "Thanks for signing up";
-        }
-      });
-    }
-
-    /* ─── 8. PATHFINDER QUIZ ──────────────────────────────────── */
-    const pathfinderForm = document.getElementById("pathfinderQuiz");
-    const quizResult = document.getElementById("quizResult");
-    const quizCareerTitle = document.getElementById("quizCareerTitle");
-    const quizCareerText = document.getElementById("quizCareerText");
-    const resetPathfinder = document.getElementById("resetPathfinder");
-
-    const pathwayContent = {
-      software: {
-        title: "Software Development",
-        text: "You are drawn to structure, logic, and building things that work. This path often suits people who enjoy solving problems clearly, learning systems deeply, and turning ideas into functioning products."
-      },
-      product: {
-        title: "Product Management",
-        text: "You think in terms of direction, priorities, and decision-making. This path often fits people who can connect vision, users, and execution while keeping teams aligned around what matters most."
-      },
-      ux: {
-        title: "User Experience",
-        text: "You are attentive to people, behavior, and how things feel in use. This path often suits those who care about clarity, empathy, research, and designing systems that are intuitive and humane."
-      },
-      sales: {
-        title: "Sales",
-        text: "You bring energy to communication, trust-building, and helping people move toward decisions. This path often fits people who are relational, persuasive, and motivated by creating value through connection."
-      },
-      manualqa: {
-        title: "Manual Quality Assurance",
-        text: "You notice what others miss. This path often suits people who are careful, observant, and strong at reviewing details, testing behavior, and protecting quality through disciplined attention."
-      },
-      automatedqa: {
-        title: "Automated Quality Assurance",
-        text: "You care about reliability, repeatability, and building better systems. This path often fits those who like technical structure and want to improve software quality through automation and scalable testing."
-      }
-    };
-
-    if (pathfinderForm && quizResult && quizCareerTitle && quizCareerText) {
-      pathfinderForm.addEventListener("submit", e => {
-        e.preventDefault();
-
-        const formData = new FormData(pathfinderForm);
-        const scores = {
-          software: 0,
-          product: 0,
-          ux: 0,
-          sales: 0,
-          manualqa: 0,
-          automatedqa: 0
-        };
-
-        for (const value of formData.values()) {
-          if (scores[value] !== undefined) scores[value] += 1;
-        }
-
-        const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-        const topKey = sorted[0][0];
-        const secondKey = sorted[1][0];
-        let finalKey = topKey;
-
-        if (topKey === "manualqa" && secondKey === "automatedqa") finalKey = "automatedqa";
-        if (topKey === "product" && secondKey === "sales") finalKey = "product";
-        if (topKey === "sales" && secondKey === "product") finalKey = "sales";
-
-        quizCareerTitle.textContent = pathwayContent[finalKey].title;
-        quizCareerText.textContent = pathwayContent[finalKey].text;
-        quizResult.hidden = false;
-        quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.addEventListener("DOMContentLoaded", () => {
+      const laserCards = document.querySelectorAll(".laser-card, .bento-item");
+      laserCards.forEach(card => {
+        card.addEventListener("mousemove", e => {
+          const rect = card.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const angle = Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI) + 90;
+          card.style.setProperty("--laser-angle", `${angle}deg`);
+        });
       });
 
-      if (resetPathfinder) {
-        resetPathfinder.addEventListener("click", () => {
-          pathfinderForm.reset();
-          quizResult.hidden = true;
+      const magneticBtns = document.querySelectorAll(".magnetic");
+      const MAGNETIC_STRENGTH = 0.32;
+      const MAGNETIC_RADIUS = 100;
+
+      function onMagneticMove(e) {
+        magneticBtns.forEach(btn => {
+          const rect = btn.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const dx = e.clientX - cx;
+          const dy = e.clientY - cy;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAGNETIC_RADIUS) {
+            const pull = (1 - dist / MAGNETIC_RADIUS) * MAGNETIC_STRENGTH;
+            btn.style.transform = `translate(${dx * pull}px, ${dy * pull}px)`;
+          } else {
+            btn.style.transform = "";
+          }
         });
       }
-    }
 
-    /* ─── 9. KINETIC em spans ──────────────────────────────────── */
-    // Apply shimmer to .kinetic-em elements (they use CSS, this is already handled)
-    // Also apply to intentions heading em tags
-    document.querySelectorAll(".kinetic-em").forEach(el => {
-      el.style.cssText += `
-        background: linear-gradient(90deg, #d7b06f 0%, #00f2ff 28%, #8d6cff 52%, #d7b06f 76%, #00f2ff 100%);
-        background-size: 300% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: shimmer 6s linear infinite;
-      `;
-    });
+      function onMagneticLeave() {
+        magneticBtns.forEach(btn => { btn.style.transform = ""; });
+      }
 
-  });
-  </script>
-</body>
-</html>
+      document.addEventListener("mousemove", onMagneticMove);
+      document.addEventListener("mouseleave", onMagneticLeave);
+
+      document.querySelectorAll(".btn:not(.magnetic)").forEach(btn => {
+        btn.addEventListener("mousemove", e => {
+          const rect = btn.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const dx = e.clientX - cx;
+          const dy = e.clientY - cy;
+          btn.style.transform = `translate(${dx * 0.18}px, ${dy * 0.18}px) scale(1.03)`;
+        });
+        btn.addEventListener("mouseleave", () => {
+          btn.style.transform = "";
+        });
+      });
+
+      document.querySelectorAll(".intention-flip").forEach(card => {
+        card.addEventListener("click", e => {
+          if (window.innerWidth <= 900) {
+            e.preventDefault();
+            card.classList.toggle("active");
+          }
+        });
+        card.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            card.classList.toggle("active");
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-photo]").forEach(wrap => {
+        const img = wrap.querySelector("img");
+        wrap.addEventListener("mousemove", e => {
+          if (!img) return;
+          const rect = wrap.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const dx = Math.abs(x - rect.width / 2) / (rect.width / 2);
+          const dy = Math.abs(y - rect.height / 2) / (rect.height / 2);
+          const d = Math.min(1, Math.sqrt(dx * dx + dy * dy));
+          const brightness = 0.55 + (1 - d) * 0.45;
+          const sat = 0.35 + (1 - d) * 0.45;
+          img.style.filter = `saturate(${sat}) brightness(${brightness})`;
+        });
+        wrap.addEventListener("mouseleave", () => {
+          if (img) img.style.filter = "saturate(.35) brightness(.55)";
+        });
+      });
+
+      document.querySelectorAll(".expand-card").forEach(card => {
+        const toggle = () => {
+          const was = card.classList.contains("open");
+          document.querySelectorAll(".expand-card").forEach(c => c.classList.remove("open"));
+          if (!was) card.classList.add("open");
+        };
+        card.addEventListener("click", toggle);
+        card.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggle();
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.10, rootMargin: "0px 0px -36px 0px" });
+      document.querySelectorAll(".reveal-up").forEach(el => observer.observe(el));
+
+      const form = document.querySelector(".newsletter-form");
+      if (form) {
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          const input = form.querySelector("input");
+          if (input && input.value.trim()) {
+            input.value = "";
+            input.placeholder = "Thanks for signing up";
+          }
+        });
+      }
+
+      const pathfinderForm = document.getElementById("pathfinderQuiz");
+      const quizResult = document.getElementById("quizResult");
+      const quizCareerTitle = document.getElementById("quizCareerTitle");
+      const quizCareerText = document.getElementById("quizCareerText");
+      const resetPath
