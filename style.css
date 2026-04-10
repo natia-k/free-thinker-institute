@@ -3773,3 +3773,47 @@ a {
 .comm-feature-image {
   padding: 48px !important;
 }
+/* FINAL BALANCE FIX */
+.community-header {
+  grid-template-columns: 1fr 0.92fr !important;
+  gap: 4.5rem !important;
+  align-items: end !important;
+}
+
+.community-heading {
+  font-size: clamp(3.4rem, 5.3vw, 5.6rem) !important;
+  line-height: 0.9 !important;
+  max-width: 9ch !important;
+}
+
+.community-intro {
+  font-size: 1.22rem !important;
+  line-height: 1.85 !important;
+  max-width: 30ch !important;
+  margin-top: 2.2rem !important;
+  color: rgba(20,20,20,0.76) !important;
+}
+
+.community-cards {
+  grid-template-columns: 1.22fr 0.88fr !important;
+}
+
+.community .comm-card {
+  padding: 3rem 2.8rem !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.20), rgba(255,255,255,0.12)) !important;
+}
+
+.community .comm-card-title {
+  font-size: 1.55rem !important;
+  font-weight: 600 !important;
+}
+
+.community .comm-card-body {
+  font-size: 1.02rem !important;
+  line-height: 1.82 !important;
+}
+
+.comm-feature-image {
+  padding: 44px !important;
+}
