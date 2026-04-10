@@ -3471,3 +3471,190 @@ body {
     padding: 48px 28px;
   }
 }
+/* =========================
+   APPLE-LIKE GLASS ABOUT SECTION
+   ========================= */
+
+.about.about-bright {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 0;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 38px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.08) 35%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* glossy top sheen */
+.about.about-bright::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.10) 16%,
+      rgba(255, 255, 255, 0.03) 34%,
+      transparent 55%
+    );
+  z-index: 2;
+}
+
+/* soft floating bloom */
+.about.about-bright::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 32%, rgba(255,255,255,0.22), transparent 22%),
+    radial-gradient(circle at 78% 20%, rgba(255,255,255,0.12), transparent 20%),
+    radial-gradient(circle at 35% 82%, rgba(255,244,230,0.12), transparent 24%);
+  filter: blur(26px);
+  z-index: 1;
+}
+
+.about-img-wrap {
+  position: relative;
+  min-height: 760px;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.03)
+    );
+  border-right: 1px solid rgba(255,255,255,0.18);
+}
+
+.about-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.12) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(255,255,255,0.08) 100%
+    );
+  z-index: 2;
+}
+
+/* IMPORTANT: fill the whole left panel */
+.about-img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: scale(1.22);
+  filter: contrast(1.02) brightness(0.995);
+}
+
+/* glass veil over the poster */
+.about-img-wrap .glass-veil,
+.about-content .glass-veil {
+  display: none;
+}
+
+.about-content {
+  position: relative;
+  z-index: 3;
+  padding: 82px 68px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.11) 0%,
+      rgba(255,255,255,0.04) 100%
+    );
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+}
+
+.about-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.18) 0%,
+      transparent 22%,
+      transparent 100%
+    );
+}
+
+.about-heading {
+  position: relative;
+  z-index: 2;
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  max-width: 520px;
+}
+
+.about-body,
+.section-kicker {
+  position: relative;
+  z-index: 2;
+}
+
+/* makes the whole section feel more like floating glass */
+.about {
+  isolation: isolate;
+}
+
+/* MOBILE */
+@media (max-width: 980px) {
+  .about.about-bright {
+    grid-template-columns: 1fr;
+    border-radius: 28px;
+  }
+
+  .about-img-wrap {
+    min-height: 460px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .about-img {
+    transform: scale(1.14);
+  }
+
+  .about-content {
+    padding: 42px 26px;
+  }
+
+  .about-heading {
+    line-height: 0.98;
+  }
+}
