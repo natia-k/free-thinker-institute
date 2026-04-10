@@ -46,9 +46,9 @@ body {
   font-weight: 400;
   letter-spacing: -0.01em;
   background:
-    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08), transparent 28%),
-    radial-gradient(circle at 80% 10%, rgba(200, 169, 107, 0.05), transparent 22%),
-    linear-gradient(180deg, #05070a 0%, #070b11 100%);
+    radial-gradient(circle at 18% 16%, rgba(107, 109, 255, 0.07), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(215, 176, 111, 0.045), transparent 20%),
+    linear-gradient(180deg, #040608 0%, #070a0f 42%, #05070a 100%);
   color: var(--ink);
   font-size: 16px;
   line-height: 1.6;
@@ -810,18 +810,17 @@ nav {
   position: relative;
 }
 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.7) contrast(1.08) brightness(0.82);
+}
+
 .about-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.5) contrast(1.1) brightness(0.7);
-}
-
-.about-img-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent 60%, var(--bg) 100%);
+  filter: saturate(0.7) contrast(1.08) brightness(0.82);
 }
 
 .about-content {
@@ -1053,8 +1052,8 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.35) brightness(0.55);
-  transition: filter 0.12s linear;
+  filter: saturate(0.62) contrast(1.08) brightness(0.84);
+  transition: transform 0.7s ease, filter 0.35s ease;
 }
 
 .goals {
@@ -2428,4 +2427,269 @@ footer {
   .hero-text::before {
     display: none;
   }
+}
+/* =========================================
+   10/10 CONTRAST UPGRADE
+   Paste at very end of CSS
+   ========================================= */
+
+/* stronger dark panels globally */
+.what-card,
+.bento-item,
+.editorial-card,
+.quiz-question,
+.pathfinder-shell,
+.editorial-spotlight,
+.hero-card,
+.comm-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+    linear-gradient(180deg, rgba(13,17,26,0.82), rgba(8,11,18,0.95));
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* slightly more readable body text */
+.hero-text,
+.intentions-intro,
+.what-intro,
+.community-intro,
+.goals-sub,
+.about-body p,
+.what-card p,
+.bento-content p,
+.editorial-intro,
+.spotlight-copy p,
+.pathfinder-header p,
+.quiz-result p,
+.comm-card-body,
+.newsletter-sub {
+  color: rgba(235, 238, 244, 0.72);
+}
+
+/* headings feel cleaner and brighter */
+.hero-title,
+.about-heading,
+.intentions-heading,
+.what-heading,
+.goals-heading,
+.learn-heading,
+.community-heading,
+.editorial-title,
+.newsletter-heading,
+.conviction-text {
+  color: #f6f1e8;
+}
+
+/* =========================
+   ONE BRIGHT SECTION
+   Use on community area
+   ========================= */
+
+.community {
+  position: relative;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,0.52), transparent 24%),
+    radial-gradient(circle at 82% 24%, rgba(215,176,111,0.18), transparent 22%),
+    linear-gradient(180deg, var(--warm-bg-2) 0%, var(--warm-bg) 100%);
+  border-top: 1px solid var(--warm-border);
+  border-bottom: 1px solid var(--warm-border);
+}
+
+.community::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), transparent 28%, transparent 72%, rgba(0,0,0,0.02)),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.22), transparent 30%);
+  pointer-events: none;
+}
+
+.community .section-kicker,
+.community .community-heading,
+.community .community-intro,
+.community .comm-card-title,
+.community .comm-card-body,
+.community .featured-title,
+.community .featured-body,
+.community .comm-card-link,
+.community .comm-card-tag {
+  color: var(--warm-ink) !important;
+}
+
+.community .section-kicker::before {
+  background: rgba(17,17,17,0.24);
+}
+
+.community .community-cards {
+  border: 1px solid rgba(17,17,17,0.08);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+}
+
+.community .comm-card {
+  background: rgba(255,255,255,0.56);
+  border-color: rgba(17,17,17,0.08);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+}
+
+.community .comm-card:hover {
+  background: rgba(255,255,255,0.72);
+}
+
+.community .comm-card-link {
+  color: #111111 !important;
+}
+
+.community .comm-card-featured {
+  border-right: 1px solid rgba(17,17,17,0.08);
+}
+
+.community .comm-card-featured-ambient {
+  background:
+    radial-gradient(circle at 28% 30%, rgba(107,109,255,0.12), transparent 24%),
+    radial-gradient(circle at 72% 72%, rgba(215,176,111,0.12), transparent 22%),
+    linear-gradient(180deg, rgba(255,255,255,0.82), rgba(241,233,223,0.96));
+}
+
+.community .comm-feature-overlay {
+  background: linear-gradient(to top, rgba(255,248,240,0.82), rgba(255,248,240,0.08));
+}
+
+.community .comm-feature-grid {
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(17,17,17,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,17,17,0.06) 1px, transparent 1px);
+}
+
+/* =========================
+   PHOTO STRIP FIX
+   Make it less dead / samey
+   ========================= */
+
+.photo-strip {
+  gap: 10px;
+  background: transparent;
+  height: 500px;
+}
+
+.photo-wrap {
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+}
+
+.photo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 24%, transparent 70%, rgba(0,0,0,0.18)),
+    linear-gradient(0deg, rgba(5,7,10,0.18), rgba(5,7,10,0.04));
+  pointer-events: none;
+}
+
+.photo-wrap img {
+  filter: saturate(0.62) contrast(1.08) brightness(0.84);
+  transition: transform 0.7s ease, filter 0.35s ease;
+}
+
+.photo-wrap:hover img {
+  transform: scale(1.04);
+  filter: saturate(0.78) contrast(1.1) brightness(0.9);
+}
+
+/* make the first image feel special */
+.photo-wrap:first-child {
+  transform: translateY(-8px);
+}
+
+/* =========================
+   ATTEND EVENTS / IMAGE CARDS
+   Better image energy
+   ========================= */
+
+.comm-card-featured {
+  min-height: 760px;
+}
+
+.comm-feature-overlay {
+  padding: 2.5rem;
+}
+
+.featured-title {
+  max-width: 9ch;
+  line-height: 0.96;
+}
+
+/* if you place a real image inside featured card later */
+.comm-card-featured img,
+.events-image,
+.attend-events img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06) brightness(0.9);
+}
+
+/* =========================
+   BUTTONS need more snap
+   ========================= */
+
+.hero-btn-primary,
+.btn-dark,
+.newsletter-btn {
+  background: linear-gradient(180deg, #7274ff 0%, #5f62f2 100%);
+  box-shadow:
+    0 10px 28px rgba(99, 102, 241, 0.26),
+    0 0 0 1px rgba(255,255,255,0.08) inset;
+}
+
+.hero-btn-primary:hover,
+.btn-dark:hover,
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 36px rgba(99, 102, 241, 0.32),
+    0 0 0 1px rgba(255,255,255,0.1) inset;
+}
+
+/* secondary buttons cleaner */
+.hero-btn-secondary,
+.btn-light {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(246,241,232,0.84);
+}
+
+/* =========================
+   section separation stronger
+   ========================= */
+
+.goals,
+.learn-more,
+.conviction,
+.newsletter {
+  background: linear-gradient(180deg, rgba(7,10,15,0.96), rgba(8,11,18,0.98));
+}
+
+.what-we-do,
+.career-editorial,
+.intentions {
+  position: relative;
+}
+
+.what-we-do::before,
+.career-editorial::before,
+.intentions::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  pointer-events: none;
 }
