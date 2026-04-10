@@ -61,25 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll("[data-photo]").forEach((wrap) => {
     const img = wrap.querySelector("img");
+    if (!img || window.innerWidth <= 900) return;
 
     wrap.addEventListener("mousemove", (e) => {
-      if (!img) return;
-
       const rect = wrap.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const dx = Math.abs(x - rect.width / 2) / (rect.width / 2);
-      const dy = Math.abs(y - rect.height / 2) / (rect.height / 2);
-      const d = Math.min(1, Math.sqrt(dx * dx + dy * dy));
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const moveX = (x - 0.5) * 14;
+      const moveY = (y - 0.5) * 10;
 
-      const brightness = 0.55 + (1 - d) * 0.45;
-      const sat = 0.35 + (1 - d) * 0.45;
-
-      img.style.filter = `saturate(${sat}) brightness(${brightness})`;
+      img.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
+      img.style.filter = "grayscale(0.02) saturate(0.92) brightness(1.02) contrast(1.03)";
     });
 
     wrap.addEventListener("mouseleave", () => {
-      if (img) img.style.filter = "saturate(.35) brightness(.55)";
+      img.style.transform = "scale(1) translate(0, 0)";
+      img.style.filter = "grayscale(0.06) saturate(0.84) brightness(0.94) contrast(1.02)";
     });
   });
 
