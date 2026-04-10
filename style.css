@@ -114,7 +114,7 @@ img {
 .blob-1 {
   width: 70vw;
   height: 70vw;
-  background: radial-gradient(circle, rgba(215, 176, 111, 0.28) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(200, 169, 107, 0.16) 0%, transparent 65%);
   top: -20%;
   left: -10%;
   animation: blob1 22s ease-in-out infinite alternate;
@@ -123,7 +123,7 @@ img {
 .blob-2 {
   width: 55vw;
   height: 55vw;
-  background: radial-gradient(circle, rgba(141, 108, 255, 0.26) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.20) 0%, transparent 65%);
   top: 5%;
   right: -12%;
   animation: blob2 18s ease-in-out infinite alternate;
@@ -132,7 +132,7 @@ img {
 .blob-3 {
   width: 45vw;
   height: 45vw;
-  background: radial-gradient(circle, rgba(0, 242, 255, 0.16) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 65%);
   bottom: 10%;
   left: 20%;
   animation: blob3 26s ease-in-out infinite alternate;
@@ -208,8 +208,8 @@ nav {
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: linear-gradient(145deg, rgba(141, 108, 255, 0.18), rgba(0, 242, 255, 0.12));
-  border: 1px solid rgba(141, 108, 255, 0.3);
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.16), rgba(200, 169, 107, 0.08));
+  border: 1px solid rgba(99, 102, 241, 0.22);
   display: grid;
   place-items: center;
   position: relative;
@@ -224,7 +224,7 @@ nav {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(0, 242, 255, 0.2), transparent 55%);
+  background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.14), transparent 55%);
   pointer-events: none;
 }
 
@@ -260,8 +260,8 @@ nav {
   padding: 9px 18px;
   border-radius: 999px;
   background: transparent;
-  border: 1px solid rgba(141, 108, 255, 0.5);
-  color: var(--cyan) !important;
+  border: 1px solid rgba(99, 102, 241, 0.34);
+  color: var(--violet) !important;
   position: relative;
   overflow: hidden;
   transition: border-color 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-spring);
@@ -271,14 +271,14 @@ nav {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(141, 108, 255, 0.15), rgba(0, 242, 255, 0.1));
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.14), rgba(200, 169, 107, 0.06));
   opacity: 0;
   transition: opacity 0.25s;
 }
 
 .nav-cta:hover {
-  border-color: var(--cyan) !important;
-  box-shadow: 0 0 18px rgba(0, 242, 255, 0.18);
+  border-color: var(--violet) !important;
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.16);
 }
 
 .nav-cta:hover::before {
@@ -312,7 +312,7 @@ nav {
   height: 520px;
   top: -60px;
   left: -100px;
-  background: radial-gradient(circle, rgba(141, 108, 255, 0.22), transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18), transparent 70%);
 }
 
 .hero-orb-2 {
@@ -320,7 +320,7 @@ nav {
   height: 520px;
   right: -100px;
   bottom: -80px;
-  background: radial-gradient(circle, rgba(0, 242, 255, 0.14), transparent 70%);
+  background: radial-gradient(circle, rgba(200, 169, 107, 0.08), transparent 70%);
 }
 
 .hero-grid-overlay {
@@ -371,14 +371,20 @@ nav {
 }
 
 .hero-gradient {
-  background: linear-gradient(90deg, #f0ece4 0%, var(--gold) 24%, var(--cyan) 58%, var(--violet) 84%, #f0ece4 100%);
-  background-size: 300% auto;
+  background: linear-gradient(
+    90deg,
+    #f0ece4 0%,
+    var(--gold) 20%,
+    var(--violet) 52%,
+    var(--violet) 78%,
+    #f0ece4 100%
+  );
+  background-size: 240% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 6s linear infinite;
+  animation: shimmer 8s linear infinite;
 }
-
 .hero-text {
   margin-top: 30px;
   max-width: 560px;
