@@ -3608,3 +3608,156 @@ a {
     max-width: 100% !important;
   }
 }
+/* =====================================
+   FINAL COMMUNITY POLISH
+   softer glass + better proportions
+   ===================================== */
+
+.community {
+  padding: 7rem 0 8rem;
+  background:
+    radial-gradient(circle at 22% 20%, rgba(255,255,255,0.75), transparent 22%),
+    radial-gradient(circle at 72% 32%, rgba(214, 196, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 58% 72%, rgba(255, 224, 205, 0.16), transparent 26%),
+    linear-gradient(180deg, #f3ede4 0%, #ece3d8 100%) !important;
+}
+
+/* heading + intro layout */
+.community-header {
+  grid-template-columns: 1fr 0.9fr !important;
+  gap: 4rem !important;
+  align-items: end !important;
+  margin-bottom: 2.8rem !important;
+}
+
+.community-heading {
+  font-family: "Inter", "Roboto", system-ui, sans-serif !important;
+  font-size: clamp(3.2rem, 5.4vw, 5.4rem) !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.06em !important;
+  font-weight: 600 !important;
+  max-width: 9ch !important;
+  color: #111 !important;
+}
+
+.community-intro {
+  font-size: 1.18rem !important;
+  line-height: 1.8 !important;
+  max-width: 28ch !important;
+  color: rgba(20,20,20,0.76) !important;
+  margin-top: 0.5rem;
+}
+
+/* whole glass shell */
+.community-cards {
+  grid-template-columns: 1.28fr 0.82fr !important;
+  border-radius: 36px !important;
+  background: rgba(255,255,255,0.28) !important;
+  border: 1px solid rgba(255,255,255,0.52) !important;
+  backdrop-filter: blur(36px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(36px) saturate(170%) !important;
+  box-shadow:
+    0 24px 70px rgba(100, 84, 64, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.55) !important;
+}
+
+/* right side cards softer and lighter */
+.community .comm-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.10)) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+  backdrop-filter: blur(26px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(150%) !important;
+  padding: 2.6rem !important;
+}
+
+/* right side typography */
+.community .comm-card-title,
+.community .featured-title {
+  font-family: "Inter", "Roboto", system-ui, sans-serif !important;
+  font-size: 1.45rem !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  color: #111 !important;
+}
+
+.community .comm-card-body,
+.community .featured-body {
+  font-family: "Inter", "Roboto", system-ui, sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  color: rgba(20,20,20,0.72) !important;
+}
+
+.community .comm-card-tag {
+  color: rgba(20,20,20,0.46) !important;
+  font-size: 9px !important;
+  letter-spacing: 0.24em !important;
+}
+
+.community .comm-card-link,
+.community .comm-card-link.light {
+  color: #111 !important;
+  font-weight: 500 !important;
+}
+
+/* featured poster side */
+.community .comm-card-featured {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08)) !important;
+  border-right: 1px solid rgba(255,255,255,0.24) !important;
+  min-height: 720px !important;
+}
+
+/* softer poster placement */
+.comm-feature-image {
+  padding: 30px 30px 20px !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+}
+
+/* bottom overlay under poster lighter and smaller */
+.comm-feature-overlay {
+  padding: 1.5rem 1.8rem 1.7rem !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.14)),
+    rgba(255,255,255,0.12) !important;
+  border-top: 1px solid rgba(255,255,255,0.22) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+
+.community .featured-title {
+  font-size: 1.7rem !important;
+}
+
+.community .featured-body {
+  max-width: 30ch !important;
+}
+
+/* make the panel feel more airy */
+.community .comm-card:hover {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.24), rgba(255,255,255,0.14)) !important;
+}
+
+/* mobile */
+@media (max-width: 1100px) {
+  .community-header {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .community-heading {
+    max-width: 100% !important;
+  }
+
+  .community-cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  .community .comm-card-featured {
+    min-height: 560px !important;
+    border-right: none !important;
+  }
+}
