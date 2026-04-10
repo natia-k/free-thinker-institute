@@ -3504,3 +3504,74 @@ a {
   font-family: "Inter", "Roboto", system-ui, sans-serif !important;
   font-weight: 500 !important;
 }
+/* ===== FINAL APPLE GLASS POLISH ===== */
+
+.community-cards {
+  background: rgba(255,255,255,0.18) !important;
+  backdrop-filter: blur(34px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(34px) saturate(170%) !important;
+  border: 1px solid rgba(255,255,255,0.42) !important;
+  box-shadow:
+    0 28px 80px rgba(80,60,40,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.42) !important;
+}
+
+/* make right cards cream instead of dark */
+.community .comm-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.22),
+      rgba(255,255,255,0.12)
+    ) !important;
+  color: #111 !important;
+  backdrop-filter: blur(24px) !important;
+}
+
+/* hover lighter */
+.community .comm-card:hover {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.30),
+      rgba(255,255,255,0.18)
+    ) !important;
+}
+
+/* remove dark frame around poster */
+.community .comm-card-featured {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.18),
+      rgba(255,255,255,0.08)
+    ) !important;
+}
+
+/* more elegant spacing */
+.comm-card {
+  padding: 2.8rem !important;
+}
+
+.comm-feature-image {
+  padding: 34px !important;
+}
+
+/* cleaner right side text */
+.community .comm-card-title {
+  font-size: 1.9rem !important;
+  line-height: 0.96 !important;
+  font-weight: 600 !important;
+}
+
+.community .comm-card-body {
+  color: rgba(17,17,17,0.72) !important;
+  line-height: 1.8 !important;
+}
+
+/* heading more apple */
+.community-heading {
+  font-size: clamp(4rem, 6vw, 6rem) !important;
+  line-height: 0.88 !important;
+  letter-spacing: -0.06em !important;
+}
