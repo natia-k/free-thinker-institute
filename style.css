@@ -2815,3 +2815,163 @@ body {
   background: rgba(255,255,255,0.24);
   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
+/* =====================================
+   BRIGHT ISLAND ABOUT SECTION
+   ===================================== */
+
+.about.about-bright {
+  width: min(1240px, calc(100% - 48px));
+  margin: 72px auto;
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  min-height: 760px;
+  border-radius: 34px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255,255,255,0.78), transparent 24%),
+    radial-gradient(circle at 74% 24%, rgba(215, 206, 255, 0.16), transparent 25%),
+    radial-gradient(circle at 62% 82%, rgba(255, 226, 206, 0.14), transparent 26%),
+    linear-gradient(180deg, #f4ede4 0%, #ece3d8 100%);
+  border: 1px solid rgba(255,255,255,0.44);
+  box-shadow:
+    0 30px 90px rgba(110, 88, 64, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.42);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+}
+
+.about.about-bright .about-img-wrap {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05));
+  border-right: 1px solid rgba(255,255,255,0.24);
+}
+
+.about.about-bright .about-img-wrap::after {
+  display: none !important;
+}
+
+.about.about-bright .about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 44px;
+  background: transparent !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.about.about-bright .about-content {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.10));
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border-left: 1px solid rgba(255,255,255,0.20);
+  padding: 5.3rem 4.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.34);
+}
+
+.about.about-bright .section-kicker {
+  color: rgba(20,20,20,0.48) !important;
+}
+
+.about.about-bright .section-kicker::before {
+  background: rgba(20,20,20,0.16) !important;
+}
+
+.about.about-bright .about-heading {
+  font-family: "Inter", "Roboto", system-ui, sans-serif !important;
+  font-size: clamp(3rem, 5vw, 5.2rem) !important;
+  font-weight: 600 !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.06em !important;
+  color: #111111 !important;
+  margin-bottom: 1.4rem;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.about.about-bright .about-body p {
+  color: rgba(20,20,20,0.72) !important;
+  font-size: 1.02rem !important;
+  line-height: 1.9 !important;
+  max-width: 34ch;
+}
+
+.about.about-bright .about-body p + p {
+  margin-top: 0.95rem;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 2rem;
+}
+
+.glass-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  color: #111111 !important;
+  border: 1px solid rgba(255,255,255,0.34);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.34),
+    0 10px 24px rgba(0,0,0,0.06);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.glass-pill:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.28);
+  border-color: rgba(255,255,255,0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.42),
+    0 14px 30px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 900px) {
+  .about.about-bright {
+    width: calc(100% - 24px);
+    grid-template-columns: 1fr;
+    min-height: auto;
+    margin: 48px auto;
+  }
+
+  .about.about-bright .about-img-wrap,
+  .about.about-bright .about-content {
+    min-height: auto;
+  }
+
+  .about.about-bright .about-img {
+    padding: 20px;
+    height: auto;
+  }
+
+  .about.about-bright .about-content {
+    padding: 2.2rem 1.5rem 2.6rem;
+  }
+
+  .about.about-bright .about-heading {
+    font-size: clamp(2.4rem, 10vw, 3.8rem) !important;
+  }
+}
