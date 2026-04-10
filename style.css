@@ -1,20 +1,28 @@
 :root {
-  --bg: #080b12;
-  --panel: rgba(14, 18, 28, 0.82);
-  --panel-2: rgba(18, 23, 36, 0.7);
-  --ink: #f0ece4;
-  --ink-dim: rgba(240, 236, 228, 0.62);
-  --ink-ghost: rgba(240, 236, 228, 0.26);
-  --border: rgba(255, 255, 255, 0.07);
-  --border-hi: rgba(255, 255, 255, 0.14);
-  --gold: #d7b06f;
-  --violet: #8d6cff;
-  --cyan: #00f2ff;
-  --deep: #0b0e14;
+  --bg: #05070a;
+
+  --panel: rgba(10, 14, 22, 0.82);
+  --panel-2: rgba(16, 21, 32, 0.72);
+
+  --ink: #f5f7fb;
+  --ink-dim: rgba(152, 162, 179, 0.68);
+  --ink-ghost: rgba(152, 162, 179, 0.28);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hi: rgba(99, 102, 241, 0.22);
+
+  --gold: #c8a96b;
+  --violet: #6366f1;
+  --cyan: #6366f1;
+
+  --deep: #0b1018;
+
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "DM Sans", system-ui, sans-serif;
+
   --ease-spring: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
   --max: 1240px;
   --mx: 50%;
   --my: 50%;
@@ -35,10 +43,14 @@ html {
 
 body {
   font-family: var(--sans);
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99,102,241,0.08), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(200,169,107,0.05), transparent 22%),
+    linear-gradient(180deg, #05070a 0%, #070b11 100%);
   color: var(--ink);
-  overflow-x: hidden;
+  font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 a {
