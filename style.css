@@ -3846,3 +3846,44 @@ section.about.about-bright .section-kicker {
     line-height: 0.98 !important;
   }
 }
+.shimmer-title {
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  max-width: 500px;
+  font-size: clamp(3.8rem, 6vw, 5.8rem);
+
+  background: linear-gradient(
+    90deg,
+    #1f2937 0%,
+    #6366f1 18%,
+    #a855f7 38%,
+    #ec4899 58%,
+    #6366f1 78%,
+    #1f2937 100%
+  );
+  background-size: 240% 100%;
+  background-position: 0% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
+
+  animation: shimmerFlow 6s ease-in-out infinite;
+}
+
+@keyframes shimmerFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+  .about-heading.shimmer-title {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
