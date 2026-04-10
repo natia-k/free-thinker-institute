@@ -3333,3 +3333,35 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(0,0,0,0.06);
 }
+.community-visual {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 18px;
+}
+
+.community-visual img {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+.community-visual::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle at 40% 50%,
+    rgba(255,248,235,0.9),
+    rgba(255,248,235,0.35) 40%,
+    transparent 75%
+  );
+  z-index: -1;
+  filter: blur(30px);
+}
