@@ -1,6 +1,6 @@
 /* =========================
    FINAL SITE INTERACTIONS
-   clean + polished
+   SAFE VERSION
    ========================= */
 
 /* reveal on scroll */
@@ -15,9 +15,7 @@ if (reveals.length) {
         }
       });
     },
-    {
-      threshold: 0.14,
-    }
+    { threshold: 0.14 }
   );
 
   reveals.forEach((item) => revealObserver.observe(item));
@@ -25,7 +23,7 @@ if (reveals.length) {
 
 /* premium mouse motion cards */
 const motionCards = document.querySelectorAll(
-  ".bento-item, .editorial-card, .hero-card, .comm-card, .quiz-question, .what-card, .glass-panel"
+  ".bento-item, .editorial-card, .hero-card, .comm-card, .quiz-question, .what-card"
 );
 
 motionCards.forEach((card) => {
@@ -40,20 +38,12 @@ motionCards.forEach((card) => {
 
     const rotateX = ((y - centerY) / rect.height) * -4;
     const rotateY = ((x - centerX) / rect.width) * 4;
-
-    const angle =
-      Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+    const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
 
     card.style.setProperty("--mx", `${x}px`);
     card.style.setProperty("--my", `${y}px`);
     card.style.setProperty("--laser-angle", `${angle}deg`);
-
-    card.style.transform = `
-      perspective(1200px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      translateY(-3px)
-    `;
+    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
   });
 
   card.addEventListener("mouseleave", () => {
@@ -72,11 +62,9 @@ document.querySelectorAll(".intention-flip").forEach((card) => {
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
     const href = anchor.getAttribute("href");
-
     if (!href || href === "#") return;
 
     const target = document.querySelector(href);
-
     if (!target) return;
 
     e.preventDefault();
@@ -103,7 +91,6 @@ const heroCard = document.getElementById("heroCard");
 if (heroCard) {
   heroCard.addEventListener("mousemove", (e) => {
     const rect = heroCard.getBoundingClientRect();
-
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
@@ -112,21 +99,6 @@ if (heroCard) {
   });
 }
 
-/* subtle image hover */
-document
-  .querySelectorAll(
-    ".photo-wrap img, .comm-feature-image, .about-img"
-  )
-  .forEach((img) => {
-    img.addEventListener("mouseenter", () => {
-      img.style.transform = "scale(1.03)";
-    });
-
-    img.addEventListener("mouseleave", () => {
-      img.style.transform = "";
-    });
-  });
-
 /* quiz functionality */
 const quizForm = document.getElementById("pathfinderQuiz");
 const quizResult = document.getElementById("quizResult");
@@ -134,7 +106,7 @@ const quizTitle = document.getElementById("quizCareerTitle");
 const quizText = document.getElementById("quizCareerText");
 const resetBtn = document.getElementById("resetPathfinder");
 
-if (quizForm && quizResult) {
+if (quizForm && quizResult && quizTitle && quizText) {
   const careerMap = {
     software:
       "You are strongly aligned with Software Development — systems thinking, logic, and building meaningful tools.",
@@ -150,38 +122,37 @@ if (quizForm && quizResult) {
       "You are strongly aligned with Automated Quality Assurance — systems reliability and scalable processes.",
   };
 
+  const titles = {
+    software: "Software Development",
+    ux: "User Experience",
+    product: "Product Management",
+    sales: "Sales",
+    manualqa: "Manual Quality Assurance",
+    automatedqa: "Automated Quality Assurance",
+  };
+
   quizForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const formData = new FormData(quizForm);
     const scores = {};
 
-    for (let [_, value] of formData.entries()) {
+    for (const [, value] of formData.entries()) {
       scores[value] = (scores[value] || 0) + 1;
     }
 
     let bestMatch = "software";
     let highest = 0;
 
-    for (let key in scores) {
+    for (const key in scores) {
       if (scores[key] > highest) {
         highest = scores[key];
         bestMatch = key;
       }
     }
 
-    const titles = {
-      software: "Software Development",
-      ux: "User Experience",
-      product: "Product Management",
-      sales: "Sales",
-      manualqa: "Manual Quality Assurance",
-      automatedqa: "Automated Quality Assurance",
-    };
-
     quizTitle.textContent = titles[bestMatch];
     quizText.textContent = careerMap[bestMatch];
-
     quizResult.hidden = false;
 
     quizResult.scrollIntoView({
@@ -199,9 +170,7 @@ if (quizForm && quizResult) {
 }
 
 /* reduced motion support */
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-);
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (prefersReducedMotion.matches) {
   document.documentElement.style.scrollBehavior = "auto";
