@@ -4180,47 +4180,7 @@ section.about.about-bright .section-kicker {
   overflow: hidden;
 }
 
-.poster-side .orbit-text{
-  position: absolute;
-  left: 0;
-  width: 100%;
-  white-space: nowrap;
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
-  font-weight: 600;
-  pointer-events: none;
-  z-index: 6;
-  mix-blend-mode: difference;
-  color: white;
-}
 
-.poster-side .orbit-top{
-  top: 16px;
-  animation: slideText 16s linear infinite;
-}
-
-.poster-side .orbit-bottom{
-  bottom: 16px;
-  animation: slideTextReverse 16s linear infinite;
-}
-
-@keyframes slideText{
-  0%{
-    transform: translateX(100%);
-  }
-  100%{
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes slideTextReverse{
-  0%{
-    transform: translateX(-100%);
-  }
-  100%{
-    transform: translateX(100%);
-  }
-}
 
 
 /* ==== FINAL PATCH: about poster orbit + community heading ==== */
@@ -4308,4 +4268,60 @@ section.about.about-bright .section-kicker {
   .poster-side img {
     transform: scale(1.04) !important;
   }
+}
+.poster-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f3ec;
+  overflow: visible;
+}
+
+.poster-main {
+  width: 78%;
+  max-width: 620px;
+  position: relative;
+  z-index: 2;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+}
+
+.rotating-ring {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  z-index: 3;
+  pointer-events: none;
+  animation: spinRing 26s linear infinite;
+}
+
+.rotating-ring svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.circle-text {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: white;
+  mix-blend-mode: difference;
+}
+
+@keyframes spinRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.about {
+  grid-template-columns: 1fr 1fr;
 }
