@@ -886,6 +886,19 @@ nav {
   font-weight: 300;
   line-height: 1.06;
   letter-spacing: -0.03em;
+  max-width: 820px;
+  overflow: visible;
+}
+
+.community-heading .kinetic-em {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: visible;
+  padding-right: 0.18em;
+}
+
+.community-header > div {
+  overflow: visible;
 }
 
 .intentions-intro,
