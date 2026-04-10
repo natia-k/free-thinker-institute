@@ -3761,3 +3761,15 @@ a {
     border-right: none !important;
   }
 }
+/* final community spacing polish */
+.community-intro {
+  margin-top: 2.5rem !important;
+}
+
+.community .comm-card {
+  padding: 3rem 2.8rem !important;
+}
+
+.comm-feature-image {
+  padding: 48px !important;
+}
