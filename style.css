@@ -4175,17 +4175,49 @@ section.about.about-bright .section-kicker {
   animation:orbitSlide 22s linear infinite;
 }
 
-.about-poster-side .orbit-bottom{
-  bottom:20px;
-  animation:orbitSlideReverse 22s linear infinite;
+.poster-side{
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes orbitSlide{
-  from{ transform:translateX(-50%) translateX(-90px); }
-  to{ transform:translateX(-50%) translateX(90px); }
+.poster-side .orbit-text{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 6;
+  mix-blend-mode: difference;
+  color: white;
 }
 
-@keyframes orbitSlideReverse{
-  from{ transform:translateX(-50%) translateX(90px); }
-  to{ transform:translateX(-50%) translateX(-90px); }
+.poster-side .orbit-top{
+  top: 16px;
+  animation: slideText 16s linear infinite;
+}
+
+.poster-side .orbit-bottom{
+  bottom: 16px;
+  animation: slideTextReverse 16s linear infinite;
+}
+
+@keyframes slideText{
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideTextReverse{
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
 }
