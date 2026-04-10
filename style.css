@@ -4154,3 +4154,38 @@ section.about.about-bright .section-kicker {
     gap: 1.6rem !important;
   }
 }
+.about-poster-side .orbit-text{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:140%;
+  text-align:center;
+  white-space:nowrap;
+  font-size:0.88rem;
+  letter-spacing:0.18em;
+  font-weight:600;
+  color:#fff;
+  mix-blend-mode:difference;
+  pointer-events:none;
+  z-index:5;
+}
+
+.about-poster-side .orbit-top{
+  top:20px;
+  animation:orbitSlide 22s linear infinite;
+}
+
+.about-poster-side .orbit-bottom{
+  bottom:20px;
+  animation:orbitSlideReverse 22s linear infinite;
+}
+
+@keyframes orbitSlide{
+  from{ transform:translateX(-50%) translateX(-90px); }
+  to{ transform:translateX(-50%) translateX(90px); }
+}
+
+@keyframes orbitSlideReverse{
+  from{ transform:translateX(-50%) translateX(90px); }
+  to{ transform:translateX(-50%) translateX(-90px); }
+}
