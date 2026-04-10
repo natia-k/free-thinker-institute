@@ -2693,3 +2693,72 @@ footer {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
   pointer-events: none;
 }
+/* =====================================
+   FIX THE COMMUNITY SECTION
+   restores premium dark contrast
+   ===================================== */
+
+.community {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(215,176,111,0.06), transparent 26%),
+    radial-gradient(circle at 82% 24%, rgba(107,109,255,0.08), transparent 24%),
+    linear-gradient(180deg, #05070a 0%, #070b11 100%) !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+.community::before {
+  display: none !important;
+}
+
+.community .section-kicker,
+.community .community-heading,
+.community .community-intro,
+.community .comm-card-title,
+.community .comm-card-body,
+.community .featured-title,
+.community .featured-body,
+.community .comm-card-link,
+.community .comm-card-tag {
+  color: #f5f7fb !important;
+}
+
+.community .section-kicker::before {
+  background: rgba(255,255,255,0.18) !important;
+}
+
+.community .community-cards {
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.22);
+}
+
+.community .comm-card {
+  background: rgba(14,18,28,0.72) !important;
+  border-color: rgba(255,255,255,0.06) !important;
+}
+
+.community .comm-card:hover {
+  background: rgba(18,24,36,0.82) !important;
+}
+
+.community .comm-card-featured-ambient {
+  background:
+    radial-gradient(circle at 28% 30%, rgba(107,109,255,0.14), transparent 24%),
+    radial-gradient(circle at 72% 72%, rgba(215,176,111,0.08), transparent 22%),
+    linear-gradient(180deg, rgba(10,14,22,0.92), rgba(8,11,18,0.98)) !important;
+}
+
+.community .comm-feature-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(8,11,18,0.82),
+    rgba(8,11,18,0.08)
+  ) !important;
+}
+
+.community .comm-feature-grid {
+  opacity: 0.18 !important;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px) !important;
+}
