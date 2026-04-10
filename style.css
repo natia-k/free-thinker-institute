@@ -2946,3 +2946,61 @@ footer {
     border-right: none;
   }
 }
+/* =========================
+   FINAL TYPOGRAPHY SYSTEM
+   ========================= */
+
+:root {
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Roboto", system-ui, sans-serif;
+}
+
+/* default whole site */
+body {
+  font-family: var(--sans);
+  letter-spacing: -0.01em;
+}
+
+/* elegant editorial sections */
+.hero-title,
+.about-heading,
+.community-heading,
+.conviction-text,
+.editorial-title,
+.featured-title,
+.comm-card-title,
+.what-card h3,
+.intentions-heading,
+.goals-heading,
+.learn-heading,
+.newsletter-heading,
+.spotlight-copy h3,
+.pathfinder-header h3,
+.quiz-result h4,
+.card-body h3 {
+  font-family: var(--serif);
+  font-weight: 300;
+}
+
+/* clean UI text */
+p,
+.nav-links,
+.hero-text,
+.goal-text,
+.what-card p,
+.bento-content p,
+.newsletter-sub,
+.footer-brand-sub,
+.footer-col a,
+.comm-card-body,
+.brand,
+.nav-cta,
+.hero-btn,
+.btn,
+input,
+label,
+span,
+li,
+a {
+  font-family: var(--sans);
+}
