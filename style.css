@@ -1051,25 +1051,28 @@ nav {
 }
 
 .editorial-quote-band {
-  padding: 7rem 0;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.01),
-    rgba(255,255,255,0.02)
-  );
+  padding: 9rem 0;
   position: relative;
   z-index: 2;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  background:
+    radial-gradient(circle at 20% 30%, rgba(99,102,241,0.06), transparent 35%),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.01),
+      rgba(255,255,255,0.015)
+    );
 }
 
 .editorial-quote {
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 4.5rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  max-width: 10ch;
-  color: rgba(245,247,251,0.95);
+  font-size: clamp(2.6rem, 5vw, 5.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  max-width: 8ch;
+  color: rgba(245,247,251,0.97);
+  text-shadow: 0 0 30px rgba(99,102,241,0.06);
 }
 
 .goals {
