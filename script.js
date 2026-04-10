@@ -23,28 +23,37 @@ if (reveals.length) {
   reveals.forEach((item) => revealObserver.observe(item));
 }
 
-/* laser / cursor motion for premium cards */
+/* premium mouse motion cards */
 const motionCards = document.querySelectorAll(
-  ".bento-item, .editorial-card, .hero-card, .comm-card, .quiz-question, .what-card"
+  ".bento-item, .editorial-card, .hero-card, .comm-card, .quiz-question, .what-card, .glass-panel"
 );
 
 motionCards.forEach((card) => {
   card.addEventListener("mousemove", (e) => {
     const rect = card.getBoundingClientRect();
+
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / rect.height) * -6;
-    const rotateY = ((x - centerX) / rect.width) * 6;
-    const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+    const rotateX = ((y - centerY) / rect.height) * -4;
+    const rotateY = ((x - centerX) / rect.width) * 4;
+
+    const angle =
+      Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
 
     card.style.setProperty("--mx", `${x}px`);
     card.style.setProperty("--my", `${y}px`);
     card.style.setProperty("--laser-angle", `${angle}deg`);
-    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+
+    card.style.transform = `
+      perspective(1200px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      translateY(-3px)
+    `;
   });
 
   card.addEventListener("mouseleave", () => {
@@ -52,58 +61,34 @@ motionCards.forEach((card) => {
   });
 });
 
-/* intention cards mobile / click flip */
+/* flip intention cards */
 document.querySelectorAll(".intention-flip").forEach((card) => {
   card.addEventListener("click", () => {
     card.classList.toggle("active");
   });
 });
 
-/* apple-style scroll write */
-const scrollWrites = document.querySelectorAll(".scroll-write");
-
-function updateScrollWrite() {
-  scrollWrites.forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    const progress = Math.max(
-      0,
-      Math.min(1, (windowHeight - rect.top) / (windowHeight * 0.8))
-    );
-
-    el.style.setProperty("--fill-width", `${progress * 100}%`);
-  });
-}
-
-window.addEventListener("scroll", updateScrollWrite, { passive: true });
-window.addEventListener("load", updateScrollWrite);
-
-/* subtle image hover polish */
-document.querySelectorAll(".photo-wrap img, .comm-feature-image, .about-img").forEach((img) => {
-  img.addEventListener("mouseenter", () => {
-    img.style.transform = "scale(1.02)";
-  });
-
-  img.addEventListener("mouseleave", () => {
-    img.style.transform = "";
-  });
-});
-
-/* smooth anchor offset for sticky nav */
+/* smooth anchor scroll */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
     const href = anchor.getAttribute("href");
+
     if (!href || href === "#") return;
 
     const target = document.querySelector(href);
+
     if (!target) return;
 
     e.preventDefault();
 
     const nav = document.querySelector("nav");
     const navHeight = nav ? nav.offsetHeight : 0;
-    const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 18;
+
+    const y =
+      target.getBoundingClientRect().top +
+      window.pageYOffset -
+      navHeight -
+      18;
 
     window.scrollTo({
       top: y,
@@ -112,12 +97,13 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-/* hero card glow follows cursor */
+/* hero glow follow */
 const heroCard = document.getElementById("heroCard");
 
 if (heroCard) {
   heroCard.addEventListener("mousemove", (e) => {
     const rect = heroCard.getBoundingClientRect();
+
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
@@ -126,11 +112,97 @@ if (heroCard) {
   });
 }
 
-/* accessibility: reduce motion support */
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+/* subtle image hover */
+document
+  .querySelectorAll(
+    ".photo-wrap img, .comm-feature-image, .about-img"
+  )
+  .forEach((img) => {
+    img.addEventListener("mouseenter", () => {
+      img.style.transform = "scale(1.03)";
+    });
+
+    img.addEventListener("mouseleave", () => {
+      img.style.transform = "";
+    });
+  });
+
+/* quiz functionality */
+const quizForm = document.getElementById("pathfinderQuiz");
+const quizResult = document.getElementById("quizResult");
+const quizTitle = document.getElementById("quizCareerTitle");
+const quizText = document.getElementById("quizCareerText");
+const resetBtn = document.getElementById("resetPathfinder");
+
+if (quizForm && quizResult) {
+  const careerMap = {
+    software:
+      "You are strongly aligned with Software Development — systems thinking, logic, and building meaningful tools.",
+    ux:
+      "You are strongly aligned with User Experience — understanding people and creating intuitive systems.",
+    product:
+      "You are strongly aligned with Product Management — strategic thinking, clarity, and decision-making.",
+    sales:
+      "You are strongly aligned with Sales — communication, trust-building, and momentum.",
+    manualqa:
+      "You are strongly aligned with Manual Quality Assurance — precision, detail, and careful thinking.",
+    automatedqa:
+      "You are strongly aligned with Automated Quality Assurance — systems reliability and scalable processes.",
+  };
+
+  quizForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(quizForm);
+    const scores = {};
+
+    for (let [_, value] of formData.entries()) {
+      scores[value] = (scores[value] || 0) + 1;
+    }
+
+    let bestMatch = "software";
+    let highest = 0;
+
+    for (let key in scores) {
+      if (scores[key] > highest) {
+        highest = scores[key];
+        bestMatch = key;
+      }
+    }
+
+    const titles = {
+      software: "Software Development",
+      ux: "User Experience",
+      product: "Product Management",
+      sales: "Sales",
+      manualqa: "Manual Quality Assurance",
+      automatedqa: "Automated Quality Assurance",
+    };
+
+    quizTitle.textContent = titles[bestMatch];
+    quizText.textContent = careerMap[bestMatch];
+
+    quizResult.hidden = false;
+
+    quizResult.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  });
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      quizForm.reset();
+      quizResult.hidden = true;
+    });
+  }
+}
+
+/* reduced motion support */
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
 
 if (prefersReducedMotion.matches) {
-  document.querySelectorAll("*").forEach((el) => {
-    el.style.scrollBehavior = "auto";
-  });
+  document.documentElement.style.scrollBehavior = "auto";
 }
