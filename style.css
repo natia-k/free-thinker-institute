@@ -2774,3 +2774,44 @@ body {
     padding: 20px !important;
   }
 }
+.comm-card,
+.what-card,
+.bento-item,
+.editorial-card,
+.quiz-question,
+.hero-card {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease,
+    border-color 0.28s ease;
+  will-change: transform;
+}
+
+.glass-pill,
+.comm-card-link,
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.28);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.glass-pill:hover,
+.comm-card-link:hover,
+.nav-cta:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.24);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
