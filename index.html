@@ -9,11 +9,46 @@
     content="Free Thinker Institute — personal and professional development through truth-seeking, critical thinking, and meaningful community."
   />
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* fix community section image + heading cut */
+    .about-img-wrap,
+    .comm-card-featured {
+      overflow: visible;
+    }
+
+    .about-img,
+    .comm-feature-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+    }
+
+    .community-heading {
+      line-height: 1.08;
+      overflow: visible;
+      max-width: 100%;
+    }
+
+    .community-heading .kinetic-em {
+      display: inline-block;
+      white-space: normal;
+      overflow: visible;
+    }
+
+    @media (max-width: 768px) {
+      .community-heading {
+        line-height: 1.12;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="noise-filter" aria-hidden="true"></div>
@@ -133,38 +168,38 @@
       </div>
     </div>
 
-   <section class="about about-bright" id="about">
-  <div class="about-img-wrap">
-    <img
-  class="about-img"
-  src="attend-events-poster.jpg"
-  alt="Free Thinker Institute event poster"
-  loading="lazy"
-/>
-  </div>
+    <section class="about about-bright" id="about">
+      <div class="about-img-wrap">
+        <img
+          class="about-img"
+          src="intellectual-life-social-poster.png"
+          alt="Free Thinker Institute community poster"
+          loading="lazy"
+        />
+      </div>
 
-  <div class="about-content">
-    <div class="section-kicker reveal-up">Who We Are</div>
-    <h2 class="about-heading reveal-up reveal-delay-1">
-      Community =<br />
-      Unity + Diversity
-    </h2>
+      <div class="about-content">
+        <div class="section-kicker reveal-up">Who We Are</div>
+        <h2 class="about-heading reveal-up reveal-delay-1">
+          Community =<br />
+          Unity + Diversity
+        </h2>
 
-    <div class="about-body">
-      <p class="reveal-up reveal-delay-1">
-        We are building a warm, compassionate, open minded community centered on
-        increasing happiness and minimizing harm.
-      </p>
-      <p class="reveal-up reveal-delay-2">
-        The organization brings people together around personal and professional
-        development, thoughtful discussion, and meaningful connection.
-      </p>
-      <p class="reveal-up reveal-delay-3">
-        Everyone is welcome to join, learn, and help make these goals real.
-      </p>
-    </div>
-  </div>
-</section>
+        <div class="about-body">
+          <p class="reveal-up reveal-delay-1">
+            We are building a warm, compassionate, open minded community centered on
+            increasing happiness and minimizing harm.
+          </p>
+          <p class="reveal-up reveal-delay-2">
+            The organization brings people together around personal and professional
+            development, thoughtful discussion, and meaningful connection.
+          </p>
+          <p class="reveal-up reveal-delay-3">
+            Everyone is welcome to join, learn, and help make these goals real.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section class="intentions" id="intentions">
       <div class="container">
@@ -694,83 +729,83 @@
       </p>
     </section>
 
-  <section class="community community-bright" id="community">
-  <div class="community-inner">
-    <div class="community-header">
-      <div>
-        <div class="section-kicker reveal-up">Get Involved</div>
-        <h2 class="community-heading reveal-up reveal-delay-1">
-          Join a<br />
-          <span class="kinetic-em">thoughtful community.</span>
-        </h2>
+    <section class="community community-bright" id="community">
+      <div class="community-inner">
+        <div class="community-header">
+          <div>
+            <div class="section-kicker reveal-up">Get Involved</div>
+            <h2 class="community-heading reveal-up reveal-delay-1">
+              Join a<br />
+              <span class="kinetic-em">thoughtful community.</span>
+            </h2>
+          </div>
+
+          <p class="community-intro reveal-up reveal-delay-2">
+            Meet people committed to reflection, openness, meaningful work, and a
+            more thoughtful way of living together.
+          </p>
+        </div>
+
+        <div class="community-cards">
+          <article class="comm-card comm-card-featured reveal-up">
+            <img
+              class="comm-feature-image"
+              src="attend-events-poster.jpg"
+              alt="Attend Events poster"
+              loading="lazy"
+            />
+          </article>
+
+          <article class="comm-card reveal-up reveal-delay-1">
+            <span class="comm-card-tag">Connect</span>
+            <h3 class="comm-card-title">Join Discord</h3>
+            <p class="comm-card-body">
+              Join our Discord community. Everyone is welcome.
+            </p>
+            <a
+              class="comm-card-link glass-pill"
+              href="https://discord.gg/fksQBjS"
+              target="_blank"
+              rel="noopener"
+            >
+              Open Discord
+            </a>
+          </article>
+
+          <article class="comm-card reveal-up reveal-delay-2">
+            <span class="comm-card-tag">Get Involved</span>
+            <h3 class="comm-card-title">Teach or Learn</h3>
+            <p class="comm-card-body">
+              We’re a growing organization looking for people who want to teach and learn together.
+            </p>
+            <a
+              class="comm-card-link glass-pill"
+              href="https://www.freethinkerinstitute.org/"
+              target="_blank"
+              rel="noopener"
+            >
+              Get Involved
+            </a>
+          </article>
+
+          <article class="comm-card reveal-up reveal-delay-3">
+            <span class="comm-card-tag">Updates</span>
+            <h3 class="comm-card-title">Mailing List</h3>
+            <p class="comm-card-body">
+              Join our mailing list for future updates and announcements.
+            </p>
+            <a
+              class="comm-card-link glass-pill"
+              href="https://www.freethinkerinstitute.org/"
+              target="_blank"
+              rel="noopener"
+            >
+              Subscribe
+            </a>
+          </article>
+        </div>
       </div>
-
-      <p class="community-intro reveal-up reveal-delay-2">
-        Meet people committed to reflection, openness, meaningful work, and a
-        more thoughtful way of living together.
-      </p>
-    </div>
-
-    <div class="community-cards">
-    <article class="comm-card comm-card-featured reveal-up">
-  <img
-    class="comm-feature-image"
-   <img src="images/intellectual-life-social-poster.png" alt="Intellectual Life Social Poster" class="event-poster">
-    alt="Intellectual Life Social poster"
-    loading="lazy"
-  />
-</article>
-
-      <article class="comm-card reveal-up reveal-delay-1">
-        <span class="comm-card-tag">Connect</span>
-        <h3 class="comm-card-title">Join Discord</h3>
-        <p class="comm-card-body">
-          Join our Discord community. Everyone is welcome.
-        </p>
-        <a
-          class="comm-card-link glass-pill"
-          href="https://discord.gg/fksQBjS"
-          target="_blank"
-          rel="noopener"
-        >
-          Open Discord
-        </a>
-      </article>
-
-      <article class="comm-card reveal-up reveal-delay-2">
-        <span class="comm-card-tag">Get Involved</span>
-        <h3 class="comm-card-title">Teach or Learn</h3>
-        <p class="comm-card-body">
-          We’re a growing organization looking for people who want to teach and learn together.
-        </p>
-        <a
-          class="comm-card-link glass-pill"
-          href="https://www.freethinkerinstitute.org/"
-          target="_blank"
-          rel="noopener"
-        >
-          Get Involved
-        </a>
-      </article>
-
-      <article class="comm-card reveal-up reveal-delay-3">
-        <span class="comm-card-tag">Updates</span>
-        <h3 class="comm-card-title">Mailing List</h3>
-        <p class="comm-card-body">
-          Join our mailing list for future updates and announcements.
-        </p>
-        <a
-          class="comm-card-link glass-pill"
-          href="https://www.freethinkerinstitute.org/"
-          target="_blank"
-          rel="noopener"
-        >
-          Subscribe
-        </a>
-      </article>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="newsletter" id="mailing-list">
       <div class="newsletter-inner">
