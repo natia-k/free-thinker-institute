@@ -99,6 +99,21 @@ if (heroCard) {
   });
 }
 
+/* subtle image hover
+   IMPORTANT: about-img is intentionally NOT included
+   so the big poster keeps its own scale */
+document
+  .querySelectorAll(".photo-wrap img, .comm-feature-image")
+  .forEach((img) => {
+    img.addEventListener("mouseenter", () => {
+      img.style.transform = "scale(1.03)";
+    });
+
+    img.addEventListener("mouseleave", () => {
+      img.style.transform = "";
+    });
+  });
+
 /* quiz functionality */
 const quizForm = document.getElementById("pathfinderQuiz");
 const quizResult = document.getElementById("quizResult");
