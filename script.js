@@ -6,8 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const rect = card.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      const angle = Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI) + 90;
+      const angle =
+        Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI) + 90;
+
       card.style.setProperty("--laser-angle", `${angle}deg`);
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.removeProperty("--laser-angle");
     });
   });
 
@@ -19,7 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const dx = e.clientX - cx;
       const dy = e.clientY - cy;
 
-      btn.style.transform = `translate(${dx * 0.12}px, ${dy * 0.12}px) scale(1.03)`;
+      btn.style.transform = `translate(${dx * 0.08}px, ${
+        dy * 0.08
+      }px) scale(1.02)`;
     });
 
     btn.addEventListener("mouseleave", () => {
@@ -46,37 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".expand-card").forEach((card) => {
     const toggle = () => {
       const wasOpen = card.classList.contains("open");
-      document.querySelectorAll(".expand-card").forEach((c) => c.classList.remove("open"));
+
+      document
+        .querySelectorAll(".expand-card")
+        .forEach((c) => c.classList.remove("open"));
+
       if (!wasOpen) card.classList.add("open");
     };
 
     card.addEventListener("click", toggle);
+
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         toggle();
       }
-    });
-  });
-
-  document.querySelectorAll("[data-photo]").forEach((wrap) => {
-    const img = wrap.querySelector("img");
-    if (!img || window.innerWidth <= 900) return;
-
-    wrap.addEventListener("mousemove", (e) => {
-      const rect = wrap.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      const moveX = (x - 0.5) * 14;
-      const moveY = (y - 0.5) * 10;
-
-      img.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
-      img.style.filter = "grayscale(0.02) saturate(0.92) brightness(1.02) contrast(1.03)";
-    });
-
-    wrap.addEventListener("mouseleave", () => {
-      img.style.transform = "scale(1) translate(0, 0)";
-      img.style.filter = "grayscale(0.06) saturate(0.84) brightness(0.94) contrast(1.02)";
     });
   });
 
@@ -88,22 +80,97 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.1, rootMargin: "0px 0px -36px 0px" }
+    {
+      threshold: 0.08,
+      rootMargin: "0px 0px -40px 0px"
+    }
   );
 
-  document.querySelectorAll(".reveal-up").forEach((el) => observer.observe(el));
+  document
+    .querySelectorAll(".reveal-up")
+    .forEach((el) => observer.observe(el));
 
   const form = document.querySelector(".newsletter-form");
+
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const input = form.querySelector("input");
+
       if (input && input.value.trim()) {
         input.value = "";
         input.placeholder = "Thanks for signing up";
       }
     });
   }
+
+  const heroCard = document.getElementById("heroCard");
+
+  if (heroCard) {
+    heroCard.addEventListener("mousemove", (e) => {
+      const rect = heroCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const rotateY = ((x / rect.width) - 0.5) * 10;
+      const rotateX = ((y / rect.height) - 0.5) * -10;
+
+      heroCard.style.transform = `
+        perspective(1200px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-4px)
+      `;
+
+      heroCard.style.setProperty("--mx", `${x}px`);
+      heroCard.style.setProperty("--my", `${y}px`);
+    });
+
+    heroCard.addEventListener("mouseleave", () => {
+      heroCard.style.transform =
+        "perspective(1200px) rotateX(0deg) rotateY(0deg)";
+      heroCard.style.setProperty("--mx", "50%");
+      heroCard.style.setProperty("--my", "50%");
+    });
+  }
+
+  const hero = document.querySelector(".hero");
+  const heroGlow = document.querySelector(".hero-title-glow");
+
+  if (hero && heroGlow && window.innerWidth > 900) {
+    hero.addEventListener("mousemove", (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+
+      const tx = (x - 0.5) * 22;
+      const ty = (y - 0.5) * 18;
+
+      heroGlow.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+    });
+
+    hero.addEventListener("mouseleave", () => {
+      heroGlow.style.transform = "translate3d(0, 0, 0)";
+    });
+  }
+
+  const scrollWriteEls = document.querySelectorAll(".scroll-write");
+
+  const updateScrollWrite = () => {
+    scrollWriteEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const windowH = window.innerHeight;
+
+      let progress = (windowH - rect.top) / (windowH * 0.9);
+      progress = Math.max(0, Math.min(1, progress));
+
+      el.style.setProperty("--fill-width", `${progress * 100}%`);
+    });
+  };
+
+  updateScrollWrite();
+  window.addEventListener("scroll", updateScrollWrite, { passive: true });
+  window.addEventListener("resize", updateScrollWrite);
 
   const pathfinderForm = document.getElementById("pathfinderQuiz");
   const quizResult = document.getElementById("quizResult");
@@ -114,35 +181,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const pathwayContent = {
     software: {
       title: "Software Development",
-      text: "You are drawn to structure, logic, and building things that work. This path often suits people who enjoy solving problems clearly, learning systems deeply, and turning ideas into functioning products."
+      text: "You are drawn to structure, logic, and building systems that work beautifully."
     },
     product: {
       title: "Product Management",
-      text: "You think in terms of direction, priorities, and decision-making. This path often fits people who can connect vision, users, and execution while keeping teams aligned around what matters most."
+      text: "You naturally connect vision, people, and strategic execution."
     },
     ux: {
       title: "User Experience",
-      text: "You are attentive to people, behavior, and how things feel in use. This path often suits those who care about clarity, empathy, research, and designing systems that are intuitive and humane."
+      text: "You think deeply about human behavior and intuitive systems."
     },
     sales: {
       title: "Sales",
-      text: "You bring energy to communication, trust-building, and helping people move toward decisions. This path often fits people who are relational, persuasive, and motivated by creating value through connection."
+      text: "You thrive in communication, trust-building, and value creation."
     },
     manualqa: {
       title: "Manual Quality Assurance",
-      text: "You notice what others miss. This path often suits people who are careful, observant, and strong at reviewing details, testing behavior, and protecting quality through disciplined attention."
+      text: "You notice details others miss and care about precision."
     },
     automatedqa: {
       title: "Automated Quality Assurance",
-      text: "You care about reliability, repeatability, and building better systems. This path often fits those who like technical structure and want to improve software quality through automation and scalable testing."
+      text: "You enjoy building scalable systems that protect quality."
     }
   };
 
-  if (pathfinderForm && quizResult && quizCareerTitle && quizCareerText) {
+  if (
+    pathfinderForm &&
+    quizResult &&
+    quizCareerTitle &&
+    quizCareerText
+  ) {
     pathfinderForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const formData = new FormData(pathfinderForm);
+
       const scores = {
         software: 0,
         product: 0,
@@ -153,22 +226,20 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       for (const value of formData.values()) {
-        if (scores[value] !== undefined) scores[value] += 1;
+        if (scores[value] !== undefined) scores[value]++;
       }
 
       const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
       const topKey = sorted[0][0];
-      const secondKey = sorted[1][0];
-      let finalKey = topKey;
 
-      if (topKey === "manualqa" && secondKey === "automatedqa") finalKey = "automatedqa";
-      if (topKey === "product" && secondKey === "sales") finalKey = "product";
-      if (topKey === "sales" && secondKey === "product") finalKey = "sales";
-
-      quizCareerTitle.textContent = pathwayContent[finalKey].title;
-      quizCareerText.textContent = pathwayContent[finalKey].text;
+      quizCareerTitle.textContent = pathwayContent[topKey].title;
+      quizCareerText.textContent = pathwayContent[topKey].text;
       quizResult.hidden = false;
-      quizResult.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      quizResult.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     });
 
     if (resetPathfinder) {
@@ -178,57 +249,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
-
-  const heroCard = document.getElementById("heroCard");
-  if (heroCard) {
-    heroCard.addEventListener("mousemove", (e) => {
-      const rect = heroCard.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const rotateY = ((x / rect.width) - 0.5) * 10;
-      const rotateX = ((y / rect.height) - 0.5) * -10;
-
-      heroCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      heroCard.style.setProperty("--mx", `${x}px`);
-      heroCard.style.setProperty("--my", `${y}px`);
-    });
-
-    heroCard.addEventListener("mouseleave", () => {
-      heroCard.style.transform = "perspective(1200px) rotateX(0deg) rotateY(0deg)";
-      heroCard.style.setProperty("--mx", "50%");
-      heroCard.style.setProperty("--my", "50%");
-    });
-  }
-
-  const hero = document.querySelector(".hero");
-  const heroGlow = document.querySelector(".hero-title-glow");
-  if (hero && heroGlow && window.innerWidth > 900) {
-    hero.addEventListener("mousemove", (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      const tx = (x - 0.5) * 28;
-      const ty = (y - 0.5) * 20;
-      heroGlow.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
-    });
-
-    hero.addEventListener("mouseleave", () => {
-      heroGlow.style.transform = "translate3d(0, 0, 0)";
-    });
-  }
-
-  const scrollWriteEls = document.querySelectorAll(".scroll-write");
-  const updateScrollWrite = () => {
-    scrollWriteEls.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      const windowH = window.innerHeight;
-      let progress = (windowH - rect.top) / (windowH * 0.9);
-      progress = Math.max(0, Math.min(1, progress));
-      el.style.setProperty("--fill-width", `${progress * 100}%`);
-    });
-  };
-
-  updateScrollWrite();
-  window.addEventListener("scroll", updateScrollWrite, { passive: true });
-  window.addEventListener("resize", updateScrollWrite);
 });
