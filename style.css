@@ -2857,15 +2857,13 @@ footer {
   border-right: 1px solid var(--border);
 }
 
-.comm-feature-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  filter: contrast(1.06) brightness(0.62) saturate(0.88);
-  transition: transform 0.9s ease;
+.comm-feature-image{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#070b14;
+  padding:24px;
 }
 
 .comm-card-featured:hover .comm-feature-image {
