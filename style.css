@@ -3575,3 +3575,36 @@ a {
   line-height: 0.88 !important;
   letter-spacing: -0.06em !important;
 }
+/* FIX CUTTING COMMUNITY HEADING */
+.community-header {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  gap: 5rem !important;
+  align-items: center !important;
+}
+
+.community-heading {
+  max-width: 12ch !important;
+  width: 100% !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.06em !important;
+}
+
+.community-heading .kinetic-em {
+  display: inline !important;
+  white-space: normal !important;
+}
+
+/* mobile safety */
+@media (max-width: 1100px) {
+  .community-header {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .community-heading {
+    max-width: 100% !important;
+  }
+}
