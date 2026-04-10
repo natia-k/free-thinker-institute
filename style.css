@@ -3374,3 +3374,100 @@ body {
     0 20px 60px rgba(0,0,0,0.15),
     0 8px 20px rgba(0,0,0,0.08);
 }
+/* ===== WHO WE ARE / COMMUNITY = UNITY + DIVERSITY FIX ===== */
+
+.about.about-bright {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 34px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08)),
+    rgba(245, 239, 229, 0.32);
+  backdrop-filter: blur(26px) saturate(170%);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    inset 0 -1px 0 rgba(255,255,255,0.18);
+  position: relative;
+}
+
+/* soft watery glow */
+.about.about-bright::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.34), transparent 34%),
+    radial-gradient(circle at 75% 20%, rgba(255,255,255,0.18), transparent 28%),
+    radial-gradient(circle at 35% 80%, rgba(255,248,236,0.26), transparent 34%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* LEFT SIDE IMAGE PANEL */
+.about-img-wrap {
+  position: relative;
+  min-height: 760px;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.20), rgba(255,255,255,0.05)),
+    rgba(255,255,255,0.10);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-right: 1px solid rgba(255,255,255,0.24);
+}
+
+/* make poster fill the whole left side */
+.about-img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 760px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  transform: scale(1.08);
+}
+
+/* RIGHT TEXT PANEL */
+.about-content {
+  position: relative;
+  padding: 84px 68px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05)),
+    rgba(246, 236, 226, 0.24);
+  backdrop-filter: blur(24px) saturate(165%);
+  -webkit-backdrop-filter: blur(24px) saturate(165%);
+}
+
+/* optional: stronger heading presence */
+.about-heading {
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  max-width: 520px;
+}
+
+/* mobile */
+@media (max-width: 980px) {
+  .about.about-bright {
+    grid-template-columns: 1fr;
+  }
+
+  .about-img-wrap,
+  .about-img {
+    min-height: 460px;
+  }
+
+  .about-content {
+    padding: 48px 28px;
+  }
+}
