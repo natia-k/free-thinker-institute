@@ -3500,3 +3500,7 @@ a {
     font-size: clamp(2.4rem, 10vw, 3.8rem);
   }
 }
+.community-heading {
+  font-family: "Inter", "Roboto", system-ui, sans-serif !important;
+  font-weight: 500 !important;
+}
