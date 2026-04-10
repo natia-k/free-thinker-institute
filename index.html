@@ -14,6 +14,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+  <style>
+@keyframes shimmerFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+</style>
 </head>
 <body>
   <div class="noise-filter" aria-hidden="true"></div>
@@ -131,121 +144,133 @@
         <span class="hi">Minimize Harm</span><span>—</span>
         <span>Give &amp; Receive Love</span><span>—</span>
       </div>
-
+    </div>
 
     <section
-      class="about about-bright"
-      id="about"
+     <section
+  class="about about-bright"
+  id="about"
+  style="
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 38px;
+    background: linear-gradient(135deg, rgba(255,250,244,0.50) 0%, rgba(255,244,236,0.26) 35%, rgba(255,240,232,0.14) 100%);
+    border: 1px solid rgba(255,255,255,0.30);
+    backdrop-filter: blur(34px) saturate(190%);
+    -webkit-backdrop-filter: blur(34px) saturate(190%);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.60), inset 0 -1px 0 rgba(255,255,255,0.12);
+    isolation: isolate;
+  "
+>
+  <div
+    class="about-img-wrap"
+    style="
+      position: relative;
+      min-height: 640px;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      border-right: 1px solid rgba(255,255,255,0.24);
+     background: linear-gradient(180deg, #f8f3ec 0%, #f4eee6 100%);
+    "
+  >
+    <img
+      class="about-img"
+      src="intellectual-life-social-poster.png"
+      alt="Free Thinker Institute community poster"
+      loading="lazy"
       style="
-        position: relative;
-        display: grid;
-        grid-template-columns: 1.18fr 0.82fr;
-        gap: 0;
-        align-items: stretch;
-        overflow: hidden;
-        border-radius: 38px;
-        background: linear-gradient(135deg, rgba(255,250,244,0.26) 0%, rgba(255,244,236,0.14) 100%);
-        border: 1px solid rgba(255,255,255,0.18);
-        box-shadow: 0 30px 80px rgba(0,0,0,0.16);
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        max-width: none;
+        box-shadow: none;
+        transform: scale(1.68);
       "
-    >
-      <div
-        class="poster-side"
-        style="
-          position: relative;
-          min-height: 640px;
-          overflow: hidden;
-          background: #f7f3ec;
-        "
-      >
-        <img
-          src="intellectual-life-social-poster.png"
-          alt="Free Thinker Institute poster"
-          style="
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center center;
-            transform: scale(1.12);
-          "
-        />
+    />
 
-        <div class="orbit-text orbit-top">
-          THINK DEEPER • LIVE CLEARER • BUILD MEANINGFUL WORK • SEEK TRUTH •
-        </div>
+   <div
+  style="
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.46) 0%, rgba(255,255,255,0.12) 24%, transparent 56%),
+      linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 32%, transparent 68%, rgba(255,255,255,0.14) 100%);
+  "
+></div>
+  </div>
 
-        <div class="orbit-text orbit-bottom">
-          WHAT IF • WHY NOT • EXPLORE • OPEN MINDS • HUMAN FLOURISHING •
-        </div>
-      </div>
+  <div
+    class="about-content"
+    style="
+      position: relative;
+      z-index: 3;
+      padding: 64px 58px;
+      color: #2f2622;
+      background: linear-gradient(180deg, rgba(255,248,242,0.34) 0%, rgba(255,242,234,0.16) 100%);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+    "
+  >
+    <div class="section-kicker reveal-up">Who We Are</div>
 
-      <div
-        style="
-          position: relative;
-          padding: 54px 52px;
-          background: linear-gradient(
-            180deg,
-            rgba(255,255,255,0.34) 0%,
-            rgba(255,255,255,0.22) 38%,
-            rgba(255,255,255,0.16) 100%
-          );
-          backdrop-filter: blur(38px) saturate(190%);
-          -webkit-backdrop-filter: blur(38px) saturate(190%);
-          box-shadow:
-            inset 0 1px 0 rgba(255,255,255,0.58),
-            inset 0 -1px 0 rgba(255,255,255,0.18),
-            0 0 40px rgba(255,255,255,0.05);
-        "
-      >
-        <div class="section-kicker reveal-up">Who We Are</div>
+  <h2 class="about-heading shimmer-title reveal-up reveal-delay-1">
+  Community =<br />
+  Unity + Diversity
+</h2>
+    line-height: 0.96;
+    letter-spacing: -0.055em;
+    max-width: 500px;
+    font-size: clamp(3.8rem, 6vw, 5.8rem);
+    background: linear-gradient(
+      90deg,
+      #0f172a 0%,
+      #6366f1 20%,
+      #a855f7 40%,
+      #ec4899 60%,
+      #6366f1 80%,
+      #0f172a 100%
+    );
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmerFlow 7s ease-in-out infinite;
+  "
+>
+  Community =<br />
+  Unity + Diversity
+</h2>
 
-        <h2
-          style="
-            line-height: 0.96;
-            letter-spacing: -0.05em;
-            font-size: clamp(3.1rem, 4.6vw, 4.9rem);
-            margin-bottom: 28px;
-            background: linear-gradient(
-              135deg,
-              #f2b9d2 0%,
-              #c8b6ff 28%,
-              #b8c0ff 58%,
-              #d4c1ec 100%
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-          "
-        >
-          Community =<br />
-          Unity + Diversity
-        </h2>
-
-        <div
-          style="
-            font-size: 0.92rem;
-            line-height: 1.9;
-            color: rgba(30,26,23,0.68);
-          "
-        >
-          <p>
-            We are building a warm, compassionate, open minded community centered on
-            increasing happiness and minimizing harm.
-          </p>
-
-          <p>
-            The organization brings people together around personal and professional
-            development, thoughtful discussion, and meaningful connection.
-          </p>
-
-          <p>
-            Everyone is welcome to join, learn, and help make these goals real.
-          </p>
-        </div>
-      </div>
-    </section>
-
+    <div class="about-body" style="color: rgba(47,38,34,0.72); font-size: 0.96rem; line-height: 1.9;">
+      <p class="reveal-up reveal-delay-1">
+        We are building a warm, compassionate, open minded community centered on
+        increasing happiness and minimizing harm.
+      </p>
+      <p class="reveal-up reveal-delay-2">
+        The organization brings people together around personal and professional
+        development, thoughtful discussion, and meaningful connection.
+      </p>
+      <p class="reveal-up reveal-delay-3">
+        Everyone is welcome to join, learn, and help make these goals real.
+      </p>
+    </div>
+  </div>
+</section>
 
     <section class="intentions" id="intentions">
       <div class="container">
@@ -483,7 +508,7 @@
         <div class="what-header">
           <div>
             <div class="section-kicker reveal-up">What We Do</div>
-            <h2 class="what-heading shimmer-heading reveal-up reveal-delay-1">
+            <h2 class="what-heading reveal-up reveal-delay-1">
               Personal and professional<br /><em class="kinetic-em">development.</em>
             </h2>
           </div>
@@ -536,7 +561,7 @@
     <section class="learn-more" id="learn-more">
       <div class="container">
         <div class="section-kicker reveal-up">Participation</div>
-        <h2 class="learn-heading shimmer-heading reveal-up reveal-delay-1">How it all <em class="kinetic-em">works.</em></h2>
+        <h2 class="learn-heading reveal-up reveal-delay-1">How it all <em class="kinetic-em">works.</em></h2>
 
         <div class="bento-grid">
           <article class="bento-item bento-tall reveal-up laser-card">
@@ -593,7 +618,7 @@
       <div class="editorial-container">
         <header class="editorial-header reveal-up">
           <span class="editorial-label">Professional Pathways</span>
-          <h2 class="editorial-title shimmer-heading">Build a career with <em>clarity and direction.</em></h2>
+          <h2 class="editorial-title">Build a career with <em>clarity and direction.</em></h2>
           <p class="editorial-intro">We help people develop practical skills, stronger thinking, and the confidence to move into meaningful work.</p>
         </header>
 
@@ -780,7 +805,7 @@
         <div class="community-header">
           <div>
             <div class="section-kicker reveal-up">Get Involved</div>
-            <h2 class="community-heading shimmer-title shimmer-title-soft reveal-up reveal-delay-1">
+            <h2 class="community-heading reveal-up reveal-delay-1">
               Join a<br />
               <span class="kinetic-em">thoughtful community.</span>
             </h2>
@@ -855,7 +880,7 @@
 
     <section class="newsletter" id="mailing-list">
       <div class="newsletter-inner">
-        <h2 class="newsletter-heading shimmer-title shimmer-title-soft reveal-up">Join our mailing list</h2>
+        <h2 class="newsletter-heading reveal-up">Join our mailing list</h2>
         <p class="newsletter-sub reveal-up reveal-delay-1">Get future updates and announcements from the community.</p>
         <form class="newsletter-form reveal-up reveal-delay-2">
           <input class="newsletter-input" type="email" placeholder="your@email.com" />
