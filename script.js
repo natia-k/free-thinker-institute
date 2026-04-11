@@ -190,3 +190,17 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 if (prefersReducedMotion.matches) {
   document.documentElement.style.scrollBehavior = "auto";
 }
+let pastelScrollTimer;
+
+function handlePastelScrollShiver() {
+  const shimmerEls = document.querySelectorAll(".pastel-shimmer");
+
+  shimmerEls.forEach((el) => el.classList.add("is-scrolling"));
+
+  clearTimeout(pastelScrollTimer);
+  pastelScrollTimer = setTimeout(() => {
+    shimmerEls.forEach((el) => el.classList.remove("is-scrolling"));
+  }, 180);
+}
+
+window.addEventListener("scroll", handlePastelScrollShiver, { passive: true });
