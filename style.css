@@ -3912,21 +3912,24 @@ section.about.about-bright .section-kicker {
 .pastel-shimmer {
   background: linear-gradient(
     90deg,
-    #f7d6ff 0%,
-    #d9dcff 18%,
-    #cff3ff 36%,
-    #e6d5ff 54%,
-    #ffdce9 72%,
-    #dbe5ff 88%,
-    #f7d6ff 100%
-  );
-  background-size: 240% 100%;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: pastelShiver 6s ease-in-out infinite;
+    #f5d9ff 0%,
+    #d8ddff 20%,
+    #d6f4ff 40%,
+    #ead7ff 60%,
+    #ffdce8 80%,
+    #f5d9ff 100%
+  ) !important;
+
+  background-size: 240% 100% !important;
+  background-position: 0% 50% !important;
+
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+
+  animation: pastelShiver 6s ease-in-out infinite !important;
 }
 
 @keyframes pastelShiver {
