@@ -3896,9 +3896,49 @@ section.about.about-bright .section-kicker {
     background-position: 0% 50%;
   }
 }
-  .about-heading.shimmer-title {
+
+.about-heading.shimmer-title {
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
+}
+
+.community-equation {
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  max-width: 500px;
+  font-size: clamp(3.8rem, 6vw, 5.8rem);
+}
+
+.pastel-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f7d6ff 0%,
+    #d9dcff 18%,
+    #cff3ff 36%,
+    #e6d5ff 54%,
+    #ffdce9 72%,
+    #dbe5ff 88%,
+    #f7d6ff 100%
+  );
+  background-size: 240% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: pastelShiver 6s ease-in-out infinite;
+}
+
+@keyframes pastelShiver {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 
