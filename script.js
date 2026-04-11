@@ -1,9 +1,7 @@
 /* =========================
    FINAL SITE INTERACTIONS
-   FULL CLEAN JS — patched v2
    ========================= */
 
-/* reveal on scroll */
 const reveals = document.querySelectorAll(".reveal-up");
 
 if (reveals.length) {
@@ -21,14 +19,8 @@ if (reveals.length) {
   reveals.forEach((item) => revealObserver.observe(item));
 }
 
-/* 
-  Premium mouse motion cards
-  Two responsibilities:
-  1. 3D tilt on move
-  2. Track --mx/--my for glass-edge hover glow (CSS uses these)
-*/
 const motionCards = document.querySelectorAll(
-  ".bento-item, .editorial-card, .hero-card, .comm-card, .quiz-question, .what-card"
+  ".bento-item, .editorial-card, .hero-card, .comm-card, .quiz-question, .what-card, .pathfinder-shell"
 );
 
 motionCards.forEach((card) => {
@@ -45,30 +37,25 @@ motionCards.forEach((card) => {
     const rotateY = ((x - centerX) / rect.width) * 4;
     const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
 
-    // Track position for CSS glass-edge glow
     card.style.setProperty("--mx", `${x}px`);
     card.style.setProperty("--my", `${y}px`);
     card.style.setProperty("--laser-angle", `${angle}deg`);
-
     card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
   });
 
   card.addEventListener("mouseleave", () => {
     card.style.transform = "";
-    // Reset to center so the glow fades from center, not the edge
     card.style.setProperty("--mx", "50%");
     card.style.setProperty("--my", "50%");
   });
 });
 
-/* flip intention cards */
 document.querySelectorAll(".intention-flip").forEach((card) => {
   card.addEventListener("click", () => {
     card.classList.toggle("active");
   });
 });
 
-/* smooth anchor scroll */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
     const href = anchor.getAttribute("href");
@@ -95,7 +82,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-/* hero glow follow */
 const heroCard = document.getElementById("heroCard");
 
 if (heroCard) {
@@ -107,9 +93,13 @@ if (heroCard) {
     heroCard.style.setProperty("--mx", `${x}px`);
     heroCard.style.setProperty("--my", `${y}px`);
   });
+
+  heroCard.addEventListener("mouseleave", () => {
+    heroCard.style.setProperty("--mx", "50%");
+    heroCard.style.setProperty("--my", "50%");
+  });
 }
 
-/* subtle image hover */
 document
   .querySelectorAll(".photo-wrap img, .comm-feature-image")
   .forEach((img) => {
@@ -122,7 +112,6 @@ document
     });
   });
 
-/* quiz */
 const quizForm = document.getElementById("pathfinderQuiz");
 const quizResult = document.getElementById("quizResult");
 const quizTitle = document.getElementById("quizCareerTitle");
@@ -192,7 +181,6 @@ if (quizForm && quizResult && quizTitle && quizText) {
   }
 }
 
-/* pastel shimmer scroll */
 let pastelScrollTimer;
 
 function handlePastelScrollShiver() {
@@ -210,10 +198,7 @@ window.addEventListener("scroll", handlePastelScrollShiver, {
   passive: true,
 });
 
-/* reduced motion */
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-);
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (prefersReducedMotion.matches) {
   document.documentElement.style.scrollBehavior = "auto";
