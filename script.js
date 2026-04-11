@@ -1,12 +1,30 @@
 /* =========================
-   FINAL SITE INTERACTIONS
-   FULL CLEAN JS
+   PREMIUM UI LOGIC
    ========================= */
 
-/* reveal on scroll */
-const reveals = document.querySelectorAll(".reveal-up");
+document.addEventListener("DOMContentLoaded", () => {
+  const glassBlocks = document.querySelectorAll(
+    ".premium-glass, .hero-card, .bento-item, .quiz-container"
+  );
 
-if (reveals.length) {
+  /* cursor-follow glass edge light */
+  glassBlocks.forEach((block) => {
+    block.addEventListener("mousemove", (e) => {
+      const rect = block.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      block.style.setProperty("--mx", `${x}px`);
+      block.style.setProperty("--my", `${y}px`);
+    });
+
+    block.addEventListener("mouseleave", () => {
+      block.style.setProperty("--mx", "50%");
+      block.style.setProperty("--my", "50%");
+    });
+  });
+
+  /* reveal on scroll */
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -15,196 +33,47 @@ if (reveals.length) {
         }
       });
     },
-    { threshold: 0.14 }
+    { threshold: 0.1 }
   );
 
-  reveals.forEach((item) => revealObserver.observe(item));
-}
-
-/* premium mouse motion cards */
-const motionCards = document.querySelectorAll(
-  ".bento-item, .editorial-card, .hero-card, .comm-card, .quiz-question, .what-card"
-);
-
-motionCards.forEach((card) => {
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / rect.height) * -4;
-    const rotateY = ((x - centerX) / rect.width) * 4;
-    const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
-
-    card.style.setProperty("--mx", `${x}px`);
-    card.style.setProperty("--my", `${y}px`);
-    card.style.setProperty("--laser-angle", `${angle}deg`);
-    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+  document.querySelectorAll(".reveal-up").forEach((el) => {
+    revealObserver.observe(el);
   });
 
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "";
-  });
-});
+  /* quiz logic */
+  const quiz = document.getElementById("careerQuiz");
+  const result = document.getElementById("quizResult");
+  const resultTitle = document.getElementById("resultTitle");
+  const resultText = document.getElementById("resultText");
 
-/* flip intention cards */
-document.querySelectorAll(".intention-flip").forEach((card) => {
-  card.addEventListener("click", () => {
-    card.classList.toggle("active");
-  });
-});
+  if (quiz && result && resultTitle && resultText) {
+    quiz.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-/* smooth anchor scroll */
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", (e) => {
-    const href = anchor.getAttribute("href");
-    if (!href || href === "#") return;
+      const selected = quiz.querySelector(
+        'input[name="q1"]:checked'
+      );
 
-    const target = document.querySelector(href);
-    if (!target) return;
+      if (!selected) return;
 
-    e.preventDefault();
+      const value = selected.value;
 
-    const nav = document.querySelector("nav");
-    const navHeight = nav ? nav.offsetHeight : 0;
-
-    const y =
-      target.getBoundingClientRect().top +
-      window.pageYOffset -
-      navHeight -
-      18;
-
-    window.scrollTo({
-      top: y,
-      behavior: "smooth",
-    });
-  });
-});
-
-/* hero glow follow */
-const heroCard = document.getElementById("heroCard");
-
-if (heroCard) {
-  heroCard.addEventListener("mousemove", (e) => {
-    const rect = heroCard.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    heroCard.style.setProperty("--mx", `${x}px`);
-    heroCard.style.setProperty("--my", `${y}px`);
-  });
-}
-
-/* subtle image hover */
-document
-  .querySelectorAll(".photo-wrap img, .comm-feature-image")
-  .forEach((img) => {
-    img.addEventListener("mouseenter", () => {
-      img.style.transform = "scale(1.03)";
-    });
-
-    img.addEventListener("mouseleave", () => {
-      img.style.transform = "";
-    });
-  });
-
-/* quiz */
-const quizForm = document.getElementById("pathfinderQuiz");
-const quizResult = document.getElementById("quizResult");
-const quizTitle = document.getElementById("quizCareerTitle");
-const quizText = document.getElementById("quizCareerText");
-const resetBtn = document.getElementById("resetPathfinder");
-
-if (quizForm && quizResult && quizTitle && quizText) {
-  const careerMap = {
-    software:
-      "You are strongly aligned with Software Development — systems thinking, logic, and building meaningful tools.",
-    ux:
-      "You are strongly aligned with User Experience — understanding people and creating intuitive systems.",
-    product:
-      "You are strongly aligned with Product Management — strategic thinking, clarity, and decision-making.",
-    sales:
-      "You are strongly aligned with Sales — communication, trust-building, and momentum.",
-    manualqa:
-      "You are strongly aligned with Manual Quality Assurance — precision, detail, and careful thinking.",
-    automatedqa:
-      "You are strongly aligned with Automated Quality Assurance — systems reliability and scalable processes.",
-  };
-
-  const titles = {
-    software: "Software Development",
-    ux: "User Experience",
-    product: "Product Management",
-    sales: "Sales",
-    manualqa: "Manual Quality Assurance",
-    automatedqa: "Automated Quality Assurance",
-  };
-
-  quizForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(quizForm);
-    const scores = {};
-
-    for (const [, value] of formData.entries()) {
-      scores[value] = (scores[value] || 0) + 1;
-    }
-
-    let bestMatch = "software";
-    let highest = 0;
-
-    for (const key in scores) {
-      if (scores[key] > highest) {
-        highest = scores[key];
-        bestMatch = key;
+      if (value === "tech") {
+        resultTitle.textContent = "Software / AI Engineering";
+        resultText.textContent =
+          "You are naturally drawn toward systems thinking, structured logic, and building intelligent digital tools.";
+      } else {
+        resultTitle.textContent = "Creative Direction / Visual Systems";
+        resultText.textContent =
+          "You are aligned with concept building, visual storytelling, and creative systems thinking.";
       }
-    }
 
-    quizTitle.textContent = titles[bestMatch];
-    quizText.textContent = careerMap[bestMatch];
-    quizResult.hidden = false;
+      result.hidden = false;
 
-    quizResult.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  });
-
-  if (resetBtn) {
-    resetBtn.addEventListener("click", () => {
-      quizForm.reset();
-      quizResult.hidden = true;
+      result.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     });
   }
-}
-
-/* pastel shimmer scroll */
-let pastelScrollTimer;
-
-function handlePastelScrollShiver() {
-  const shimmerEls = document.querySelectorAll(".pastel-shimmer");
-
-  shimmerEls.forEach((el) => el.classList.add("is-scrolling"));
-
-  clearTimeout(pastelScrollTimer);
-  pastelScrollTimer = setTimeout(() => {
-    shimmerEls.forEach((el) => el.classList.remove("is-scrolling"));
-  }, 180);
-}
-
-window.addEventListener("scroll", handlePastelScrollShiver, {
-  passive: true,
 });
-
-/* reduced motion */
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-);
-
-if (prefersReducedMotion.matches) {
-  document.documentElement.style.scrollBehavior = "auto";
-}
