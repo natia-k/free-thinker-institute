@@ -204,3 +204,22 @@ function handlePastelScrollShiver() {
 }
 
 window.addEventListener("scroll", handlePastelScrollShiver, { passive: true });
+const aboutImgWrap = document.querySelector('.about-img-wrap');
+const posterRing = document.querySelector('.poster-ring');
+
+if (aboutImgWrap && posterRing) {
+  aboutImgWrap.addEventListener('mousemove', (e) => {
+    const rect = aboutImgWrap.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    posterRing.style.opacity = '1';
+    posterRing.style.transform =
+      `translate(calc(-50% + ${x * 0.04}px), calc(-50% + ${y * 0.04}px)) rotate(${x * 0.03}deg) scale(1)`;
+  });
+
+  aboutImgWrap.addEventListener('mouseleave', () => {
+    posterRing.style.opacity = '0';
+    posterRing.style.transform = 'translate(-50%, -50%) scale(0.96)';
+  });
+}
