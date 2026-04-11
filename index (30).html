@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Thinker Institute</title>
+  <meta name="description" content="Free Thinker Institute — a thoughtful community for sharper thinking, stronger direction, and meaningful work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise-filter" aria-hidden="true"></div>
+
+  <div class="aurora-canvas" aria-hidden="true">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+  </div>
+
+  <div class="page-shell">
+    <nav>
+      <div class="nav-inner">
+        <a class="brand" href="#top">
+          <span class="brand-mark"><img src="original-logo.png" alt="Free Thinker Institute logo" /></span>
+          <span>Free Thinker Institute</span>
+        </a>
+        <div class="nav-links">
+          <a href="#top">Home</a>
+          <a href="#intentions">Intentions</a>
+          <a href="#quiz">Career Paths</a>
+          <a href="#community">Community</a>
+          <a class="nav-cta" href="https://discord.gg/fksQBjS" target="_blank" rel="noopener">Join Us</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-copy reveal-up">
+          <p class="hero-kicker">A new kind of online institute</p>
+          <h1 class="hero-title">Think deeper. <span class="hero-gradient">Live clearer.</span> Build meaningful work.</h1>
+          <p class="hero-text">A place for sharper thinking, stronger direction, and a more intelligent way of living.</p>
+          <div class="hero-actions">
+            <a href="#quiz" class="hero-btn hero-btn-primary">Explore Paths</a>
+            <a href="#quiz" class="hero-btn hero-btn-secondary">Take the Quiz</a>
+          </div>
+        </div>
+
+        <div class="hero-card-wrap reveal-up reveal-delay-1">
+          <div class="hero-card premium-glass">
+            <div class="hero-card-top"><span class="mini-label">Current focus</span><span class="status-dot"></span></div>
+            <h3 class="hero-card-title">From noise to inner direction</h3>
+            <p class="hero-card-text">Structured self-knowledge and meaningful career exploration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intentions" id="intentions">
+      <div class="container">
+        <div class="section-head reveal-up">
+          <h2 class="section-title serif">Our Core Intentions</h2>
+          <p class="section-sub">Four pillars that define our philosophy and daily practice.</p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-item premium-glass reveal-up">
+            <div class="bento-icon">01</div>
+            <h3>Maximize Happiness</h3>
+            <p>Cultivating a life of sustainable fulfillment and deep contentment.</p>
+          </div>
+          <div class="bento-item premium-glass reveal-up reveal-delay-1">
+            <div class="bento-icon">02</div>
+            <h3>Minimize Harm</h3>
+            <p>Developing the ethical awareness to reduce suffering in ourselves and others.</p>
+          </div>
+          <div class="bento-item premium-glass reveal-up reveal-delay-2">
+            <div class="bento-icon">03</div>
+            <h3>Truth Seeking</h3>
+            <p>Using critical thinking and intellectual humility to see the world as it is.</p>
+          </div>
+          <div class="bento-item premium-glass reveal-up reveal-delay-3">
+            <div class="bento-icon">04</div>
+            <h3>Community</h3>
+            <p>Building a network of support, diversity, and shared growth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="community">
+      <div class="poster-wrap">
+        <div class="about-img-wrap">
+          <img src="intellectual-life-social-poster.png" alt="Intellectual Life poster" class="about-img">
+          <div class="poster-oval-ring" aria-hidden="true">
+            <svg viewBox="0 0 500 500" class="oval-text-svg">
+              <path id="ovalPath" d="M 250,250 m -160,0 a 160,200 0 1,1 320,0 a 160,200 0 1,1 -320,0" fill="transparent" />
+              <text class="oval-text">
+                <textPath href="#ovalPath">
+                  • TRUTH SEEKING • MEANINGFUL COMMUNITY • CRITICAL THINKING • HUMAN FLOURISHING •
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content about-bright-panel premium-glass reveal-up reveal-delay-1">
+        <span class="section-kicker">The Environment</span>
+        <h2 class="about-heading serif">Community =<br>Unity + Diversity</h2>
+        <div class="about-body">
+          <p class="about-lead">Join a thoughtful community.</p>
+          <p>We bring together diverse perspectives in a unified pursuit of truth and personal growth. Our community is built on intellectual humility and mutual respect.</p>
+          <p>Every voice is heard and every mind is challenged to grow beyond its current boundaries.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+      <div class="container">
+        <div class="quiz-container premium-glass reveal-up">
+          <h2 class="quiz-main-title serif">Career Path Discovery</h2>
+          <form id="careerQuiz">
+            <div class="quiz-question premium-glass">
+              <p>What drives your curiosity most?</p>
+              <div class="quiz-options">
+                <label class="premium-glass"><input type="radio" name="q1" value="tech" required> Solving complex technical puzzles</label>
+                <label class="premium-glass"><input type="radio" name="q1" value="creative"> Expressing abstract ideas visually</label>
+              </div>
+            </div>
+            <button type="submit" class="hero-btn hero-btn-primary">Find My Path</button>
+          </form>
+          <div id="quizResult" hidden>
+            <h3 id="resultTitle"></h3>
+            <p id="resultText"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="brand-name">Free Thinker Institute</div>
+          <p>© 2026. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
