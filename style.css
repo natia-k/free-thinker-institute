@@ -2904,12 +2904,27 @@ body {
   font-weight: 600 !important;
   line-height: 0.94 !important;
   letter-spacing: -0.06em !important;
-  color: #111111 !important;
   margin-bottom: 1.4rem;
-  background: none !important;
-  -webkit-text-fill-color: initial !important;
 }
 
+.about.about-bright .about-heading.pastel-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f5d9ff 0%,
+    #d8ddff 20%,
+    #d6f4ff 40%,
+    #ead7ff 60%,
+    #ffdce8 80%,
+    #f5d9ff 100%
+  ) !important;
+  background-size: 240% 100% !important;
+  background-position: 0% 50% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: pastelShiver 6s ease-in-out infinite !important;
+}
 .about.about-bright .about-body p {
   color: rgba(20,20,20,0.72) !important;
   font-size: 1.02rem !important;
