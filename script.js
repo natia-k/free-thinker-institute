@@ -1,6 +1,6 @@
 /* =========================
    FINAL SITE INTERACTIONS
-   SAFE VERSION
+   FULL CLEAN JS
    ========================= */
 
 /* reveal on scroll */
@@ -99,9 +99,7 @@ if (heroCard) {
   });
 }
 
-/* subtle image hover
-   IMPORTANT: about-img is intentionally NOT included
-   so the big poster keeps its own scale */
+/* subtle image hover */
 document
   .querySelectorAll(".photo-wrap img, .comm-feature-image")
   .forEach((img) => {
@@ -114,7 +112,7 @@ document
     });
   });
 
-/* quiz functionality */
+/* quiz */
 const quizForm = document.getElementById("pathfinderQuiz");
 const quizResult = document.getElementById("quizResult");
 const quizTitle = document.getElementById("quizCareerTitle");
@@ -184,12 +182,7 @@ if (quizForm && quizResult && quizTitle && quizText) {
   }
 }
 
-/* reduced motion support */
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-if (prefersReducedMotion.matches) {
-  document.documentElement.style.scrollBehavior = "auto";
-}
+/* pastel shimmer scroll */
 let pastelScrollTimer;
 
 function handlePastelScrollShiver() {
@@ -203,23 +196,15 @@ function handlePastelScrollShiver() {
   }, 180);
 }
 
-window.addEventListener("scroll", handlePastelScrollShiver, { passive: true });
-const aboutImgWrap = document.querySelector('.about-img-wrap');
-const posterRing = document.querySelector('.poster-ring');
+window.addEventListener("scroll", handlePastelScrollShiver, {
+  passive: true,
+});
 
-if (aboutImgWrap && posterRing) {
-  aboutImgWrap.addEventListener('mousemove', (e) => {
-    const rect = aboutImgWrap.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
+/* reduced motion */
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
 
-    posterRing.style.opacity = '1';
-    posterRing.style.transform =
-      `translate(calc(-50% + ${x * 0.04}px), calc(-50% + ${y * 0.04}px)) rotate(${x * 0.03}deg) scale(1)`;
-  });
-
-  aboutImgWrap.addEventListener('mouseleave', () => {
-    posterRing.style.opacity = '0';
-    posterRing.style.transform = 'translate(-50%, -50%) scale(0.96)';
-  });
+if (prefersReducedMotion.matches) {
+  document.documentElement.style.scrollBehavior = "auto";
 }
