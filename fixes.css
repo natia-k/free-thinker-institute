@@ -1466,3 +1466,218 @@
     grid-template-columns:1fr;
   }
 }
+/* =================================
+   HERO DASHBOARD PREMIUM POLISH
+   paste at VERY BOTTOM of fixes.css
+   ================================= */
+
+.hero-dashboard {
+  min-height: 100vh;
+  padding-top: 138px;
+  padding-bottom: 84px;
+}
+
+.hero-dashboard-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-dashboard-copy {
+  align-self: center;
+}
+
+.hero-dashboard-title {
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+.hero-dashboard-text {
+  max-width: 34rem;
+}
+
+.hero-dashboard-panel {
+  position: relative;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+/* ALL DASHBOARD BLOCKS */
+.hero-dash-card,
+.hero-dash-mini {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+}
+
+/* subtle lift */
+.hero-dash-card:hover,
+.hero-dash-mini:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+}
+
+/* the top shimmer line */
+.hero-dash-card::before,
+.hero-dash-mini::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(242, 199, 146, 0) 0%,
+    rgba(242, 199, 146, 0.95) 18%,
+    rgba(215, 176, 197, 0.95) 38%,
+    rgba(184, 140, 241, 0.95) 58%,
+    rgba(207, 216, 255, 0.95) 78%,
+    rgba(242, 199, 146, 0) 100%
+  );
+  background-size: 220% 100%;
+  opacity: 0;
+  transform: scaleX(0.72);
+  transform-origin: center;
+  transition:
+    opacity 0.28s ease,
+    transform 0.32s ease;
+  pointer-events: none;
+}
+
+/* glow haze under the line */
+.hero-dash-card::after,
+.hero-dash-mini::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  right: 10px;
+  height: 52px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(184, 140, 241, 0.16) 0%,
+    rgba(242, 199, 146, 0.10) 35%,
+    rgba(255, 255, 255, 0) 72%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* show on hover */
+.hero-dash-card:hover::before,
+.hero-dash-mini:hover::before,
+.hero-dash-card:hover::after,
+.hero-dash-mini:hover::after {
+  opacity: 1;
+}
+
+.hero-dash-card:hover::before,
+.hero-dash-mini:hover::before {
+  transform: scaleX(1);
+  animation: heroTopShiver 1.8s linear infinite;
+}
+
+/* slightly nicer live pill */
+.hero-dash-live {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+}
+
+/* nicer tiles */
+.hero-dash-tile {
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.hero-dash-card-main:hover .hero-dash-tile:nth-child(1) {
+  transform: translate(-1px, -1px);
+}
+.hero-dash-card-main:hover .hero-dash-tile:nth-child(2) {
+  transform: translate(1px, -1px);
+}
+.hero-dash-card-main:hover .hero-dash-tile:nth-child(3) {
+  transform: translate(-1px, 1px);
+}
+.hero-dash-card-main:hover .hero-dash-tile:nth-child(4) {
+  transform: translate(1px, 1px);
+}
+
+/* softer text balance inside cards */
+.hero-dash-copy {
+  line-height: 1.58;
+}
+
+.hero-dash-featured-title,
+.hero-dash-time,
+.hero-dash-number {
+  text-wrap: balance;
+}
+
+/* make buttons feel more premium */
+.hero-dashboard-btn {
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease;
+}
+
+.hero-dashboard-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+@keyframes heroTopShiver {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* tablet */
+@media (max-width: 1100px) {
+  .hero-dashboard {
+    padding-top: 126px;
+    min-height: auto;
+  }
+
+  .hero-dashboard-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .hero-dashboard-copy,
+  .hero-dashboard-panel {
+    max-width: 100%;
+  }
+}
+
+/* mobile */
+@media (max-width: 760px) {
+  .hero-dashboard {
+    padding-top: 118px;
+    padding-bottom: 56px;
+  }
+
+  .hero-dashboard-inner {
+    gap: 32px;
+  }
+
+  .hero-dashboard-title {
+    font-size: clamp(3rem, 15vw, 5.4rem);
+    line-height: 0.96;
+  }
+
+  .hero-dash-card::before,
+  .hero-dash-mini::before {
+    left: 12px;
+    right: 12px;
+  }
+}
