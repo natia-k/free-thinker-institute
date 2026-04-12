@@ -1714,3 +1714,160 @@
   bottom:14px !important;
   color:#111 !important;
 }
+/* =========================================
+   HERO MOSAIC — PREMIUM SATIN FINAL
+   ========================================= */
+
+.hero-dash-mosaic{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  grid-template-rows:1fr 1fr !important;
+  gap:12px !important;
+  min-height:100% !important;
+  padding:0 !important;
+  background:transparent !important;
+  border-left:none !important;
+}
+
+.hero-dash-tile{
+  position:relative !important;
+  overflow:hidden !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  padding:0 !important;
+  display:block !important;
+  border-radius:20px !important;
+  border:1px solid rgba(255,255,255,0.10) !important;
+  text-decoration:none !important;
+  color:inherit !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 12px 30px rgba(0,0,0,0.16) !important;
+  transition:
+    transform .24s ease,
+    filter .24s ease,
+    border-color .24s ease !important;
+}
+
+/* remove old divider logic */
+.hero-dash-tile:nth-child(1),
+.hero-dash-tile:nth-child(2),
+.hero-dash-tile:nth-child(3),
+.hero-dash-tile:nth-child(4){
+  border-bottom:none !important;
+  border-right:none !important;
+}
+
+/* satin palette */
+.hero-dash-tile-gold{
+  background:#D4C98E !important;
+  color:#111 !important;
+}
+
+.hero-dash-tile-lilac{
+  background:#C7B4CC !important;
+  color:#111 !important;
+}
+
+/* glass dark tile */
+.hero-dash-tile-dark{
+  background:rgba(255,255,255,0.04) !important;
+  color:#f5f7fb !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+
+/* clean label styling */
+.hero-dash-tile span{
+  position:absolute !important;
+  z-index:10 !important;
+  font-family:"Inter", system-ui, sans-serif !important;
+  font-size:0.72rem !important;
+  line-height:1.05 !important;
+  font-weight:700 !important;
+  text-transform:uppercase !important;
+  letter-spacing:0.1em !important;
+  white-space:nowrap !important;
+  opacity:0.9 !important;
+  color:inherit !important;
+}
+
+.hero-dash-tile small{
+  position:absolute !important;
+  z-index:10 !important;
+  left:16px !important;
+  bottom:14px !important;
+  font-family:"Inter", system-ui, sans-serif !important;
+  font-size:0.64rem !important;
+  line-height:1 !important;
+  font-weight:600 !important;
+  letter-spacing:0.06em !important;
+  text-transform:uppercase !important;
+  opacity:0.68 !important;
+  color:inherit !important;
+}
+
+/* label positions kept away from cuts */
+.hero-dash-mosaic .hero-dash-tile:nth-child(1) span{
+  top:16px !important;
+  left:16px !important;
+}
+
+.hero-dash-mosaic .hero-dash-tile:nth-child(2) span{
+  top:16px !important;
+  left:16px !important;
+}
+
+.hero-dash-mosaic .hero-dash-tile:nth-child(3) span{
+  left:16px !important;
+  bottom:14px !important;
+}
+
+.hero-dash-mosaic .hero-dash-tile:nth-child(4) span{
+  left:16px !important;
+  bottom:14px !important;
+}
+
+/* reset old pseudo elements */
+.hero-dash-tile::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* carved corners */
+.hero-dash-shape-tr::before,
+.hero-dash-shape-bl::before,
+.hero-dash-shape-tl::before{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  width:64px !important;
+  height:64px !important;
+  background:#0a0b10 !important;
+  z-index:1 !important;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.05) !important;
+}
+
+.hero-dash-shape-tr::before{
+  right:0 !important;
+  bottom:0 !important;
+  border-top-left-radius:64px !important;
+}
+
+.hero-dash-shape-bl::before{
+  left:0 !important;
+  bottom:0 !important;
+  border-top-right-radius:64px !important;
+}
+
+.hero-dash-shape-tl::before{
+  left:0 !important;
+  top:0 !important;
+  border-bottom-right-radius:64px !important;
+}
+
+.hero-dash-tile:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.02);
+  border-color:rgba(255,255,255,0.16) !important;
+}
