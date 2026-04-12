@@ -2395,7 +2395,7 @@
   overflow: visible !important;
   line-height: 0.94 !important;
   padding-bottom: 0.08em !important;
-  max-width: 6.8ch !important;
+  max-width: 7.2ch !important;
 }
 
 .hero-dashboard-title .reveal-line{
@@ -2413,4 +2413,68 @@
 .hero-dashboard-copy{
   overflow: visible !important;
   max-width: 600px !important;
+}
+.hero-dashboard-title{
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+/* =========================================
+   HERO SOFT GLOBAL GLOW
+   ========================================= */
+
+.hero.hero-dashboard::after{
+  content: "";
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 22% 34%, rgba(233, 196, 126, 0.05), transparent 28%),
+    radial-gradient(circle at 76% 30%, rgba(151, 122, 255, 0.06), transparent 26%),
+    radial-gradient(circle at 55% 58%, rgba(255, 255, 255, 0.018), transparent 34%);
+  filter: blur(28px);
+  opacity: 0.9;
+}
+/* =========================================
+   INTERACTIVE SATIN SHEEN
+   ========================================= */
+
+.hero-dash-tile{
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+/* satin sheen overlay */
+.hero-dash-tile::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.32s ease;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.08) 22%,
+      transparent 60%
+    );
+  z-index: 1;
+}
+
+/* show sheen on hover */
+.hero-dash-tile:hover::before{
+  opacity: 1;
+}
+
+/* subtle lift */
+.hero-dash-tile:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.22),
+    0 0 24px rgba(139,92,246,0.06);
 }
