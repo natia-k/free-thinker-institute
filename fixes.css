@@ -2524,3 +2524,41 @@
     transition: none !important;
   }
 }
+/* =========================================
+   HERO CINEMATIC TILE REVEAL
+   ========================================= */
+
+.hero-dashboard-panel .hero-dash-tile{
+  opacity: 0;
+  transform: translateY(26px) scale(0.98);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+}
+
+/* reveal */
+.hero-dashboard-panel.is-revealed .hero-dash-tile{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition:
+    opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* stagger */
+.hero-dashboard-panel.is-revealed .hero-dash-tile:nth-child(1){
+  transition-delay: 0.10s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-tile:nth-child(2){
+  transition-delay: 0.20s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-tile:nth-child(3){
+  transition-delay: 0.30s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-tile:nth-child(4){
+  transition-delay: 0.40s;
+}
