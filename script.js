@@ -304,3 +304,22 @@ document.querySelectorAll('.hero-dash-tile').forEach((tile) => {
     tile.style.setProperty('--glow-y', '22%');
   });
 });
+/* subtle magnetic hero headline */
+const heroTitle = document.querySelector(".hero-dashboard-title");
+
+if (heroTitle) {
+  heroTitle.addEventListener("mousemove", (e) => {
+    const rect = heroTitle.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const moveX = (x - rect.width / 2) / 60;
+    const moveY = (y - rect.height / 2) / 60;
+
+    heroTitle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+
+  heroTitle.addEventListener("mouseleave", () => {
+    heroTitle.style.transform = "translate(0, 0)";
+  });
+}
