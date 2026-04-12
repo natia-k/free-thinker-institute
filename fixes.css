@@ -1429,3 +1429,193 @@
     grid-template-columns: 1fr !important;
   }
 }
+/* =========================================
+   HERO FINAL TIGHTENING PASS
+   ========================================= */
+
+/* keep serif only for main artistic moments */
+.hero-dashboard-title,
+.hero-dash-featured-title {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+/* everything functional = Roboto */
+.hero-dashboard-kicker,
+.hero-dashboard-text,
+.hero-dashboard-btn,
+.hero-dash-label,
+.hero-dash-copy,
+.hero-dash-number,
+.hero-dash-time,
+.hero-dash-mini,
+.hero-dash-mini strong,
+.hero-dash-tile span,
+.hero-dash-tile small,
+.hero-dash-foot,
+.hero-dash-tags span,
+.hero-dashboard-panel *:not(.hero-dash-featured-title):not(.hero-dashboard-title) {
+  font-family: "Roboto", system-ui, sans-serif !important;
+}
+
+/* bring back elegant top glow line */
+.hero-dash-card::before,
+.hero-dash-mini::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 18px !important;
+  right: 18px !important;
+  height: 1.5px !important;
+  border-radius: 999px !important;
+  opacity: 0 !important;
+  background: linear-gradient(
+    90deg,
+    rgba(242,199,146,0) 0%,
+    rgba(242,199,146,0.92) 18%,
+    rgba(215,176,197,0.92) 38%,
+    rgba(184,140,241,0.92) 58%,
+    rgba(207,216,255,0.92) 78%,
+    rgba(242,199,146,0) 100%
+  ) !important;
+  background-size: 220% 100% !important;
+  transform: scaleX(0.76) !important;
+  transform-origin: center !important;
+  transition: opacity 0.28s ease, transform 0.3s ease !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+.hero-dash-card:hover::before,
+.hero-dash-mini:hover::before {
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+  animation: heroTopShiver 1.8s linear infinite !important;
+}
+
+@keyframes heroTopShiver {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* make right panel a touch more compact */
+.hero-dashboard-panel {
+  max-width: 600px !important;
+}
+
+.hero-dash-grid {
+  width: min(100%, 600px) !important;
+  grid-template-columns: 1.06fr 0.94fr !important;
+  grid-template-rows: 168px 148px 136px !important;
+  gap: 12px !important;
+}
+
+.hero-dash-card-main {
+  grid-template-columns: 1fr 188px !important;
+  min-height: 168px !important;
+}
+
+.hero-dash-main-copy {
+  padding: 24px 24px 20px !important;
+}
+
+/* 4 top boxes smaller */
+.hero-dash-mosaic {
+  gap: 8px !important;
+  padding: 8px !important;
+}
+
+.hero-dash-tile {
+  border-radius: 16px !important;
+}
+
+/* brighter, cleaner colors */
+.hero-dash-tile-ivory {
+  background: #f7f3ea !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-lavender {
+  background: #e3daf0 !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-glass {
+  background: rgba(255,255,255,0.06) !important;
+  color: #f5f7fb !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+/* smaller tile typography */
+.hero-dash-tile span {
+  left: 12px !important;
+  top: 12px !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.09em !important;
+  font-weight: 600 !important;
+  opacity: 0.9 !important;
+}
+
+.hero-dash-tile-glass span {
+  top: auto !important;
+  bottom: 12px !important;
+  left: 12px !important;
+}
+
+.hero-dash-tile small {
+  left: 12px !important;
+  bottom: 12px !important;
+  font-size: 0.56rem !important;
+  letter-spacing: 0.08em !important;
+  opacity: 0.66 !important;
+}
+
+/* slightly cleaner inner card typography */
+.hero-dash-number {
+  font-size: 3rem !important;
+}
+
+.hero-dash-copy {
+  font-size: 0.92rem !important;
+  line-height: 1.5 !important;
+}
+
+.hero-dash-time {
+  font-size: 2.45rem !important;
+  line-height: 0.9 !important;
+}
+
+.hero-dash-featured-title {
+  font-size: 2rem !important;
+  line-height: 0.92 !important;
+}
+
+.hero-dash-mini {
+  min-height: 110px !important;
+  padding: 14px !important;
+}
+
+.hero-dash-mini strong {
+  font-size: 1.75rem !important;
+}
+
+/* optional: make core values box feel less empty */
+.hero-dash-tags {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin-top: 8px !important;
+}
+
+.hero-dash-tags span {
+  padding: 7px 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  background: rgba(255,255,255,0.03) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: rgba(245,247,251,0.72) !important;
+}
