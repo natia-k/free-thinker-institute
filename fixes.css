@@ -1681,3 +1681,171 @@
     right: 12px;
   }
 }
+/* =================================
+   HERO DASHBOARD EXTRA POLISH
+   paste at VERY BOTTOM
+   ================================= */
+
+/* make primary button brighter */
+.hero-dashboard-btn-primary,
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(143, 134, 255, 0.26),
+    rgba(210, 178, 122, 0.18)
+  ) !important;
+  border-color: rgba(184, 140, 241, 0.34) !important;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* softer secondary */
+.hero-dashboard-btn-secondary,
+.btn-secondary {
+  background: rgba(255,255,255,0.035) !important;
+}
+
+/* pulse on live dot */
+.hero-dash-live::before,
+.live::before {
+  animation: heroLivePulse 1.9s ease-in-out infinite;
+}
+
+/* deeper panel shadow */
+.hero-dashboard-panel,
+.dashboard {
+  filter: drop-shadow(0 28px 60px rgba(0, 0, 0, 0.28));
+}
+
+/* paragraph narrower = more luxury */
+.hero-dashboard-text,
+.sub {
+  max-width: 30rem !important;
+}
+
+/* subtle brightening on light card */
+.hero-dash-card-light:hover,
+.card.light:hover {
+  filter: brightness(1.02);
+}
+
+/* make mosaic tiles more distinct */
+.hero-dash-mosaic,
+.hero-card-art {
+  background: rgba(255,255,255,0.015);
+}
+
+.hero-dash-tile,
+.tile {
+  position: relative;
+  overflow: hidden;
+}
+
+/* give each tile more graphic identity */
+.hero-dash-tile-gold,
+.tile:nth-child(1),
+.tile:nth-child(4) {
+  background:
+    radial-gradient(circle at 100% 100%, rgba(0,0,0,0.82) 0 46%, transparent 47%),
+    #e6dd64 !important;
+}
+
+.hero-dash-tile-lilac,
+.tile:nth-child(2) {
+  background:
+    radial-gradient(circle at 0% 100%, rgba(0,0,0,0.82) 0 46%, transparent 47%),
+    #d5b2db !important;
+}
+
+.hero-dash-tile-dark,
+.tile:nth-child(3) {
+  background:
+    linear-gradient(180deg, rgba(7,9,14,1) 0%, rgba(3,5,10,1) 100%) !important;
+}
+
+/* better tile text visibility */
+.hero-dash-tile span,
+.tile span {
+  position: relative;
+  z-index: 2;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hero-dash-tile strong,
+.tile strong {
+  position: relative;
+  z-index: 2;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+/* tiny ambient sheen */
+.hero-dash-tile::after,
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.10) 0%,
+    rgba(255,255,255,0.00) 38%,
+    rgba(255,255,255,0.04) 100%
+  );
+  pointer-events: none;
+}
+
+/* stronger hover differentiation */
+.hero-dash-card-main:hover .hero-dash-tile-gold,
+.hero-card:hover .tile:nth-child(1),
+.hero-card:hover .tile:nth-child(4) {
+  filter: brightness(1.02) saturate(1.03);
+}
+
+.hero-dash-card-main:hover .hero-dash-tile-lilac,
+.hero-card:hover .tile:nth-child(2) {
+  filter: brightness(1.03) saturate(1.03);
+}
+
+.hero-dash-card-main:hover .hero-dash-tile-dark,
+.hero-card:hover .tile:nth-child(3) {
+  filter: brightness(1.08);
+}
+
+/* nicer live strip */
+.hero-dash-live,
+.live {
+  padding: 8px 12px 8px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  letter-spacing: 0.16em;
+}
+
+/* improve stat blocks */
+.hero-dash-mini,
+.mini {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+.hero-dash-mini strong,
+.mini strong {
+  font-size: 2.1rem;
+}
+
+/* animation */
+@keyframes heroLivePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(104, 211, 145, 0.18);
+  }
+  50% {
+    transform: scale(1.14);
+    opacity: 0.88;
+    box-shadow: 0 0 0 7px rgba(104, 211, 145, 0.04);
+  }
+}
