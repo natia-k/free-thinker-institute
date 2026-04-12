@@ -2602,3 +2602,150 @@
 .hero-dash-mini-light .hero-dash-copy-dark{
   color: rgba(255,255,255,0.78) !important;
 }
+/* =========================================
+   HERO NEBULA + SATIN SHINE
+   ========================================= */
+
+/* 1) atmospheric depth */
+.hero.hero-dashboard{
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-dashboard-inner{
+  position: relative;
+  z-index: 2 !important;
+}
+
+.hero-dashboard-orb{
+  position: absolute !important;
+  width: 800px !important;
+  height: 800px !important;
+  border-radius: 50% !important;
+  filter: blur(150px) !important;
+  opacity: 0.15 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  will-change: transform, opacity;
+}
+
+/* gold nebula behind headline */
+.hero-dashboard-orb-gold{
+  left: -220px !important;
+  top: -120px !important;
+  background: radial-gradient(
+    circle,
+    rgba(232, 196, 125, 0.9) 0%,
+    rgba(232, 196, 125, 0.36) 28%,
+    rgba(232, 196, 125, 0.08) 58%,
+    transparent 78%
+  ) !important;
+  animation: heroNebulaGold 16s ease-in-out infinite alternate !important;
+}
+
+/* violet nebula behind dashboard / tiles */
+.hero-dashboard-orb-violet{
+  right: -180px !important;
+  top: 40px !important;
+  background: radial-gradient(
+    circle,
+    rgba(148, 119, 255, 0.92) 0%,
+    rgba(148, 119, 255, 0.34) 28%,
+    rgba(148, 119, 255, 0.08) 58%,
+    transparent 78%
+  ) !important;
+  animation: heroNebulaViolet 18s ease-in-out infinite alternate !important;
+}
+
+@keyframes heroNebulaGold{
+  0%{
+    transform: translate3d(0,0,0) scale(1);
+    opacity: 0.13;
+  }
+  50%{
+    transform: translate3d(14px,-18px,0) scale(1.04);
+    opacity: 0.17;
+  }
+  100%{
+    transform: translate3d(-10px,12px,0) scale(0.98);
+    opacity: 0.14;
+  }
+}
+
+@keyframes heroNebulaViolet{
+  0%{
+    transform: translate3d(0,0,0) scale(1);
+    opacity: 0.13;
+  }
+  50%{
+    transform: translate3d(-20px,16px,0) scale(1.05);
+    opacity: 0.17;
+  }
+  100%{
+    transform: translate3d(12px,-10px,0) scale(0.99);
+    opacity: 0.14;
+  }
+}
+
+/* extra soft background wash */
+.hero.hero-dashboard::after{
+  content: "";
+  position: absolute;
+  inset: -8%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 22% 28%, rgba(232,196,125,0.06), transparent 24%),
+    radial-gradient(circle at 76% 30%, rgba(148,119,255,0.07), transparent 24%),
+    radial-gradient(circle at 56% 58%, rgba(255,255,255,0.015), transparent 34%);
+  filter: blur(28px);
+  opacity: 0.95;
+}
+
+/* 2) satin shine hover */
+.hero-dash-tile{
+  position: relative !important;
+  overflow: hidden !important;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease !important;
+}
+
+/* sheen overlay */
+.hero-dash-tile::after{
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.20) 0%,
+      rgba(255,255,255,0.08) 18%,
+      transparent 50%
+    ) !important;
+  z-index: 1 !important;
+}
+
+/* keep text above sheen */
+.hero-dash-tile span,
+.hero-dash-tile small{
+  position: relative;
+  z-index: 3 !important;
+}
+
+/* hover state */
+.hero-dash-tile:hover{
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow:
+    0 20px 42px rgba(0,0,0,0.28),
+    0 0 26px rgba(148,119,255,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.10) !important;
+}
+
+.hero-dash-tile:hover::after{
+  opacity: 1 !important;
+}
