@@ -2290,3 +2290,100 @@
     0 0 30px rgba(139, 92, 246, 0.08);
   border-color: rgba(255,255,255,0.12);
 }
+/* =========================================
+   HERO ATMOSPHERIC DEPTH — PREMIUM ORBS
+   ========================================= */
+
+.hero.hero-dashboard{
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-dashboard-orb{
+  position: absolute !important;
+  width: 600px !important;
+  height: 600px !important;
+  border-radius: 50% !important;
+  filter: blur(120px) !important;
+  opacity: 0.15 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  will-change: transform, opacity;
+}
+
+/* warm orb behind headline */
+.hero-dashboard-orb-gold{
+  left: -140px !important;
+  top: 120px !important;
+  background: radial-gradient(
+    circle,
+    rgba(232, 196, 125, 0.95) 0%,
+    rgba(232, 196, 125, 0.45) 28%,
+    rgba(232, 196, 125, 0.10) 58%,
+    transparent 78%
+  ) !important;
+  animation: heroOrbGoldFloat 14s ease-in-out infinite alternate !important;
+}
+
+/* violet orb behind dashboard / mosaic */
+.hero-dashboard-orb-violet{
+  right: -120px !important;
+  top: 140px !important;
+  background: radial-gradient(
+    circle,
+    rgba(140, 120, 255, 0.95) 0%,
+    rgba(140, 120, 255, 0.42) 30%,
+    rgba(140, 120, 255, 0.10) 58%,
+    transparent 78%
+  ) !important;
+  animation: heroOrbVioletFloat 16s ease-in-out infinite alternate !important;
+}
+
+/* keep content above */
+.hero-dashboard-inner{
+  position: relative;
+  z-index: 2 !important;
+}
+
+/* optional: slightly richer background wash */
+.hero.hero-dashboard::before{
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(circle at 18% 26%, rgba(232,196,125,0.07), transparent 24%),
+    radial-gradient(circle at 78% 30%, rgba(140,120,255,0.08), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,0.01), transparent 30%, transparent 70%, rgba(255,255,255,0.01)) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+@keyframes heroOrbGoldFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.13;
+  }
+  50% {
+    transform: translate3d(18px, -22px, 0) scale(1.05);
+    opacity: 0.17;
+  }
+  100% {
+    transform: translate3d(-10px, 14px, 0) scale(0.98);
+    opacity: 0.14;
+  }
+}
+
+@keyframes heroOrbVioletFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.14;
+  }
+  50% {
+    transform: translate3d(-24px, 18px, 0) scale(1.06);
+    opacity: 0.18;
+  }
+  100% {
+    transform: translate3d(14px, -12px, 0) scale(0.99);
+    opacity: 0.15;
+  }
+}
