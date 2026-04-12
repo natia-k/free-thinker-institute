@@ -3219,3 +3219,157 @@
   grid-template-rows: 176px 156px 154px !important;
   gap: 16px !important;
 }
+/* =========================================
+   FINAL HERO MOSAIC FIX — PASTE LAST
+   ========================================= */
+
+.hero-dash-mosaic{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  grid-template-rows:1fr 1fr !important;
+  min-height:100% !important;
+  background:transparent !important;
+  border-left:1px solid rgba(255,255,255,0.08) !important;
+}
+
+.hero-dash-tile{
+  position:relative !important;
+  overflow:hidden !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  padding:0 !important;
+  border:none !important;
+  border-radius:0 !important;
+  display:block !important;
+  text-decoration:none !important;
+  color:inherit !important;
+}
+
+/* grid dividers */
+.hero-dash-tile:nth-child(1),
+.hero-dash-tile:nth-child(2){
+  border-bottom:1px solid rgba(255,255,255,0.06) !important;
+}
+
+.hero-dash-tile:nth-child(1),
+.hero-dash-tile:nth-child(3){
+  border-right:1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* remove all old weird circles */
+.hero-dash-tile::before,
+.hero-dash-tile::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* clean colors */
+.hero-dash-tile-gold{
+  background:#e4da70 !important;
+  color:#111 !important;
+}
+
+.hero-dash-tile-lilac{
+  background:#d8c3dc !important;
+  color:#111 !important;
+}
+
+.hero-dash-tile-dark{
+  background:#090b10 !important;
+  color:#f5f7fb !important;
+}
+
+/* labels */
+.hero-dash-tile span{
+  position:absolute !important;
+  z-index:3 !important;
+  font-family:"Inter", system-ui, sans-serif !important;
+  font-size:0.82rem !important;
+  line-height:1.05 !important;
+  font-weight:700 !important;
+  letter-spacing:-0.015em !important;
+  color:inherit !important;
+  white-space:nowrap !important;
+}
+
+/* top-left */
+.hero-dash-mosaic .hero-dash-tile:nth-child(1) span{
+  top:16px !important;
+  left:16px !important;
+}
+
+/* top-right */
+.hero-dash-mosaic .hero-dash-tile:nth-child(2) span{
+  top:16px !important;
+  left:16px !important;
+}
+
+/* bottom-left */
+.hero-dash-mosaic .hero-dash-tile:nth-child(3) span{
+  bottom:14px !important;
+  left:16px !important;
+}
+
+/* bottom-right */
+.hero-dash-mosaic .hero-dash-tile:nth-child(4) span{
+  bottom:14px !important;
+  left:16px !important;
+}
+
+/* live count */
+.hero-dash-tile small{
+  position:absolute !important;
+  left:16px !important;
+  bottom:14px !important;
+  z-index:3 !important;
+  font-family:"Inter", system-ui, sans-serif !important;
+  font-size:0.66rem !important;
+  line-height:1 !important;
+  font-weight:600 !important;
+  color:inherit !important;
+  opacity:0.7 !important;
+}
+
+/* proper cropped shapes */
+.hero-dash-shape-tr{
+  border-top-right-radius:34px !important;
+}
+
+.hero-dash-shape-tr::before{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  right:0 !important;
+  bottom:0 !important;
+  width:64px !important;
+  height:64px !important;
+  background:#090b10 !important;
+  border-top-left-radius:64px !important;
+  z-index:1 !important;
+}
+
+.hero-dash-shape-bl::before{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:0 !important;
+  bottom:0 !important;
+  width:64px !important;
+  height:64px !important;
+  background:#090b10 !important;
+  border-top-right-radius:64px !important;
+  z-index:1 !important;
+}
+
+.hero-dash-shape-tl::before{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  width:64px !important;
+  height:64px !important;
+  background:#090b10 !important;
+  border-bottom-right-radius:64px !important;
+  z-index:1 !important;
+}
