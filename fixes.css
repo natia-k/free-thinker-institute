@@ -1849,3 +1849,402 @@
     box-shadow: 0 0 0 7px rgba(104, 211, 145, 0.04);
   }
 }
+/* =================================
+   HERO DASHBOARD LAYOUT REFINEMENT
+   paste at VERY BOTTOM of fixes.css
+   ================================= */
+
+.hero-dashboard {
+  min-height: 100vh;
+  padding-top: 132px;
+  padding-bottom: 72px;
+}
+
+.hero-dashboard-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(540px, 0.96fr);
+  gap: 52px;
+  align-items: center;
+}
+
+.hero-dashboard-copy {
+  max-width: 640px;
+}
+
+.hero-dashboard-title {
+  font-size: clamp(4.8rem, 8vw, 7.6rem);
+  line-height: 0.91;
+  letter-spacing: -0.045em;
+  margin: 0;
+  max-width: 7ch;
+}
+
+.hero-dashboard-text {
+  max-width: 28rem !important;
+  margin-top: 28px;
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.hero-dashboard-actions {
+  margin-top: 28px;
+}
+
+.hero-dashboard-pills {
+  margin-top: 22px;
+}
+
+.hero-dashboard-panel {
+  position: relative;
+  max-width: 620px;
+  width: 100%;
+  margin-left: auto;
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease;
+  will-change: transform;
+  animation: heroPanelFloat 7s ease-in-out infinite;
+}
+
+.hero-dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.86fr;
+  grid-template-rows: 184px 158px 154px;
+  gap: 14px;
+  align-items: stretch;
+}
+
+/* main top card */
+.hero-dash-card-main {
+  display: grid;
+  grid-template-columns: 1.08fr 216px;
+  padding: 0;
+  overflow: hidden;
+  min-height: 184px;
+}
+
+.hero-dash-main-copy {
+  padding: 26px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-dash-number {
+  font-size: 3.65rem;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  margin: 10px 0 8px;
+}
+
+.hero-dash-copy {
+  line-height: 1.58;
+  max-width: 26ch;
+}
+
+/* right mosaic */
+.hero-dash-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  min-height: 100%;
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+.hero-dash-tile {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 0;
+}
+
+.hero-dash-tile span,
+.hero-dash-tile strong {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-dash-tile span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hero-dash-tile strong {
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+/* clean graphic shapes */
+.hero-dash-tile-gold {
+  background: #e5dd63 !important;
+}
+.hero-dash-tile-lilac {
+  background: #d6b5dc !important;
+}
+.hero-dash-tile-dark {
+  background: linear-gradient(180deg, #05070b 0%, #090d14 100%) !important;
+  color: #fff;
+}
+
+/* graphic quarter circles */
+.hero-dash-tile-gold::before,
+.hero-dash-tile-lilac::before,
+.hero-dash-tile-dark::before {
+  content: "";
+  position: absolute;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.76);
+  z-index: 1;
+}
+
+/* tile positions */
+.hero-dash-tile-gold:nth-child(1)::before {
+  right: -54px;
+  bottom: -54px;
+}
+.hero-dash-tile-lilac:nth-child(2)::before {
+  left: -54px;
+  bottom: -54px;
+}
+.hero-dash-tile-dark::before {
+  right: -54px;
+  bottom: -54px;
+}
+.hero-dash-tile-gold:nth-child(4)::before {
+  right: -54px;
+  bottom: -54px;
+}
+
+/* second row cards */
+.hero-dash-card-light,
+.hero-dash-card-featured {
+  min-height: 158px;
+  padding: 22px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-dash-time {
+  font-size: 3.15rem;
+  line-height: 0.9;
+  margin: 10px 0 6px;
+  letter-spacing: -0.04em;
+}
+
+.hero-dash-featured-title {
+  font-size: 2.75rem;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin: 10px 0 10px;
+  max-width: 8ch;
+}
+
+/* bottom row */
+.hero-dash-card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 14px;
+  min-height: 154px;
+}
+
+.hero-dash-mini {
+  min-height: 126px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-dash-mini strong {
+  font-size: 2.15rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+/* cleaner buttons */
+.hero-dashboard-btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(143,134,255,0.22),
+    rgba(210,178,122,0.16)
+  ) !important;
+  border-color: rgba(184,140,241,0.3) !important;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.18);
+}
+
+.hero-dashboard-btn-secondary {
+  background: rgba(255,255,255,0.03) !important;
+}
+
+/* subtle non-static life */
+.hero-dashboard-orb-gold {
+  animation: heroOrbGold 10s ease-in-out infinite alternate;
+}
+.hero-dashboard-orb-violet {
+  animation: heroOrbViolet 12s ease-in-out infinite alternate;
+}
+
+.hero-dash-live::before {
+  animation: heroLivePulse 1.9s ease-in-out infinite;
+}
+
+.hero-dash-card-main:hover .hero-dash-tile:nth-child(1) {
+  transform: translate(-1px, -1px);
+}
+.hero-dash-card-main:hover .hero-dash-tile:nth-child(2) {
+  transform: translate(1px, -1px);
+}
+.hero-dash-card-main:hover .hero-dash-tile:nth-child(3) {
+  transform: translate(-1px, 1px);
+}
+.hero-dash-card-main:hover .hero-dash-tile:nth-child(4) {
+  transform: translate(1px, 1px);
+}
+
+.hero-dash-tile {
+  transition: transform 0.32s ease, filter 0.32s ease;
+}
+
+.hero-dash-card,
+.hero-dash-mini {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    filter 0.28s ease;
+}
+
+.hero-dash-card:hover,
+.hero-dash-mini:hover {
+  transform: translateY(-3px);
+}
+
+.hero-dash-card-light:hover {
+  filter: brightness(1.02);
+}
+
+/* shimmer top line */
+.hero-dash-card::before,
+.hero-dash-mini::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1.5px;
+  border-radius: 999px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(242,199,146,0) 0%,
+    rgba(242,199,146,0.95) 18%,
+    rgba(215,176,197,0.95) 38%,
+    rgba(184,140,241,0.95) 58%,
+    rgba(207,216,255,0.95) 78%,
+    rgba(242,199,146,0) 100%
+  );
+  background-size: 220% 100%;
+  transition: opacity 0.28s ease, transform 0.3s ease;
+  transform: scaleX(0.74);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.hero-dash-card:hover::before,
+.hero-dash-mini:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+  animation: heroTopShiver 1.8s linear infinite;
+}
+
+@keyframes heroPanelFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes heroOrbGold {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(18px,-14px,0) scale(1.05); }
+}
+
+@keyframes heroOrbViolet {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(-14px,18px,0) scale(1.04); }
+}
+
+@keyframes heroLivePulse {
+  0%,100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(104,211,145,0.16);
+  }
+  50% {
+    transform: scale(1.14);
+    opacity: 0.84;
+    box-shadow: 0 0 0 7px rgba(104,211,145,0.04);
+  }
+}
+
+@keyframes heroTopShiver {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* tablet */
+@media (max-width: 1100px) {
+  .hero-dashboard-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-dashboard-panel {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* mobile */
+@media (max-width: 760px) {
+  .hero-dashboard {
+    padding-top: 116px;
+    padding-bottom: 54px;
+  }
+
+  .hero-dashboard-title {
+    font-size: clamp(3.4rem, 15vw, 5.3rem);
+    max-width: 9ch;
+  }
+
+  .hero-dash-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .hero-dash-card-main,
+  .hero-dash-card-light,
+  .hero-dash-card-featured,
+  .hero-dash-card-stats {
+    grid-column: auto;
+  }
+
+  .hero-dash-card-main {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-dash-mosaic {
+    min-height: 220px;
+  }
+
+  .hero-dash-card-stats {
+    grid-template-columns: 1fr;
+  }
+}
