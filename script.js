@@ -219,3 +219,42 @@ if (communityEquation) {
 
   equationObserver.observe(communityEquation);
 }
+/* =========================
+   HERO DASHBOARD MOTION
+   add at bottom of script.js
+   ========================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const dashboard = document.getElementById('heroDashboardPanel');
+
+  if (dashboard) {
+    dashboard.addEventListener('mousemove', (e) => {
+      const rect = dashboard.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateY = ((x - centerX) / centerX) * 6;
+      const rotateX = ((centerY - y) / centerY) * 6;
+
+      dashboard.style.transform = `
+        perspective(1400px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-4px)
+      `;
+    });
+
+    dashboard.addEventListener('mouseleave', () => {
+      dashboard.style.transform = `
+        perspective(1400px)
+        rotateX(0deg)
+        rotateY(0deg)
+        translateY(0px)
+      `;
+    });
+  }
+});
