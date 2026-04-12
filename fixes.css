@@ -308,3 +308,19 @@
   transform: none !important;
   filter: none !important;
 }
+/* fix headline clipping in career section */
+.editorial-title,
+.editorial-title em,
+.editorial-header h2 {
+  line-height: 1.22 !important;
+  padding-bottom: 0.18em !important;
+  margin-bottom: 0.28em !important;
+  overflow: visible !important;
+  display: block;
+}
+
+/* make italic word safe */
+.editorial-title em {
+  display: inline-block;
+  padding-bottom: 0.08em;
+}
