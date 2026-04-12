@@ -986,5 +986,40 @@ magneticItems.forEach((item) => {
   });
 });
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const magneticItems = document.querySelectorAll(
+    ".hero-dashboard-btn, .hero-dash-tile, .hero-card, .hero-box"
+  );
+
+  magneticItems.forEach((item) => {
+    item.style.transition =
+      "transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease";
+
+    item.addEventListener("mousemove", (e) => {
+      const rect = item.getBoundingClientRect();
+
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const moveX = (x - rect.width / 2) / 22;
+      const moveY = (y - rect.height / 2) / 22;
+
+      item.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.01)`;
+
+      item.style.boxShadow = `
+        0 18px 40px rgba(0,0,0,0.35),
+        0 0 30px rgba(139,92,246,0.14),
+        inset 0 1px 0 rgba(255,255,255,0.08)
+      `;
+    });
+
+    item.addEventListener("mouseleave", () => {
+      item.style.transform = "translate(0px, 0px) scale(1)";
+      item.style.boxShadow = "";
+    });
+  });
+});
+</script>
 </body>
 </html>
