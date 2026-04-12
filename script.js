@@ -220,41 +220,27 @@ if (communityEquation) {
   equationObserver.observe(communityEquation);
 }
 /* =========================
-   HERO DASHBOARD MOTION
-   add at bottom of script.js
+   HERO PANEL SUBTLE MOTION
    ========================= */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const dashboard = document.getElementById('heroDashboardPanel');
+const heroDashboardPanel = document.getElementById("heroDashboardPanel");
 
-  if (dashboard) {
-    dashboard.addEventListener('mousemove', (e) => {
-      const rect = dashboard.getBoundingClientRect();
+if (heroDashboardPanel) {
+  heroDashboardPanel.style.transition = "transform 0.28s ease";
 
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+  heroDashboardPanel.addEventListener("mousemove", (e) => {
+    const rect = heroDashboardPanel.getBoundingClientRect();
 
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-      const rotateY = ((x - centerX) / centerX) * 6;
-      const rotateX = ((centerY - y) / centerY) * 6;
+    const px = (x / rect.width - 0.5) * 8;
+    const py = (y / rect.height - 0.5) * 8;
 
-      dashboard.style.transform = `
-        perspective(1400px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateY(-4px)
-      `;
-    });
+    heroDashboardPanel.style.transform = `translate3d(${px}px, ${py}px, 0)`;
+  });
 
-    dashboard.addEventListener('mouseleave', () => {
-      dashboard.style.transform = `
-        perspective(1400px)
-        rotateX(0deg)
-        rotateY(0deg)
-        translateY(0px)
-      `;
-    });
-  }
-});
+  heroDashboardPanel.addEventListener("mouseleave", () => {
+    heroDashboardPanel.style.transform = "translate3d(0,0,0)";
+  });
+}
