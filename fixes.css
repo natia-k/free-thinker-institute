@@ -293,3 +293,18 @@
   transform: none !important;
   filter: none !important;
 }
+/* fix weird faded intro text in what-we-do section */
+.what-intro {
+  color: rgba(245, 247, 251, 0.88) !important;
+  opacity: 1 !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.22);
+  max-width: 520px;
+}
+
+/* if reveal animation is making it look ghosted */
+.what-intro.reveal-up {
+  transform: none !important;
+  filter: none !important;
+}
