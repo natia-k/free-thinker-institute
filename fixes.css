@@ -339,3 +339,64 @@
   display: inline-block !important;
   padding-right: 0.12em !important;
 }
+/* =================================
+   BENTO TOP GLOW ON HOVER
+   ================================= */
+
+.learn-more .bento-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-more .bento-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 210, 160, 0),
+    rgba(255, 210, 160, 0.85) 20%,
+    rgba(167, 139, 250, 0.95) 50%,
+    rgba(255, 210, 160, 0.85) 80%,
+    rgba(255, 210, 160, 0)
+  );
+  opacity: 0;
+  transform: translateY(-6px) scaleX(0.92);
+  filter: blur(0.2px);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.learn-more .bento-item:hover::before {
+  opacity: 1;
+  transform: translateY(0) scaleX(1);
+}
+
+/* tiny soft glow under the line */
+.learn-more .bento-item::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10%;
+  width: 80%;
+  height: 28px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(120, 119, 255, 0.16),
+    rgba(255, 210, 160, 0.08) 45%,
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.32s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.learn-more .bento-item:hover::after {
+  opacity: 1;
+}
