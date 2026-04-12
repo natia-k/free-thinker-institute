@@ -261,9 +261,8 @@ magneticItems.forEach((item) => {
     item.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.01)`;
 
     item.style.boxShadow = `
-      0 18px 40px rgba(0,0,0,0.35),
-      0 0 35px rgba(139,92,246,0.14)
-    `;
+  0 12px 28px rgba(0,0,0,0.18)
+`;
   });
 
   item.addEventListener('mouseleave', () => {
