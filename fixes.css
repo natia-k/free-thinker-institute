@@ -1619,3 +1619,172 @@
   text-transform: uppercase !important;
   color: rgba(245,247,251,0.72) !important;
 }
+/* =========================================
+   HERO FINAL ENERGY PASS
+   ========================================= */
+
+/* headline contrast */
+.hero-dashboard-title{
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+.hero-dashboard-title em{
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.06em !important;
+  background: linear-gradient(
+    90deg,
+    #f0c78c 0%,
+    #d9b1c8 32%,
+    #a88cff 68%,
+    #d9e6ff 100%
+  ) !important;
+  background-size: 220% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  animation: heroGradientShift 7s linear infinite !important;
+}
+
+/* make hero less static overall */
+.hero-dashboard-panel{
+  animation: heroPanelBreath 8s ease-in-out infinite !important;
+}
+
+.hero-dashboard-orb-gold{
+  animation: heroOrbGoldMove 11s ease-in-out infinite alternate !important;
+}
+
+.hero-dashboard-orb-violet{
+  animation: heroOrbVioletMove 13s ease-in-out infinite alternate !important;
+}
+
+.hero-dash-glow{
+  animation: heroGlowPulse 7s ease-in-out infinite alternate !important;
+}
+
+/* 4 boxes: distinct colors */
+.hero-dash-tile-ivory{
+  background: linear-gradient(180deg, #faf6ee 0%, #f1e7d7 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-lavender{
+  background: linear-gradient(180deg, #eadfff 0%, #d8c7f2 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-glass{
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.03) 100%
+  ) !important;
+  color: #f5f7fb !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+/* make the 4th box a warmer peach tone instead of repeating ivory */
+.hero-dash-mosaic .hero-dash-tile:nth-child(4){
+  background: linear-gradient(180deg, #f3dfd2 0%, #ebd2c2 100%) !important;
+  color: #111 !important;
+}
+
+/* subtle motion for each tile so they don't feel dead */
+.hero-dash-mosaic .hero-dash-tile:nth-child(1){
+  animation: tileFloat1 7s ease-in-out infinite;
+}
+.hero-dash-mosaic .hero-dash-tile:nth-child(2){
+  animation: tileFloat2 8s ease-in-out infinite;
+}
+.hero-dash-mosaic .hero-dash-tile:nth-child(3){
+  animation: tileFloat3 9s ease-in-out infinite;
+}
+.hero-dash-mosaic .hero-dash-tile:nth-child(4){
+  animation: tileFloat4 7.5s ease-in-out infinite;
+}
+
+.hero-dash-tile{
+  transition: transform .24s ease, filter .24s ease, box-shadow .24s ease !important;
+}
+
+.hero-dash-tile:hover{
+  transform: translateY(-2px) scale(1.015) !important;
+  filter: brightness(1.03) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    0 14px 30px rgba(0,0,0,0.14) !important;
+}
+
+/* labels */
+.hero-dash-tile span{
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 0.62rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  opacity: 0.9 !important;
+}
+
+.hero-dash-tile small{
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 0.56rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  opacity: 0.66 !important;
+}
+
+/* top glow line should always have a little life */
+.hero-dash-card::before,
+.hero-dash-mini::before{
+  opacity: 0.42 !important;
+  transform: scaleX(1) !important;
+  animation: heroTopShiver 4.5s linear infinite !important;
+}
+
+/* keyframes */
+@keyframes heroGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes heroPanelBreath {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes heroOrbGoldMove {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(14px,-10px,0) scale(1.05); }
+}
+
+@keyframes heroOrbVioletMove {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(-12px,16px,0) scale(1.04); }
+}
+
+@keyframes heroGlowPulse {
+  0% { opacity: 0.55; transform: scale(1); }
+  100% { opacity: 0.78; transform: scale(1.05); }
+}
+
+@keyframes tileFloat1 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+@keyframes tileFloat2 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(2px); }
+}
+@keyframes tileFloat3 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-1px); }
+}
+@keyframes tileFloat4 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(2px); }
+}
