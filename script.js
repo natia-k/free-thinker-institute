@@ -270,3 +270,20 @@ magneticItems.forEach((item) => {
     item.style.boxShadow = '';
   });
 });
+/* hero cinematic reveal */
+document.addEventListener("DOMContentLoaded", () => {
+  const heroCopy = document.querySelector(".hero-dashboard-copy");
+  const heroPanel = document.querySelector(".hero-dashboard-panel");
+
+  if (heroCopy) {
+    requestAnimationFrame(() => {
+      heroCopy.classList.add("is-revealed");
+    });
+  }
+
+  if (heroPanel) {
+    requestAnimationFrame(() => {
+      heroPanel.classList.add("is-revealed");
+    });
+  }
+});
