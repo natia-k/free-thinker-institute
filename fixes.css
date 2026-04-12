@@ -1,0 +1,184 @@
+/* =========================
+   FINAL ABOUT / POSTER FIX
+   ========================= */
+
+.about-poster-shell {
+  position: relative;
+  width: min(78%, 520px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.about-poster-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+}
+
+.poster-oval-container {
+  position: absolute;
+  inset: 50%;
+  width: 142%;
+  height: 142%;
+  transform: translate(-50%, -50%) scale(0.9);
+  transform-origin: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.45s ease, transform 0.55s ease;
+}
+
+.about-poster-shell:hover .poster-oval-container {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.oval-text-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: ovalSpin 22s linear infinite;
+}
+
+.oval-text-content {
+  fill: rgba(47, 38, 34, 0.82);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+@keyframes ovalSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.about-content-bright {
+  position: relative;
+}
+
+.about-content-bright::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 26%),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 0%, transparent 18%);
+  z-index: 0;
+}
+
+.about-content-bright > * {
+  position: relative;
+  z-index: 1;
+}
+
+.community-heading,
+.about-heading,
+.hero-title,
+.intentions-heading,
+.what-heading,
+.goals-heading,
+.learn-heading,
+.editorial-title {
+  overflow: visible !important;
+  line-height: 1.08 !important;
+  padding-bottom: 0.08em;
+  max-width: 100%;
+}
+
+.community-heading .kinetic-em {
+  display: inline !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  padding-right: 0 !important;
+}
+
+.community-header,
+.community-header > div,
+.community-heading {
+  overflow: visible !important;
+}
+
+.hero-card,
+.comm-card,
+.editorial-card,
+.bento-item,
+.what-card,
+.quiz-question,
+.pathfinder-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::after,
+.comm-card::after,
+.editorial-card::after,
+.bento-item::after,
+.what-card::after,
+.quiz-question::after,
+.pathfinder-shell::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  padding: 1px;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255,255,255,0.28),
+    rgba(255,255,255,0.10) 18%,
+    transparent 52%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.hero-card:hover::after,
+.comm-card:hover::after,
+.editorial-card:hover::after,
+.bento-item:hover::after,
+.what-card:hover::after,
+.quiz-question:hover::after,
+.pathfinder-shell:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 980px) {
+  .about.about-bright {
+    grid-template-columns: 1fr !important;
+  }
+
+  .poster-column {
+    min-height: 520px !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.24);
+  }
+
+  .about-poster-shell {
+    width: min(82%, 420px);
+  }
+
+  .poster-oval-container {
+    width: 150%;
+    height: 150%;
+  }
+
+  .oval-text-content {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+}
