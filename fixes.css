@@ -2387,3 +2387,30 @@
     opacity: 0.15;
   }
 }
+/* =========================================
+   HERO TITLE SAFETY FIX
+   ========================================= */
+
+.hero-dashboard-title{
+  overflow: visible !important;
+  line-height: 0.94 !important;
+  padding-bottom: 0.08em !important;
+  max-width: 6.8ch !important;
+}
+
+.hero-dashboard-title .reveal-line{
+  overflow: visible !important;
+  display: block !important;
+  padding-bottom: 0.04em !important;
+}
+
+.hero-dashboard-title em{
+  display: inline-block !important;
+  padding-right: 0.02em !important;
+}
+
+/* give the left column a little more breathing room */
+.hero-dashboard-copy{
+  overflow: visible !important;
+  max-width: 600px !important;
+}
