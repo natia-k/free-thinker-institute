@@ -1910,3 +1910,146 @@
     transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.22s ease;
 }
+/* =========================================
+   HERO FINAL CORRECTION PASS
+   ========================================= */
+
+/* 1) remove constant heavy glow */
+.hero-dash-card::before,
+.hero-dash-card::after,
+.hero-dash-mini::before,
+.hero-dash-mini::after,
+.hero-dash-tile::before,
+.hero-dash-tile::after {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+/* 2) bring back elegant hover-only line */
+.hero-dash-card,
+.hero-dash-mini,
+.hero-dash-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-dash-card::before,
+.hero-dash-mini::before,
+.hero-dash-tile::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 14px !important;
+  right: 14px !important;
+  height: 1.5px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(242,199,146,0.9) 20%,
+    rgba(184,140,241,0.9) 52%,
+    rgba(255,255,255,0) 100%
+  ) !important;
+  opacity: 0 !important;
+  transform: scaleX(0.72) !important;
+  transform-origin: center !important;
+  transition: opacity .24s ease, transform .28s ease !important;
+  z-index: 4 !important;
+  pointer-events: none !important;
+}
+
+.hero-dash-card:hover::before,
+.hero-dash-mini:hover::before,
+.hero-dash-tile:hover::before {
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+}
+
+/* 3) stop big box-shadow blast */
+.hero-dash-card:hover,
+.hero-dash-mini:hover,
+.hero-dash-tile:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 12px 28px rgba(0,0,0,0.18) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 4) make Discord tile special again */
+.hero-dash-mosaic .hero-dash-tile:first-child {
+  background: linear-gradient(
+    135deg,
+    #8f86ff 0%,
+    #b79dff 48%,
+    #ddd6ff 100%
+  ) !important;
+  color: #111 !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.24),
+    0 8px 22px rgba(143,134,255,0.16) !important;
+}
+
+/* optional subtle inner curve feel */
+.hero-dash-mosaic .hero-dash-tile:first-child::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 58% !important;
+  height: 58% !important;
+  background: rgba(255,255,255,0.16) !important;
+  border-top-left-radius: 100% !important;
+  opacity: .55 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* keep text above shape */
+.hero-dash-mosaic .hero-dash-tile:first-child span {
+  z-index: 3 !important;
+  color: #111 !important;
+}
+
+/* 5) make other tiles cleaner */
+.hero-dash-tile-ivory {
+  background: #f7f1e8 !important;
+}
+
+.hero-dash-tile-lavender {
+  background: #e7def6 !important;
+}
+
+.hero-dash-tile-glass {
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* 6) bottom row less tight */
+.hero-dash-card-stats {
+  gap: 14px !important;
+  padding: 16px !important;
+  min-height: 154px !important;
+}
+
+.hero-dash-mini {
+  min-height: 124px !important;
+  padding: 18px !important;
+  border-radius: 24px !important;
+}
+
+.hero-dash-mini strong {
+  font-size: 1.9rem !important;
+}
+
+.hero-dash-copy,
+.hero-dash-copy-dark {
+  line-height: 1.55 !important;
+}
+
+/* 7) a little more room in the whole right panel */
+.hero-dash-grid {
+  grid-template-rows: 178px 154px 154px !important;
+  gap: 14px !important;
+}
