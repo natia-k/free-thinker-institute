@@ -203,3 +203,19 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 if (prefersReducedMotion.matches) {
   document.documentElement.style.scrollBehavior = "auto";
 }
+const communityEquation = document.querySelector(".community-equation");
+
+if (communityEquation) {
+  const equationObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          communityEquation.classList.add("is-writing");
+        }
+      });
+    },
+    { threshold: 0.45 }
+  );
+
+  equationObserver.observe(communityEquation);
+}
