@@ -416,9 +416,9 @@
   line-height: 1.7 !important;
   opacity: 0.88 !important;
 }
-/* =================================
-   COMMUNITY EQUATION SCROLL REVEAL
-   ================================= */
+/* ================================
+   COMMUNITY EQUATION SHIMMER
+================================ */
 
 .community-equation {
   position: relative;
@@ -427,7 +427,6 @@
   overflow: visible !important;
 }
 
-/* soft shimmer layer */
 .community-equation.pastel-shimmer {
   background: linear-gradient(
     90deg,
@@ -442,52 +441,5 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shimmerFlow 10s linear infinite;
-}
-
-/* writing/reveal overlay */
-.community-equation::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  width: 0%;
-  overflow: hidden;
-  white-space: pre-line;
-  color: rgba(255, 255, 255, 0.96);
-  -webkit-text-fill-color: transparent;
-  background: linear-gradient(
-    90deg,
-    #f2c792 0%,
-    #d7b0c5 20%,
-    #b88cf1 45%,
-    #cfd8ff 70%,
-    #d7b0c5 85%,
-    #f2c792 100%
-  );
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  transition: width 1.15s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-
-/* faint base so it exists before reveal */
-.community-equation::before {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  color: rgba(255, 255, 255, 0.10);
-  pointer-events: none;
-}
-
-/* active state when scrolled into view */
-.community-equation.is-writing::after {
-  width: 100%;
-}
-
-/* tiny glow while active */
-.community-equation.is-writing {
-  text-shadow:
-    0 0 18px rgba(191, 162, 255, 0.16),
-    0 0 28px rgba(255, 216, 176, 0.10);
+  animation: shimmerFlow 8s linear infinite;
 }
