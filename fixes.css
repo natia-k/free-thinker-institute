@@ -2787,3 +2787,143 @@
     grid-template-columns: 1fr !important;
   }
 }
+/* =========================================
+   HERO TILE + CARD READABILITY FIX
+   paste at VERY bottom of fixes.css
+   ========================================= */
+
+/* dashboard should use clean sans, not serif */
+.hero-dashboard-panel,
+.hero-dashboard-panel *:not(.hero-dash-featured-title) {
+  font-family: "Inter", "Roboto", system-ui, sans-serif !important;
+}
+
+/* keep only the featured title serif for contrast */
+.hero-dash-featured-title {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 500 !important;
+}
+
+/* remove the dark half-circle graphics that make tiles look odd */
+.hero-dash-tile::before,
+.hero-dash-tile-gold::before,
+.hero-dash-tile-lilac::before,
+.hero-dash-tile-dark::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* simplify tile backgrounds */
+.hero-dash-tile-gold {
+  background: #ded56e !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-lilac {
+  background: #d8c3dc !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-dark {
+  background: linear-gradient(180deg, #07090d 0%, #0b1018 100%) !important;
+  color: #f5f7fb !important;
+}
+
+/* cleaner tile text */
+.hero-dash-tile {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  padding: 16px !important;
+}
+
+.hero-dash-tile span {
+  position: relative !important;
+  z-index: 2 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.1 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: inherit !important;
+}
+
+.hero-dash-tile strong {
+  position: relative !important;
+  z-index: 2 !important;
+  font-size: 2rem !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.05em !important;
+  color: inherit !important;
+}
+
+/* make mosaic feel cleaner and less toy-like */
+.hero-dash-mosaic {
+  background: rgba(255,255,255,0.015) !important;
+}
+
+.hero-dash-tile::after {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.00) 42%,
+    rgba(255,255,255,0.03) 100%
+  ) !important;
+}
+
+/* improve readability of right-side cards */
+.hero-dash-label {
+  font-family: "Inter", "Roboto", system-ui, sans-serif !important;
+  font-size: 10px !important;
+  letter-spacing: 0.18em !important;
+  font-weight: 600 !important;
+  color: rgba(245,247,251,0.46) !important;
+}
+
+.hero-dash-label-dark {
+  color: rgba(17,17,17,0.45) !important;
+}
+
+.hero-dash-number,
+.hero-dash-time,
+.hero-dash-mini strong {
+  font-family: "Inter", "Roboto", system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  color: #f5f7fb !important;
+}
+
+.hero-dash-card-light .hero-dash-time,
+.hero-dash-card-light .hero-dash-copy-dark,
+.hero-dash-card-light .hero-dash-foot-dark,
+.hero-dash-mini-light strong,
+.hero-dash-mini-light .hero-dash-copy-dark {
+  color: #111 !important;
+}
+
+/* give next conversation card proper contrast */
+.hero-dash-card-light {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72)) !important;
+  border: 1px solid rgba(255,255,255,0.40) !important;
+}
+
+/* featured card should stay dark and elegant */
+.hero-dash-card-featured {
+  background:
+    linear-gradient(180deg, rgba(9,12,18,0.86), rgba(7,10,16,0.78)) !important;
+}
+
+/* slight size correction for better readability */
+.hero-dash-time {
+  font-size: 3rem !important;
+}
+
+.hero-dash-featured-title {
+  font-size: 2.55rem !important;
+  line-height: 0.9 !important;
+}
+
+.hero-dash-copy {
+  font-size: 0.98rem !important;
+  line-height: 1.55 !important;
+}
