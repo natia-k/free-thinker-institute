@@ -233,3 +233,22 @@
     letter-spacing: 3.6px !important;
   }
 }
+/* make poster slightly bigger so it nearly touches left/right edges */
+.about-poster-shell,
+.poster-wrap,
+.about-img-wrap {
+  width: min(96%, 760px) !important;
+  max-width: 760px !important;
+}
+
+.about-poster-image,
+.about-img {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* oval grows with poster */
+.poster-oval-container {
+  width: 172% !important;
+  height: 156% !important;
+}
