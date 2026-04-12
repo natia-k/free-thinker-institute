@@ -2927,3 +2927,122 @@
   font-size: 0.98rem !important;
   line-height: 1.55 !important;
 }
+/* =========================================
+   HERO MOSAIC TEXT SIZE FIX
+   paste at VERY bottom of fixes.css
+   ========================================= */
+
+/* make the 4 top-right tiles smaller + cleaner */
+.hero-dash-mosaic{
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+}
+
+.hero-dash-tile{
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  padding: 12px 12px 10px !important;
+  overflow: hidden !important;
+}
+
+/* small text tiles */
+.hero-dash-tile span{
+  font-family: "Inter", system-ui, sans-serif !important;
+  font-size: 0.72rem !important;
+  line-height: 1.05 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  color: inherit !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+}
+
+/* only the tile with number should show big number */
+.hero-dash-tile strong{
+  font-family: "Inter", system-ui, sans-serif !important;
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  color: inherit !important;
+  margin-top: auto !important;
+}
+
+/* the members tile needs more room */
+.hero-dash-tile-dark{
+  padding: 10px 12px !important;
+}
+
+.hero-dash-tile-dark span{
+  font-size: 0.66rem !important;
+  opacity: 0.92 !important;
+}
+
+.hero-dash-tile-dark strong{
+  font-size: 1.55rem !important;
+  margin-top: 6px !important;
+}
+
+/* top 2 pastel tiles should feel lighter */
+.hero-dash-tile-gold span,
+.hero-dash-tile-lilac span{
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+}
+
+/* bottom-right open tile */
+.hero-dash-tile-gold:last-child span{
+  font-size: 0.76rem !important;
+}
+
+/* stop any accidental overlap */
+.hero-dash-tile *{
+  position: relative !important;
+  z-index: 2 !important;
+  text-shadow: none !important;
+}
+
+/* make bottom cards more readable too */
+.hero-dash-mini{
+  padding: 16px !important;
+}
+
+.hero-dash-mini strong{
+  font-size: 1.7rem !important;
+}
+
+.hero-dash-mini .hero-dash-copy,
+.hero-dash-mini .hero-dash-copy-dark{
+  font-size: 0.82rem !important;
+  line-height: 1.35 !important;
+}
+
+/* next conversation card text balance */
+.hero-dash-time{
+  font-size: 2.25rem !important;
+  line-height: 0.9 !important;
+}
+
+.hero-dash-card-light .hero-dash-copy-dark{
+  font-size: 0.84rem !important;
+  line-height: 1.35 !important;
+  margin-top: 10px !important;
+}
+
+/* featured card a little tighter */
+.hero-dash-featured-title{
+  font-size: 2rem !important;
+  line-height: 0.92 !important;
+}
+
+@media (max-width: 1100px){
+  .hero-dash-tile span{
+    font-size: 0.68rem !important;
+  }
+
+  .hero-dash-tile-dark strong{
+    font-size: 1.35rem !important;
+  }
+}
