@@ -2248,3 +2248,218 @@
     grid-template-columns: 1fr;
   }
 }
+/* =================================
+   HERO REBALANCE FIX
+   paste at VERY BOTTOM of fixes.css
+   ================================= */
+
+.hero-dashboard {
+  min-height: 100vh;
+  padding-top: 116px;
+  padding-bottom: 64px;
+}
+
+.hero-dashboard-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(520px, 0.88fr);
+  gap: 36px;
+  align-items: center;
+}
+
+.hero-dashboard-copy {
+  max-width: 520px;
+  align-self: center;
+}
+
+.hero-dashboard-kicker {
+  margin-bottom: 20px;
+  opacity: 0.72;
+  letter-spacing: 0.16em;
+}
+
+.hero-dashboard-kicker::before {
+  width: 28px;
+  margin-right: 12px;
+}
+
+.hero-dashboard-title {
+  font-size: clamp(3.9rem, 6.2vw, 5.8rem) !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.045em !important;
+  max-width: 6.4ch !important;
+  margin: 0 !important;
+}
+
+.hero-dashboard-text {
+  max-width: 25rem !important;
+  margin-top: 24px !important;
+  font-size: 1rem !important;
+  line-height: 1.68 !important;
+}
+
+.hero-dashboard-actions {
+  margin-top: 24px !important;
+}
+
+.hero-dashboard-pills {
+  margin-top: 18px !important;
+  gap: 8px !important;
+}
+
+.hero-dashboard-pill {
+  font-size: 10px !important;
+  padding: 9px 12px !important;
+}
+
+.hero-dashboard-panel {
+  max-width: 590px !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: 0;
+  animation: none !important;
+}
+
+.hero-dash-grid {
+  grid-template-columns: 1fr 0.9fr !important;
+  grid-template-rows: 170px 150px 138px !important;
+  gap: 12px !important;
+}
+
+.hero-dash-card-main {
+  grid-template-columns: 1.05fr 205px !important;
+  min-height: 170px !important;
+}
+
+.hero-dash-main-copy {
+  padding: 22px 24px 20px !important;
+}
+
+.hero-dash-number {
+  font-size: 3.2rem !important;
+  margin: 8px 0 6px !important;
+}
+
+.hero-dash-copy {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  max-width: 24ch !important;
+}
+
+.hero-dash-live {
+  font-size: 10px !important;
+  letter-spacing: 0.16em !important;
+  padding: 7px 11px !important;
+}
+
+.hero-dash-tile {
+  padding: 12px !important;
+}
+
+.hero-dash-tile span {
+  font-size: 0.82rem !important;
+}
+
+.hero-dash-tile strong {
+  font-size: 1.75rem !important;
+}
+
+.hero-dash-card-light,
+.hero-dash-card-featured {
+  min-height: 150px !important;
+  padding: 18px 18px 16px !important;
+}
+
+.hero-dash-time {
+  font-size: 2.7rem !important;
+  line-height: 0.9 !important;
+}
+
+.hero-dash-featured-title {
+  font-size: 2.25rem !important;
+  line-height: 0.92 !important;
+  max-width: 7ch !important;
+}
+
+.hero-dash-card-stats {
+  min-height: 138px !important;
+  padding: 12px !important;
+  gap: 10px !important;
+}
+
+.hero-dash-mini {
+  min-height: 114px !important;
+  padding: 14px !important;
+}
+
+.hero-dash-mini strong {
+  font-size: 1.9rem !important;
+}
+
+.hero-dashboard-orb-gold,
+.hero-dashboard-orb-violet {
+  filter: blur(72px) !important;
+  opacity: 0.58 !important;
+}
+
+.hero-dashboard-orb-gold {
+  transform: translate(8%, 0) scale(0.92) !important;
+}
+
+.hero-dashboard-orb-violet {
+  transform: translate(0, 8%) scale(0.96) !important;
+}
+
+/* remove too much floating drama */
+.hero-dash-card:hover,
+.hero-dash-mini:hover {
+  transform: translateY(-2px) !important;
+}
+
+@media (max-width: 1100px) {
+  .hero-dashboard-inner {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  .hero-dashboard-copy {
+    max-width: 100% !important;
+  }
+
+  .hero-dashboard-panel {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .hero-dashboard-title {
+    max-width: 8ch !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-dashboard {
+    padding-top: 108px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .hero-dashboard-title {
+    font-size: clamp(3rem, 13vw, 4.8rem) !important;
+    max-width: 8ch !important;
+  }
+
+  .hero-dash-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+
+  .hero-dash-card-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-dash-mosaic {
+    min-height: 208px !important;
+  }
+
+  .hero-dash-card-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
