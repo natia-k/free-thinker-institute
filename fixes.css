@@ -2749,3 +2749,74 @@
 .hero-dash-tile:hover::after{
   opacity: 1 !important;
 }
+/* =========================================
+   TARGETED GLASS FIX
+   ========================================= */
+
+/* 1) NEXT CONVERSATION — brighter glass, keep same feel */
+.hero-dash-card-light{
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.20) 0%,
+    rgba(255,255,255,0.10) 100%
+  ) !important;
+  backdrop-filter: blur(18px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+  border: 1px solid rgba(255,255,255,0.22) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.30),
+    inset 0 -1px 0 rgba(255,255,255,0.04),
+    0 16px 38px rgba(0,0,0,0.18) !important;
+  color: #f5f7fb !important;
+}
+
+.hero-dash-card-light .hero-dash-label-dark,
+.hero-dash-card-light .hero-dash-copy-dark,
+.hero-dash-card-light .hero-dash-foot-dark{
+  color: rgba(245,247,251,0.74) !important;
+}
+
+.hero-dash-card-light .hero-dash-time{
+  color: #ffffff !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.10);
+}
+
+/* 2) 1.2k members tile — glassmorphism */
+.hero-dash-tile-dark,
+.hero-dash-tile-glass{
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(14px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(170%) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 12px 28px rgba(0,0,0,0.16) !important;
+  color: rgba(245,247,251,0.96) !important;
+}
+
+.hero-dash-tile-dark span,
+.hero-dash-tile-glass span{
+  color: rgba(245,247,251,0.94) !important;
+}
+
+/* 3) 03 / this month box — glassmorphism */
+.hero-dash-mini-light{
+  background: rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(14px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(170%) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 12px 28px rgba(0,0,0,0.14) !important;
+  color: #f5f7fb !important;
+}
+
+.hero-dash-mini-light .hero-dash-label-dark,
+.hero-dash-mini-light .hero-dash-copy-dark{
+  color: rgba(245,247,251,0.74) !important;
+}
+
+.hero-dash-mini-light strong{
+  color: #ffffff !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.10);
+}
