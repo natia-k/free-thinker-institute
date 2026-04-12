@@ -324,3 +324,18 @@
   display: inline-block;
   padding-bottom: 0.08em;
 }
+/* fix community heading clipping */
+.community-heading,
+.community-heading .kinetic-em {
+  overflow: visible !important;
+  max-width: none !important;
+  width: auto !important;
+  padding-right: 0.18em !important;
+  line-height: 1.08 !important;
+}
+
+/* specifically protect italic word */
+.community-heading .kinetic-em {
+  display: inline-block !important;
+  padding-right: 0.12em !important;
+}
