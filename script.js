@@ -266,19 +266,3 @@ if (prefersReducedMotion.matches) {
     0 0 26px rgba(255, 216, 176, 0.08);
 }
 /* community equation writing reveal on scroll */
-const communityEquation = document.querySelector(".community-equation");
-
-if (communityEquation) {
-  const equationObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          communityEquation.classList.add("is-writing");
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-
-  equationObserver.observe(communityEquation);
-}
