@@ -243,3 +243,31 @@ if (heroDashboardPanel) {
     heroDashboardPanel.style.transform = "translate3d(0,0,0)";
   });
 }
+// magnetic hover
+const magneticItems = document.querySelectorAll(
+  '.hero-dashboard-btn, .hero-dash-tile, .hero-card, .hero-box'
+);
+
+magneticItems.forEach((item) => {
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const moveX = (x - rect.width / 2) / 18;
+    const moveY = (y - rect.height / 2) / 18;
+
+    item.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.01)`;
+
+    item.style.boxShadow = `
+      0 18px 40px rgba(0,0,0,0.35),
+      0 0 35px rgba(139,92,246,0.14)
+    `;
+  });
+
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = 'translate(0px, 0px) scale(1)';
+    item.style.boxShadow = '';
+  });
+});
