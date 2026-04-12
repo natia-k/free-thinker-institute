@@ -182,3 +182,54 @@
     letter-spacing: 3px;
   }
 }
+/* =========================
+   POSTER SCALE UPGRADE
+   ========================= */
+
+.about-poster-shell {
+  width: min(92%, 640px) !important;
+}
+
+.about-poster-image {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* bigger, wider oval */
+.poster-oval-container {
+  width: 165% !important;
+  height: 152% !important;
+  transform: translate(-50%, -50%) scale(0.94) !important;
+}
+
+.about-poster-shell:hover .poster-oval-container {
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* make the oval text fill the path better */
+.oval-text-content {
+  font-size: 16px !important;
+  letter-spacing: 5.2px !important;
+  font-weight: 500 !important;
+}
+
+/* optional: slightly slower feels more elegant */
+.oval-text-svg {
+  animation: ovalSpin 28s linear infinite !important;
+}
+
+@media (max-width: 980px) {
+  .about-poster-shell {
+    width: min(88%, 500px) !important;
+  }
+
+  .poster-oval-container {
+    width: 158% !important;
+    height: 146% !important;
+  }
+
+  .oval-text-content {
+    font-size: 12px !important;
+    letter-spacing: 3.6px !important;
+  }
+}
