@@ -443,3 +443,55 @@
   color: transparent;
   animation: shimmerFlow 8s linear infinite;
 }
+/* ================================
+   COMMUNITY EQUATION SAFE REVEAL
+================================ */
+
+.community-equation {
+  position: relative;
+  display: inline-block;
+  overflow: visible !important;
+  line-height: 0.98 !important;
+}
+
+.community-equation.pastel-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f2c792 0%,
+    #d7b0c5 20%,
+    #b88cf1 45%,
+    #cfd8ff 70%,
+    #d7b0c5 85%,
+    #f2c792 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerFlow 8s linear infinite;
+}
+
+.community-equation .eq-line {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(4px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+}
+
+.community-equation.is-writing .eq-line-1 {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition-delay: 0.05s;
+}
+
+.community-equation.is-writing .eq-line-2 {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition-delay: 0.18s;
+}
