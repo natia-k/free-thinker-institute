@@ -288,7 +288,7 @@
 
 /* safe arrow */
 .what-link::after {
-  content: "→";
+  content: "\2192";
   display: inline-block;
   transform: none !important;
   filter: none !important;
