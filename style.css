@@ -1272,7 +1272,7 @@ nav {
 }
 
 .what-card ul li::before {
-  content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â";
+  content: "\2014";
   position: absolute;
   left: 0;
   color: var(--violet);
@@ -1293,7 +1293,7 @@ nav {
 }
 
 .what-link::after {
-  content: "ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â";
+  content: "\2192";
   font-size: 0.95rem;
 }
 
