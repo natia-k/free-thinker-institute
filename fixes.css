@@ -252,3 +252,44 @@
   width: 172% !important;
   height: 156% !important;
 }
+/* fix weird blue duplicated text in what-we-do cards */
+.what-card,
+.what-card * {
+  text-shadow: none !important;
+}
+
+.what-card li,
+.what-card a,
+.what-card p,
+.what-card span {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
+
+/* kill accidental duplicated pseudo text */
+.what-card li::before,
+.what-card li::after,
+.what-card a::before,
+.what-card a::after {
+  text-shadow: none !important;
+}
+
+/* make links clean */
+.what-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--violet);
+  font-family: var(--sans);
+  letter-spacing: 0.12em;
+}
+
+/* safe arrow */
+.what-link::after {
+  content: "→";
+  display: inline-block;
+  transform: none !important;
+  filter: none !important;
+}
