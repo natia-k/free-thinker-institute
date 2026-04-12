@@ -287,3 +287,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+/* satin glow tracking */
+document.querySelectorAll('.hero-dash-tile').forEach((tile) => {
+  tile.addEventListener('mousemove', (e) => {
+    const rect = tile.getBoundingClientRect();
+
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    tile.style.setProperty('--glow-x', `${x}%`);
+    tile.style.setProperty('--glow-y', `${y}%`);
+  });
+
+  tile.addEventListener('mouseleave', () => {
+    tile.style.setProperty('--glow-x', '22%');
+    tile.style.setProperty('--glow-y', '22%');
+  });
+});
