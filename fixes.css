@@ -400,3 +400,19 @@
 .learn-more .bento-item:hover::after {
   opacity: 1;
 }
+/* fix floating intro text in What We Do section */
+.what-header {
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  align-items: end !important;
+  gap: 3rem !important;
+}
+
+.what-intro {
+  align-self: end !important;
+  margin-top: 3.2rem !important;
+  padding-top: 0.4rem !important;
+  max-width: 480px !important;
+  line-height: 1.7 !important;
+  opacity: 0.88 !important;
+}
