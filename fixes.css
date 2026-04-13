@@ -3388,36 +3388,47 @@ height: 740px !important;
     opacity: 1;
   }
 }
-/* STOP rotating whole oval */
-.oval-text,
-.circular-text,
-.text-ring,
-.rotating-text,
-.oval-text-svg {
-  animation: none !important;
-  transform: none !important;
+/* =====================================
+   FINAL OVAL TEXT RING — MASTER OVERRIDE
+   paste at VERY BOTTOM
+===================================== */
+
+.poster-oval-container{
+  position:absolute !important;
+  top:50% !important;
+  left:50% !important;
+  width:185% !important;
+  height:165% !important;
+  transform:translate(-50%, -50%) !important;
+  z-index:3 !important;
+  pointer-events:none !important;
 }
 
-/* make the SVG text itself feel alive */
+.oval-text-svg{
+  width:100% !important;
+  height:100% !important;
+  overflow:visible !important;
+  animation:none !important;
+}
+
+.oval-text-content{
+  font-size:18px !important;
+  letter-spacing:6px !important;
+  font-weight:500 !important;
+}
+
+/* ONLY text rotates */
 .oval-text-svg text,
-.oval-text-svg textPath,
-.oval-text text,
-.oval-text textPath,
-.circular-text text,
-.circular-text textPath,
-.text-ring text,
-.text-ring textPath {
-  animation: ovalTextBreath 6s ease-in-out infinite alternate !important;
-  transform-origin: center center;
+.oval-text-svg textPath{
+  transform-origin:center center !important;
+  animation:ringTextSpin 26s linear infinite !important;
 }
 
-@keyframes ovalTextBreath {
-  0% {
-    opacity: 0.82;
-    letter-spacing: 3px;
+@keyframes ringTextSpin{
+  from{
+    transform:rotate(0deg);
   }
-  100% {
-    opacity: 1;
-    letter-spacing: 5px;
+  to{
+    transform:rotate(360deg);
   }
 }
