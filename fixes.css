@@ -3277,3 +3277,33 @@ footer a:hover,
 .hero-dash-tile-conversation span {
   color: #111 !important;
 }
+/* =========================================
+   NEXT CONVERSATION — exact selector
+   ========================================= */
+
+.hero-dash-card.hero-dash-card-light{
+  background: linear-gradient(
+    135deg,
+    #cdb8dc 0%,
+    #b7bfd6 45%,
+    #c9d8e4 100%
+  ) !important;
+  color: #111 !important;
+  border: 1px solid rgba(255,255,255,0.34) !important;
+  box-shadow:
+    0 10px 30px rgba(170,150,220,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.35) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+}
+
+.hero-dash-card.hero-dash-card-light .hero-dash-label-dark,
+.hero-dash-card.hero-dash-card-light .hero-dash-copy-dark,
+.hero-dash-card.hero-dash-card-light .hero-dash-foot-dark{
+  color: rgba(17,17,17,0.70) !important;
+}
+
+.hero-dash-card.hero-dash-card-light .hero-dash-time{
+  color: #111 !important;
+  text-shadow: none !important;
+}
