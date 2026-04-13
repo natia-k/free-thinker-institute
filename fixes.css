@@ -3333,3 +3333,17 @@ footer a:hover,
   width: 100% !important;
   height: 100% !important;
 }
+/* Make circular text ring sit farther than poster */
+.rotating-text,
+.circular-text,
+.text-ring,
+.oval-text {
+  width: 760px !important;
+  height: 760px !important;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  transform: translate(-50%, -50%) !important;
+  animation: slowOrbit 28s linear infinite !important;
+}
