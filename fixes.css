@@ -3432,3 +3432,16 @@ height: 740px !important;
     transform:rotate(360deg);
   }
 }
+/* =====================================
+   STICKY NAV
+===================================== */
+
+nav,
+.site-nav,
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
