@@ -3347,3 +3347,20 @@ footer a:hover,
   transform: translate(-50%, -50%) !important;
   animation: slowOrbit 28s linear infinite !important;
 }
+/* Bigger oval ring around poster */
+.rotating-text,
+.circular-text,
+.text-ring,
+.oval-text {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+
+  width: 860px !important;   /* wider */
+  height: 720px !important;  /* slightly shorter */
+
+  transform: translate(-50%, -50%) !important;
+  transform-origin: center center !important;
+
+  animation: slowOrbit 30s linear infinite !important;
+}
