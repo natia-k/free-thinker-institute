@@ -1,27 +1,20 @@
-/* =================================
-   CLEAN FIXES FILE
-   ================================= */
-
 /* =========================
-   ABOUT / POSTER
+   FINAL ABOUT / POSTER FIX
    ========================= */
 
 .about-poster-shell {
   position: relative;
-  width: min(96%, 760px);
-  max-width: 760px;
+  width: min(78%, 520px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
 }
 
-.about-poster-image,
-.about-img {
+.about-poster-image {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: none;
   height: auto;
   display: block;
   object-fit: contain;
@@ -33,9 +26,9 @@
 .poster-oval-container {
   position: absolute;
   inset: 50%;
-  width: 172%;
-  height: 156%;
-  transform: translate(-50%, -50%) scale(0.94);
+  width: 142%;
+  height: 142%;
+  transform: translate(-50%, -50%) scale(0.9);
   transform-origin: center;
   opacity: 0;
   pointer-events: none;
@@ -52,15 +45,15 @@
   width: 100%;
   height: 100%;
   overflow: visible;
-  animation: ovalSpin 28s linear infinite;
+  animation: ovalSpin 22s linear infinite;
 }
 
 .oval-text-content {
   fill: rgba(47, 38, 34, 0.82);
   font-family: "Inter", system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 5.2px;
+  letter-spacing: 4px;
   text-transform: uppercase;
 }
 
@@ -89,10 +82,6 @@
   z-index: 1;
 }
 
-/* =========================
-   HEADLINE SAFETY
-   ========================= */
-
 .community-heading,
 .about-heading,
 .hero-title,
@@ -107,38 +96,18 @@
   max-width: 100%;
 }
 
+.community-heading .kinetic-em {
+  display: inline !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  padding-right: 0 !important;
+}
+
 .community-header,
 .community-header > div,
 .community-heading {
   overflow: visible !important;
 }
-
-.community-heading .kinetic-em {
-  display: inline-block !important;
-  white-space: normal !important;
-  overflow: visible !important;
-  padding-right: 0.12em !important;
-  line-height: 1.08 !important;
-}
-
-.editorial-title,
-.editorial-title em,
-.editorial-header h2 {
-  line-height: 1.22 !important;
-  padding-bottom: 0.18em !important;
-  margin-bottom: 0.28em !important;
-  overflow: visible !important;
-  display: block;
-}
-
-.editorial-title em {
-  display: inline-block;
-  padding-bottom: 0.08em;
-}
-
-/* =========================
-   CARD EDGE GLOW
-   ========================= */
 
 .hero-card,
 .comm-card,
@@ -188,10 +157,102 @@
   opacity: 1;
 }
 
+@media (max-width: 980px) {
+  .about.about-bright {
+    grid-template-columns: 1fr !important;
+  }
+
+  .poster-column {
+    min-height: 520px !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.24);
+  }
+
+  .about-poster-shell {
+    width: min(82%, 420px);
+  }
+
+  .poster-oval-container {
+    width: 150%;
+    height: 150%;
+  }
+
+  .oval-text-content {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+}
 /* =========================
-   WHAT WE DO CLEANUP
+   POSTER SCALE UPGRADE
    ========================= */
 
+.about-poster-shell {
+  width: min(92%, 640px) !important;
+}
+
+.about-poster-image {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* bigger, wider oval */
+.poster-oval-container {
+  width: 165% !important;
+  height: 152% !important;
+  transform: translate(-50%, -50%) scale(0.94) !important;
+}
+
+.about-poster-shell:hover .poster-oval-container {
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* make the oval text fill the path better */
+.oval-text-content {
+  font-size: 16px !important;
+  letter-spacing: 5.2px !important;
+  font-weight: 500 !important;
+}
+
+/* optional: slightly slower feels more elegant */
+.oval-text-svg {
+  animation: ovalSpin 28s linear infinite !important;
+}
+
+@media (max-width: 980px) {
+  .about-poster-shell {
+    width: min(88%, 500px) !important;
+  }
+
+  .poster-oval-container {
+    width: 158% !important;
+    height: 146% !important;
+  }
+
+  .oval-text-content {
+    font-size: 12px !important;
+    letter-spacing: 3.6px !important;
+  }
+}
+/* make poster slightly bigger so it nearly touches left/right edges */
+.about-poster-shell,
+.poster-wrap,
+.about-img-wrap {
+  width: min(96%, 760px) !important;
+  max-width: 760px !important;
+}
+
+.about-poster-image,
+.about-img {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* oval grows with poster */
+.poster-oval-container {
+  width: 172% !important;
+  height: 156% !important;
+}
+/* fix weird blue duplicated text in what-we-do cards */
 .what-card,
 .what-card * {
   text-shadow: none !important;
@@ -207,6 +268,7 @@
   filter: none !important;
 }
 
+/* kill accidental duplicated pseudo text */
 .what-card li::before,
 .what-card li::after,
 .what-card a::before,
@@ -214,6 +276,7 @@
   text-shadow: none !important;
 }
 
+/* make links clean */
 .what-link {
   display: inline-flex;
   align-items: center;
@@ -223,40 +286,67 @@
   letter-spacing: 0.12em;
 }
 
+/* safe arrow */
 .what-link::after {
   content: "\2192";
   display: inline-block;
   transform: none !important;
   filter: none !important;
 }
-
-.what-header {
-  display: grid !important;
-  grid-template-columns: 1.15fr 0.85fr !important;
-  align-items: end !important;
-  gap: 3rem !important;
-}
-
+/* fix weird faded intro text in what-we-do section */
 .what-intro {
   color: rgba(245, 247, 251, 0.88) !important;
   opacity: 1 !important;
   font-weight: 400 !important;
   line-height: 1.7 !important;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.22);
-  max-width: 480px !important;
-  align-self: end !important;
-  margin-top: 3.2rem !important;
-  padding-top: 0.4rem !important;
+  max-width: 520px;
 }
 
+/* if reveal animation is making it look ghosted */
 .what-intro.reveal-up {
   transform: none !important;
   filter: none !important;
 }
+/* fix headline clipping in career section */
+.editorial-title,
+.editorial-title em,
+.editorial-header h2 {
+  line-height: 1.22 !important;
+  padding-bottom: 0.18em !important;
+  margin-bottom: 0.28em !important;
+  overflow: visible !important;
+  display: block;
+}
 
-/* =========================
-   BENTO TOP GLOW
-   ========================= */
+/* make italic word safe */
+.editorial-title em {
+  display: inline-block;
+  padding-bottom: 0.08em;
+}
+/* fix community heading clipping */
+.community-heading,
+.community-heading .kinetic-em {
+  overflow: visible !important;
+  max-width: none !important;
+  width: auto !important;
+  padding-right: 0.18em !important;
+  line-height: 1.08 !important;
+}
+
+/* specifically protect italic word */
+.community-heading .kinetic-em {
+  display: inline-block !important;
+  padding-right: 0.12em !important;
+}
+/* =================================
+   BENTO TOP GLOW ON HOVER
+   ================================= */
+
+.learn-more .bento-item {
+  position: relative;
+  overflow: hidden;
+}
 
 .learn-more .bento-item::before {
   content: "";
@@ -287,6 +377,7 @@
   transform: translateY(0) scaleX(1);
 }
 
+/* tiny soft glow under the line */
 .learn-more .bento-item::after {
   content: "";
   position: absolute;
@@ -309,16 +400,58 @@
 .learn-more .bento-item:hover::after {
   opacity: 1;
 }
+/* fix floating intro text in What We Do section */
+.what-header {
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  align-items: end !important;
+  gap: 3rem !important;
+}
 
-/* =========================
-   COMMUNITY EQUATION
-   ========================= */
+.what-intro {
+  align-self: end !important;
+  margin-top: 3.2rem !important;
+  padding-top: 0.4rem !important;
+  max-width: 480px !important;
+  line-height: 1.7 !important;
+  opacity: 0.88 !important;
+}
+/* ================================
+   COMMUNITY EQUATION SHIMMER
+================================ */
 
 .community-equation {
   position: relative;
   display: inline-block;
   line-height: 0.98 !important;
   overflow: visible !important;
+}
+
+.community-equation.pastel-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f2c792 0%,
+    #d7b0c5 20%,
+    #b88cf1 45%,
+    #cfd8ff 70%,
+    #d7b0c5 85%,
+    #f2c792 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerFlow 8s linear infinite;
+}
+/* ================================
+   COMMUNITY EQUATION SAFE REVEAL
+================================ */
+
+.community-equation {
+  position: relative;
+  display: inline-block;
+  overflow: visible !important;
+  line-height: 0.98 !important;
 }
 
 .community-equation.pastel-shimmer {
@@ -348,23 +481,177 @@
     transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
     filter 0.45s ease;
 }
-
 .community-equation.is-writing .eq-line-1 {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
   transition-delay: 0.05s;
 }
 
 .community-equation.is-writing .eq-line-2 {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
   transition-delay: 0.18s;
 }
+/* =========================
+   FINAL ABOUT / POSTER FIX
+   ========================= */
 
-@keyframes shimmerFlow {
-  from { background-position: 0% 50%; }
-  to { background-position: 220% 50%; }
+.about-poster-shell {
+  position: relative;
+  width: min(78%, 520px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+.about-poster-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+}
+
+.poster-oval-container {
+  position: absolute;
+  inset: 50%;
+  width: 142%;
+  height: 142%;
+  transform: translate(-50%, -50%) scale(0.9);
+  transform-origin: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.45s ease, transform 0.55s ease;
+}
+
+.about-poster-shell:hover .poster-oval-container {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.oval-text-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: ovalSpin 22s linear infinite;
+}
+
+.oval-text-content {
+  fill: rgba(47, 38, 34, 0.82);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+@keyframes ovalSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.about-content-bright {
+  position: relative;
+}
+
+.about-content-bright::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 26%),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 0%, transparent 18%);
+  z-index: 0;
+}
+
+.about-content-bright > * {
+  position: relative;
+  z-index: 1;
+}
+
+.community-heading,
+.about-heading,
+.hero-title,
+.intentions-heading,
+.what-heading,
+.goals-heading,
+.learn-heading,
+.editorial-title {
+  overflow: visible !important;
+  line-height: 1.08 !important;
+  padding-bottom: 0.08em;
+  max-width: 100%;
+}
+
+.community-heading .kinetic-em {
+  display: inline !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  padding-right: 0 !important;
+}
+
+.community-header,
+.community-header > div,
+.community-heading {
+  overflow: visible !important;
+}
+
+.hero-card,
+.comm-card,
+.editorial-card,
+.bento-item,
+.what-card,
+.quiz-question,
+.pathfinder-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::after,
+.comm-card::after,
+.editorial-card::after,
+.bento-item::after,
+.what-card::after,
+.quiz-question::after,
+.pathfinder-shell::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  padding: 1px;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255,255,255,0.28),
+    rgba(255,255,255,0.10) 18%,
+    transparent 52%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.hero-card:hover::after,
+.comm-card:hover::after,
+.editorial-card:hover::after,
+.bento-item:hover::after,
+.what-card:hover::after,
+.quiz-question:hover::after,
+.pathfinder-shell:hover::after {
+  opacity: 1;
+}
 
 @media (max-width: 980px) {
   .about.about-bright {
@@ -378,16 +665,3206 @@
   }
 
   .about-poster-shell {
-    width: min(88%, 500px);
+    width: min(82%, 420px);
   }
 
   .poster-oval-container {
-    width: 158%;
-    height: 146%;
+    width: 150%;
+    height: 150%;
   }
 
   .oval-text-content {
-    font-size: 12px;
-    letter-spacing: 3.6px;
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+}
+/* =========================
+   POSTER SCALE UPGRADE
+   ========================= */
+
+.about-poster-shell {
+  width: min(92%, 640px) !important;
+}
+
+.about-poster-image {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* bigger, wider oval */
+.poster-oval-container {
+  width: 165% !important;
+  height: 152% !important;
+  transform: translate(-50%, -50%) scale(0.94) !important;
+}
+
+.about-poster-shell:hover .poster-oval-container {
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* make the oval text fill the path better */
+.oval-text-content {
+  font-size: 16px !important;
+  letter-spacing: 5.2px !important;
+  font-weight: 500 !important;
+}
+
+/* optional: slightly slower feels more elegant */
+.oval-text-svg {
+  animation: ovalSpin 28s linear infinite !important;
+}
+
+@media (max-width: 980px) {
+  .about-poster-shell {
+    width: min(88%, 500px) !important;
+  }
+
+  .poster-oval-container {
+    width: 158% !important;
+    height: 146% !important;
+  }
+
+  .oval-text-content {
+    font-size: 12px !important;
+    letter-spacing: 3.6px !important;
+  }
+}
+/* make poster slightly bigger so it nearly touches left/right edges */
+.about-poster-shell,
+.poster-wrap,
+.about-img-wrap {
+  width: min(96%, 760px) !important;
+  max-width: 760px !important;
+}
+
+.about-poster-image,
+.about-img {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* oval grows with poster */
+.poster-oval-container {
+  width: 172% !important;
+  height: 156% !important;
+}
+/* fix weird blue duplicated text in what-we-do cards */
+.what-card,
+.what-card * {
+  text-shadow: none !important;
+}
+
+.what-card li,
+.what-card a,
+.what-card p,
+.what-card span {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
+
+/* kill accidental duplicated pseudo text */
+.what-card li::before,
+.what-card li::after,
+.what-card a::before,
+.what-card a::after {
+  text-shadow: none !important;
+}
+
+/* make links clean */
+.what-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--violet);
+  font-family: var(--sans);
+  letter-spacing: 0.12em;
+}
+
+/* safe arrow */
+.what-link::after {
+  content: "\2192";
+  display: inline-block;
+  transform: none !important;
+  filter: none !important;
+}
+/* fix weird faded intro text in what-we-do section */
+.what-intro {
+  color: rgba(245, 247, 251, 0.88) !important;
+  opacity: 1 !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.22);
+  max-width: 520px;
+}
+
+/* if reveal animation is making it look ghosted */
+.what-intro.reveal-up {
+  transform: none !important;
+  filter: none !important;
+}
+/* fix headline clipping in career section */
+.editorial-title,
+.editorial-title em,
+.editorial-header h2 {
+  line-height: 1.22 !important;
+  padding-bottom: 0.18em !important;
+  margin-bottom: 0.28em !important;
+  overflow: visible !important;
+  display: block;
+}
+
+/* make italic word safe */
+.editorial-title em {
+  display: inline-block;
+  padding-bottom: 0.08em;
+}
+/* fix community heading clipping */
+.community-heading,
+.community-heading .kinetic-em {
+  overflow: visible !important;
+  max-width: none !important;
+  width: auto !important;
+  padding-right: 0.18em !important;
+  line-height: 1.08 !important;
+}
+
+/* specifically protect italic word */
+.community-heading .kinetic-em {
+  display: inline-block !important;
+  padding-right: 0.12em !important;
+}
+/* =================================
+   BENTO TOP GLOW ON HOVER
+   ================================= */
+
+.learn-more .bento-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-more .bento-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 210, 160, 0),
+    rgba(255, 210, 160, 0.85) 20%,
+    rgba(167, 139, 250, 0.95) 50%,
+    rgba(255, 210, 160, 0.85) 80%,
+    rgba(255, 210, 160, 0)
+  );
+  opacity: 0;
+  transform: translateY(-6px) scaleX(0.92);
+  filter: blur(0.2px);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.learn-more .bento-item:hover::before {
+  opacity: 1;
+  transform: translateY(0) scaleX(1);
+}
+
+/* tiny soft glow under the line */
+.learn-more .bento-item::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10%;
+  width: 80%;
+  height: 28px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(120, 119, 255, 0.16),
+    rgba(255, 210, 160, 0.08) 45%,
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.32s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.learn-more .bento-item:hover::after {
+  opacity: 1;
+}
+/* fix floating intro text in What We Do section */
+.what-header {
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  align-items: end !important;
+  gap: 3rem !important;
+}
+
+.what-intro {
+  align-self: end !important;
+  margin-top: 3.2rem !important;
+  padding-top: 0.4rem !important;
+  max-width: 480px !important;
+  line-height: 1.7 !important;
+  opacity: 0.88 !important;
+}
+/* ================================
+   COMMUNITY EQUATION SHIMMER
+================================ */
+
+.community-equation {
+  position: relative;
+  display: inline-block;
+  line-height: 0.98 !important;
+  overflow: visible !important;
+}
+
+.community-equation.pastel-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f2c792 0%,
+    #d7b0c5 20%,
+    #b88cf1 45%,
+    #cfd8ff 70%,
+    #d7b0c5 85%,
+    #f2c792 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerFlow 8s linear infinite;
+}
+/* =========================================
+   HERO DASHBOARD â€” FINAL CLEAN VERSION
+   ========================================= */
+
+.hero.hero-dashboard{
+  position: relative;
+  min-height: calc(100vh - 72px);
+  padding: 92px 0 56px !important;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero.hero-dashboard::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(200,169,107,0.07), transparent 30%),
+    radial-gradient(circle at 82% 22%, rgba(99,102,241,0.08), transparent 28%);
+  pointer-events: none;
+}
+
+.hero-dashboard-inner{
+  position: relative;
+  z-index: 2;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.02fr) minmax(540px, 0.98fr) !important;
+  gap: 38px !important;
+  align-items: center !important;
+}
+
+.hero-dashboard-copy{
+  max-width: 560px !important;
+  padding-top: 14px !important;
+}
+
+.hero-dashboard-kicker{
+  margin-bottom: 22px !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  opacity: 0.68;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245,247,251,0.7);
+}
+
+.hero-dashboard-kicker::before{
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: rgba(245,247,251,0.22);
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.hero-dashboard-title{
+  margin: 0 !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 500;
+  font-size: clamp(4.25rem, 6.4vw, 6.15rem) !important;
+  line-height: 0.91 !important;
+  letter-spacing: -0.045em !important;
+  max-width: 6.9ch !important;
+}
+
+.hero-dashboard-title em{
+  font-style: italic;
+  background: linear-gradient(90deg, #e7c88f 0%, #d7b3c8 34%, #b58df0 68%, #dbe6ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-dashboard-text{
+  max-width: 26rem !important;
+  margin-top: 24px !important;
+  color: rgba(245,247,251,0.72) !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.72 !important;
+  font-weight: 400 !important;
+}
+
+.hero-dashboard-actions{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px !important;
+}
+
+.hero-dashboard-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 15px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.hero-dashboard-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+.hero-dashboard-btn-primary{
+  background: linear-gradient(
+    135deg,
+    rgba(143,134,255,0.18),
+    rgba(210,178,122,0.12)
+  ) !important;
+  border-color: rgba(184,140,241,0.26) !important;
+}
+
+.hero-dashboard-btn-secondary{
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.hero-dashboard-pills{
+  display: none !important;
+}
+
+.hero-dashboard-panel{
+  position: relative;
+  max-width: 620px !important;
+  width: 100%;
+  margin-left: auto !important;
+  transition: transform 0.28s ease;
+  will-change: transform;
+}
+
+.hero-dashboard-orb{
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.52 !important;
+  filter: blur(76px) !important;
+}
+
+.hero-dashboard-orb-gold{
+  width: 28rem;
+  height: 28rem;
+  right: 6%;
+  top: 18%;
+  background: radial-gradient(circle, rgba(210,178,122,0.2), transparent 72%);
+}
+
+.hero-dashboard-orb-violet{
+  width: 20rem;
+  height: 20rem;
+  left: 4%;
+  top: 10%;
+  background: radial-gradient(circle, rgba(99,102,241,0.12), transparent 72%);
+}
+
+.hero-dash-glow{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  right: 58px;
+  top: 130px;
+  filter: blur(42px);
+  background: radial-gradient(circle, rgba(210,178,122,0.18), rgba(143,134,255,0.08) 58%, transparent 76%);
+  pointer-events: none;
+}
+
+.hero-dash-grid{
+  width: min(100%, 620px) !important;
+  display: grid !important;
+  grid-template-columns: 1.05fr 0.95fr !important;
+  grid-template-rows: 178px 154px 146px !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-dash-card{
+  position: relative;
+  min-width: 0;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 28px !important;
+  overflow: hidden;
+  background: rgba(12,16,24,0.72) !important;
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 24px 70px rgba(0,0,0,0.24) !important;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.hero-dash-card:hover,
+.hero-dash-mini:hover{
+  transform: translateY(-2px) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 28px 80px rgba(0,0,0,0.28) !important;
+}
+
+.hero-dash-card-main{
+  grid-column: 1 / span 2 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 214px !important;
+  min-height: 178px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.hero-dash-main-copy{
+  padding: 26px 28px 22px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.hero-dash-label{
+  margin: 0;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 10px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  color: rgba(245,247,251,0.46) !important;
+}
+
+.hero-dash-label-dark{
+  color: rgba(17,17,17,0.45) !important;
+}
+
+.hero-dash-number{
+  margin: 8px 0 6px !important;
+  font-size: 3.2rem !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.05em !important;
+  font-weight: 700 !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+}
+
+.hero-dash-copy{
+  margin: 0;
+  color: rgba(245,247,251,0.7) !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  line-height: 1.55 !important;
+  font-size: 0.94rem !important;
+  max-width: 25ch !important;
+}
+
+.hero-dash-copy-dark{
+  color: rgba(17,17,17,0.66) !important;
+}
+
+.hero-dash-live{
+  display: none !important;
+}
+
+/* top-right tiles: clean, no dirty cutout gimmicks */
+.hero-dash-mosaic{
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  gap: 10px !important;
+  min-height: 100% !important;
+  padding: 10px !important;
+  background: transparent !important;
+  border-left: none !important;
+}
+
+.hero-dash-tile{
+  position: relative !important;
+  overflow: hidden !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  border: none !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: transform .2s ease, filter .2s ease !important;
+}
+
+.hero-dash-tile:hover{
+  transform: translateY(-1px) !important;
+  filter: brightness(1.02) !important;
+}
+
+.hero-dash-tile::before,
+.hero-dash-tile::after{
+  content: none !important;
+  display: none !important;
+}
+
+.hero-dash-tile-ivory{
+  background: #f2eee6 !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-lavender{
+  background: #ddd6e6 !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-glass{
+  background: rgba(255,255,255,0.04) !important;
+  color: #f5f7fb !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.hero-dash-tile span{
+  position: absolute !important;
+  left: 14px !important;
+  top: 14px !important;
+  z-index: 3 !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 0.66rem !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: inherit !important;
+  opacity: 0.86 !important;
+}
+
+.hero-dash-tile-glass span{
+  top: auto !important;
+  bottom: 14px !important;
+  left: 14px !important;
+  color: #f5f7fb !important;
+}
+
+.hero-dash-tile small{
+  position: absolute !important;
+  left: 14px !important;
+  bottom: 14px !important;
+  z-index: 3 !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 0.6rem !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: inherit !important;
+  opacity: 0.62 !important;
+}
+
+.hero-dash-card-light,
+.hero-dash-card-featured{
+  min-height: 154px !important;
+  padding: 20px 20px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.hero-dash-card-light{
+  background: linear-gradient(180deg, rgba(248,243,236,0.96), rgba(240,234,226,0.92)) !important;
+  color: #111 !important;
+  border-color: rgba(255,255,255,0.34) !important;
+}
+
+.hero-dash-card-featured{
+  background: linear-gradient(180deg, rgba(8,10,16,0.96), rgba(5,7,12,0.92)) !important;
+}
+
+.hero-dash-time{
+  margin: 8px 0 0 !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: 2.7rem !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.04em !important;
+  font-weight: 500 !important;
+  color: #111 !important;
+}
+
+.hero-dash-foot{
+  display: none !important;
+}
+
+.hero-dash-featured-title{
+  margin: 8px 0 10px !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 500 !important;
+  font-size: 2.15rem !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.04em !important;
+  max-width: 7ch !important;
+}
+
+.hero-dash-tags{
+  display: none !important;
+}
+
+.hero-dash-card-stats{
+  grid-column: 1 / span 2 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  gap: 12px !important;
+  padding: 14px !important;
+  min-height: 146px !important;
+}
+
+.hero-dash-mini{
+  min-width: 0;
+  min-height: 118px !important;
+  padding: 16px !important;
+  border-radius: 22px !important;
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  font-family: "Roboto", system-ui, sans-serif !important;
+}
+
+.hero-dash-mini strong{
+  display: block !important;
+  font-size: 1.95rem !important;
+  line-height: 1 !important;
+  letter-spacing: -0.05em !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+}
+
+.hero-dash-mini-light{
+  background: rgba(255,255,255,0.58) !important;
+  border-color: rgba(255,255,255,0.45) !important;
+  color: #111 !important;
+}
+
+@media (max-width: 1100px){
+  .hero-dashboard-inner{
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+  }
+
+  .hero-dashboard-copy{
+    max-width: 100% !important;
+  }
+
+  .hero-dashboard-panel{
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .hero-dashboard-title{
+    max-width: 8ch !important;
+  }
+}
+
+@media (max-width: 760px){
+  .hero.hero-dashboard{
+    padding-top: 108px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .hero-dashboard-title{
+    font-size: clamp(3.3rem, 13vw, 4.9rem) !important;
+    max-width: 8ch !important;
+  }
+
+  .hero-dash-grid{
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+
+  .hero-dash-card-main{
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-dash-mosaic{
+    min-height: 200px !important;
+  }
+
+  .hero-dash-card-stats{
+    grid-template-columns: 1fr !important;
+  }
+}
+/* =========================================
+   HERO FINAL TIGHTENING PASS
+   ========================================= */
+
+/* keep serif only for main artistic moments */
+.hero-dashboard-title,
+.hero-dash-featured-title {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+/* everything functional = Roboto */
+.hero-dashboard-kicker,
+.hero-dashboard-text,
+.hero-dashboard-btn,
+.hero-dash-label,
+.hero-dash-copy,
+.hero-dash-number,
+.hero-dash-time,
+.hero-dash-mini,
+.hero-dash-mini strong,
+.hero-dash-tile span,
+.hero-dash-tile small,
+.hero-dash-foot,
+.hero-dash-tags span,
+.hero-dashboard-panel *:not(.hero-dash-featured-title):not(.hero-dashboard-title) {
+  font-family: "Roboto", system-ui, sans-serif !important;
+}
+
+/* bring back elegant top glow line */
+.hero-dash-card::before,
+.hero-dash-mini::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 18px !important;
+  right: 18px !important;
+  height: 1.5px !important;
+  border-radius: 999px !important;
+  opacity: 0 !important;
+  background: linear-gradient(
+    90deg,
+    rgba(242,199,146,0) 0%,
+    rgba(242,199,146,0.92) 18%,
+    rgba(215,176,197,0.92) 38%,
+    rgba(184,140,241,0.92) 58%,
+    rgba(207,216,255,0.92) 78%,
+    rgba(242,199,146,0) 100%
+  ) !important;
+  background-size: 220% 100% !important;
+  transform: scaleX(0.76) !important;
+  transform-origin: center !important;
+  transition: opacity 0.28s ease, transform 0.3s ease !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+}
+
+.hero-dash-card:hover::before,
+.hero-dash-mini:hover::before {
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+  animation: heroTopShiver 1.8s linear infinite !important;
+}
+
+@keyframes heroTopShiver {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* make right panel a touch more compact */
+.hero-dashboard-panel {
+  max-width: 600px !important;
+}
+
+.hero-dash-grid {
+  width: min(100%, 600px) !important;
+  grid-template-columns: 1.06fr 0.94fr !important;
+  grid-template-rows: 168px 148px 136px !important;
+  gap: 12px !important;
+}
+
+.hero-dash-card-main {
+  grid-template-columns: 1fr 188px !important;
+  min-height: 168px !important;
+}
+
+.hero-dash-main-copy {
+  padding: 24px 24px 20px !important;
+}
+
+/* 4 top boxes smaller */
+.hero-dash-mosaic {
+  gap: 8px !important;
+  padding: 8px !important;
+}
+
+.hero-dash-tile {
+  border-radius: 16px !important;
+}
+
+/* brighter, cleaner colors */
+.hero-dash-tile-ivory {
+  background: #f7f3ea !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-lavender {
+  background: #e3daf0 !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-glass {
+  background: rgba(255,255,255,0.06) !important;
+  color: #f5f7fb !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+/* smaller tile typography */
+.hero-dash-tile span {
+  left: 12px !important;
+  top: 12px !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.09em !important;
+  font-weight: 600 !important;
+  opacity: 0.9 !important;
+}
+
+.hero-dash-tile-glass span {
+  top: auto !important;
+  bottom: 12px !important;
+  left: 12px !important;
+}
+
+.hero-dash-tile small {
+  left: 12px !important;
+  bottom: 12px !important;
+  font-size: 0.56rem !important;
+  letter-spacing: 0.08em !important;
+  opacity: 0.66 !important;
+}
+
+/* slightly cleaner inner card typography */
+.hero-dash-number {
+  font-size: 3rem !important;
+}
+
+.hero-dash-copy {
+  font-size: 0.92rem !important;
+  line-height: 1.5 !important;
+}
+
+.hero-dash-time {
+  font-size: 2.45rem !important;
+  line-height: 0.9 !important;
+}
+
+.hero-dash-featured-title {
+  font-size: 2rem !important;
+  line-height: 0.92 !important;
+}
+
+.hero-dash-mini {
+  min-height: 110px !important;
+  padding: 14px !important;
+}
+
+.hero-dash-mini strong {
+  font-size: 1.75rem !important;
+}
+
+/* optional: make core values box feel less empty */
+.hero-dash-tags {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin-top: 8px !important;
+}
+
+.hero-dash-tags span {
+  padding: 7px 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  background: rgba(255,255,255,0.03) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: rgba(245,247,251,0.72) !important;
+}
+/* =========================================
+   HERO FINAL ENERGY PASS
+   ========================================= */
+
+/* headline contrast */
+.hero-dashboard-title{
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+}
+
+.hero-dashboard-title em{
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.06em !important;
+  background: linear-gradient(
+    90deg,
+    #f0c78c 0%,
+    #d9b1c8 32%,
+    #a88cff 68%,
+    #d9e6ff 100%
+  ) !important;
+  background-size: 220% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  animation: heroGradientShift 7s linear infinite !important;
+}
+
+/* make hero less static overall */
+.hero-dashboard-panel{
+  animation: heroPanelBreath 8s ease-in-out infinite !important;
+}
+
+.hero-dashboard-orb-gold{
+  animation: heroOrbGoldMove 11s ease-in-out infinite alternate !important;
+}
+
+.hero-dashboard-orb-violet{
+  animation: heroOrbVioletMove 13s ease-in-out infinite alternate !important;
+}
+
+.hero-dash-glow{
+  animation: heroGlowPulse 7s ease-in-out infinite alternate !important;
+}
+
+/* 4 boxes: distinct colors */
+.hero-dash-tile-ivory{
+  background: linear-gradient(180deg, #faf6ee 0%, #f1e7d7 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-lavender{
+  background: linear-gradient(180deg, #eadfff 0%, #d8c7f2 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dash-tile-glass{
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.03) 100%
+  ) !important;
+  color: #f5f7fb !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+/* make the 4th box a warmer peach tone instead of repeating ivory */
+.hero-dash-mosaic .hero-dash-tile:nth-child(4){
+  background: linear-gradient(180deg, #f3dfd2 0%, #ebd2c2 100%) !important;
+  color: #111 !important;
+}
+
+/* subtle motion for each tile so they don't feel dead */
+.hero-dash-mosaic .hero-dash-tile:nth-child(1){
+  animation: tileFloat1 7s ease-in-out infinite;
+}
+.hero-dash-mosaic .hero-dash-tile:nth-child(2){
+  animation: tileFloat2 8s ease-in-out infinite;
+}
+.hero-dash-mosaic .hero-dash-tile:nth-child(3){
+  animation: tileFloat3 9s ease-in-out infinite;
+}
+.hero-dash-mosaic .hero-dash-tile:nth-child(4){
+  animation: tileFloat4 7.5s ease-in-out infinite;
+}
+
+.hero-dash-tile{
+  transition: transform .24s ease, filter .24s ease, box-shadow .24s ease !important;
+}
+
+.hero-dash-tile:hover{
+  transform: translateY(-2px) scale(1.015) !important;
+  filter: brightness(1.03) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    0 14px 30px rgba(0,0,0,0.14) !important;
+}
+
+/* labels */
+.hero-dash-tile span{
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 0.62rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  opacity: 0.9 !important;
+}
+
+.hero-dash-tile small{
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 0.56rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  opacity: 0.66 !important;
+}
+
+/* top glow line should always have a little life */
+.hero-dash-card::before,
+.hero-dash-mini::before{
+  opacity: 0.42 !important;
+  transform: scaleX(1) !important;
+  animation: heroTopShiver 4.5s linear infinite !important;
+}
+
+/* keyframes */
+@keyframes heroGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes heroPanelBreath {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes heroOrbGoldMove {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(14px,-10px,0) scale(1.05); }
+}
+
+@keyframes heroOrbVioletMove {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  100% { transform: translate3d(-12px,16px,0) scale(1.04); }
+}
+
+@keyframes heroGlowPulse {
+  0% { opacity: 0.55; transform: scale(1); }
+  100% { opacity: 0.78; transform: scale(1.05); }
+}
+
+@keyframes tileFloat1 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+@keyframes tileFloat2 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(2px); }
+}
+@keyframes tileFloat3 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-1px); }
+}
+@keyframes tileFloat4 {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(2px); }
+}
+/* === FINAL HERO POLISH PATCH â€” paste at END of style.css / fixes.css === */
+
+/* animated ios-like glow lines across all dashboard boxes */
+.hero-dash-tile,
+.hero-dash-card,
+.hero-card,
+.hero-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 0 0 1px rgba(120,100,255,0.04),
+    0 20px 50px rgba(0,0,0,0.35);
+}
+
+.hero-dash-tile::after,
+.hero-dash-card::after,
+.hero-card::after,
+.hero-box::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(255,255,255,0.14) 50%,
+    transparent 58%,
+    transparent 100%
+  );
+  transform: translateX(-60%) rotate(8deg);
+  animation: iosSweep 7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes iosSweep {
+  0% { transform: translateX(-70%) rotate(8deg); opacity: .4; }
+  50% { opacity: .9; }
+  100% { transform: translateX(70%) rotate(8deg); opacity: .4; }
+}
+
+/* discord tile â€” colorful shape with purple glow */
+.discord-box,
+.hero-discord,
+.tile-discord {
+  background: linear-gradient(145deg, #8b5cf6 0%, #a78bfa 45%, #c4b5fd 100%) !important;
+  border-radius: 26px 26px 26px 0 !important;
+  box-shadow:
+    0 0 30px rgba(139,92,246,0.35),
+    0 0 80px rgba(167,139,250,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.28);
+}
+
+/* optional quarter-circle shape feel */
+.discord-box::before,
+.hero-discord::before,
+.tile-discord::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 68%;
+  height: 68%;
+  background: rgba(255,255,255,0.12);
+  border-radius: 100% 0 0 0;
+}
+
+/* next conversation tile â€” apple glass look */
+.next-conversation,
+.next-box,
+.schedule-box {
+  background: rgba(255,255,255,0.14) !important;
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.28),
+    inset 0 -1px 0 rgba(255,255,255,0.06),
+    0 12px 40px rgba(0,0,0,0.25);
+}
+
+/* brighter accent lines around grid */
+.hero-dash-mosaic {
+  gap: 14px !important;
+}
+
+.hero-dash-mosaic > *:hover {
+  transform: translateY(-2px);
+  transition: all .35s ease;
+  box-shadow:
+    0 0 0 1px rgba(167,139,250,0.22),
+    0 0 40px rgba(139,92,246,0.12);
+}
+/* magnetic hover base */
+.hero-dashboard-btn,
+.hero-dash-tile {
+  transition:
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease;
+  will-change: transform;
+}
+
+/* lifted feeling on hover */
+.hero-dashboard-btn:hover,
+.hero-dash-tile:hover {
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.28),
+    0 0 24px rgba(139,92,246,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+/* FINAL HERO MOTION */
+.hero-dashboard-btn,
+.hero-dash-tile,
+.hero-card,
+.hero-box {
+  will-change: transform;
+  transition:
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease;
+}
+/* =========================================
+   HERO FINAL CORRECTION PASS
+   ========================================= */
+
+/* 1) remove constant heavy glow */
+.hero-dash-card::before,
+.hero-dash-card::after,
+.hero-dash-mini::before,
+.hero-dash-mini::after,
+.hero-dash-tile::before,
+.hero-dash-tile::after {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+/* 2) bring back elegant hover-only line */
+.hero-dash-card,
+.hero-dash-mini,
+.hero-dash-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-dash-card::before,
+.hero-dash-mini::before,
+.hero-dash-tile::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 14px !important;
+  right: 14px !important;
+  height: 1.5px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(242,199,146,0.9) 20%,
+    rgba(184,140,241,0.9) 52%,
+    rgba(255,255,255,0) 100%
+  ) !important;
+  opacity: 0 !important;
+  transform: scaleX(0.72) !important;
+  transform-origin: center !important;
+  transition: opacity .24s ease, transform .28s ease !important;
+  z-index: 4 !important;
+  pointer-events: none !important;
+}
+
+.hero-dash-card:hover::before,
+.hero-dash-mini:hover::before,
+.hero-dash-tile:hover::before {
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+}
+
+/* 3) stop big box-shadow blast */
+.hero-dash-card:hover,
+.hero-dash-mini:hover,
+.hero-dash-tile:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 12px 28px rgba(0,0,0,0.18) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 4) make Discord tile special again */
+.hero-dash-mosaic .hero-dash-tile:first-child {
+  background: linear-gradient(
+    135deg,
+    #8f86ff 0%,
+    #b79dff 48%,
+    #ddd6ff 100%
+  ) !important;
+  color: #111 !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.24),
+    0 8px 22px rgba(143,134,255,0.16) !important;
+}
+
+/* optional subtle inner curve feel */
+.hero-dash-mosaic .hero-dash-tile:first-child::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 58% !important;
+  height: 58% !important;
+  background: rgba(255,255,255,0.16) !important;
+  border-top-left-radius: 100% !important;
+  opacity: .55 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* keep text above shape */
+.hero-dash-mosaic .hero-dash-tile:first-child span {
+  z-index: 3 !important;
+  color: #111 !important;
+}
+
+/* 5) make other tiles cleaner */
+.hero-dash-tile-ivory {
+  background: #f7f1e8 !important;
+}
+
+.hero-dash-tile-lavender {
+  background: #e7def6 !important;
+}
+
+.hero-dash-tile-glass {
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* 6) bottom row less tight */
+.hero-dash-card-stats {
+  gap: 14px !important;
+  padding: 16px !important;
+  min-height: 154px !important;
+}
+
+.hero-dash-mini {
+  min-height: 124px !important;
+  padding: 18px !important;
+  border-radius: 24px !important;
+}
+
+.hero-dash-mini strong {
+  font-size: 1.9rem !important;
+}
+
+.hero-dash-copy,
+.hero-dash-copy-dark {
+  line-height: 1.55 !important;
+}
+
+/* 7) a little more room in the whole right panel */
+.hero-dash-grid {
+  grid-template-rows: 178px 154px 154px !important;
+  gap: 14px !important;
+}
+/* =========================================
+   HERO KINETIC REVEAL
+   ========================================= */
+
+/* start hidden */
+.hero-dashboard-copy .hero-dashboard-kicker,
+.hero-dashboard-title .reveal-line,
+.hero-dashboard-text,
+.hero-dashboard-actions,
+.hero-dash-card-main,
+.hero-dash-card-light,
+.hero-dash-card-featured,
+.hero-dash-card-stats {
+  opacity: 0;
+  transform: translateY(34px);
+  filter: blur(6px);
+}
+
+/* reveal container */
+.hero-dashboard-title .reveal-line {
+  display: block;
+  overflow: hidden;
+  will-change: transform, opacity, filter;
+}
+
+/* animate in when loaded */
+.hero-dashboard-copy.is-revealed .hero-dashboard-kicker {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.85s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.95s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.05s;
+}
+
+.hero-dashboard-copy.is-revealed .hero-dashboard-title .reveal-line:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.12s;
+}
+
+.hero-dashboard-copy.is-revealed .hero-dashboard-title .reveal-line:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.22s;
+}
+
+.hero-dashboard-copy.is-revealed .hero-dashboard-title .reveal-line:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.32s;
+}
+
+.hero-dashboard-copy.is-revealed .hero-dashboard-text {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.42s;
+}
+
+.hero-dashboard-copy.is-revealed .hero-dashboard-actions {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.5s;
+}
+
+/* dashboard assembles after copy */
+.hero-dashboard-panel.is-revealed .hero-dash-card-main {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.56s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-card-light {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.68s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-card-featured {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.76s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-card-stats {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.86s;
+}
+
+/* mosaic tiles assemble one by one */
+.hero-dash-mosaic .hero-dash-tile {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  filter: blur(4px);
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.78s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.84s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.9s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.96s;
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-dashboard-copy .hero-dashboard-kicker,
+  .hero-dashboard-title .reveal-line,
+  .hero-dashboard-text,
+  .hero-dashboard-actions,
+  .hero-dash-card-main,
+  .hero-dash-card-light,
+  .hero-dash-card-featured,
+  .hero-dash-card-stats,
+  .hero-dash-mosaic .hero-dash-tile {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+/* =========================================
+   SATIN GLOW HOVER
+   ========================================= */
+
+.hero-dash-tile {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+/* glow layer */
+.hero-dash-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background:
+    radial-gradient(
+      circle at var(--glow-x, 22%) var(--glow-y, 22%),
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.08) 18%,
+      rgba(255,255,255,0.03) 38%,
+      transparent 62%
+    );
+  mix-blend-mode: screen;
+}
+
+/* hover state */
+.hero-dash-tile:hover::after {
+  opacity: 1;
+}
+
+.hero-dash-tile:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.28),
+    0 0 30px rgba(139, 92, 246, 0.08);
+  border-color: rgba(255,255,255,0.12);
+}
+/* =========================================
+   HERO ATMOSPHERIC DEPTH â€” PREMIUM ORBS
+   ========================================= */
+
+.hero.hero-dashboard{
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-dashboard-orb{
+  position: absolute !important;
+  width: 600px !important;
+  height: 600px !important;
+  border-radius: 50% !important;
+  filter: blur(120px) !important;
+  opacity: 0.15 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  will-change: transform, opacity;
+}
+
+/* warm orb behind headline */
+.hero-dashboard-orb-gold{
+  left: -140px !important;
+  top: 120px !important;
+  background: radial-gradient(
+    circle,
+    rgba(232, 196, 125, 0.95) 0%,
+    rgba(232, 196, 125, 0.45) 28%,
+    rgba(232, 196, 125, 0.10) 58%,
+    transparent 78%
+  ) !important;
+  animation: heroOrbGoldFloat 14s ease-in-out infinite alternate !important;
+}
+
+/* violet orb behind dashboard / mosaic */
+.hero-dashboard-orb-violet{
+  right: -120px !important;
+  top: 140px !important;
+  background: radial-gradient(
+    circle,
+    rgba(140, 120, 255, 0.95) 0%,
+    rgba(140, 120, 255, 0.42) 30%,
+    rgba(140, 120, 255, 0.10) 58%,
+    transparent 78%
+  ) !important;
+  animation: heroOrbVioletFloat 16s ease-in-out infinite alternate !important;
+}
+
+/* keep content above */
+.hero-dashboard-inner{
+  position: relative;
+  z-index: 2 !important;
+}
+
+/* optional: slightly richer background wash */
+.hero.hero-dashboard::before{
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(circle at 18% 26%, rgba(232,196,125,0.07), transparent 24%),
+    radial-gradient(circle at 78% 30%, rgba(140,120,255,0.08), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,0.01), transparent 30%, transparent 70%, rgba(255,255,255,0.01)) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+@keyframes heroOrbGoldFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.13;
+  }
+  50% {
+    transform: translate3d(18px, -22px, 0) scale(1.05);
+    opacity: 0.17;
+  }
+  100% {
+    transform: translate3d(-10px, 14px, 0) scale(0.98);
+    opacity: 0.14;
+  }
+}
+
+@keyframes heroOrbVioletFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.14;
+  }
+  50% {
+    transform: translate3d(-24px, 18px, 0) scale(1.06);
+    opacity: 0.18;
+  }
+  100% {
+    transform: translate3d(14px, -12px, 0) scale(0.99);
+    opacity: 0.15;
+  }
+}
+/* =========================================
+   HERO TITLE SAFETY FIX
+   ========================================= */
+
+.hero-dashboard-title{
+  overflow: visible !important;
+  line-height: 0.94 !important;
+  padding-bottom: 0.08em !important;
+  max-width: 7.2ch !important;
+}
+
+.hero-dashboard-title .reveal-line{
+  overflow: visible !important;
+  display: block !important;
+  padding-bottom: 0.04em !important;
+}
+
+.hero-dashboard-title em{
+  display: inline-block !important;
+  padding-right: 0.02em !important;
+}
+
+/* give the left column a little more breathing room */
+.hero-dashboard-copy{
+  overflow: visible !important;
+  max-width: 600px !important;
+}
+.hero-dashboard-title{
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+/* =========================================
+   HERO SOFT GLOBAL GLOW
+   ========================================= */
+
+.hero.hero-dashboard::after{
+  content: "";
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 22% 34%, rgba(233, 196, 126, 0.05), transparent 28%),
+    radial-gradient(circle at 76% 30%, rgba(151, 122, 255, 0.06), transparent 26%),
+    radial-gradient(circle at 55% 58%, rgba(255, 255, 255, 0.018), transparent 34%);
+  filter: blur(28px);
+  opacity: 0.9;
+}
+/* =========================================
+   INTERACTIVE SATIN SHEEN
+   ========================================= */
+
+.hero-dash-tile{
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+/* satin sheen overlay */
+.hero-dash-tile::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.32s ease;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.18) 0%,
+      rgba(255,255,255,0.08) 22%,
+      transparent 60%
+    );
+  z-index: 1;
+}
+
+/* show sheen on hover */
+.hero-dash-tile:hover::before{
+  opacity: 1;
+}
+
+/* subtle lift */
+.hero-dash-tile:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.22),
+    0 0 24px rgba(139,92,246,0.06);
+}
+/* =========================================
+   HERO TILE CINEMATIC ENTRANCE
+   ========================================= */
+
+.hero-dash-mosaic .hero-dash-tile{
+  opacity: 0;
+  transform: translateY(22px) scale(0.98);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+}
+
+/* reveal when panel gets class */
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition:
+    opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.95s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile:nth-child(1){
+  transition-delay: 0.10s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile:nth-child(2){
+  transition-delay: 0.20s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile:nth-child(3){
+  transition-delay: 0.30s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-mosaic .hero-dash-tile:nth-child(4){
+  transition-delay: 0.40s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dash-mosaic .hero-dash-tile{
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+/* =========================================
+   HERO CINEMATIC TILE REVEAL
+   ========================================= */
+
+.hero-dashboard-panel .hero-dash-tile{
+  opacity: 0;
+  transform: translateY(26px) scale(0.98);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+}
+
+/* reveal */
+.hero-dashboard-panel.is-revealed .hero-dash-tile{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition:
+    opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* stagger */
+.hero-dashboard-panel.is-revealed .hero-dash-tile:nth-child(1){
+  transition-delay: 0.10s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-tile:nth-child(2){
+  transition-delay: 0.20s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-tile:nth-child(3){
+  transition-delay: 0.30s;
+}
+
+.hero-dashboard-panel.is-revealed .hero-dash-tile:nth-child(4){
+  transition-delay: 0.40s;
+}
+/* =========================================
+   GLASSMORPHISM TILES â€” PREMIUM
+   ========================================= */
+
+/* member count tile */
+.hero-dash-tile-dark{
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(12px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 10px 24px rgba(0,0,0,0.16) !important;
+  color: rgba(245,247,251,0.96) !important;
+}
+
+/* upcoming event / this month / 03 tile */
+.hero-dash-card-light,
+.hero-dash-mini-light{
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(14px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(170%) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 12px 28px rgba(0,0,0,0.14) !important;
+}
+
+/* stronger typography inside glass */
+.hero-dash-card-light .hero-dash-time,
+.hero-dash-mini-light strong{
+  color: rgba(255,255,255,0.98) !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.12);
+}
+
+/* softer supporting text */
+.hero-dash-card-light .hero-dash-copy-dark,
+.hero-dash-mini-light .hero-dash-copy-dark{
+  color: rgba(255,255,255,0.78) !important;
+}
+/* =========================================
+   HERO NEBULA + SATIN SHINE
+   ========================================= */
+
+/* 1) atmospheric depth */
+.hero.hero-dashboard{
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-dashboard-inner{
+  position: relative;
+  z-index: 2 !important;
+}
+
+.hero-dashboard-orb{
+  position: absolute !important;
+  width: 800px !important;
+  height: 800px !important;
+  border-radius: 50% !important;
+  filter: blur(150px) !important;
+  opacity: 0.15 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  will-change: transform, opacity;
+}
+
+/* gold nebula behind headline */
+.hero-dashboard-orb-gold{
+  left: -220px !important;
+  top: -120px !important;
+  background: radial-gradient(
+    circle,
+    rgba(232, 196, 125, 0.9) 0%,
+    rgba(232, 196, 125, 0.36) 28%,
+    rgba(232, 196, 125, 0.08) 58%,
+    transparent 78%
+  ) !important;
+  animation: heroNebulaGold 16s ease-in-out infinite alternate !important;
+}
+
+/* violet nebula behind dashboard / tiles */
+.hero-dashboard-orb-violet{
+  right: -180px !important;
+  top: 40px !important;
+  background: radial-gradient(
+    circle,
+    rgba(148, 119, 255, 0.92) 0%,
+    rgba(148, 119, 255, 0.34) 28%,
+    rgba(148, 119, 255, 0.08) 58%,
+    transparent 78%
+  ) !important;
+  animation: heroNebulaViolet 18s ease-in-out infinite alternate !important;
+}
+
+@keyframes heroNebulaGold{
+  0%{
+    transform: translate3d(0,0,0) scale(1);
+    opacity: 0.13;
+  }
+  50%{
+    transform: translate3d(14px,-18px,0) scale(1.04);
+    opacity: 0.17;
+  }
+  100%{
+    transform: translate3d(-10px,12px,0) scale(0.98);
+    opacity: 0.14;
+  }
+}
+
+@keyframes heroNebulaViolet{
+  0%{
+    transform: translate3d(0,0,0) scale(1);
+    opacity: 0.13;
+  }
+  50%{
+    transform: translate3d(-20px,16px,0) scale(1.05);
+    opacity: 0.17;
+  }
+  100%{
+    transform: translate3d(12px,-10px,0) scale(0.99);
+    opacity: 0.14;
+  }
+}
+
+/* extra soft background wash */
+.hero.hero-dashboard::after{
+  content: "";
+  position: absolute;
+  inset: -8%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 22% 28%, rgba(232,196,125,0.06), transparent 24%),
+    radial-gradient(circle at 76% 30%, rgba(148,119,255,0.07), transparent 24%),
+    radial-gradient(circle at 56% 58%, rgba(255,255,255,0.015), transparent 34%);
+  filter: blur(28px);
+  opacity: 0.95;
+}
+
+/* 2) satin shine hover */
+.hero-dash-tile{
+  position: relative !important;
+  overflow: hidden !important;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease !important;
+}
+
+/* sheen overlay */
+.hero-dash-tile::after{
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.20) 0%,
+      rgba(255,255,255,0.08) 18%,
+      transparent 50%
+    ) !important;
+  z-index: 1 !important;
+}
+
+/* keep text above sheen */
+.hero-dash-tile span,
+.hero-dash-tile small{
+  position: relative;
+  z-index: 3 !important;
+}
+
+/* hover state */
+.hero-dash-tile:hover{
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow:
+    0 20px 42px rgba(0,0,0,0.28),
+    0 0 26px rgba(148,119,255,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.10) !important;
+}
+
+.hero-dash-tile:hover::after{
+  opacity: 1 !important;
+}
+/* =========================================
+   TARGETED GLASS FIX
+   ========================================= */
+
+/* 1) NEXT CONVERSATION â€” brighter glass, keep same feel */
+.hero-dash-card-light{
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.20) 0%,
+    rgba(255,255,255,0.10) 100%
+  ) !important;
+  backdrop-filter: blur(18px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+  border: 1px solid rgba(255,255,255,0.22) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.30),
+    inset 0 -1px 0 rgba(255,255,255,0.04),
+    0 16px 38px rgba(0,0,0,0.18) !important;
+  color: #f5f7fb !important;
+}
+
+.hero-dash-card-light .hero-dash-label-dark,
+.hero-dash-card-light .hero-dash-copy-dark,
+.hero-dash-card-light .hero-dash-foot-dark{
+  color: rgba(245,247,251,0.74) !important;
+}
+
+.hero-dash-card-light .hero-dash-time{
+  color: #ffffff !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.10);
+}
+
+/* 2) 1.2k members tile â€” glassmorphism */
+.hero-dash-tile-dark,
+.hero-dash-tile-glass{
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(14px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(170%) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 12px 28px rgba(0,0,0,0.16) !important;
+  color: rgba(245,247,251,0.96) !important;
+}
+
+.hero-dash-tile-dark span,
+.hero-dash-tile-glass span{
+  color: rgba(245,247,251,0.94) !important;
+}
+
+/* 3) 03 / this month box â€” glassmorphism */
+.hero-dash-mini-light{
+  background: rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(14px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(170%) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 12px 28px rgba(0,0,0,0.14) !important;
+  color: #f5f7fb !important;
+}
+
+.hero-dash-mini-light .hero-dash-label-dark,
+.hero-dash-mini-light .hero-dash-copy-dark{
+  color: rgba(245,247,251,0.74) !important;
+}
+
+.hero-dash-mini-light strong{
+  color: #ffffff !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.10);
+}
+/* =========================================
+   FINAL NAV POLISH
+   ========================================= */
+
+nav,
+.nav,
+.site-nav{
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+nav a,
+.nav a,
+.nav-links a,
+.nav-links span{
+  font-family: "Roboto", "Inter", system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  color: rgba(245,247,251,0.86) !important;
+  letter-spacing: 0.02em;
+  transition: color 0.24s ease, opacity 0.24s ease;
+}
+
+nav a:hover,
+.nav a:hover,
+.nav-links span:hover{
+  color: #ffffff !important;
+}
+
+/* slightly stronger active line */
+.nav-links span::after{
+  height: 1.5px !important;
+  opacity: 0.9;
+}
+/* =========================================
+   MOBILE TAP COMFORT
+   ========================================= */
+
+@media (max-width: 760px){
+  .hero-dash-tile,
+  .hero-dashboard-btn,
+  .bento-item,
+  .what-card{
+    min-height: 64px !important;
+    padding: 16px !important;
+  }
+
+  .hero-dashboard-btn{
+    min-height: 52px !important;
+  }
+
+  .hero-dash-card-stats{
+    gap: 14px !important;
+  }
+}
+/* =========================================
+   FINAL CTA SECTION
+   ========================================= */
+
+.final-cta{
+  padding: 120px 0 140px;
+  text-align: center;
+}
+
+.final-cta h2{
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  margin-bottom: 18px;
+}
+
+.final-cta p{
+  max-width: 620px;
+  margin: 0 auto 28px;
+  color: rgba(245,247,251,0.68);
+  line-height: 1.7;
+}
+/* =========================================
+   REMOVE EXTRA GAP BEFORE NEWSLETTER
+   ========================================= */
+
+.newsletter,
+.mailing-list,
+.footer-cta,
+.join-mailing{
+  margin-top: 0 !important;
+  padding-top: 80px !important;
+  background: transparent !important;
+}
+
+/* remove accidental white / beige spacer sections */
+section:empty{
+  display: none !important;
+}
+/* =========================================
+   PREMIUM CARD GLASS
+   ========================================= */
+
+.card,
+.bento-item,
+.what-card,
+.intent-card,
+.hero-card,
+.comm-card,
+.hero-dash-card,
+.hero-dash-mini{
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 16px 40px rgba(0,0,0,0.18);
+}
+/* =========================================
+   GLOBAL SMOOTHNESS
+   ========================================= */
+
+html{
+  scroll-behavior: smooth;
+}
+
+a,
+button,
+.card,
+.bento-item,
+.hero-dash-card,
+.hero-dash-mini,
+.hero-dash-tile{
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    background 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+/* remove broken arrow / cross */
+.what-link::after {
+  content: "" !important;
+  display: none !important;
+}
+/* =========================================
+   TOP GLOW LINE ON CARD HOVER
+   ========================================= */
+
+.bento-item,
+.what-card,
+.hero-card,
+.comm-card,
+.editorial-card,
+.what-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-item::before,
+.what-card::before,
+.hero-card::before,
+.comm-card::before,
+.editorial-card::before,
+.what-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1.5px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: scaleX(0.75);
+  transform-origin: center;
+  transition: opacity 0.24s ease, transform 0.28s ease;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(242,199,146,0.9) 22%,
+    rgba(184,140,241,0.9) 52%,
+    rgba(255,255,255,0) 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+.bento-item:hover::before,
+.what-card:hover::before,
+.hero-card:hover::before,
+.comm-card:hover::before,
+.editorial-card:hover::before,
+.what-box:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+/* =========================================
+   NEWSLETTER + FOOTER FINAL POLISH
+   ========================================= */
+
+/* kill pale strip */
+.newsletter,
+.footer,
+.site-footer,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+.newsletter {
+  margin-top: 0 !important;
+  padding-top: 110px !important;
+  padding-bottom: 110px !important;
+  background:
+    radial-gradient(circle at 22% 30%, rgba(232,196,125,0.08), transparent 24%),
+    radial-gradient(circle at 78% 36%, rgba(140,120,255,0.10), transparent 26%),
+    linear-gradient(180deg, #03050a 0%, #050814 100%) !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+/* if some empty pale block still exists above */
+.newsletter::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.04);
+}
+
+/* stronger heading */
+.newsletter h2,
+.newsletter-title {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(3.2rem, 5vw, 4.8rem) !important;
+  line-height: 0.94 !important;
+  letter-spacing: -0.04em !important;
+  margin-bottom: 14px !important;
+  color: #f5f7fb !important;
+}
+
+/* better supporting text */
+.newsletter p,
+.newsletter-subtext {
+  color: rgba(245,247,251,0.68) !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  max-width: 680px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* glass form */
+.newsletter form,
+.newsletter-form {
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  margin-top: 30px !important;
+}
+
+.newsletter input[type="email"],
+.newsletter-form input[type="email"] {
+  min-width: 320px !important;
+  height: 54px !important;
+  padding: 0 18px !important;
+  border-radius: 16px 0 0 16px !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-right: none !important;
+  background: rgba(255,255,255,0.04) !important;
+  backdrop-filter: blur(12px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  color: #f5f7fb !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05) !important;
+}
+
+.newsletter input[type="email"]::placeholder,
+.newsletter-form input[type="email"]::placeholder {
+  color: rgba(245,247,251,0.34) !important;
+}
+
+.newsletter button,
+.newsletter-form button {
+  height: 54px !important;
+  padding: 0 26px !important;
+  border-radius: 0 16px 16px 0 !important;
+  border: 1px solid rgba(184,140,241,0.28) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(143,134,255,0.92),
+    rgba(184,140,241,0.88)
+  ) !important;
+  color: #fff !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  box-shadow:
+    0 10px 24px rgba(99,102,241,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.18) !important;
+}
+
+/* footer richer and more readable */
+footer,
+.site-footer {
+  background: linear-gradient(180deg, #040812 0%, #03050a 100%) !important;
+  border-top: 1px solid rgba(255,255,255,0.05) !important;
+  padding-top: 56px !important;
+}
+
+footer h3,
+footer h4,
+.site-footer h3,
+.site-footer h4 {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  color: #f5f7fb !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 16px !important;
+}
+
+footer p,
+footer li,
+footer a,
+.site-footer p,
+.site-footer li,
+.site-footer a {
+  color: rgba(245,247,251,0.56) !important;
+  font-family: "Roboto", system-ui, sans-serif !important;
+  line-height: 1.8 !important;
+}
+
+footer a:hover,
+.site-footer a:hover {
+  color: #ffffff !important;
+}
+
+/* mobile */
+@media (max-width: 760px) {
+  .newsletter {
+    padding-top: 84px !important;
+    padding-bottom: 84px !important;
+  }
+
+  .newsletter form,
+  .newsletter-form {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .newsletter input[type="email"],
+  .newsletter-form input[type="email"],
+  .newsletter button,
+  .newsletter-form button {
+    min-width: 100% !important;
+    width: 100% !important;
+    border-radius: 16px !important;
+    border-right: 1px solid rgba(255,255,255,0.10) !important;
+  }
+}
+/* =========================================
+   MICRO LIFT FOR 4 SMALL BUTTONS
+   ========================================= */
+
+.hero-dash-mini,
+.hero-dash-mini-card,
+.hero-dash-pill,
+.hero-dash-small,
+.dashboard-mini {
+  position: relative;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.24s ease,
+    filter 0.24s ease;
+  will-change: transform;
+}
+
+/* lift out */
+.hero-dash-mini:hover,
+.hero-dash-mini-card:hover,
+.hero-dash-pill:hover,
+.hero-dash-small:hover,
+.dashboard-mini:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.28),
+    0 0 22px rgba(143,134,255,0.10);
+  filter: brightness(1.03);
+}
+/* =========================================
+   BRIGHTER NEXT CONVERSATION CARD
+   ========================================= */
+
+.next-conversation,
+.hero-next-card,
+.hero-dash-conversation,
+.dashboard-conversation {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(14px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(170%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 16px 36px rgba(0,0,0,0.22) !important;
+}
+
+/* make text easier to read */
+.next-conversation h3,
+.hero-next-card h3,
+.dashboard-conversation h3,
+.next-conversation .time,
+.hero-next-card .time {
+  color: #f5f7fb !important;
+}
+
+/* slightly brighter small label text */
+.next-conversation p,
+.hero-next-card p,
+.dashboard-conversation p,
+.next-conversation span {
+  color: rgba(245,247,251,0.72) !important;
+}
+/* NEXT CONVERSATION CARD â€” soft lilac conversation tone */
+.hero-dash-tile-conversation,
+.next-conversation-card,
+.hero-dash-tile-light {
+  background: linear-gradient(
+    135deg,
+    #cdb8dc 0%,
+    #b7bfd6 45%,
+    #c9d8e4 100%
+  ) !important;
+
+  color: #111 !important;
+  border: 1px solid rgba(255,255,255,0.35) !important;
+  box-shadow:
+    0 10px 30px rgba(170, 150, 220, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.35) !important;
+
+  backdrop-filter: blur(14px);
+}
+/* force next conversation box */
+.hero-dashboard-panel .hero-dash-tile:nth-child(2) {
+  background: linear-gradient(
+    135deg,
+    #cdb8dc 0%,
+    #b7bfd6 45%,
+    #c9d8e4 100%
+  ) !important;
+
+  color: #111 !important;
+}
+.hero-dash-tile-conversation h3,
+.hero-dash-tile-conversation p,
+.hero-dash-tile-conversation span {
+  color: #111 !important;
+}
+/* =========================================
+   NEXT CONVERSATION â€” exact selector
+   ========================================= */
+
+.hero-dash-card.hero-dash-card-light{
+  background: linear-gradient(
+    135deg,
+    #cdb8dc 0%,
+    #b7bfd6 45%,
+    #c9d8e4 100%
+  ) !important;
+  color: #111 !important;
+  border: 1px solid rgba(255,255,255,0.34) !important;
+  box-shadow:
+    0 10px 30px rgba(170,150,220,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.35) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+}
+
+.hero-dash-card.hero-dash-card-light .hero-dash-label-dark,
+.hero-dash-card.hero-dash-card-light .hero-dash-copy-dark,
+.hero-dash-card.hero-dash-card-light .hero-dash-foot-dark{
+  color: rgba(17,17,17,0.70) !important;
+}
+
+.hero-dash-card.hero-dash-card-light .hero-dash-time{
+  color: #111 !important;
+  text-shadow: none !important;
+}
+/* Bigger moving circular text ring */
+.rotating-text,
+.circular-text,
+.text-ring,
+.oval-text {
+  width: 720px !important;
+  height: 720px !important;
+  transform-origin: center center !important;
+  animation: slowOrbit 28s linear infinite !important;
+}
+@keyframes slowOrbit {
+  0% {
+    transform: rotate(0deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.04);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.02);
+  }
+}
+.rotating-text svg,
+.circular-text svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+/* Make circular text ring sit farther than poster */
+.rotating-text,
+.circular-text,
+.text-ring,
+.oval-text {
+  width: 760px !important;
+  height: 760px !important;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  transform: translate(-50%, -50%) !important;
+  animation: slowOrbit 28s linear infinite !important;
+}
+/* Bigger oval ring around poster */
+.rotating-text,
+.circular-text,
+.text-ring,
+.oval-text {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+
+ width: 900px !important;
+height: 740px !important;
+
+  transform: translate(-50%, -50%) !important;
+  transform-origin: center center !important;
+
+  animation: slowOrbit 30s linear infinite !important;
+}
+/* keep oval fixed */
+.oval-text,
+.circular-text,
+.text-ring {
+  animation: none !important;
+}
+
+/* move letters subtly */
+.oval-text span,
+.circular-text span,
+.text-ring span {
+  display: inline-block;
+  animation: letterFloat 8s ease-in-out infinite alternate;
+}
+@keyframes letterFloat {
+  0% {
+    letter-spacing: 0.16em;
+    opacity: 0.88;
+  }
+  100% {
+    letter-spacing: 0.22em;
+    opacity: 1;
+  }
+}
+/* =====================================
+   FINAL OVAL TEXT RING â€” MASTER OVERRIDE
+   paste at VERY BOTTOM
+===================================== */
+
+.poster-oval-container{
+  position:absolute !important;
+  top:50% !important;
+  left:50% !important;
+  width:185% !important;
+  height:165% !important;
+  transform:translate(-50%, -50%) !important;
+  z-index:3 !important;
+  pointer-events:none !important;
+}
+
+.oval-text-svg{
+  width:100% !important;
+  height:100% !important;
+  overflow:visible !important;
+  animation:none !important;
+}
+
+.oval-text-content{
+  font-size:18px !important;
+  letter-spacing:6px !important;
+  font-weight:500 !important;
+}
+
+/* ONLY text rotates */
+.oval-text-svg text,
+.oval-text-svg textPath{
+  transform-origin:center center !important;
+  animation:ringTextSpin 26s linear infinite !important;
+}
+
+@keyframes ringTextSpin{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+/* =====================================
+   STICKY NAV
+===================================== */
+
+nav,
+.site-nav,
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+/* =====================================
+   CARD MICRO-INTERACTIONS
+===================================== */
+
+.intent-card,
+.bento-item,
+.what-card,
+.hero-card,
+.comm-card,
+.editorial-card,
+.pathfinder-shell {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.intent-card:hover,
+.bento-item:hover,
+.what-card:hover,
+.hero-card:hover,
+.comm-card:hover,
+.editorial-card:hover,
+.pathfinder-shell:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.22);
+}
+/* =====================================
+   MOBILE TAP SPACING
+===================================== */
+
+@media (max-width: 760px) {
+  .hero-dashboard-btn,
+  .pathfinder-shell button,
+  .pathfinder-shell a,
+  .hero-dash-tile,
+  .intent-card,
+  .bento-item {
+    min-height: 52px !important;
+    padding: 14px 16px !important;
+  }
+
+  .hero-dashboard-actions,
+  .pathfinder-actions,
+  .pathfinder-shell .button-row {
+    gap: 12px !important;
+  }
+}
+/* =====================================
+   MOBILE BUG FIX PACK
+   paste at VERY bottom
+===================================== */
+
+@media (max-width: 760px) {
+
+  /* overall page breathing */
+  .container,
+  .nav-inner {
+    width: min(100% - 28px, var(--max)) !important;
+  }
+
+  /* nav */
+  nav {
+    min-height: 78px !important;
+  }
+
+  .nav-inner {
+    min-height: 78px !important;
+    gap: 12px !important;
+  }
+
+  .brand {
+    gap: 10px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .brand-mark {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 16px !important;
+  }
+
+  .nav-links {
+    gap: 0 !important;
+  }
+
+  .nav-links a:not(.nav-cta) {
+    display: none !important;
+  }
+
+  .nav-cta {
+    padding: 12px 18px !important;
+    min-height: 54px !important;
+    font-size: 11px !important;
+  }
+
+  /* horizontal intentions strip clipping */
+  .intentions-marquee,
+  .intentions-strip,
+  .intentions-ticker,
+  .top-strip {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    font-size: 10px !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  /* beige connect / cards section too tall */
+  .community-stack,
+  .connect-stack,
+  .community-sidebar,
+  .community-cards {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .community-card,
+  .connect-card,
+  .sidebar-card,
+  .mailing-card {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 28px 24px !important;
+  }
+
+  /* fix giant empty join discord card */
+  .community-card:first-child,
+  .connect-card:first-child,
+  .sidebar-card:first-child {
+    min-height: 240px !important;
+  }
+
+  /* community split section */
+  .about.about-bright,
+  .community-split,
+  .community-panel-wrap {
+    grid-template-columns: 1fr !important;
+  }
+
+  .poster-column,
+  .community-visual,
+  .community-copy-panel {
+    min-height: auto !important;
+  }
+
+  /* poster area */
+  .about-poster-shell,
+  .poster-wrap,
+  .about-img-wrap {
+    width: min(100%, 100%) !important;
+    max-width: none !important;
+  }
+
+  .about-poster-image,
+  .about-img {
+    width: 100% !important;
+    border-radius: 18px !important;
+  }
+
+  /* oval ring smaller on mobile so it stops getting chopped */
+  .poster-oval-container {
+    width: 132% !important;
+    height: 132% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+
+  .oval-text-content {
+    font-size: 10px !important;
+    letter-spacing: 2.8px !important;
+  }
+
+  /* right community panel readability */
+  .community-copy-panel,
+  .about-content-bright,
+  .community-copy {
+    padding: 28px 24px 34px !important;
+  }
+
+  .community-heading {
+    font-size: clamp(2.8rem, 12vw, 4.2rem) !important;
+    line-height: 0.95 !important;
+    max-width: 8ch !important;
+  }
+
+  .community-copy-panel p,
+  .community-copy p,
+  .about-content-bright p {
+    color: rgba(25, 23, 28, 0.78) !important;
+    font-size: 1.02rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .community-label,
+  .community-kicker,
+  .about-content-bright .section-kicker {
+    color: rgba(25, 23, 28, 0.48) !important;
+  }
+
+  /* hero */
+  .hero.hero-dashboard {
+    padding-top: 26px !important;
+    padding-bottom: 36px !important;
+    min-height: auto !important;
+  }
+
+  .hero-dashboard-inner {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .hero-dashboard-title {
+    font-size: clamp(3.4rem, 14vw, 5rem) !important;
+    line-height: 0.94 !important;
+    max-width: 8ch !important;
+  }
+
+  .hero-dashboard-text {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+  }
+
+  .hero-dashboard-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .hero-dashboard-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* dashboard cards stack nicer */
+  .hero-dashboard-panel {
+    max-width: 100% !important;
+  }
+
+  .hero-dash-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 14px !important;
+  }
+
+  .hero-dash-card-main,
+  .hero-dash-card-light,
+  .hero-dash-card-featured,
+  .hero-dash-card-stats {
+    grid-column: auto !important;
+  }
+
+  .hero-dash-card-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-dash-mosaic {
+    min-height: 190px !important;
+  }
+
+  .hero-dash-card-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* footer / mailing */
+  .newsletter {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  .newsletter-form,
+  .newsletter form {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    width: 100% !important;
+    border-radius: 16px !important;
+  }
+}
+/* =====================================
+   MOBILE FINAL FIX â€” COMMUNITY / CARDS
+   paste LAST
+===================================== */
+
+@media (max-width: 760px) {
+
+  /* 1) fix giant beige cards */
+  .connect-card,
+  .community-card,
+  .sidebar-card,
+  .mailing-card,
+  .community-stack > *,
+  .community-sidebar > * {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 28px 24px !important;
+  }
+
+  .connect-card:first-child,
+  .community-card:first-child,
+  .sidebar-card:first-child {
+    min-height: 230px !important;
+  }
+
+  /* stop absurd empty space in Join Discord block */
+  .connect-card .card-body,
+  .community-card .card-body,
+  .sidebar-card .card-body {
+    min-height: 0 !important;
+  }
+
+  /* 2) thoughtful / community headline clipping */
+  .community-heading,
+  .community-heading .kinetic-em,
+  .community-equation,
+  .community-equation .eq-line,
+  .about-heading,
+  .about-heading em {
+    overflow: visible !important;
+    white-space: normal !important;
+    display: block !important;
+    max-width: none !important;
+    width: auto !important;
+    line-height: 0.96 !important;
+    padding-right: 0.08em !important;
+    word-break: normal !important;
+  }
+
+  .community-heading,
+  .about-heading {
+    font-size: clamp(3rem, 13vw, 4.8rem) !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  /* specifically protect gradient word */
+  .community-heading .kinetic-em,
+  .about-heading em {
+    display: inline-block !important;
+    padding-right: 0.12em !important;
+    padding-bottom: 0.08em !important;
+  }
+
+  /* 3) right panel text readability */
+  .community-copy-panel,
+  .about-content-bright,
+  .community-copy {
+    padding: 28px 24px 34px !important;
+  }
+
+  .community-copy-panel p,
+  .community-copy p,
+  .about-content-bright p {
+    color: rgba(28, 24, 32, 0.72) !important;
+    font-size: 1rem !important;
+    line-height: 1.72 !important;
+  }
+
+  .community-kicker,
+  .community-label,
+  .about-content-bright .section-kicker {
+    color: rgba(28, 24, 32, 0.42) !important;
+  }
+
+  /* 4) poster + oval on mobile */
+  .about-poster-shell,
+  .poster-wrap,
+  .about-img-wrap {
+    width: min(100%, 100%) !important;
+    max-width: none !important;
+  }
+
+  .about-poster-image,
+  .about-img {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 18px !important;
+  }
+
+  /* make oval smaller and calmer on mobile */
+  .poster-oval-container {
+    width: 128% !important;
+    height: 128% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1 !important;
+  }
+
+  .oval-text-svg {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .oval-text-content {
+    font-size: 10px !important;
+    letter-spacing: 2.2px !important;
+  }
+
+  /* 5) stack the split section properly */
+  .about.about-bright,
+  .community-split,
+  .community-panel-wrap {
+    grid-template-columns: 1fr !important;
+  }
+
+  .poster-column,
+  .community-visual,
+  .community-copy-panel {
+    min-height: auto !important;
+  }
+
+  /* 6) top strip clipping */
+  .intentions-marquee,
+  .intentions-strip,
+  .intentions-ticker,
+  .top-strip {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    font-size: 10px !important;
+    letter-spacing: 0.16em !important;
   }
 }
