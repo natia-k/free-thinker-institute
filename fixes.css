@@ -2956,3 +2956,59 @@ button,
     background 0.3s ease-in-out,
     color 0.3s ease-in-out;
 }
+/* remove broken arrow / cross */
+.what-link::after {
+  content: "" !important;
+  display: none !important;
+}
+/* =========================================
+   TOP GLOW LINE ON CARD HOVER
+   ========================================= */
+
+.bento-item,
+.what-card,
+.hero-card,
+.comm-card,
+.editorial-card,
+.what-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-item::before,
+.what-card::before,
+.hero-card::before,
+.comm-card::before,
+.editorial-card::before,
+.what-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1.5px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: scaleX(0.75);
+  transform-origin: center;
+  transition: opacity 0.24s ease, transform 0.28s ease;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(242,199,146,0.9) 22%,
+    rgba(184,140,241,0.9) 52%,
+    rgba(255,255,255,0) 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+.bento-item:hover::before,
+.what-card:hover::before,
+.hero-card:hover::before,
+.comm-card:hover::before,
+.editorial-card:hover::before,
+.what-box:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
