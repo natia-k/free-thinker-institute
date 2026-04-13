@@ -3179,3 +3179,33 @@ footer a:hover,
     border-right: 1px solid rgba(255,255,255,0.10) !important;
   }
 }
+/* =========================================
+   MICRO LIFT FOR 4 SMALL BUTTONS
+   ========================================= */
+
+.hero-dash-mini,
+.hero-dash-mini-card,
+.hero-dash-pill,
+.hero-dash-small,
+.dashboard-mini {
+  position: relative;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.24s ease,
+    filter 0.24s ease;
+  will-change: transform;
+}
+
+/* lift out */
+.hero-dash-mini:hover,
+.hero-dash-mini-card:hover,
+.hero-dash-pill:hover,
+.hero-dash-small:hover,
+.dashboard-mini:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,0.28),
+    0 0 22px rgba(143,134,255,0.10);
+  filter: brightness(1.03);
+}
