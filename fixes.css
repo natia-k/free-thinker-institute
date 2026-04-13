@@ -3364,3 +3364,27 @@ height: 740px !important;
 
   animation: slowOrbit 30s linear infinite !important;
 }
+/* keep oval fixed */
+.oval-text,
+.circular-text,
+.text-ring {
+  animation: none !important;
+}
+
+/* move letters subtly */
+.oval-text span,
+.circular-text span,
+.text-ring span {
+  display: inline-block;
+  animation: letterFloat 8s ease-in-out infinite alternate;
+}
+@keyframes letterFloat {
+  0% {
+    letter-spacing: 0.16em;
+    opacity: 0.88;
+  }
+  100% {
+    letter-spacing: 0.22em;
+    opacity: 1;
+  }
+}
