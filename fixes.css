@@ -3328,3 +3328,8 @@ footer a:hover,
     transform: rotate(360deg) scale(1.02);
   }
 }
+.rotating-text svg,
+.circular-text svg {
+  width: 100% !important;
+  height: 100% !important;
+}
