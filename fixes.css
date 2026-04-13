@@ -3356,13 +3356,11 @@ footer a:hover,
   top: 50% !important;
   left: 50% !important;
 
-  width: 860px !important;   /* wider */
-  height: 720px !important;  /* slightly shorter */
+ width: 900px !important;
+height: 740px !important;
 
   transform: translate(-50%, -50%) !important;
   transform-origin: center center !important;
 
   animation: slowOrbit 30s linear infinite !important;
 }
-width: 900px !important;
-height: 740px !important;
