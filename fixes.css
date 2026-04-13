@@ -3727,3 +3727,144 @@ nav,
     border-radius: 16px !important;
   }
 }
+/* =====================================
+   MOBILE FINAL FIX — COMMUNITY / CARDS
+   paste LAST
+===================================== */
+
+@media (max-width: 760px) {
+
+  /* 1) fix giant beige cards */
+  .connect-card,
+  .community-card,
+  .sidebar-card,
+  .mailing-card,
+  .community-stack > *,
+  .community-sidebar > * {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 28px 24px !important;
+  }
+
+  .connect-card:first-child,
+  .community-card:first-child,
+  .sidebar-card:first-child {
+    min-height: 230px !important;
+  }
+
+  /* stop absurd empty space in Join Discord block */
+  .connect-card .card-body,
+  .community-card .card-body,
+  .sidebar-card .card-body {
+    min-height: 0 !important;
+  }
+
+  /* 2) thoughtful / community headline clipping */
+  .community-heading,
+  .community-heading .kinetic-em,
+  .community-equation,
+  .community-equation .eq-line,
+  .about-heading,
+  .about-heading em {
+    overflow: visible !important;
+    white-space: normal !important;
+    display: block !important;
+    max-width: none !important;
+    width: auto !important;
+    line-height: 0.96 !important;
+    padding-right: 0.08em !important;
+    word-break: normal !important;
+  }
+
+  .community-heading,
+  .about-heading {
+    font-size: clamp(3rem, 13vw, 4.8rem) !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  /* specifically protect gradient word */
+  .community-heading .kinetic-em,
+  .about-heading em {
+    display: inline-block !important;
+    padding-right: 0.12em !important;
+    padding-bottom: 0.08em !important;
+  }
+
+  /* 3) right panel text readability */
+  .community-copy-panel,
+  .about-content-bright,
+  .community-copy {
+    padding: 28px 24px 34px !important;
+  }
+
+  .community-copy-panel p,
+  .community-copy p,
+  .about-content-bright p {
+    color: rgba(28, 24, 32, 0.72) !important;
+    font-size: 1rem !important;
+    line-height: 1.72 !important;
+  }
+
+  .community-kicker,
+  .community-label,
+  .about-content-bright .section-kicker {
+    color: rgba(28, 24, 32, 0.42) !important;
+  }
+
+  /* 4) poster + oval on mobile */
+  .about-poster-shell,
+  .poster-wrap,
+  .about-img-wrap {
+    width: min(100%, 100%) !important;
+    max-width: none !important;
+  }
+
+  .about-poster-image,
+  .about-img {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 18px !important;
+  }
+
+  /* make oval smaller and calmer on mobile */
+  .poster-oval-container {
+    width: 128% !important;
+    height: 128% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1 !important;
+  }
+
+  .oval-text-svg {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .oval-text-content {
+    font-size: 10px !important;
+    letter-spacing: 2.2px !important;
+  }
+
+  /* 5) stack the split section properly */
+  .about.about-bright,
+  .community-split,
+  .community-panel-wrap {
+    grid-template-columns: 1fr !important;
+  }
+
+  .poster-column,
+  .community-visual,
+  .community-copy-panel {
+    min-height: auto !important;
+  }
+
+  /* 6) top strip clipping */
+  .intentions-marquee,
+  .intentions-strip,
+  .intentions-ticker,
+  .top-strip {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    font-size: 10px !important;
+    letter-spacing: 0.16em !important;
+  }
+}
