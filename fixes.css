@@ -3242,3 +3242,22 @@ footer a:hover,
 .next-conversation span {
   color: rgba(245,247,251,0.72) !important;
 }
+/* NEXT CONVERSATION CARD — soft lilac conversation tone */
+.hero-dash-tile-conversation,
+.next-conversation-card,
+.hero-dash-tile-light {
+  background: linear-gradient(
+    135deg,
+    #cdb8dc 0%,
+    #b7bfd6 45%,
+    #c9d8e4 100%
+  ) !important;
+
+  color: #111 !important;
+  border: 1px solid rgba(255,255,255,0.35) !important;
+  box-shadow:
+    0 10px 30px rgba(170, 150, 220, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.35) !important;
+
+  backdrop-filter: blur(14px);
+}
