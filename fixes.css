@@ -2820,3 +2820,80 @@
   color: #ffffff !important;
   text-shadow: 0 1px 10px rgba(0,0,0,0.10);
 }
+/* =========================================
+   FINAL NAV POLISH
+   ========================================= */
+
+nav,
+.nav,
+.site-nav{
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+nav a,
+.nav a,
+.nav-links a,
+.nav-links span{
+  font-family: "Roboto", "Inter", system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  color: rgba(245,247,251,0.86) !important;
+  letter-spacing: 0.02em;
+  transition: color 0.24s ease, opacity 0.24s ease;
+}
+
+nav a:hover,
+.nav a:hover,
+.nav-links span:hover{
+  color: #ffffff !important;
+}
+
+/* slightly stronger active line */
+.nav-links span::after{
+  height: 1.5px !important;
+  opacity: 0.9;
+}
+/* =========================================
+   MOBILE TAP COMFORT
+   ========================================= */
+
+@media (max-width: 760px){
+  .hero-dash-tile,
+  .hero-dashboard-btn,
+  .bento-item,
+  .what-card{
+    min-height: 64px !important;
+    padding: 16px !important;
+  }
+
+  .hero-dashboard-btn{
+    min-height: 52px !important;
+  }
+
+  .hero-dash-card-stats{
+    gap: 14px !important;
+  }
+}
+/* =========================================
+   FINAL CTA SECTION
+   ========================================= */
+
+.final-cta{
+  padding: 120px 0 140px;
+  text-align: center;
+}
+
+.final-cta h2{
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  margin-bottom: 18px;
+}
+
+.final-cta p{
+  max-width: 620px;
+  margin: 0 auto 28px;
+  color: rgba(245,247,251,0.68);
+  line-height: 1.7;
+}
