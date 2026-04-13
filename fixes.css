@@ -3307,3 +3307,24 @@ footer a:hover,
   color: #111 !important;
   text-shadow: none !important;
 }
+/* Bigger moving circular text ring */
+.rotating-text,
+.circular-text,
+.text-ring,
+.oval-text {
+  width: 720px !important;
+  height: 720px !important;
+  transform-origin: center center !important;
+  animation: slowOrbit 28s linear infinite !important;
+}
+@keyframes slowOrbit {
+  0% {
+    transform: rotate(0deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.04);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.02);
+  }
+}
