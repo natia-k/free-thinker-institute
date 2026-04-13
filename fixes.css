@@ -3493,3 +3493,237 @@ nav,
     gap: 12px !important;
   }
 }
+/* =====================================
+   MOBILE BUG FIX PACK
+   paste at VERY bottom
+===================================== */
+
+@media (max-width: 760px) {
+
+  /* overall page breathing */
+  .container,
+  .nav-inner {
+    width: min(100% - 28px, var(--max)) !important;
+  }
+
+  /* nav */
+  nav {
+    min-height: 78px !important;
+  }
+
+  .nav-inner {
+    min-height: 78px !important;
+    gap: 12px !important;
+  }
+
+  .brand {
+    gap: 10px !important;
+    font-size: 9px !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .brand-mark {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 16px !important;
+  }
+
+  .nav-links {
+    gap: 0 !important;
+  }
+
+  .nav-links a:not(.nav-cta) {
+    display: none !important;
+  }
+
+  .nav-cta {
+    padding: 12px 18px !important;
+    min-height: 54px !important;
+    font-size: 11px !important;
+  }
+
+  /* horizontal intentions strip clipping */
+  .intentions-marquee,
+  .intentions-strip,
+  .intentions-ticker,
+  .top-strip {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    font-size: 10px !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  /* beige connect / cards section too tall */
+  .community-stack,
+  .connect-stack,
+  .community-sidebar,
+  .community-cards {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .community-card,
+  .connect-card,
+  .sidebar-card,
+  .mailing-card {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 28px 24px !important;
+  }
+
+  /* fix giant empty join discord card */
+  .community-card:first-child,
+  .connect-card:first-child,
+  .sidebar-card:first-child {
+    min-height: 240px !important;
+  }
+
+  /* community split section */
+  .about.about-bright,
+  .community-split,
+  .community-panel-wrap {
+    grid-template-columns: 1fr !important;
+  }
+
+  .poster-column,
+  .community-visual,
+  .community-copy-panel {
+    min-height: auto !important;
+  }
+
+  /* poster area */
+  .about-poster-shell,
+  .poster-wrap,
+  .about-img-wrap {
+    width: min(100%, 100%) !important;
+    max-width: none !important;
+  }
+
+  .about-poster-image,
+  .about-img {
+    width: 100% !important;
+    border-radius: 18px !important;
+  }
+
+  /* oval ring smaller on mobile so it stops getting chopped */
+  .poster-oval-container {
+    width: 132% !important;
+    height: 132% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+
+  .oval-text-content {
+    font-size: 10px !important;
+    letter-spacing: 2.8px !important;
+  }
+
+  /* right community panel readability */
+  .community-copy-panel,
+  .about-content-bright,
+  .community-copy {
+    padding: 28px 24px 34px !important;
+  }
+
+  .community-heading {
+    font-size: clamp(2.8rem, 12vw, 4.2rem) !important;
+    line-height: 0.95 !important;
+    max-width: 8ch !important;
+  }
+
+  .community-copy-panel p,
+  .community-copy p,
+  .about-content-bright p {
+    color: rgba(25, 23, 28, 0.78) !important;
+    font-size: 1.02rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .community-label,
+  .community-kicker,
+  .about-content-bright .section-kicker {
+    color: rgba(25, 23, 28, 0.48) !important;
+  }
+
+  /* hero */
+  .hero.hero-dashboard {
+    padding-top: 26px !important;
+    padding-bottom: 36px !important;
+    min-height: auto !important;
+  }
+
+  .hero-dashboard-inner {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .hero-dashboard-title {
+    font-size: clamp(3.4rem, 14vw, 5rem) !important;
+    line-height: 0.94 !important;
+    max-width: 8ch !important;
+  }
+
+  .hero-dashboard-text {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+  }
+
+  .hero-dashboard-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .hero-dashboard-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* dashboard cards stack nicer */
+  .hero-dashboard-panel {
+    max-width: 100% !important;
+  }
+
+  .hero-dash-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 14px !important;
+  }
+
+  .hero-dash-card-main,
+  .hero-dash-card-light,
+  .hero-dash-card-featured,
+  .hero-dash-card-stats {
+    grid-column: auto !important;
+  }
+
+  .hero-dash-card-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-dash-mosaic {
+    min-height: 190px !important;
+  }
+
+  .hero-dash-card-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* footer / mailing */
+  .newsletter {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  .newsletter-form,
+  .newsletter form {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    width: 100% !important;
+    border-radius: 16px !important;
+  }
+}
