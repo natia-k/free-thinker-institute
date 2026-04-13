@@ -323,3 +323,19 @@ if (heroTitle) {
     heroTitle.style.transform = "translate(0, 0)";
   });
 }
+// micro magnetic for top 4 dashboard buttons
+document.querySelectorAll(
+  '.hero-dash-mini, .hero-dash-mini-card, .hero-dash-pill, .hero-dash-small, .dashboard-mini'
+).forEach((item) => {
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    item.style.transform = `translate(${x / 18}px, ${y / 18 - 4}px) scale(1.03)`;
+  });
+
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = 'translateY(0) scale(1)';
+  });
+});
