@@ -3388,3 +3388,36 @@ height: 740px !important;
     opacity: 1;
   }
 }
+/* STOP rotating whole oval */
+.oval-text,
+.circular-text,
+.text-ring,
+.rotating-text,
+.oval-text-svg {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* make the SVG text itself feel alive */
+.oval-text-svg text,
+.oval-text-svg textPath,
+.oval-text text,
+.oval-text textPath,
+.circular-text text,
+.circular-text textPath,
+.text-ring text,
+.text-ring textPath {
+  animation: ovalTextBreath 6s ease-in-out infinite alternate !important;
+  transform-origin: center center;
+}
+
+@keyframes ovalTextBreath {
+  0% {
+    opacity: 0.82;
+    letter-spacing: 3px;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 5px;
+  }
+}
