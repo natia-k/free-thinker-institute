@@ -3261,3 +3261,19 @@ footer a:hover,
 
   backdrop-filter: blur(14px);
 }
+/* force next conversation box */
+.hero-dashboard-panel .hero-dash-tile:nth-child(2) {
+  background: linear-gradient(
+    135deg,
+    #cdb8dc 0%,
+    #b7bfd6 45%,
+    #c9d8e4 100%
+  ) !important;
+
+  color: #111 !important;
+}
+.hero-dash-tile-conversation h3,
+.hero-dash-tile-conversation p,
+.hero-dash-tile-conversation span {
+  color: #111 !important;
+}
