@@ -4213,3 +4213,20 @@ footer .footer-col a {
 .page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"]::after {
   display: none !important;
 }
+/* FINAL DONATE POSITION — put it below the stripe */
+.page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"] {
+  position: relative !important;
+  left: 50% !important;
+  transform: translate(-50%, 42px) !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  z-index: 20 !important;
+}
+
+footer {
+  padding-top: 92px !important;
+}
+
+.page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"]::after {
+  display: none !important;
+}
