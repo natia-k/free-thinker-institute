@@ -940,7 +940,7 @@
   animation: shimmerFlow 8s linear infinite;
 }
 /* =========================================
-   HERO DASHBOARD â€” FINAL CLEAN VERSION
+   HERO DASHBOARD Ã¢â‚¬â€ FINAL CLEAN VERSION
    ========================================= */
 
 .hero.hero-dashboard{
@@ -1788,7 +1788,7 @@
   0%,100% { transform: translateY(0px); }
   50% { transform: translateY(2px); }
 }
-/* === FINAL HERO POLISH PATCH â€” paste at END of style.css / fixes.css === */
+/* === FINAL HERO POLISH PATCH Ã¢â‚¬â€ paste at END of style.css / fixes.css === */
 
 /* animated ios-like glow lines across all dashboard boxes */
 .hero-dash-tile,
@@ -1831,7 +1831,7 @@
   100% { transform: translateX(70%) rotate(8deg); opacity: .4; }
 }
 
-/* discord tile â€” colorful shape with purple glow */
+/* discord tile Ã¢â‚¬â€ colorful shape with purple glow */
 .discord-box,
 .hero-discord,
 .tile-discord {
@@ -1857,7 +1857,7 @@
   border-radius: 100% 0 0 0;
 }
 
-/* next conversation tile â€” apple glass look */
+/* next conversation tile Ã¢â‚¬â€ apple glass look */
 .next-conversation,
 .next-box,
 .schedule-box {
@@ -2291,7 +2291,7 @@
   border-color: rgba(255,255,255,0.12);
 }
 /* =========================================
-   HERO ATMOSPHERIC DEPTH â€” PREMIUM ORBS
+   HERO ATMOSPHERIC DEPTH Ã¢â‚¬â€ PREMIUM ORBS
    ========================================= */
 
 .hero.hero-dashboard{
@@ -2563,7 +2563,7 @@
   transition-delay: 0.40s;
 }
 /* =========================================
-   GLASSMORPHISM TILES â€” PREMIUM
+   GLASSMORPHISM TILES Ã¢â‚¬â€ PREMIUM
    ========================================= */
 
 /* member count tile */
@@ -2753,7 +2753,7 @@
    TARGETED GLASS FIX
    ========================================= */
 
-/* 1) NEXT CONVERSATION â€” brighter glass, keep same feel */
+/* 1) NEXT CONVERSATION Ã¢â‚¬â€ brighter glass, keep same feel */
 .hero-dash-card-light{
   background: linear-gradient(
     180deg,
@@ -2781,7 +2781,7 @@
   text-shadow: 0 1px 10px rgba(0,0,0,0.10);
 }
 
-/* 2) 1.2k members tile â€” glassmorphism */
+/* 2) 1.2k members tile Ã¢â‚¬â€ glassmorphism */
 .hero-dash-tile-dark,
 .hero-dash-tile-glass{
   background: rgba(255,255,255,0.05) !important;
@@ -2799,7 +2799,7 @@
   color: rgba(245,247,251,0.94) !important;
 }
 
-/* 3) 03 / this month box â€” glassmorphism */
+/* 3) 03 / this month box Ã¢â‚¬â€ glassmorphism */
 .hero-dash-mini-light{
   background: rgba(255,255,255,0.06) !important;
   backdrop-filter: blur(14px) saturate(170%) !important;
@@ -3242,7 +3242,7 @@ footer a:hover,
 .next-conversation span {
   color: rgba(245,247,251,0.72) !important;
 }
-/* NEXT CONVERSATION CARD â€” soft lilac conversation tone */
+/* NEXT CONVERSATION CARD Ã¢â‚¬â€ soft lilac conversation tone */
 .hero-dash-tile-conversation,
 .next-conversation-card,
 .hero-dash-tile-light {
@@ -3278,7 +3278,7 @@ footer a:hover,
   color: #111 !important;
 }
 /* =========================================
-   NEXT CONVERSATION â€” exact selector
+   NEXT CONVERSATION Ã¢â‚¬â€ exact selector
    ========================================= */
 
 .hero-dash-card.hero-dash-card-light{
@@ -3389,7 +3389,7 @@ height: 740px !important;
   }
 }
 /* =====================================
-   FINAL OVAL TEXT RING â€” MASTER OVERRIDE
+   FINAL OVAL TEXT RING Ã¢â‚¬â€ MASTER OVERRIDE
    paste at VERY BOTTOM
 ===================================== */
 
@@ -3728,7 +3728,7 @@ nav,
   }
 }
 /* =====================================
-   MOBILE FINAL FIX â€” COMMUNITY / CARDS
+   MOBILE FINAL FIX Ã¢â‚¬â€ COMMUNITY / CARDS
    paste LAST
 ===================================== */
 
@@ -3868,88 +3868,167 @@ nav,
     letter-spacing: 0.16em !important;
   }
 }
-/* =========================
-   HERO MOSAIC ALIGN FIX
-   ========================= */
 
+/* =========================================
+   SURGICAL FINAL PATCH â€” HERO + DONATE ONLY
+   keeps structure untouched / fixes.css only
+========================================= */
+
+/* HERO DASHBOARD: prevent the right panel from feeling squeezed */
+.hero-dashboard-panel {
+  overflow: visible !important;
+}
+
+.hero-dash-grid {
+  align-items: stretch !important;
+}
+
+/* Main community snapshot card: stable two-column layout */
+.hero-dash-card-main {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.12fr) minmax(168px, 0.88fr) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
+  overflow: hidden !important;
+}
+
+.hero-dash-main-copy {
+  min-width: 0 !important;
+}
+
+.hero-dash-copy {
+  max-width: 100% !important;
+}
+
+/* Top-right Discord / Live / Members / Join tiles */
 .hero-dash-mosaic {
   display: grid !important;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  align-items: stretch;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(2, minmax(74px, 1fr)) !important;
+  gap: 10px !important;
+  min-height: 162px !important;
+  height: 100% !important;
+  align-self: stretch !important;
 }
 
 .hero-dash-tile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  min-height: 64px;
-  border-radius: 16px;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 74px !important;
+  height: auto !important;
+  padding: 13px 10px !important;
+  border-radius: 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  transform: translate(0, 0) !important;
 }
 
-/* fix text stacking inside tiles */
+.hero-dash-tile span,
 .hero-dash-tile small {
-  display: block;
-  margin-top: 4px;
-  opacity: 0.7;
+  max-width: 100% !important;
+  white-space: normal !important;
+  text-align: center !important;
 }
-/* =========================
-   FEATURED CARD TEXT FIX
-   ========================= */
+
+.hero-dash-tile small {
+  display: block !important;
+  margin-top: 5px !important;
+  line-height: 1.15 !important;
+}
+
+/* Featured path: no more clipping */
+.hero-dash-card-featured {
+  min-height: 128px !important;
+  height: auto !important;
+  overflow: visible !important;
+  padding: 24px 22px !important;
+}
+
+.hero-dash-card-featured > div {
+  min-width: 0 !important;
+  overflow: visible !important;
+}
 
 .hero-dash-featured-title {
-  line-height: 1.15 !important;
-  margin-bottom: 8px;
-  word-break: break-word;
+  max-width: none !important;
+  width: 100% !important;
+  font-size: clamp(1.72rem, 2.25vw, 2.08rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.045em !important;
+  margin: 8px 0 12px !important;
+  padding-bottom: 0.04em !important;
+  overflow: visible !important;
 }
 
 .hero-dash-card-featured .hero-dash-copy {
+  display: block !important;
   overflow: visible !important;
-  line-height: 1.6 !important;
-}
-/* =========================
-   HERO CARD BALANCE
-   ========================= */
-
-.hero-dash-card {
-  height: 100%;
+  line-height: 1.48 !important;
+  max-height: none !important;
+  margin: 0 !important;
 }
 
-.hero-dash-card-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-/* =========================
-   DONATE BUTTON FIX
-   ========================= */
-
-a[href*="gofund"] {
+/* Donate button: make the loose button look intentional without editing HTML */
+main + a.hero-dashboard-btn[href*="gofund"] {
   position: relative !important;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 40px auto 0;
-  display: inline-flex;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  top: auto !important;
+  transform: none !important;
+  display: flex !important;
+  width: fit-content !important;
+  margin: 0 auto !important;
+  translate: 0 -50% !important;
+  z-index: 6 !important;
+  overflow: visible !important;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.34),
+    0 0 38px rgba(167,139,250,0.18) !important;
 }
 
-/* subtle premium pulse */
-a[href*="gofund"]::after {
+main + a.hero-dashboard-btn[href*="gofund"]::before {
   content: "";
   position: absolute;
-  inset: -6px;
-  border-radius: 999px;
-  background: radial-gradient(
-    circle,
-    rgba(200,169,107,0.18),
-    transparent 70%
-  );
-  opacity: 0;
-  animation: donatePulse 3.2s ease-in-out infinite;
+  inset: -10px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(167,139,250,0.22), rgba(200,169,107,0.10) 38%, transparent 70%);
+  opacity: 0.55;
+  z-index: -1;
+  animation: donateSoftPulse 3.4s ease-in-out infinite;
+  pointer-events: none;
 }
 
-@keyframes donatePulse {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 0.6; }
+@keyframes donateSoftPulse {
+  0%, 100% { opacity: 0.24; transform: scale(0.96); }
+  50% { opacity: 0.62; transform: scale(1.06); }
+}
+
+/* keep footer from crashing into centered donate */
+footer {
+  margin-top: -22px !important;
+}
+
+/* responsive safety */
+@media (max-width: 760px) {
+  .hero-dash-card-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-dash-mosaic {
+    grid-template-rows: repeat(2, minmax(70px, auto)) !important;
+    min-height: 150px !important;
+  }
+
+  .hero-dash-card-featured {
+    min-height: auto !important;
+  }
+
+  main + a.hero-dashboard-btn[href*="gofund"] {
+    translate: 0 -42% !important;
+  }
 }
