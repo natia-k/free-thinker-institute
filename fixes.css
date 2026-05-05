@@ -4072,3 +4072,45 @@ a.hero-dashboard-btn[href*="gofund"]::after {
     min-height: 190px !important;
   }
 }
+/* =========================================
+   SAFE PATCH FROM GOOD VERSION
+   fixes only donate + 4 hero tiles
+   ========================================= */
+
+/* keep top 4 blocks inside the card */
+.hero-dash-card-main {
+  grid-template-columns: 1fr 188px !important;
+  min-height: 178px !important;
+}
+
+.hero-dash-mosaic {
+  padding: 10px !important;
+  gap: 8px !important;
+  align-content: center !important;
+}
+
+.hero-dash-tile {
+  min-height: 0 !important;
+  height: auto !important;
+  border-radius: 16px !important;
+}
+
+/* no cutting on bottom tiles */
+.hero-dash-mosaic .hero-dash-tile:nth-child(3),
+.hero-dash-mosaic .hero-dash-tile:nth-child(4) {
+  transform: none !important;
+}
+
+/* donate: less weird, centered, calmer */
+a[href*="gofund"] {
+  position: relative !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 28px auto 0 !important;
+  display: flex !important;
+  width: max-content !important;
+}
+
+a[href*="gofund"]::after {
+  display: none !important;
+}
