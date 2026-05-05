@@ -3868,3 +3868,88 @@ nav,
     letter-spacing: 0.16em !important;
   }
 }
+/* =========================
+   HERO MOSAIC ALIGN FIX
+   ========================= */
+
+.hero-dash-mosaic {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-items: stretch;
+}
+
+.hero-dash-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  min-height: 64px;
+  border-radius: 16px;
+}
+
+/* fix text stacking inside tiles */
+.hero-dash-tile small {
+  display: block;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+/* =========================
+   FEATURED CARD TEXT FIX
+   ========================= */
+
+.hero-dash-featured-title {
+  line-height: 1.15 !important;
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+.hero-dash-card-featured .hero-dash-copy {
+  overflow: visible !important;
+  line-height: 1.6 !important;
+}
+/* =========================
+   HERO CARD BALANCE
+   ========================= */
+
+.hero-dash-card {
+  height: 100%;
+}
+
+.hero-dash-card-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* =========================
+   DONATE BUTTON FIX
+   ========================= */
+
+a[href*="gofund"] {
+  position: relative !important;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 40px auto 0;
+  display: inline-flex;
+}
+
+/* subtle premium pulse */
+a[href*="gofund"]::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(200,169,107,0.18),
+    transparent 70%
+  );
+  opacity: 0;
+  animation: donatePulse 3.2s ease-in-out infinite;
+}
+
+@keyframes donatePulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.6; }
+}
