@@ -4114,3 +4114,60 @@ a[href*="gofund"] {
 a[href*="gofund"]::after {
   display: none !important;
 }
+/* =========================================
+   REAL FIX — ONLY HERO TILES + FLOATING DONATE
+   ========================================= */
+
+/* 1) Fix ONLY the top-right 4 tiles */
+.hero-dashboard-panel .hero-dash-card-main {
+  grid-template-columns: 1fr 176px !important;
+  min-height: 176px !important;
+  padding: 0 !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic {
+  width: 176px !important;
+  height: 176px !important;
+  min-height: 176px !important;
+  padding: 10px !important;
+  gap: 10px !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, 78px) !important;
+  grid-template-rows: repeat(2, 78px) !important;
+  align-content: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile {
+  width: 78px !important;
+  height: 78px !important;
+  min-height: 78px !important;
+  max-height: 78px !important;
+  transform: none !important;
+}
+
+/* 2) Fix floating donate ONLY — not footer Support donate */
+.page-shell > a.hero-dashboard-btn[href*="gofund"] {
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin: -25px 0 26px !important;
+  display: inline-flex !important;
+  width: max-content !important;
+  z-index: 5 !important;
+}
+
+.page-shell > a.hero-dashboard-btn[href*="gofund"]::after {
+  display: none !important;
+}
+
+/* 3) Restore footer Support links */
+footer .footer-col a {
+  position: static !important;
+  transform: none !important;
+  margin: 0 0 0.6rem !important;
+  display: block !important;
+  width: auto !important;
+  text-align: left !important;
+}
