@@ -4620,3 +4620,38 @@ footer {
 .hero-dashboard-panel .hero-dash-tile:nth-child(4) {
   background: linear-gradient(145deg, rgba(255,218,190,0.65), rgba(255,255,255,0.10)) !important;
 }
+/* =========================
+   HERO COLOR RESTORE — ONLY 4 TILES + NEXT
+   ========================= */
+
+/* 4 small tiles */
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(1) {
+  background: linear-gradient(145deg, #a897ff 0%, #c8bbff 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(2) {
+  background: linear-gradient(145deg, #f2f5ff 0%, #d8deef 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(3) {
+  background: linear-gradient(145deg, #706a8f 0%, #4b485f 100%) !important;
+  color: #fff !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(4) {
+  background: linear-gradient(145deg, #ffe3cb 0%, #e7b897 100%) !important;
+  color: #111 !important;
+}
+
+/* Next Conversation card */
+.hero-dashboard-panel .hero-dash-card-light {
+  background: linear-gradient(145deg, #eef3ff 0%, #d8e1f3 100%) !important;
+  color: #111 !important;
+  border-color: rgba(255,255,255,0.38) !important;
+}
+
+.hero-dashboard-panel .hero-dash-card-light * {
+  color: #111 !important;
+}
