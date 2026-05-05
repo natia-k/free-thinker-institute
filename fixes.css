@@ -3870,133 +3870,185 @@ nav,
 }
 
 /* =========================================================
-   SURGICAL HERO + DONATE FIX â€” paste-only override
-   fixes only layout issues, no extra weight
+   NATIA FINAL SURGICAL FIX â€” HERO + DONATE ONLY
+   Paste-safe. No HTML / JS changes needed.
    ========================================================= */
 
-/* stop old magnetic JS from leaving tiles shifted */
-.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile {
-  transform: none !important;
-  translate: 0 0 !important;
+/* keep the right dashboard stable and give the second row enough height */
+.hero-dashboard-panel {
+  width: min(100%, 600px) !important;
+  max-width: 600px !important;
+  overflow: visible !important;
 }
 
-/* make the four small boxes sit cleanly as one block */
-.hero-dashboard-panel .hero-dash-card-main {
+.hero-dashboard-panel .hero-dash-grid {
+  width: 100% !important;
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) 196px !important;
-  gap: 0 !important;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr) !important;
+  grid-template-rows: 174px 172px 140px !important;
+  gap: 14px !important;
   align-items: stretch !important;
 }
 
+/* top community card: fixed two-column structure */
+.hero-dashboard-panel .hero-dash-card-main {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 188px !important;
+  align-items: stretch !important;
+  min-height: 174px !important;
+  overflow: hidden !important;
+}
+
+.hero-dashboard-panel .hero-dash-main-copy {
+  min-width: 0 !important;
+  padding: 24px 22px 22px !important;
+}
+
+/* the four little tiles: sit properly, equal size, centered text */
 .hero-dashboard-panel .hero-dash-mosaic {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-template-rows: repeat(2, minmax(72px, 1fr)) !important;
+  grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
   gap: 10px !important;
   padding: 10px !important;
+  width: 100% !important;
   height: 100% !important;
+  min-width: 0 !important;
   min-height: 0 !important;
-  align-self: stretch !important;
 }
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile {
   position: relative !important;
+  inset: auto !important;
   width: 100% !important;
   height: 100% !important;
   min-width: 0 !important;
-  min-height: 72px !important;
+  min-height: 0 !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  text-align: center !important;
-  padding: 12px 8px !important;
+  gap: 7px !important;
+  padding: 10px 8px !important;
   border-radius: 18px !important;
+  text-align: center !important;
   overflow: hidden !important;
 }
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile span,
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile small {
   position: static !important;
-  left: auto !important;
-  right: auto !important;
-  top: auto !important;
-  bottom: auto !important;
+  inset: auto !important;
+  transform: none !important;
   display: block !important;
+  width: auto !important;
   max-width: 100% !important;
+  margin: 0 !important;
   white-space: normal !important;
   text-align: center !important;
-  line-height: 1.1 !important;
+  line-height: 1.05 !important;
+  overflow-wrap: normal !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile span {
+  font-size: 0.62rem !important;
+  letter-spacing: 0.095em !important;
 }
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile small {
-  margin-top: 8px !important;
-  font-size: 0.58rem !important;
+  font-size: 0.55rem !important;
+  letter-spacing: 0.075em !important;
+  opacity: 0.68 !important;
 }
 
-/* featured card: keep Software Development elegant and readable */
+/* featured Software Development card: no clipping, no ugly word breaks */
 .hero-dashboard-panel .hero-dash-card-featured {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 172px !important;
+  padding: 20px 22px 18px !important;
   overflow: hidden !important;
-  padding: 22px 22px 20px !important;
-  min-height: 154px !important;
 }
 
 .hero-dashboard-panel .hero-dash-card-featured > div {
+  width: 100% !important;
   min-width: 0 !important;
   overflow: visible !important;
 }
 
 .hero-dashboard-panel .hero-dash-featured-title {
-  max-width: none !important;
+  display: block !important;
   width: 100% !important;
-  font-size: clamp(1.55rem, 1.85vw, 1.82rem) !important;
-  line-height: 0.98 !important;
-  letter-spacing: -0.035em !important;
+  max-width: 100% !important;
   margin: 8px 0 10px !important;
-  padding: 0 0 0.05em !important;
+  padding: 0 0 0.04em !important;
+  font-size: clamp(1.42rem, 1.62vw, 1.72rem) !important;
+  line-height: 1.03 !important;
+  letter-spacing: -0.035em !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
   overflow: visible !important;
-  text-wrap: balance !important;
 }
 
 .hero-dashboard-panel .hero-dash-card-featured .hero-dash-copy {
   display: block !important;
-  max-width: 24ch !important;
+  max-width: 26ch !important;
   max-height: none !important;
-  overflow: visible !important;
-  font-size: 0.9rem !important;
-  line-height: 1.42 !important;
   margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0.84rem !important;
+  line-height: 1.36 !important;
+  overflow: visible !important;
 }
 
-/* donate: center the existing floating link without touching HTML */
-body > a[href*="gofund"],
-.page-shell > a[href*="gofund"],
-main + a[href*="gofund"],
+/* bottom stats row: slightly tighter so the taller featured card fits */
+.hero-dashboard-panel .hero-dash-card-stats {
+  min-height: 140px !important;
+  padding: 14px !important;
+  gap: 12px !important;
+  overflow: hidden !important;
+}
+
+.hero-dashboard-panel .hero-dash-mini {
+  min-height: 112px !important;
+  padding: 15px !important;
+  border-radius: 20px !important;
+}
+
+.hero-dashboard-panel .hero-dash-mini strong {
+  font-size: 1.75rem !important;
+  line-height: 1 !important;
+}
+
+.hero-dashboard-panel .hero-dash-copy,
+.hero-dashboard-panel .hero-dash-copy-dark {
+  line-height: 1.45 !important;
+}
+
+/* keep Donate centered in the band, not stuck in the corner */
 a.hero-dashboard-btn[href*="gofund"] {
   position: relative !important;
   left: 50% !important;
   right: auto !important;
   top: auto !important;
   bottom: auto !important;
-  transform: translateX(-50%) !important;
-  translate: 0 -50% !important;
+  transform: translateX(-50%) translateY(-50%) !important;
   display: inline-flex !important;
   width: max-content !important;
   margin: 0 auto !important;
-  z-index: 20 !important;
+  z-index: 30 !important;
   overflow: visible !important;
 }
 
-body > a[href*="gofund"]::after,
-.page-shell > a[href*="gofund"]::after,
-main + a[href*="gofund"]::after,
 a.hero-dashboard-btn[href*="gofund"]::after {
   content: "" !important;
   position: absolute !important;
   inset: -8px !important;
   border-radius: 999px !important;
-  background: radial-gradient(circle, rgba(167,139,250,0.24), rgba(200,169,107,0.10) 42%, transparent 72%) !important;
-  opacity: 0.45 !important;
+  background: radial-gradient(circle, rgba(167,139,250,0.24), rgba(200,169,107,0.12) 42%, transparent 72%) !important;
+  opacity: 0.42 !important;
   z-index: -1 !important;
   animation: donatePulseFinal 3.4s ease-in-out infinite !important;
 }
@@ -4004,4 +4056,19 @@ a.hero-dashboard-btn[href*="gofund"]::after {
 @keyframes donatePulseFinal {
   0%, 100% { opacity: 0.22; transform: scale(0.96); }
   50% { opacity: 0.58; transform: scale(1.06); }
+}
+
+@media (max-width: 980px) {
+  .hero-dashboard-panel .hero-dash-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+
+  .hero-dashboard-panel .hero-dash-card-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-dashboard-panel .hero-dash-mosaic {
+    min-height: 190px !important;
+  }
 }
