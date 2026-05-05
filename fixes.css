@@ -4171,3 +4171,22 @@ footer .footer-col a {
   width: auto !important;
   text-align: left !important;
 }
+/* =========================
+   FINAL DONATE FIX (ONLY THIS)
+   ========================= */
+
+.page-shell > a.hero-dashboard-btn[href*="gofund"] {
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  margin: -12px 0 40px !important; /* pulls it off the band */
+  display: inline-flex !important;
+
+  z-index: 10 !important;
+}
+
+/* remove any leftover glow/band artifacts */
+.page-shell > a.hero-dashboard-btn[href*="gofund"]::after {
+  display: none !important;
+}
