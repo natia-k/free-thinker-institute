@@ -4230,3 +4230,30 @@ footer {
 .page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"]::after {
   display: none !important;
 }
+/* =========================
+   REAL DONATE FIX (FINAL)
+   ========================= */
+
+/* make parent predictable */
+.page-shell {
+  position: relative;
+}
+
+/* place donate exactly between sections */
+.page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"] {
+  position: absolute !important;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* THIS is the key */
+  bottom: 140px;  /* controls vertical position */
+
+  z-index: 20;
+  margin: 0 !important;
+}
+
+/* remove any artifacts */
+.page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"]::after {
+  display: none !important;
+}
