@@ -4162,3 +4162,46 @@ footer .footer-col a[href*="gofund"]::after {
     min-height: 150px !important;
   }
 }
+/* =========================
+   HARD RESET HERO MOSAIC
+   ========================= */
+
+/* fix the grid itself */
+.hero-dash-mosaic {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 10px;
+}
+
+/* force tiles to behave */
+.hero-dash-tile {
+  height: 72px !important;
+  min-height: 72px !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* THIS is the real fix — give the parent enough space */
+.hero-dash-card-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 240px; /* prevents bottom cut */
+}
+
+/* =========================
+   DONATE FIX
+   ========================= */
+
+/* remove weird positioning */
+a[href*="gofund"] {
+  position: static !important;
+  transform: none !important;
+  margin: 24px auto;
+  display: block;
+  text-align: center;
+}
