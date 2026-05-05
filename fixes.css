@@ -4306,3 +4306,24 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0,0,0,0.22);
 }
+/* HERO TILES COLOR — BRIGHTER BUT STILL PREMIUM */
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(1) {
+  background: linear-gradient(145deg, #9b8cff 0%, #c7b8ff 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(2) {
+  background: linear-gradient(145deg, #eef2ff 0%, #cfd8ee 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(3) {
+  background: linear-gradient(145deg, rgba(115,108,150,0.74), rgba(70,68,92,0.9)) !important;
+  color: #fff !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(4) {
+  background: linear-gradient(145deg, #ffe4cf 0%, #e8bfa4 100%) !important;
+  color: #111 !important;
+}
