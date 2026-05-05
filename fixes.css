@@ -4655,3 +4655,33 @@ footer {
 .hero-dashboard-panel .hero-dash-card-light * {
   color: #111 !important;
 }
+/* =========================
+   FINAL COLOR (CONTROLLED)
+   ========================= */
+
+/* Next Conversation (keep soft light blue) */
+.hero-dashboard-panel .hero-dash-card-light {
+  background: linear-gradient(145deg, #eef3ff 0%, #d9e2f5 100%) !important;
+  color: #111 !important;
+}
+
+/* 4 tiles only */
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(1) {
+  background: linear-gradient(145deg, #a897ff 0%, #c8bbff 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(2) {
+  background: linear-gradient(145deg, #f3f6ff 0%, #dbe2f2 100%) !important;
+  color: #111 !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(3) {
+  background: linear-gradient(145deg, #6f6a8c 0%, #4a475f 100%) !important;
+  color: #fff !important;
+}
+
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(4) {
+  background: linear-gradient(145deg, #ffe3cb 0%, #e6b796 100%) !important;
+  color: #111 !important;
+}
