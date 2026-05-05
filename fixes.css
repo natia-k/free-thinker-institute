@@ -4327,3 +4327,22 @@ footer {
   background: linear-gradient(145deg, #ffe4cf 0%, #e8bfa4 100%) !important;
   color: #111 !important;
 }
+/* =========================
+   SAFARI COLOR NORMALIZATION
+   ========================= */
+
+@supports (-webkit-backdrop-filter: blur(0)) {
+  .hero-dash-card,
+  .hero-dash-card-main,
+  .hero-dash-card-featured {
+    background: rgba(20, 22, 35, 0.78) !important;
+    backdrop-filter: blur(18px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
+  }
+
+  /* slightly boost contrast for Safari */
+  .hero-dash-card::before,
+  .hero-dash-card-main::before {
+    opacity: 0.9 !important;
+  }
+}
