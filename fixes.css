@@ -3869,166 +3869,139 @@ nav,
   }
 }
 
-/* =========================================
-   SURGICAL FINAL PATCH â€” HERO + DONATE ONLY
-   keeps structure untouched / fixes.css only
-========================================= */
+/* =========================================================
+   SURGICAL HERO + DONATE FIX â€” paste-only override
+   fixes only layout issues, no extra weight
+   ========================================================= */
 
-/* HERO DASHBOARD: prevent the right panel from feeling squeezed */
-.hero-dashboard-panel {
-  overflow: visible !important;
+/* stop old magnetic JS from leaving tiles shifted */
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile {
+  transform: none !important;
+  translate: 0 0 !important;
 }
 
-.hero-dash-grid {
-  align-items: stretch !important;
-}
-
-/* Main community snapshot card: stable two-column layout */
-.hero-dash-card-main {
+/* make the four small boxes sit cleanly as one block */
+.hero-dashboard-panel .hero-dash-card-main {
   display: grid !important;
-  grid-template-columns: minmax(0, 1.12fr) minmax(168px, 0.88fr) !important;
-  gap: 18px !important;
+  grid-template-columns: minmax(0, 1fr) 196px !important;
+  gap: 0 !important;
   align-items: stretch !important;
-  overflow: hidden !important;
 }
 
-.hero-dash-main-copy {
-  min-width: 0 !important;
-}
-
-.hero-dash-copy {
-  max-width: 100% !important;
-}
-
-/* Top-right Discord / Live / Members / Join tiles */
-.hero-dash-mosaic {
+.hero-dashboard-panel .hero-dash-mosaic {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-template-rows: repeat(2, minmax(74px, 1fr)) !important;
+  grid-template-rows: repeat(2, minmax(72px, 1fr)) !important;
   gap: 10px !important;
-  min-height: 162px !important;
+  padding: 10px !important;
   height: 100% !important;
+  min-height: 0 !important;
   align-self: stretch !important;
 }
 
-.hero-dash-tile {
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile {
+  position: relative !important;
   width: 100% !important;
+  height: 100% !important;
   min-width: 0 !important;
-  min-height: 74px !important;
-  height: auto !important;
-  padding: 13px 10px !important;
-  border-radius: 18px !important;
+  min-height: 72px !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
+  padding: 12px 8px !important;
+  border-radius: 18px !important;
   overflow: hidden !important;
-  transform: translate(0, 0) !important;
 }
 
-.hero-dash-tile span,
-.hero-dash-tile small {
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile span,
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile small {
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  display: block !important;
   max-width: 100% !important;
   white-space: normal !important;
   text-align: center !important;
+  line-height: 1.1 !important;
 }
 
-.hero-dash-tile small {
-  display: block !important;
-  margin-top: 5px !important;
-  line-height: 1.15 !important;
+.hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile small {
+  margin-top: 8px !important;
+  font-size: 0.58rem !important;
 }
 
-/* Featured path: no more clipping */
-.hero-dash-card-featured {
-  min-height: 128px !important;
-  height: auto !important;
-  overflow: visible !important;
-  padding: 24px 22px !important;
+/* featured card: keep Software Development elegant and readable */
+.hero-dashboard-panel .hero-dash-card-featured {
+  overflow: hidden !important;
+  padding: 22px 22px 20px !important;
+  min-height: 154px !important;
 }
 
-.hero-dash-card-featured > div {
+.hero-dashboard-panel .hero-dash-card-featured > div {
   min-width: 0 !important;
   overflow: visible !important;
 }
 
-.hero-dash-featured-title {
+.hero-dashboard-panel .hero-dash-featured-title {
   max-width: none !important;
   width: 100% !important;
-  font-size: clamp(1.72rem, 2.25vw, 2.08rem) !important;
-  line-height: 1.02 !important;
-  letter-spacing: -0.045em !important;
-  margin: 8px 0 12px !important;
-  padding-bottom: 0.04em !important;
+  font-size: clamp(1.55rem, 1.85vw, 1.82rem) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.035em !important;
+  margin: 8px 0 10px !important;
+  padding: 0 0 0.05em !important;
   overflow: visible !important;
+  text-wrap: balance !important;
 }
 
-.hero-dash-card-featured .hero-dash-copy {
+.hero-dashboard-panel .hero-dash-card-featured .hero-dash-copy {
   display: block !important;
-  overflow: visible !important;
-  line-height: 1.48 !important;
+  max-width: 24ch !important;
   max-height: none !important;
+  overflow: visible !important;
+  font-size: 0.9rem !important;
+  line-height: 1.42 !important;
   margin: 0 !important;
 }
 
-/* Donate button: make the loose button look intentional without editing HTML */
-main + a.hero-dashboard-btn[href*="gofund"] {
+/* donate: center the existing floating link without touching HTML */
+body > a[href*="gofund"],
+.page-shell > a[href*="gofund"],
+main + a[href*="gofund"],
+a.hero-dashboard-btn[href*="gofund"] {
   position: relative !important;
-  left: auto !important;
+  left: 50% !important;
   right: auto !important;
-  bottom: auto !important;
   top: auto !important;
-  transform: none !important;
-  display: flex !important;
-  width: fit-content !important;
-  margin: 0 auto !important;
+  bottom: auto !important;
+  transform: translateX(-50%) !important;
   translate: 0 -50% !important;
-  z-index: 6 !important;
+  display: inline-flex !important;
+  width: max-content !important;
+  margin: 0 auto !important;
+  z-index: 20 !important;
   overflow: visible !important;
-  box-shadow:
-    0 18px 45px rgba(0,0,0,0.34),
-    0 0 38px rgba(167,139,250,0.18) !important;
 }
 
-main + a.hero-dashboard-btn[href*="gofund"]::before {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border-radius: inherit;
-  background: radial-gradient(circle, rgba(167,139,250,0.22), rgba(200,169,107,0.10) 38%, transparent 70%);
-  opacity: 0.55;
-  z-index: -1;
-  animation: donateSoftPulse 3.4s ease-in-out infinite;
-  pointer-events: none;
+body > a[href*="gofund"]::after,
+.page-shell > a[href*="gofund"]::after,
+main + a[href*="gofund"]::after,
+a.hero-dashboard-btn[href*="gofund"]::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -8px !important;
+  border-radius: 999px !important;
+  background: radial-gradient(circle, rgba(167,139,250,0.24), rgba(200,169,107,0.10) 42%, transparent 72%) !important;
+  opacity: 0.45 !important;
+  z-index: -1 !important;
+  animation: donatePulseFinal 3.4s ease-in-out infinite !important;
 }
 
-@keyframes donateSoftPulse {
-  0%, 100% { opacity: 0.24; transform: scale(0.96); }
-  50% { opacity: 0.62; transform: scale(1.06); }
-}
-
-/* keep footer from crashing into centered donate */
-footer {
-  margin-top: -22px !important;
-}
-
-/* responsive safety */
-@media (max-width: 760px) {
-  .hero-dash-card-main {
-    grid-template-columns: 1fr !important;
-  }
-
-  .hero-dash-mosaic {
-    grid-template-rows: repeat(2, minmax(70px, auto)) !important;
-    min-height: 150px !important;
-  }
-
-  .hero-dash-card-featured {
-    min-height: auto !important;
-  }
-
-  main + a.hero-dashboard-btn[href*="gofund"] {
-    translate: 0 -42% !important;
-  }
+@keyframes donatePulseFinal {
+  0%, 100% { opacity: 0.22; transform: scale(0.96); }
+  50% { opacity: 0.58; transform: scale(1.06); }
 }
