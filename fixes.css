@@ -4444,3 +4444,81 @@ footer {
   transform: translateY(-2px) !important;
   filter: brightness(1.06) saturate(1.08) !important;
 }
+/* =========================
+   HERO TILES — LIGHT + LIFE
+   ========================= */
+
+.hero-dashboard-panel .hero-dash-tile {
+  position: relative;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  /* subtle depth */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 10px 25px rgba(0,0,0,0.35);
+
+  transition: all 0.25s ease;
+}
+
+/* ✨ LIGHT EDGE (this is the magic part) */
+.hero-dashboard-panel .hero-dash-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    140deg,
+    rgba(255,255,255,0.25),
+    transparent 40%
+  );
+
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* 💜 SOFT COLOR PRESENCE (barely visible) */
+.hero-dashboard-panel .hero-dash-tile:nth-child(1) {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 10px 25px rgba(0,0,0,0.35),
+    0 0 20px rgba(155,140,255,0.15);
+}
+
+.hero-dashboard-panel .hero-dash-tile:nth-child(4) {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 10px 25px rgba(0,0,0,0.35),
+    0 0 20px rgba(255,190,140,0.18);
+}
+
+/* 🟢 HOVER — subtle, premium */
+.hero-dashboard-panel .hero-dash-tile:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 18px 40px rgba(0,0,0,0.45);
+}
+
+/* 🔴 OPTIONAL: live pulse (only ONE tile) */
+.hero-dashboard-panel .hero-dash-tile:nth-child(2) {
+  animation: livePulse 4s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.12),
+      0 10px 25px rgba(0,0,0,0.35);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.12),
+      0 10px 25px rgba(0,0,0,0.35),
+      0 0 25px rgba(255,255,255,0.15);
+  }
+}
