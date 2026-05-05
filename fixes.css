@@ -4190,3 +4190,26 @@ footer .footer-col a {
 .page-shell > a.hero-dashboard-btn[href*="gofund"]::after {
   display: none !important;
 }
+/* =========================
+   FINAL CLEAN DONATE ALIGN
+   ========================= */
+
+.page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"] {
+  position: relative !important;
+
+  /* center */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  /* THIS is the real fix */
+  margin-top: -28px !important;   /* pull out of the stripe */
+  margin-bottom: 32px !important;
+
+  display: inline-flex !important;
+  z-index: 10 !important;
+}
+
+/* kill any leftover glow/band effect */
+.page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"]::after {
+  display: none !important;
+}
