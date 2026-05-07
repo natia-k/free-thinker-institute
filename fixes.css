@@ -5914,3 +5914,193 @@ footer {
     overflow: hidden !important;
   }
 }
+@media (max-width: 768px) {
+
+  /* stop all horizontal weirdness */
+  html,
+  body,
+  .page-shell {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  section,
+  .container,
+  .goals-inner,
+  .community-inner,
+  .editorial-container {
+    width: calc(100% - 32px) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* FIX THOUGHTFUL L CUTTING */
+  .community-heading,
+  .community-heading *,
+  .community-heading em,
+  .community-heading .kinetic-em {
+    overflow: visible !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    text-wrap: balance !important;
+    max-width: none !important;
+    padding-right: 0.35em !important;
+    padding-bottom: 0.2em !important;
+    margin-right: 0.2em !important;
+  }
+
+  .community-heading {
+    display: block !important;
+    width: 100% !important;
+    font-size: clamp(3rem, 13vw, 4.2rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .community-heading .kinetic-em {
+    display: inline !important;
+    font-style: italic !important;
+  }
+
+  /* COMMUNITY TEXT READABILITY */
+  .community,
+  #community {
+    background: #f3eee7 !important;
+    color: #171412 !important;
+    padding: 88px 0 !important;
+  }
+
+  .community-intro,
+  .community p,
+  .community-card p,
+  .comm-card p,
+  .community-body,
+  .community-body p {
+    color: rgba(20, 17, 15, 0.82) !important;
+    opacity: 1 !important;
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+    text-shadow: none !important;
+  }
+
+  .community .section-kicker {
+    color: rgba(20, 17, 15, 0.48) !important;
+  }
+
+  /* COMMUNITY CARDS SIT PROPERLY */
+  .community-grid,
+  .community-cards,
+  .comm-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+
+  .comm-card,
+  .community-card,
+  .comm-card-featured {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    overflow: hidden !important;
+    border-radius: 28px !important;
+  }
+
+  /* all mobile grids become clean stacks */
+  .intentions-grid,
+  .what-grid,
+  .learn-bento,
+  .bento-grid,
+  .editorial-grid,
+  .pathfinder-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+
+  .intentions-grid > *,
+  .what-grid > *,
+  .learn-bento > *,
+  .bento-grid > *,
+  .editorial-grid > *,
+  .pathfinder-grid > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* all cards breathe */
+  .bento-item,
+  .what-card,
+  .editorial-card,
+  .quiz-question,
+  .pathfinder-shell,
+  .intention-flip {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 26px 22px !important;
+    overflow: visible !important;
+    border-radius: 28px !important;
+  }
+
+  .bento-content {
+    padding: 0 !important;
+  }
+
+  /* all headings safe */
+  .learn-heading,
+  .what-heading,
+  .intentions-heading,
+  .editorial-title,
+  .goals-heading,
+  .about-heading {
+    overflow: visible !important;
+    max-width: 100% !important;
+    padding-bottom: 0.18em !important;
+    line-height: 1.02 !important;
+  }
+
+  /* stronger paragraph visibility everywhere */
+  .what-card p,
+  .bento-item p,
+  .editorial-card p,
+  .quiz-question p,
+  .pathfinder-shell p,
+  .intentions-intro,
+  .what-intro {
+    color: rgba(245, 247, 251, 0.82) !important;
+    opacity: 1 !important;
+  }
+
+  /* about block readability */
+  .about-content,
+  .about-content-bright {
+    background: #eee8f2 !important;
+  }
+
+  .about-heading,
+  .community-equation,
+  .community-equation.pastel-shimmer {
+    background: none !important;
+    color: #17131a !important;
+    -webkit-text-fill-color: #17131a !important;
+  }
+
+  .about-body,
+  .about-body p {
+    color: rgba(22, 18, 18, 0.84) !important;
+    opacity: 1 !important;
+  }
+}
