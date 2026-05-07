@@ -4750,3 +4750,56 @@ nav,
 .pathfinder-shell {
   transform: translateZ(0);
 }
+/* SAFARI OVAL + HOVER FIX */
+
+.poster-oval-container,
+.oval-text-svg {
+  transform-origin: 50% 50% !important;
+  -webkit-transform-origin: 50% 50% !important;
+}
+
+.oval-text-svg {
+  animation: ovalSpinSafari 28s linear infinite !important;
+  will-change: transform;
+}
+
+@-webkit-keyframes ovalSpinSafari {
+  from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@keyframes ovalSpinSafari {
+  from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+/* stop Safari card hover distortion */
+@supports (-webkit-hyphens: none) {
+  .bento-item,
+  .editorial-card,
+  .hero-card,
+  .comm-card,
+  .quiz-question,
+  .what-card,
+  .pathfinder-shell {
+    transform: none !important;
+  }
+
+  .bento-item:hover,
+  .editorial-card:hover,
+  .hero-card:hover,
+  .comm-card:hover,
+  .quiz-question:hover,
+  .what-card:hover,
+  .pathfinder-shell:hover {
+    transform: translateY(-2px) !important;
+  }
+
+  .poster-oval-container {
+    z-index: 1 !important;
+  }
+
+  .about-poster-image {
+    z-index: 2 !important;
+  }
+}
