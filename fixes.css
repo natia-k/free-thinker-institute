@@ -6224,40 +6224,57 @@ footer {
 }
 @media (max-width: 768px) {
   .intention-flip {
-    min-height: 220px !important;
-    height: auto !important;
+    min-height: 260px !important;
+    height: 260px !important;
+    perspective: 1200px !important;
   }
 
   .intention-inner {
-    min-height: 220px !important;
-    height: auto !important;
-    transform: none !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 260px !important;
+    transform-style: preserve-3d !important;
+    -webkit-transform-style: preserve-3d !important;
+    transition: transform 0.65s ease !important;
+  }
+
+  .intention-flip.active .intention-inner {
+    transform: rotateY(180deg) !important;
   }
 
   .intention-face {
-    position: relative !important;
-    min-height: 220px !important;
-    height: auto !important;
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
     padding: 26px 24px !important;
-    backface-visibility: visible !important;
-    -webkit-backface-visibility: visible !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+
+  .intention-front {
+    transform: rotateY(0deg) !important;
   }
 
   .intention-back {
-    display: none !important;
+    display: flex !important;
+    transform: rotateY(180deg) !important;
   }
 
   .intention-front h3,
-  .intention-hint {
-    display: block !important;
+  .intention-back h3,
+  .intention-back p {
     opacity: 1 !important;
     visibility: visible !important;
   }
 
   .intention-front h3 {
-    margin-top: 42px !important;
-    font-size: 1.8rem !important;
+    font-size: 1.75rem !important;
     line-height: 1.05 !important;
-    color: #f5f7fb !important;
+  }
+
+  .intention-back p {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
   }
 }
