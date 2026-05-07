@@ -6104,3 +6104,58 @@ footer {
     opacity: 1 !important;
   }
 }
+@media (max-width: 768px) {
+
+  /* 1. COMMUNITY = UNITY + DIVERSITY — make text readable */
+  .about.about-bright {
+    background: #f2edf5 !important;
+  }
+
+  .about-content,
+  .about-content-bright {
+    background: #f2edf5 !important;
+    color: #17131a !important;
+    padding: 42px 28px 52px !important;
+  }
+
+  .about-heading,
+  .community-equation,
+  .community-equation.pastel-shimmer {
+    background: none !important;
+    color: #17131a !important;
+    -webkit-text-fill-color: #17131a !important;
+    text-shadow: none !important;
+  }
+
+  .about-body,
+  .about-body p {
+    color: #2b2524 !important;
+    opacity: 1 !important;
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* 2. JOIN A THOUGHTFUL COMMUNITY — stop letter cutting */
+  .community-heading,
+  .community-heading *,
+  .community-heading em,
+  .community-heading .kinetic-em {
+    overflow: visible !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    padding-right: 0.45em !important;
+    padding-bottom: 0.18em !important;
+  }
+
+  .community-heading {
+    font-size: clamp(3rem, 13vw, 4.1rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .community-heading .kinetic-em {
+    display: inline-block !important;
+  }
+
+}
