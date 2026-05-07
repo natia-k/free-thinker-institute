@@ -4685,3 +4685,68 @@ footer {
   background: linear-gradient(145deg, #ffe3cb 0%, #e6b796 100%) !important;
   color: #111 !important;
 }
+/* SAFARI STABILITY PATCH — paste at very end */
+
+nav,
+.brand-mark,
+.hero-dash-card,
+.hero-dash-tile-glass,
+.hero-card,
+.about,
+.about-content,
+.next-conversation,
+.next-box,
+.schedule-box {
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.hero,
+.hero.hero-dashboard {
+  min-height: calc(100svh - 72px) !important;
+}
+
+.hero-dashboard-title em,
+.community-equation.pastel-shimmer,
+.hero-gradient,
+.shimmer-text {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.community-heading,
+.about-heading,
+.hero-dashboard-title,
+.editorial-title,
+.intentions-heading,
+.what-heading,
+.goals-heading,
+.learn-heading {
+  overflow: visible !important;
+  padding-bottom: 0.12em !important;
+}
+
+.flip-inner,
+.intention-flip-inner {
+  -webkit-transform-style: preserve-3d !important;
+  transform-style: preserve-3d !important;
+}
+
+.flip-front,
+.flip-back,
+.intention-front,
+.intention-back {
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+}
+
+.hero-dash-card,
+.hero-dash-tile,
+.bento-item,
+.what-card,
+.comm-card,
+.editorial-card,
+.pathfinder-shell {
+  transform: translateZ(0);
+}
