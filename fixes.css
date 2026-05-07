@@ -6159,3 +6159,79 @@ footer {
   }
 
 }
+/* =========================
+   FINAL MOBILE LOCK (NO MORE BUGS)
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* ===== RESET LAYOUT ISSUES ===== */
+  .about,
+  .about.about-bright {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .poster-column {
+    width: 100% !important;
+    min-height: auto !important;
+    border: none !important;
+  }
+
+  .about-content,
+  .about-content-bright {
+    width: 100% !important;
+    padding: 42px 24px 56px !important;
+  }
+
+  /* ===== FIX: COMMUNITY TEXT VISIBILITY ===== */
+  .community-equation,
+  .about-heading {
+    background: none !important;
+    color: #1a1620 !important;
+    -webkit-text-fill-color: #1a1620 !important;
+    text-shadow: none !important;
+  }
+
+  .about-body,
+  .about-body p {
+    color: #2a2422 !important;
+    opacity: 1 !important;
+  }
+
+  /* ===== FIX: THOUGHTFUL CUTTING ===== */
+  .community-heading {
+    font-size: clamp(2.8rem, 12vw, 3.6rem) !important;
+    line-height: 1.12 !important;
+    overflow: visible !important;
+  }
+
+  .community-heading em,
+  .community-heading .kinetic-em {
+    display: inline !important;
+    overflow: visible !important;
+    padding-right: 0.3em !important;
+  }
+
+  /* ===== FIX: PARTICIPATION BROKEN GRID ===== */
+  .learn-more .bento-grid,
+  .learn-more {
+    display: block !important;
+  }
+
+  .bento-item {
+    width: 100% !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* ===== FIX: OVAL GOING CRAZY ===== */
+  .poster-oval-container {
+    display: none !important; /* mobile doesn't need this */
+  }
+
+  /* ===== GLOBAL SAFETY ===== */
+  * {
+    max-width: 100%;
+  }
+
+}
