@@ -6222,3 +6222,42 @@ footer {
     grid-row: auto !important;
   }
 }
+@media (max-width: 768px) {
+  .intention-flip {
+    min-height: 220px !important;
+    height: auto !important;
+  }
+
+  .intention-inner {
+    min-height: 220px !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .intention-face {
+    position: relative !important;
+    min-height: 220px !important;
+    height: auto !important;
+    padding: 26px 24px !important;
+    backface-visibility: visible !important;
+    -webkit-backface-visibility: visible !important;
+  }
+
+  .intention-back {
+    display: none !important;
+  }
+
+  .intention-front h3,
+  .intention-hint {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .intention-front h3 {
+    margin-top: 42px !important;
+    font-size: 1.8rem !important;
+    line-height: 1.05 !important;
+    color: #f5f7fb !important;
+  }
+}
