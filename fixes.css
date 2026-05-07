@@ -940,7 +940,7 @@
   animation: shimmerFlow 8s linear infinite;
 }
 /* =========================================
-   HERO DASHBOARD ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â FINAL CLEAN VERSION
+   HERO DASHBOARD Ã¢â‚¬â€ FINAL CLEAN VERSION
    ========================================= */
 
 .hero.hero-dashboard{
@@ -1788,7 +1788,7 @@
   0%,100% { transform: translateY(0px); }
   50% { transform: translateY(2px); }
 }
-/* === FINAL HERO POLISH PATCH ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â paste at END of style.css / fixes.css === */
+/* === FINAL HERO POLISH PATCH Ã¢â‚¬â€ paste at END of style.css / fixes.css === */
 
 /* animated ios-like glow lines across all dashboard boxes */
 .hero-dash-tile,
@@ -1831,7 +1831,7 @@
   100% { transform: translateX(70%) rotate(8deg); opacity: .4; }
 }
 
-/* discord tile ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â colorful shape with purple glow */
+/* discord tile Ã¢â‚¬â€ colorful shape with purple glow */
 .discord-box,
 .hero-discord,
 .tile-discord {
@@ -1857,7 +1857,7 @@
   border-radius: 100% 0 0 0;
 }
 
-/* next conversation tile ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â apple glass look */
+/* next conversation tile Ã¢â‚¬â€ apple glass look */
 .next-conversation,
 .next-box,
 .schedule-box {
@@ -2291,7 +2291,7 @@
   border-color: rgba(255,255,255,0.12);
 }
 /* =========================================
-   HERO ATMOSPHERIC DEPTH ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â PREMIUM ORBS
+   HERO ATMOSPHERIC DEPTH Ã¢â‚¬â€ PREMIUM ORBS
    ========================================= */
 
 .hero.hero-dashboard{
@@ -2563,7 +2563,7 @@
   transition-delay: 0.40s;
 }
 /* =========================================
-   GLASSMORPHISM TILES ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â PREMIUM
+   GLASSMORPHISM TILES Ã¢â‚¬â€ PREMIUM
    ========================================= */
 
 /* member count tile */
@@ -2753,7 +2753,7 @@
    TARGETED GLASS FIX
    ========================================= */
 
-/* 1) NEXT CONVERSATION ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â brighter glass, keep same feel */
+/* 1) NEXT CONVERSATION Ã¢â‚¬â€ brighter glass, keep same feel */
 .hero-dash-card-light{
   background: linear-gradient(
     180deg,
@@ -2781,7 +2781,7 @@
   text-shadow: 0 1px 10px rgba(0,0,0,0.10);
 }
 
-/* 2) 1.2k members tile ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â glassmorphism */
+/* 2) 1.2k members tile Ã¢â‚¬â€ glassmorphism */
 .hero-dash-tile-dark,
 .hero-dash-tile-glass{
   background: rgba(255,255,255,0.05) !important;
@@ -2799,7 +2799,7 @@
   color: rgba(245,247,251,0.94) !important;
 }
 
-/* 3) 03 / this month box ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â glassmorphism */
+/* 3) 03 / this month box Ã¢â‚¬â€ glassmorphism */
 .hero-dash-mini-light{
   background: rgba(255,255,255,0.06) !important;
   backdrop-filter: blur(14px) saturate(170%) !important;
@@ -3242,7 +3242,7 @@ footer a:hover,
 .next-conversation span {
   color: rgba(245,247,251,0.72) !important;
 }
-/* NEXT CONVERSATION CARD ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â soft lilac conversation tone */
+/* NEXT CONVERSATION CARD Ã¢â‚¬â€ soft lilac conversation tone */
 .hero-dash-tile-conversation,
 .next-conversation-card,
 .hero-dash-tile-light {
@@ -3278,7 +3278,7 @@ footer a:hover,
   color: #111 !important;
 }
 /* =========================================
-   NEXT CONVERSATION ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â exact selector
+   NEXT CONVERSATION Ã¢â‚¬â€ exact selector
    ========================================= */
 
 .hero-dash-card.hero-dash-card-light{
@@ -3389,7 +3389,7 @@ height: 740px !important;
   }
 }
 /* =====================================
-   FINAL OVAL TEXT RING ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â MASTER OVERRIDE
+   FINAL OVAL TEXT RING Ã¢â‚¬â€ MASTER OVERRIDE
    paste at VERY BOTTOM
 ===================================== */
 
@@ -3728,7 +3728,7 @@ nav,
   }
 }
 /* =====================================
-   MOBILE FINAL FIX ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â COMMUNITY / CARDS
+   MOBILE FINAL FIX Ã¢â‚¬â€ COMMUNITY / CARDS
    paste LAST
 ===================================== */
 
@@ -3870,7 +3870,7 @@ nav,
 }
 
 /* =========================================================
-   NATIA FINAL SURGICAL FIX Ã¢â‚¬â€ HERO + DONATE ONLY
+   NATIA FINAL SURGICAL FIX â€” HERO + DONATE ONLY
    Paste-safe. No HTML / JS changes needed.
    ========================================================= */
 
@@ -4115,7 +4115,7 @@ a[href*="gofund"]::after {
   display: none !important;
 }
 /* =========================================
-   REAL FIX â€” ONLY HERO TILES + FLOATING DONATE
+   REAL FIX — ONLY HERO TILES + FLOATING DONATE
    ========================================= */
 
 /* 1) Fix ONLY the top-right 4 tiles */
@@ -4147,7 +4147,7 @@ a[href*="gofund"]::after {
   transform: none !important;
 }
 
-/* 2) Fix floating donate ONLY â€” not footer Support donate */
+/* 2) Fix floating donate ONLY — not footer Support donate */
 .page-shell > a.hero-dashboard-btn[href*="gofund"] {
   position: relative !important;
   left: 50% !important;
@@ -4213,7 +4213,7 @@ footer .footer-col a {
 .page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"]::after {
   display: none !important;
 }
-/* FINAL DONATE POSITION â€” put it below the stripe */
+/* FINAL DONATE POSITION — put it below the stripe */
 .page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"] {
   position: relative !important;
   left: 50% !important;
@@ -4306,7 +4306,7 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0,0,0,0.22);
 }
-/* HERO TILES COLOR â€” BRIGHTER BUT STILL PREMIUM */
+/* HERO TILES COLOR — BRIGHTER BUT STILL PREMIUM */
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(1) {
   background: linear-gradient(145deg, #9b8cff 0%, #c7b8ff 100%) !important;
@@ -4409,7 +4409,7 @@ footer {
     0 12px 28px rgba(0,0,0,0.35);
 }
 /* =========================
-   HERO TILES â€” VISIBLE GLOW
+   HERO TILES — VISIBLE GLOW
    ========================= */
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(1) {
@@ -4445,7 +4445,7 @@ footer {
   filter: brightness(1.06) saturate(1.08) !important;
 }
 /* =========================
-   HERO TILES â€” LIGHT + LIFE
+   HERO TILES — LIGHT + LIFE
    ========================= */
 
 .hero-dashboard-panel .hero-dash-tile {
@@ -4464,7 +4464,7 @@ footer {
   transition: all 0.25s ease;
 }
 
-/* âœ¨ LIGHT EDGE (this is the magic part) */
+/* ✨ LIGHT EDGE (this is the magic part) */
 .hero-dashboard-panel .hero-dash-tile::before {
   content: "";
   position: absolute;
@@ -4481,7 +4481,7 @@ footer {
   pointer-events: none;
 }
 
-/* ðŸ’œ SOFT COLOR PRESENCE (barely visible) */
+/* 💜 SOFT COLOR PRESENCE (barely visible) */
 .hero-dashboard-panel .hero-dash-tile:nth-child(1) {
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.12),
@@ -4496,7 +4496,7 @@ footer {
     0 0 20px rgba(255,190,140,0.18);
 }
 
-/* ðŸŸ¢ HOVER â€” subtle, premium */
+/* 🟢 HOVER — subtle, premium */
 .hero-dashboard-panel .hero-dash-tile:hover {
   transform: translateY(-3px);
   box-shadow:
@@ -4504,7 +4504,7 @@ footer {
     0 18px 40px rgba(0,0,0,0.45);
 }
 
-/* ðŸ”´ OPTIONAL: live pulse (only ONE tile) */
+/* 🔴 OPTIONAL: live pulse (only ONE tile) */
 .hero-dashboard-panel .hero-dash-tile:nth-child(2) {
   animation: livePulse 4s ease-in-out infinite;
 }
@@ -4523,7 +4523,7 @@ footer {
   }
 }
 /* =========================
-   HERO TILES â€” BRIGHT GLASS ONLY
+   HERO TILES — BRIGHT GLASS ONLY
    ========================= */
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile {
@@ -4562,7 +4562,7 @@ footer {
   filter: brightness(1.08) saturate(1.08) !important;
 }
 /* =========================
-   DASHBOARD â€” GLASS UPGRADE
+   DASHBOARD — GLASS UPGRADE
    ========================= */
 
 /* ALL cards inside right panel */
@@ -4583,7 +4583,7 @@ footer {
   transition: all 0.25s ease;
 }
 
-/* âœ¨ light reflection layer */
+/* ✨ light reflection layer */
 .hero-dashboard-panel .hero-dash-card::before,
 .hero-dashboard-panel .hero-dash-tile::before {
   content: "";
@@ -4602,7 +4602,7 @@ footer {
   opacity: 0.35;
 }
 
-/* âœ¨ hover = slight lift + brightness */
+/* ✨ hover = slight lift + brightness */
 .hero-dashboard-panel .hero-dash-card:hover,
 .hero-dashboard-panel .hero-dash-tile:hover {
   transform: translateY(-3px);
@@ -4621,7 +4621,7 @@ footer {
   background: linear-gradient(145deg, rgba(255,218,190,0.65), rgba(255,255,255,0.10)) !important;
 }
 /* =========================
-   HERO COLOR RESTORE â€” ONLY 4 TILES + NEXT
+   HERO COLOR RESTORE — ONLY 4 TILES + NEXT
    ========================= */
 
 /* 4 small tiles */
@@ -4684,122 +4684,4 @@ footer {
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(4) {
   background: linear-gradient(145deg, #ffe3cb 0%, #e6b796 100%) !important;
   color: #111 !important;
-}
-/* SAFARI STABILITY PATCH — paste at very end */
-
-nav,
-.brand-mark,
-.hero-dash-card,
-.hero-dash-tile-glass,
-.hero-card,
-.about,
-.about-content,
-.next-conversation,
-.next-box,
-.schedule-box {
-  -webkit-backdrop-filter: blur(18px) saturate(1.2);
-  backdrop-filter: blur(18px) saturate(1.2);
-}
-
-.hero,
-.hero.hero-dashboard {
-  min-height: calc(100svh - 72px) !important;
-}
-
-.hero-dashboard-title em,
-.community-equation.pastel-shimmer,
-.hero-gradient,
-.shimmer-text {
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-}
-
-.community-heading,
-.about-heading,
-.hero-dashboard-title,
-.editorial-title,
-.intentions-heading,
-.what-heading,
-.goals-heading,
-.learn-heading {
-  overflow: visible !important;
-  padding-bottom: 0.12em !important;
-}
-
-.flip-inner,
-.intention-flip-inner {
-  -webkit-transform-style: preserve-3d !important;
-  transform-style: preserve-3d !important;
-}
-
-.flip-front,
-.flip-back,
-.intention-front,
-.intention-back {
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
-}
-
-.hero-dash-card,
-.hero-dash-tile,
-.bento-item,
-.what-card,
-.comm-card,
-.editorial-card,
-.pathfinder-shell {
-  transform: translateZ(0);
-}
-/* SAFARI OVAL + HOVER FIX */
-
-.poster-oval-container,
-.oval-text-svg {
-  transform-origin: 50% 50% !important;
-  -webkit-transform-origin: 50% 50% !important;
-}
-
-.oval-text-svg {
-  animation: ovalSpinSafari 28s linear infinite !important;
-  will-change: transform;
-}
-
-@-webkit-keyframes ovalSpinSafari {
-  from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
-  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
-}
-
-@keyframes ovalSpinSafari {
-  from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
-  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
-}
-
-/* stop Safari card hover distortion */
-@supports (-webkit-hyphens: none) {
-  .bento-item,
-  .editorial-card,
-  .hero-card,
-  .comm-card,
-  .quiz-question,
-  .what-card,
-  .pathfinder-shell {
-    transform: none !important;
-  }
-
-  .bento-item:hover,
-  .editorial-card:hover,
-  .hero-card:hover,
-  .comm-card:hover,
-  .quiz-question:hover,
-  .what-card:hover,
-  .pathfinder-shell:hover {
-    transform: translateY(-2px) !important;
-  }
-
-  .poster-oval-container {
-    z-index: 1 !important;
-  }
-
-  .about-poster-image {
-    z-index: 2 !important;
-  }
 }
