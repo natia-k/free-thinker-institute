@@ -5442,3 +5442,174 @@ footer {
     font-size: clamp(2.4rem, 12vw, 3.3rem) !important;
   }
 }
+/* =========================================
+   MOBILE FINAL POLISH — PREMIUM RHYTHM
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* --- GLOBAL RHYTHM --- */
+  section {
+    margin-top: 96px !important;
+  }
+
+  .container,
+  .nav-inner {
+    width: calc(100% - 24px) !important;
+  }
+
+  /* --- HERO (make it editorial, not cramped) --- */
+  .hero.hero-dashboard {
+    padding: 88px 0 48px !important;
+  }
+
+  .hero-dashboard-title {
+    font-size: clamp(3rem, 14vw, 4.2rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  .hero-dashboard-text {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    color: rgba(245,247,251,0.78) !important;
+    margin-top: 22px !important;
+  }
+
+  .hero-dashboard-actions {
+    margin-top: 28px !important;
+  }
+
+  /* --- CARD SYSTEM (this is key) --- */
+  .bento-item,
+  .what-card,
+  .comm-card,
+  .editorial-card,
+  .quiz-question,
+  .pathfinder-shell,
+  .hero-dash-card {
+
+    padding: 26px 22px !important;
+    border-radius: 26px !important;
+
+    background: rgba(12, 16, 26, 0.94) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* subtle separation instead of heavy chaos */
+  .bento-item + .bento-item {
+    margin-top: 4px;
+  }
+
+  /* --- HEADINGS INSIDE CARDS --- */
+  .bento-item h3,
+  .what-card h3,
+  .comm-card h3 {
+
+    font-size: clamp(2rem, 10vw, 2.8rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  /* --- TEXT READABILITY (big fix) --- */
+  p,
+  .bento-item p,
+  .what-card p,
+  .comm-card p,
+  .editorial-card p {
+
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    color: rgba(235, 240, 250, 0.78) !important;
+  }
+
+  /* --- TAGS / BUTTONS --- */
+  .bento-tags span,
+  .hero-dash-label {
+
+    font-size: 0.75rem !important;
+    letter-spacing: 0.08em !important;
+    padding: 6px 12px !important;
+
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* --- ABOUT SECTION FIX (important) --- */
+  .about-content {
+
+    padding: 48px 26px !important;
+
+    background: linear-gradient(
+      180deg,
+      rgba(244,240,250,0.82),
+      rgba(222,220,240,0.7)
+    ) !important;
+  }
+
+  .about-heading {
+    font-size: clamp(2.7rem, 12vw, 3.8rem) !important;
+    line-height: 1 !important;
+    color: #f3ecff !important;
+  }
+
+  .about-body,
+  .about-body p {
+    font-size: 0.98rem !important;
+    line-height: 1.75 !important;
+    color: rgba(40, 32, 28, 0.82) !important;
+  }
+
+  /* --- POSTER AREA --- */
+  .poster-column {
+    border-radius: 26px 26px 0 0 !important;
+  }
+
+  .about-content {
+    border-radius: 0 0 26px 26px !important;
+  }
+
+  /* --- INTENTIONS (clean spacing) --- */
+  .intention-flip {
+    min-height: 180px !important;
+  }
+
+  .intention-face {
+    padding: 24px !important;
+  }
+
+  /* --- NAV CLEAN --- */
+  .nav-links {
+    font-size: 10px !important;
+    opacity: 0.85;
+  }
+
+  /* --- REMOVE OVER-DESIGN --- */
+  .bento-item:hover,
+  .hero-card:hover,
+  .editorial-card:hover,
+  .comm-card:hover {
+    transform: none !important;
+  }
+
+}
+
+/* SMALL PHONES */
+@media (max-width: 420px) {
+
+  .hero-dashboard-title {
+    font-size: clamp(2.7rem, 14vw, 3.6rem) !important;
+  }
+
+  .bento-item {
+    padding: 22px 18px !important;
+  }
+
+  .bento-item h3 {
+    font-size: clamp(1.9rem, 10vw, 2.5rem) !important;
+  }
+
+}
