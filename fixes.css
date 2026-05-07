@@ -940,7 +940,7 @@
   animation: shimmerFlow 8s linear infinite;
 }
 /* =========================================
-   HERO DASHBOARD ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â FINAL CLEAN VERSION
+   HERO DASHBOARD ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â FINAL CLEAN VERSION
    ========================================= */
 
 .hero.hero-dashboard{
@@ -1788,7 +1788,7 @@
   0%,100% { transform: translateY(0px); }
   50% { transform: translateY(2px); }
 }
-/* === FINAL HERO POLISH PATCH ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â paste at END of style.css / fixes.css === */
+/* === FINAL HERO POLISH PATCH ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â paste at END of style.css / fixes.css === */
 
 /* animated ios-like glow lines across all dashboard boxes */
 .hero-dash-tile,
@@ -1831,7 +1831,7 @@
   100% { transform: translateX(70%) rotate(8deg); opacity: .4; }
 }
 
-/* discord tile ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â colorful shape with purple glow */
+/* discord tile ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â colorful shape with purple glow */
 .discord-box,
 .hero-discord,
 .tile-discord {
@@ -1857,7 +1857,7 @@
   border-radius: 100% 0 0 0;
 }
 
-/* next conversation tile ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â apple glass look */
+/* next conversation tile ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â apple glass look */
 .next-conversation,
 .next-box,
 .schedule-box {
@@ -2291,7 +2291,7 @@
   border-color: rgba(255,255,255,0.12);
 }
 /* =========================================
-   HERO ATMOSPHERIC DEPTH ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â PREMIUM ORBS
+   HERO ATMOSPHERIC DEPTH ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â PREMIUM ORBS
    ========================================= */
 
 .hero.hero-dashboard{
@@ -2563,7 +2563,7 @@
   transition-delay: 0.40s;
 }
 /* =========================================
-   GLASSMORPHISM TILES ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â PREMIUM
+   GLASSMORPHISM TILES ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â PREMIUM
    ========================================= */
 
 /* member count tile */
@@ -2753,7 +2753,7 @@
    TARGETED GLASS FIX
    ========================================= */
 
-/* 1) NEXT CONVERSATION ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â brighter glass, keep same feel */
+/* 1) NEXT CONVERSATION ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â brighter glass, keep same feel */
 .hero-dash-card-light{
   background: linear-gradient(
     180deg,
@@ -2781,7 +2781,7 @@
   text-shadow: 0 1px 10px rgba(0,0,0,0.10);
 }
 
-/* 2) 1.2k members tile ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â glassmorphism */
+/* 2) 1.2k members tile ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â glassmorphism */
 .hero-dash-tile-dark,
 .hero-dash-tile-glass{
   background: rgba(255,255,255,0.05) !important;
@@ -2799,7 +2799,7 @@
   color: rgba(245,247,251,0.94) !important;
 }
 
-/* 3) 03 / this month box ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â glassmorphism */
+/* 3) 03 / this month box ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â glassmorphism */
 .hero-dash-mini-light{
   background: rgba(255,255,255,0.06) !important;
   backdrop-filter: blur(14px) saturate(170%) !important;
@@ -3242,7 +3242,7 @@ footer a:hover,
 .next-conversation span {
   color: rgba(245,247,251,0.72) !important;
 }
-/* NEXT CONVERSATION CARD ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â soft lilac conversation tone */
+/* NEXT CONVERSATION CARD ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â soft lilac conversation tone */
 .hero-dash-tile-conversation,
 .next-conversation-card,
 .hero-dash-tile-light {
@@ -3278,7 +3278,7 @@ footer a:hover,
   color: #111 !important;
 }
 /* =========================================
-   NEXT CONVERSATION ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â exact selector
+   NEXT CONVERSATION ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â exact selector
    ========================================= */
 
 .hero-dash-card.hero-dash-card-light{
@@ -3389,7 +3389,7 @@ height: 740px !important;
   }
 }
 /* =====================================
-   FINAL OVAL TEXT RING ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â MASTER OVERRIDE
+   FINAL OVAL TEXT RING ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â MASTER OVERRIDE
    paste at VERY BOTTOM
 ===================================== */
 
@@ -3728,7 +3728,7 @@ nav,
   }
 }
 /* =====================================
-   MOBILE FINAL FIX ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â COMMUNITY / CARDS
+   MOBILE FINAL FIX ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â COMMUNITY / CARDS
    paste LAST
 ===================================== */
 
@@ -3870,7 +3870,7 @@ nav,
 }
 
 /* =========================================================
-   NATIA FINAL SURGICAL FIX Ã¢â‚¬â€ HERO + DONATE ONLY
+   NATIA FINAL SURGICAL FIX ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â HERO + DONATE ONLY
    Paste-safe. No HTML / JS changes needed.
    ========================================================= */
 
@@ -4115,7 +4115,7 @@ a[href*="gofund"]::after {
   display: none !important;
 }
 /* =========================================
-   REAL FIX â€” ONLY HERO TILES + FLOATING DONATE
+   REAL FIX Ã¢â‚¬â€ ONLY HERO TILES + FLOATING DONATE
    ========================================= */
 
 /* 1) Fix ONLY the top-right 4 tiles */
@@ -4147,7 +4147,7 @@ a[href*="gofund"]::after {
   transform: none !important;
 }
 
-/* 2) Fix floating donate ONLY â€” not footer Support donate */
+/* 2) Fix floating donate ONLY Ã¢â‚¬â€ not footer Support donate */
 .page-shell > a.hero-dashboard-btn[href*="gofund"] {
   position: relative !important;
   left: 50% !important;
@@ -4213,7 +4213,7 @@ footer .footer-col a {
 .page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"]::after {
   display: none !important;
 }
-/* FINAL DONATE POSITION â€” put it below the stripe */
+/* FINAL DONATE POSITION Ã¢â‚¬â€ put it below the stripe */
 .page-shell > a.hero-dashboard-btn.hero-dashboard-btn-primary[href*="gofund"] {
   position: relative !important;
   left: 50% !important;
@@ -4306,7 +4306,7 @@ footer {
   transform: translateY(-2px);
   box-shadow: 0 10px 22px rgba(0,0,0,0.22);
 }
-/* HERO TILES COLOR â€” BRIGHTER BUT STILL PREMIUM */
+/* HERO TILES COLOR Ã¢â‚¬â€ BRIGHTER BUT STILL PREMIUM */
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(1) {
   background: linear-gradient(145deg, #9b8cff 0%, #c7b8ff 100%) !important;
@@ -4409,7 +4409,7 @@ footer {
     0 12px 28px rgba(0,0,0,0.35);
 }
 /* =========================
-   HERO TILES â€” VISIBLE GLOW
+   HERO TILES Ã¢â‚¬â€ VISIBLE GLOW
    ========================= */
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile:nth-child(1) {
@@ -4445,7 +4445,7 @@ footer {
   filter: brightness(1.06) saturate(1.08) !important;
 }
 /* =========================
-   HERO TILES â€” LIGHT + LIFE
+   HERO TILES Ã¢â‚¬â€ LIGHT + LIFE
    ========================= */
 
 .hero-dashboard-panel .hero-dash-tile {
@@ -4464,7 +4464,7 @@ footer {
   transition: all 0.25s ease;
 }
 
-/* âœ¨ LIGHT EDGE (this is the magic part) */
+/* Ã¢Å“Â¨ LIGHT EDGE (this is the magic part) */
 .hero-dashboard-panel .hero-dash-tile::before {
   content: "";
   position: absolute;
@@ -4481,7 +4481,7 @@ footer {
   pointer-events: none;
 }
 
-/* ðŸ’œ SOFT COLOR PRESENCE (barely visible) */
+/* Ã°Å¸â€™Å“ SOFT COLOR PRESENCE (barely visible) */
 .hero-dashboard-panel .hero-dash-tile:nth-child(1) {
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.12),
@@ -4496,7 +4496,7 @@ footer {
     0 0 20px rgba(255,190,140,0.18);
 }
 
-/* ðŸŸ¢ HOVER â€” subtle, premium */
+/* Ã°Å¸Å¸Â¢ HOVER Ã¢â‚¬â€ subtle, premium */
 .hero-dashboard-panel .hero-dash-tile:hover {
   transform: translateY(-3px);
   box-shadow:
@@ -4504,7 +4504,7 @@ footer {
     0 18px 40px rgba(0,0,0,0.45);
 }
 
-/* ðŸ”´ OPTIONAL: live pulse (only ONE tile) */
+/* Ã°Å¸â€Â´ OPTIONAL: live pulse (only ONE tile) */
 .hero-dashboard-panel .hero-dash-tile:nth-child(2) {
   animation: livePulse 4s ease-in-out infinite;
 }
@@ -4523,7 +4523,7 @@ footer {
   }
 }
 /* =========================
-   HERO TILES â€” BRIGHT GLASS ONLY
+   HERO TILES Ã¢â‚¬â€ BRIGHT GLASS ONLY
    ========================= */
 
 .hero-dashboard-panel .hero-dash-mosaic .hero-dash-tile {
@@ -4562,7 +4562,7 @@ footer {
   filter: brightness(1.08) saturate(1.08) !important;
 }
 /* =========================
-   DASHBOARD â€” GLASS UPGRADE
+   DASHBOARD Ã¢â‚¬â€ GLASS UPGRADE
    ========================= */
 
 /* ALL cards inside right panel */
@@ -4583,7 +4583,7 @@ footer {
   transition: all 0.25s ease;
 }
 
-/* âœ¨ light reflection layer */
+/* Ã¢Å“Â¨ light reflection layer */
 .hero-dashboard-panel .hero-dash-card::before,
 .hero-dashboard-panel .hero-dash-tile::before {
   content: "";
@@ -4602,7 +4602,7 @@ footer {
   opacity: 0.35;
 }
 
-/* âœ¨ hover = slight lift + brightness */
+/* Ã¢Å“Â¨ hover = slight lift + brightness */
 .hero-dashboard-panel .hero-dash-card:hover,
 .hero-dashboard-panel .hero-dash-tile:hover {
   transform: translateY(-3px);
@@ -4621,7 +4621,7 @@ footer {
   background: linear-gradient(145deg, rgba(255,218,190,0.65), rgba(255,255,255,0.10)) !important;
 }
 /* =========================
-   HERO COLOR RESTORE â€” ONLY 4 TILES + NEXT
+   HERO COLOR RESTORE Ã¢â‚¬â€ ONLY 4 TILES + NEXT
    ========================= */
 
 /* 4 small tiles */
@@ -4769,7 +4769,7 @@ footer {
 
 
 /* =========================================================
-   SAFARI FINAL LOCK PATCH â€” keeps Chrome design, prevents Safari warping
+   SAFARI FINAL LOCK PATCH Ã¢â‚¬â€ keeps Chrome design, prevents Safari warping
    ========================================================= */
 
 /* Make the oval spin with CSS only. Safari is more stable this way than SVG SMIL. */
@@ -4883,7 +4883,7 @@ footer {
     animation: none !important;
   }
 
-  /* Keep hover elegant but 2D â€” no Safari perspective folding. */
+  /* Keep hover elegant but 2D Ã¢â‚¬â€ no Safari perspective folding. */
   .bento-item:hover,
   .editorial-card:hover,
   .hero-card:hover,
@@ -5443,7 +5443,7 @@ footer {
   }
 }
 /* =========================================
-   MOBILE FINAL POLISH — PREMIUM RHYTHM
+   MOBILE FINAL POLISH â€” PREMIUM RHYTHM
 ========================================= */
 
 @media (max-width: 768px) {
@@ -5614,7 +5614,7 @@ footer {
 
 }
 /* =========================================
-   MOBILE BUG FIXES — text cut + participation + about readability
+   MOBILE BUG FIXES â€” text cut + participation + about readability
 ========================================= */
 
 @media (max-width: 768px) {
@@ -5709,7 +5709,7 @@ footer {
     padding-inline: 0 !important;
   }
 
-  /* KILL OVAL ON MOBILE — it causes Safari layering bugs */
+  /* KILL OVAL ON MOBILE â€” it causes Safari layering bugs */
   .poster-oval-container,
   .oval-text-svg {
     display: none !important;
@@ -5766,7 +5766,7 @@ footer {
     opacity: 1 !important;
   }
 
-  /* PARTICIPATION — force proper phone layout */
+  /* PARTICIPATION â€” force proper phone layout */
   .learn-more {
     padding: 84px 0 !important;
     overflow: hidden !important;
@@ -5836,7 +5836,7 @@ footer {
     margin-top: 18px !important;
   }
 
-  /* COMMUNITY SECTION — fix thoughtful cutting */
+  /* COMMUNITY SECTION â€” fix thoughtful cutting */
   .community {
     padding: 84px 0 !important;
   }
@@ -6106,7 +6106,7 @@ footer {
 }
 @media (max-width: 768px) {
 
-  /* 1. COMMUNITY = UNITY + DIVERSITY — make text readable */
+  /* 1. COMMUNITY = UNITY + DIVERSITY â€” make text readable */
   .about.about-bright {
     background: #f2edf5 !important;
   }
@@ -6135,7 +6135,7 @@ footer {
     line-height: 1.65 !important;
   }
 
-  /* 2. JOIN A THOUGHTFUL COMMUNITY — stop letter cutting */
+  /* 2. JOIN A THOUGHTFUL COMMUNITY â€” stop letter cutting */
   .community-heading,
   .community-heading *,
   .community-heading em,
@@ -6158,208 +6158,4 @@ footer {
     display: inline-block !important;
   }
 
-}
-/* =========================
-   FINAL MOBILE LOCK (NO MORE BUGS)
-   ========================= */
-
-@media (max-width: 768px) {
-
-  /* ===== RESET LAYOUT ISSUES ===== */
-  .about,
-  .about.about-bright {
-    display: block !important;
-    grid-template-columns: 1fr !important;
-  }
-
-  .poster-column {
-    width: 100% !important;
-    min-height: auto !important;
-    border: none !important;
-  }
-
-  .about-content,
-  .about-content-bright {
-    width: 100% !important;
-    padding: 42px 24px 56px !important;
-  }
-
-  /* ===== FIX: COMMUNITY TEXT VISIBILITY ===== */
-  .community-equation,
-  .about-heading {
-    background: none !important;
-    color: #1a1620 !important;
-    -webkit-text-fill-color: #1a1620 !important;
-    text-shadow: none !important;
-  }
-
-  .about-body,
-  .about-body p {
-    color: #2a2422 !important;
-    opacity: 1 !important;
-  }
-
-  /* ===== FIX: THOUGHTFUL CUTTING ===== */
-  .community-heading {
-    font-size: clamp(2.8rem, 12vw, 3.6rem) !important;
-    line-height: 1.12 !important;
-    overflow: visible !important;
-  }
-
-  .community-heading em,
-  .community-heading .kinetic-em {
-    display: inline !important;
-    overflow: visible !important;
-    padding-right: 0.3em !important;
-  }
-
-  /* ===== FIX: PARTICIPATION BROKEN GRID ===== */
-  .learn-more .bento-grid,
-  .learn-more {
-    display: block !important;
-  }
-
-  .bento-item {
-    width: 100% !important;
-    margin-bottom: 18px !important;
-  }
-
-  /* ===== FIX: OVAL GOING CRAZY ===== */
-  .poster-oval-container {
-    display: none !important; /* mobile doesn't need this */
-  }
-
-  /* ===== GLOBAL SAFETY ===== */
-  * {
-    max-width: 100%;
-  }
-
-}
-@media (max-width: 768px) {
-  .about-content-bright {
-    background: rgba(255,255,255,0.92) !important;
-  }
-
-  .about-heading,
-  .community-equation {
-    -webkit-text-fill-color: #1a1620 !important;
-    color: #1a1620 !important;
-    background: none !important;
-  }
-
-  .about-body,
-  .about-body p {
-    color: rgba(20,18,20,0.8) !important;
-  }
-}
-@media (max-width: 768px) {
-  .community-heading {
-    line-height: 1.1 !important;
-  }
-
-  .community-heading .kinetic-em {
-    padding-right: 0.2em;
-    display: inline;
-  }
-}
-/* =========================
-   MOBILE FINAL SAFE PATCH
-   ========================= */
-
-@media (max-width: 768px) {
-
-  /* 1. FIX "thoughtful" CUTTING */
-  .community-heading {
-    font-size: 34px !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.01em;
-  }
-
-  .community-heading .kinetic-em {
-    display: inline !important;
-    padding-right: 0.15em;
-    white-space: normal !important;
-  }
-
-  /* 2. FIX COMMUNITY TEXT VISIBILITY (THIS WAS MAIN ISSUE) */
-  .about-content-bright {
-    background: rgba(255, 248, 240, 0.88) !important;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-  }
-
-  .about-content-bright p {
-    color: rgba(30, 24, 20, 0.85) !important;
-  }
-
-  /* 3. FIX OVAL GOING CRAZY ON MOBILE */
-  .poster-oval-container {
-    display: none !important;
-  }
-
-  /* 4. FIX PARTICIPATION GRID BREAKING */
-  .bento-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px;
-  }
-
-  .bento-item {
-    width: 100% !important;
-    min-height: auto !important;
-  }
-
-  /* 5. FIX GENERAL SPACING */
-  .community-inner,
-  .about-content,
-  .intentions-header,
-  .learn-more .container {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-}
-/* DESKTOP RESTORE — ABOUT SECTION ONLY */
-@media (min-width: 769px) {
-  .about.about-bright {
-    position: relative !important;
-    display: grid !important;
-    grid-template-columns: 1.08fr 0.92fr !important;
-    gap: 0 !important;
-    align-items: stretch !important;
-    overflow: hidden !important;
-    border-radius: 38px !important;
-    background: linear-gradient(135deg, rgba(255,250,244,0.50) 0%, rgba(255,244,236,0.26) 35%, rgba(255,240,232,0.14) 100%) !important;
-  }
-
-  .poster-column {
-    position: relative !important;
-    min-height: 700px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: visible !important;
-    background: linear-gradient(180deg, #f8f3ec 0%, #f4eee6 100%) !important;
-  }
-
-  .about-content.about-content-bright {
-    position: relative !important;
-    z-index: 3 !important;
-    padding: 64px 58px !important;
-    color: #2f2622 !important;
-    background: linear-gradient(180deg, rgba(255,248,242,0.42) 0%, rgba(255,242,234,0.24) 100%) !important;
-  }
-
-  .about-poster-shell {
-    width: min(78%, 520px) !important;
-    max-width: 520px !important;
-  }
-
-  .poster-oval-container {
-    display: block !important;
-    opacity: 0 !important;
-  }
-
-  .about-poster-shell:hover .poster-oval-container {
-    opacity: 1 !important;
-  }
 }
