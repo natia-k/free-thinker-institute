@@ -6159,3 +6159,66 @@ footer {
   }
 
 }
+/* FINAL SAFE MOBILE PATCH — DESKTOP UNTOUCHED */
+@media (max-width: 768px) {
+
+  /* Community = Unity + Diversity readability */
+  .about.about-bright .about-content.about-content-bright,
+  .about.about-bright .about-content-bright {
+    background: rgba(244, 238, 248, 0.96) !important;
+    color: #1b1720 !important;
+  }
+
+  .about.about-bright .community-equation,
+  .about.about-bright .community-equation.pastel-shimmer,
+  .about.about-bright .about-heading {
+    background: none !important;
+    color: #1b1720 !important;
+    -webkit-text-fill-color: #1b1720 !important;
+    text-shadow: none !important;
+  }
+
+  .about.about-bright .about-body,
+  .about.about-bright .about-body p {
+    color: rgba(28, 23, 22, 0.9) !important;
+    opacity: 1 !important;
+  }
+
+  /* Hide oval only on mobile */
+  .about.about-bright .poster-oval-container,
+  .about.about-bright .oval-text-svg {
+    display: none !important;
+  }
+
+  /* Fix “thoughtful” cutting */
+  .community.community-bright .community-heading {
+    overflow: visible !important;
+    line-height: 1.08 !important;
+    max-width: 100% !important;
+    padding-bottom: 0.2em !important;
+  }
+
+  .community.community-bright .community-heading .kinetic-em {
+    display: inline-block !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    padding-right: 0.35em !important;
+    padding-bottom: 0.15em !important;
+  }
+
+  /* Participation cards stack properly on phone */
+  .learn-more .bento-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+
+  .learn-more .bento-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+}
