@@ -249,6 +249,7 @@
                <textPath href="#finalOvalPath" startOffset="0%">
   • INTELLECTUAL HUMILITY • TRUTH SEEKING • CRITICAL THINKING • MEANINGFUL PURPOSE • OPEN MINDEDNESS • DEEPER INTENT •
 </textPath>
+                </textPath>
               </text>
             </svg>
           </div>
@@ -490,13 +491,13 @@
     </section>
 
     <div class="photo-strip" id="photoStrip">
-      <div class="photo-wrap" data-photo>
+      <div class="photo-wrap" data-photo">
         <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80" alt="Audience gathered in a warm architectural event space" />
       </div>
-      <div class="photo-wrap" data-photo>
+      <div class="photo-wrap" data-photo">
         <img src="https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=1200&q=80" alt="Printed materials and conversation details at an event" />
       </div>
-      <div class="photo-wrap" data-photo>
+      <div class="photo-wrap" data-photo">
         <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Candid community conversation in warm light" />
       </div>
     </div>
@@ -593,8 +594,8 @@
         <div class="section-kicker reveal-up">Participation</div>
         <h2 class="learn-heading reveal-up reveal-delay-1">How it all <em class="kinetic-em">works.</em></h2>
 
-        <div class="bento-grid">
-          <article class="bento-item bento-tall reveal-up laser-card">
+        <div class="bento-grid" style="display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto auto auto;">
+          <article class="bento-item bento-tall reveal-up laser-card" style="grid-column:1/5;grid-row:1/3;">
             <div class="bento-content">
               <span class="bento-kicker">01 / Purpose</span>
               <h3>Why participate?</h3>
@@ -603,7 +604,7 @@
             </div>
           </article>
 
-          <article class="bento-item bento-wide reveal-up reveal-delay-1 laser-card">
+          <article class="bento-item bento-wide reveal-up reveal-delay-1 laser-card" style="grid-column:5/13;grid-row:1;">
             <div class="bento-content">
               <span class="bento-kicker">02 / People</span>
               <h3>Who you'll meet</h3>
@@ -616,7 +617,7 @@
             </div>
           </article>
 
-          <article class="bento-item reveal-up reveal-delay-2 laser-card">
+          <article class="bento-item reveal-up reveal-delay-2 laser-card" style="grid-column:5/9;grid-row:2;">
             <div class="bento-content">
               <span class="bento-kicker">03 / Format</span>
               <h3>Where?</h3>
@@ -624,7 +625,7 @@
             </div>
           </article>
 
-          <article class="bento-item reveal-up reveal-delay-3 laser-card">
+          <article class="bento-item reveal-up reveal-delay-3 laser-card" style="grid-column:9/13;grid-row:2;">
             <div class="bento-content">
               <span class="bento-kicker">04 / Timing</span>
               <h3>When?</h3>
@@ -632,7 +633,7 @@
             </div>
           </article>
 
-          <article class="bento-item bento-cta reveal-up laser-card">
+          <article class="bento-item bento-cta reveal-up laser-card" style="grid-column:1/13;grid-row:3;">
             <div class="bento-content">
               <span class="bento-kicker">05 / Join</span>
               <h3>Ready to start?</h3>
@@ -848,9 +849,9 @@
         </div>
 
         <div class="community-cards">
-          <article class="comm-card comm-card-featured reveal-up">
+          <article class="comm-card comm-card-featured reveal-up" style="grid-column:1;grid-row:1/4;position:relative;overflow:hidden;">
             <img
-              class="comm-feature-image"
+              class="comm-feature-image" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;padding:24px;"
               src="attend-events-poster.jpg"
               alt="Attend Events poster"
               loading="lazy"
