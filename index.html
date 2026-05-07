@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=safari-final" />
-  <link rel="stylesheet" href="fixes.css?v=safari-final" />
+  <link rel="stylesheet" href="style.css?v=launch-mobile-final" />
+  <link rel="stylesheet" href="fixes.css?v=launch-mobile-final" />
   <style>
     @keyframes shimmerFlow {
       0% { background-position: 0% 50%; }
@@ -195,38 +195,8 @@
       </div>
     </div>
 
-    <section
-      class="about about-bright"
-      id="about"
-      style="
-        position: relative;
-        display: grid;
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 0;
-        align-items: stretch;
-        overflow: hidden;
-        border-radius: 38px;
-        background: linear-gradient(135deg, rgba(255,250,244,0.50) 0%, rgba(255,244,236,0.26) 35%, rgba(255,240,232,0.14) 100%);
-        border: 1px solid rgba(255,255,255,0.30);
-        backdrop-filter: blur(34px) saturate(190%);
-        -webkit-backdrop-filter: blur(34px) saturate(190%);
-        box-shadow: 0 30px 80px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.60), inset 0 -1px 0 rgba(255,255,255,0.12);
-        isolation: isolate;
-      "
-    >
-      <div
-        class="poster-column"
-        style="
-          position: relative;
-          min-height: 700px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: visible;
-          background: linear-gradient(180deg, #f8f3ec 0%, #f4eee6 100%);
-          border-right: 1px solid rgba(255,255,255,0.24);
-        "
-      >
+    <section class="about about-bright" id="about">
+      <div class="poster-column">
         <div class="about-poster-shell">
           <img
             src="intellectual-life-social-poster.png"
@@ -251,32 +221,9 @@
             </svg>
           </div>
         </div>
-
-        <div
-          style="
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 4;
-            background:
-              linear-gradient(180deg, rgba(255,255,255,0.46) 0%, rgba(255,255,255,0.12) 24%, transparent 56%),
-              linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 32%, transparent 68%, rgba(255,255,255,0.14) 100%);
-          "
-        ></div>
       </div>
 
-      <div
-        class="about-content about-content-bright"
-        style="
-          position: relative;
-          z-index: 3;
-          padding: 64px 58px;
-          color: #2f2622;
-          background: linear-gradient(180deg, rgba(255,248,242,0.42) 0%, rgba(255,242,234,0.24) 100%);
-          backdrop-filter: blur(28px) saturate(180%);
-          -webkit-backdrop-filter: blur(28px) saturate(180%);
-        "
-      >
+      <div class="about-content about-content-bright">
         <div class="section-kicker reveal-up">Who We Are</div>
 
        <h2 class="about-heading reveal-up reveal-delay-1 community-equation pastel-shimmer">
@@ -961,69 +908,6 @@
     </footer>
   </div>
 
-  <script src="script.js?v=safari-final"></script>
-  <script>
-const magneticItems = document.querySelectorAll(
-  '.hero-dashboard-btn, .hero-dash-tile'
-);
-
-magneticItems.forEach((item) => {
-  item.addEventListener('mousemove', (e) => {
-    const rect = item.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const moveX = (x - rect.width / 2) / 18;
-    const moveY = (y - rect.height / 2) / 18;
-
-    item.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    item.style.boxShadow = `
-      0 18px 40px rgba(0,0,0,0.35),
-      0 0 35px rgba(139,92,246,0.14)
-    `;
-  });
-
-  item.addEventListener('mouseleave', () => {
-    item.style.transform = 'translate(0px, 0px)';
-    item.style.boxShadow = '';
-  });
-});
-</script>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const magneticItems = document.querySelectorAll(
-    ".hero-dashboard-btn, .hero-dash-tile, .hero-card, .hero-box"
-  );
-
-  magneticItems.forEach((item) => {
-    item.style.transition =
-      "transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease";
-
-    item.addEventListener("mousemove", (e) => {
-      const rect = item.getBoundingClientRect();
-
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const moveX = (x - rect.width / 2) / 22;
-      const moveY = (y - rect.height / 2) / 22;
-
-      item.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.01)`;
-
-      item.style.boxShadow = `
-        0 18px 40px rgba(0,0,0,0.35),
-        0 0 30px rgba(139,92,246,0.14),
-        inset 0 1px 0 rgba(255,255,255,0.08)
-      `;
-    });
-
-    item.addEventListener("mouseleave", () => {
-      item.style.transform = "translate(0px, 0px) scale(1)";
-      item.style.boxShadow = "";
-    });
-  });
-});
-</script>
+  <script src="script.js?v=launch-mobile-final"></script>
 </body>
 </html>
