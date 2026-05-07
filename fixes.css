@@ -4799,34 +4799,41 @@ footer {
 }
 
 /* =========================
-   SAFARI NUCLEAR OVERRIDES
-   (must be last in file)
+   SAFARI FINAL OVERRIDES
    ========================= */
 
-/* Community container — backdrop-filter + overflow:hidden kills layout in Safari */
+/* Community container backdrop-filter kills layout */
 .community-cards {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
 
-/* Bento container — remove any conflicting row/col rules from earlier in cascade */
-.bento-grid > .bento-item:nth-child(1) {
-  grid-column: 1 / 5 !important;
-  grid-row: 1 / 3 !important;
+/* Oval container: inset:50% is wrong — use top/left instead */
+.poster-oval-container {
+  position: absolute !important;
+  inset: auto !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 142% !important;
+  height: 142% !important;
+  transform: translate(-50%, -50%) scale(0.9) !important;
 }
-.bento-grid > .bento-item:nth-child(2) {
-  grid-column: 5 / 13 !important;
-  grid-row: 1 !important;
+
+.about-poster-shell:hover .poster-oval-container {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
 }
-.bento-grid > .bento-item:nth-child(3) {
-  grid-column: 5 / 9 !important;
-  grid-row: 2 !important;
+
+/* Bento explicit placement — belt + suspenders on top of inline styles */
+.bento-grid {
+  display: grid !important;
+  grid-template-columns: 4fr 4fr 4fr !important;
+  grid-template-rows: auto auto auto !important;
+  gap: 16px !important;
+  width: 100% !important;
 }
-.bento-grid > .bento-item:nth-child(4) {
-  grid-column: 9 / 13 !important;
-  grid-row: 2 !important;
-}
-.bento-grid > .bento-item:nth-child(5) {
-  grid-column: 1 / 13 !important;
-  grid-row: 3 !important;
-}
+.bento-grid > .bento-item:nth-child(1) { grid-column: 1 / 2 !important; grid-row: 1 / 3 !important; }
+.bento-grid > .bento-item:nth-child(2) { grid-column: 2 / 4 !important; grid-row: 1 !important; }
+.bento-grid > .bento-item:nth-child(3) { grid-column: 2 / 3 !important; grid-row: 2 !important; }
+.bento-grid > .bento-item:nth-child(4) { grid-column: 3 / 4 !important; grid-row: 2 !important; }
+.bento-grid > .bento-item:nth-child(5) { grid-column: 1 / 4 !important; grid-row: 3 !important; }
