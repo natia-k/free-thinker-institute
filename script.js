@@ -1,7 +1,15 @@
 /* =========================
-   FINAL SITE INTERACTIONS
+   FINAL SITE INTERACTIONS — SAFARI SAFE
    ========================= */
 
+const isSafari =
+  /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
+
+/* reveal on scroll */
 const reveals = document.querySelectorAll(".reveal-up");
 
 if (reveals.length) {
@@ -19,6 +27,7 @@ if (reveals.length) {
   reveals.forEach((item) => revealObserver.observe(item));
 }
 
+/* card glow tracking — no 3D transform on Safari */
 const motionCards = document.querySelectorAll(
   ".bento-item, .editorial-card, .hero-card, .comm-card, .quiz-question, .what-card, .pathfinder-shell"
 );
@@ -26,21 +35,23 @@ const motionCards = document.querySelectorAll(
 motionCards.forEach((card) => {
   card.addEventListener("mousemove", (e) => {
     const rect = card.getBoundingClientRect();
-
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / rect.height) * -4;
-    const rotateY = ((x - centerX) / rect.width) * 4;
-    const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
-
     card.style.setProperty("--mx", `${x}px`);
     card.style.setProperty("--my", `${y}px`);
-    card.style.setProperty("--laser-angle", `${angle}deg`);
-    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+
+    if (!isSafari && !prefersReducedMotion.matches) {
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / rect.height) * -4;
+      const rotateY = ((x - centerX) / rect.width) * 4;
+      const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+
+      card.style.setProperty("--laser-angle", `${angle}deg`);
+      card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+    }
   });
 
   card.addEventListener("mouseleave", () => {
@@ -50,12 +61,14 @@ motionCards.forEach((card) => {
   });
 });
 
+/* flip cards */
 document.querySelectorAll(".intention-flip").forEach((card) => {
   card.addEventListener("click", () => {
     card.classList.toggle("active");
   });
 });
 
+/* smooth anchors */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
     const href = anchor.getAttribute("href");
@@ -77,11 +90,12 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
     window.scrollTo({
       top: y,
-      behavior: "smooth",
+      behavior: prefersReducedMotion.matches ? "auto" : "smooth",
     });
   });
 });
 
+/* old hero card glow, if element exists */
 const heroCard = document.getElementById("heroCard");
 
 if (heroCard) {
@@ -100,18 +114,22 @@ if (heroCard) {
   });
 }
 
-document
-  .querySelectorAll(".photo-wrap img, .comm-feature-image")
-  .forEach((img) => {
-    img.addEventListener("mouseenter", () => {
-      img.style.transform = "scale(1.03)";
-    });
+/* image hover — disabled on Safari to avoid flicker */
+if (!isSafari && !prefersReducedMotion.matches) {
+  document
+    .querySelectorAll(".photo-wrap img, .comm-feature-image")
+    .forEach((img) => {
+      img.addEventListener("mouseenter", () => {
+        img.style.transform = "scale(1.03)";
+      });
 
-    img.addEventListener("mouseleave", () => {
-      img.style.transform = "";
+      img.addEventListener("mouseleave", () => {
+        img.style.transform = "";
+      });
     });
-  });
+}
 
+/* pathfinder quiz */
 const quizForm = document.getElementById("pathfinderQuiz");
 const quizResult = document.getElementById("quizResult");
 const quizTitle = document.getElementById("quizCareerTitle");
@@ -168,7 +186,7 @@ if (quizForm && quizResult && quizTitle && quizText) {
     quizResult.hidden = false;
 
     quizResult.scrollIntoView({
-      behavior: "smooth",
+      behavior: prefersReducedMotion.matches ? "auto" : "smooth",
       block: "center",
     });
   });
@@ -181,6 +199,7 @@ if (quizForm && quizResult && quizTitle && quizText) {
   }
 }
 
+/* shimmer scroll */
 let pastelScrollTimer;
 
 function handlePastelScrollShiver() {
@@ -198,11 +217,11 @@ window.addEventListener("scroll", handlePastelScrollShiver, {
   passive: true,
 });
 
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
 if (prefersReducedMotion.matches) {
   document.documentElement.style.scrollBehavior = "auto";
 }
+
+/* community equation reveal */
 const communityEquation = document.querySelector(".community-equation");
 
 if (communityEquation) {
@@ -219,13 +238,11 @@ if (communityEquation) {
 
   equationObserver.observe(communityEquation);
 }
-/* =========================
-   HERO PANEL SUBTLE MOTION
-   ========================= */
 
+/* hero panel subtle motion — disabled on Safari */
 const heroDashboardPanel = document.getElementById("heroDashboardPanel");
 
-if (heroDashboardPanel) {
+if (heroDashboardPanel && !isSafari && !prefersReducedMotion.matches) {
   heroDashboardPanel.style.transition = "transform 0.28s ease";
 
   heroDashboardPanel.addEventListener("mousemove", (e) => {
@@ -243,33 +260,34 @@ if (heroDashboardPanel) {
     heroDashboardPanel.style.transform = "translate3d(0,0,0)";
   });
 }
-// magnetic hover
-const magneticItems = document.querySelectorAll(
-  '.hero-dashboard-btn, .hero-dash-tile, .hero-card, .hero-box'
-);
 
-magneticItems.forEach((item) => {
-  item.addEventListener('mousemove', (e) => {
-    const rect = item.getBoundingClientRect();
+/* magnetic hover — disabled on Safari */
+if (!isSafari && !prefersReducedMotion.matches) {
+  const magneticItems = document.querySelectorAll(
+    ".hero-dashboard-btn, .hero-dash-tile, .hero-card, .hero-box"
+  );
 
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  magneticItems.forEach((item) => {
+    item.addEventListener("mousemove", (e) => {
+      const rect = item.getBoundingClientRect();
 
-    const moveX = (x - rect.width / 2) / 18;
-    const moveY = (y - rect.height / 2) / 18;
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    item.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.01)`;
+      const moveX = (x - rect.width / 2) / 18;
+      const moveY = (y - rect.height / 2) / 18;
 
-    item.style.boxShadow = `
-  0 12px 28px rgba(0,0,0,0.18)
-`;
+      item.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.01)`;
+      item.style.boxShadow = "0 12px 28px rgba(0,0,0,0.18)";
+    });
+
+    item.addEventListener("mouseleave", () => {
+      item.style.transform = "";
+      item.style.boxShadow = "";
+    });
   });
+}
 
-  item.addEventListener('mouseleave', () => {
-    item.style.transform = 'translate(0px, 0px) scale(1)';
-    item.style.boxShadow = '';
-  });
-});
 /* hero cinematic reveal */
 document.addEventListener("DOMContentLoaded", () => {
   const heroCopy = document.querySelector(".hero-dashboard-copy");
@@ -287,27 +305,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 /* satin glow tracking */
-document.querySelectorAll('.hero-dash-tile').forEach((tile) => {
-  tile.addEventListener('mousemove', (e) => {
+document.querySelectorAll(".hero-dash-tile").forEach((tile) => {
+  tile.addEventListener("mousemove", (e) => {
     const rect = tile.getBoundingClientRect();
 
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-    tile.style.setProperty('--glow-x', `${x}%`);
-    tile.style.setProperty('--glow-y', `${y}%`);
+    tile.style.setProperty("--glow-x", `${x}%`);
+    tile.style.setProperty("--glow-y", `${y}%`);
   });
 
-  tile.addEventListener('mouseleave', () => {
-    tile.style.setProperty('--glow-x', '22%');
-    tile.style.setProperty('--glow-y', '22%');
+  tile.addEventListener("mouseleave", () => {
+    tile.style.setProperty("--glow-x", "22%");
+    tile.style.setProperty("--glow-y", "22%");
   });
 });
-/* subtle magnetic hero headline */
+
+/* subtle magnetic hero headline — disabled on Safari */
 const heroTitle = document.querySelector(".hero-dashboard-title");
 
-if (heroTitle) {
+if (heroTitle && !isSafari && !prefersReducedMotion.matches) {
   heroTitle.addEventListener("mousemove", (e) => {
     const rect = heroTitle.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -320,22 +340,27 @@ if (heroTitle) {
   });
 
   heroTitle.addEventListener("mouseleave", () => {
-    heroTitle.style.transform = "translate(0, 0)";
+    heroTitle.style.transform = "";
   });
 }
-// micro magnetic for top 4 dashboard buttons
-document.querySelectorAll(
-  '.hero-dash-mini, .hero-dash-mini-card, .hero-dash-pill, .hero-dash-small, .dashboard-mini'
-).forEach((item) => {
-  item.addEventListener('mousemove', (e) => {
-    const rect = item.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
 
-    item.style.transform = `translate(${x / 18}px, ${y / 18 - 4}px) scale(1.03)`;
-  });
+/* micro magnetic bottom hero cards — disabled on Safari */
+if (!isSafari && !prefersReducedMotion.matches) {
+  document
+    .querySelectorAll(
+      ".hero-dash-mini, .hero-dash-mini-card, .hero-dash-pill, .hero-dash-small, .dashboard-mini"
+    )
+    .forEach((item) => {
+      item.addEventListener("mousemove", (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
 
-  item.addEventListener('mouseleave', () => {
-    item.style.transform = 'translateY(0) scale(1)';
-  });
-});
+        item.style.transform = `translate(${x / 18}px, ${y / 18 - 4}px) scale(1.03)`;
+      });
+
+      item.addEventListener("mouseleave", () => {
+        item.style.transform = "";
+      });
+    });
+}
