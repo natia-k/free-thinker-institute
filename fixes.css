@@ -5613,3 +5613,83 @@ footer {
   }
 
 }
+/* =========================================
+   MOBILE BUG FIXES — text cut + participation + about readability
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* 1) Fix "thoughtful" cutting */
+  .community-heading,
+  .community-heading *,
+  .learn-heading,
+  .learn-heading *,
+  .kinetic-em {
+    overflow: visible !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    max-width: 100% !important;
+    padding-bottom: 0.12em !important;
+  }
+
+  /* 2) Fix Participation layout */
+  #learn-more,
+  .learn-more,
+  .learn-more .container {
+    overflow: visible !important;
+    width: 100% !important;
+  }
+
+  .learn-bento {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+
+  .learn-bento > *,
+  .bento-item,
+  .bento-large,
+  .bento-wide,
+  .bento-tall {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  .bento-item h3,
+  .bento-item p {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  /* 3) Fix Community = Unity + Diversity readability */
+  .about-content,
+  .about-content-bright {
+    background: linear-gradient(
+      180deg,
+      rgba(245, 242, 250, 0.92),
+      rgba(226, 224, 242, 0.86)
+    ) !important;
+  }
+
+  .about-heading,
+  .community-equation {
+    color: #221b26 !important;
+    -webkit-text-fill-color: #221b26 !important;
+    background: none !important;
+    text-shadow: none !important;
+  }
+
+  .about-body,
+  .about-body p {
+    color: rgba(28, 24, 22, 0.86) !important;
+    opacity: 1 !important;
+  }
+}
