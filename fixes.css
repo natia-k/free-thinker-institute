@@ -6262,3 +6262,104 @@ footer {
     display: inline;
   }
 }
+/* =========================
+   MOBILE FINAL SAFE PATCH
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* 1. FIX "thoughtful" CUTTING */
+  .community-heading {
+    font-size: 34px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.01em;
+  }
+
+  .community-heading .kinetic-em {
+    display: inline !important;
+    padding-right: 0.15em;
+    white-space: normal !important;
+  }
+
+  /* 2. FIX COMMUNITY TEXT VISIBILITY (THIS WAS MAIN ISSUE) */
+  .about-content-bright {
+    background: rgba(255, 248, 240, 0.88) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .about-content-bright p {
+    color: rgba(30, 24, 20, 0.85) !important;
+  }
+
+  /* 3. FIX OVAL GOING CRAZY ON MOBILE */
+  .poster-oval-container {
+    display: none !important;
+  }
+
+  /* 4. FIX PARTICIPATION GRID BREAKING */
+  .bento-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px;
+  }
+
+  .bento-item {
+    width: 100% !important;
+    min-height: auto !important;
+  }
+
+  /* 5. FIX GENERAL SPACING */
+  .community-inner,
+  .about-content,
+  .intentions-header,
+  .learn-more .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+/* DESKTOP RESTORE — ABOUT SECTION ONLY */
+@media (min-width: 769px) {
+  .about.about-bright {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1.08fr 0.92fr !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+    overflow: hidden !important;
+    border-radius: 38px !important;
+    background: linear-gradient(135deg, rgba(255,250,244,0.50) 0%, rgba(255,244,236,0.26) 35%, rgba(255,240,232,0.14) 100%) !important;
+  }
+
+  .poster-column {
+    position: relative !important;
+    min-height: 700px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
+    background: linear-gradient(180deg, #f8f3ec 0%, #f4eee6 100%) !important;
+  }
+
+  .about-content.about-content-bright {
+    position: relative !important;
+    z-index: 3 !important;
+    padding: 64px 58px !important;
+    color: #2f2622 !important;
+    background: linear-gradient(180deg, rgba(255,248,242,0.42) 0%, rgba(255,242,234,0.24) 100%) !important;
+  }
+
+  .about-poster-shell {
+    width: min(78%, 520px) !important;
+    max-width: 520px !important;
+  }
+
+  .poster-oval-container {
+    display: block !important;
+    opacity: 0 !important;
+  }
+
+  .about-poster-shell:hover .poster-oval-container {
+    opacity: 1 !important;
+  }
+}
