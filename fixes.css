@@ -5276,3 +5276,169 @@ footer {
     letter-spacing: 2.2px !important;
   }
 }
+/* ================================
+   MOBILE PREMIUM CORRECTION
+   fixes pale text + cut cards
+================================ */
+
+@media (max-width: 768px) {
+
+  /* stronger readability */
+  p,
+  .about-body,
+  .about-body p,
+  .what-intro,
+  .intentions-intro,
+  .community-intro,
+  .hero-dash-copy,
+  .hero-dash-label,
+  .bento-item p,
+  .comm-card p,
+  .editorial-card p,
+  .learn-card p {
+    color: rgba(245, 247, 251, 0.76) !important;
+    opacity: 1 !important;
+  }
+
+  .about-body,
+  .about-body p {
+    color: rgba(35, 30, 28, 0.82) !important;
+  }
+
+  /* about section less dark / more premium */
+  .about-content,
+  .about-content-bright {
+    background: linear-gradient(
+      180deg,
+      rgba(244, 240, 250, 0.78),
+      rgba(218, 216, 234, 0.66)
+    ) !important;
+  }
+
+  .about-heading {
+    color: #f4efff !important;
+    -webkit-text-fill-color: unset !important;
+  }
+
+  /* fix Participation broken grid */
+  .learn-more,
+  #learn-more {
+    overflow: visible !important;
+  }
+
+  .learn-bento {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+
+  .bento-item,
+  .bento-large,
+  .bento-wide,
+  .bento-tall {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 28px 24px !important;
+    overflow: visible !important;
+  }
+
+  .bento-item h3 {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+    line-height: 1.02 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  .bento-item p {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+    max-width: 100% !important;
+  }
+
+  .bento-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .bento-tags span {
+    white-space: nowrap !important;
+  }
+
+  /* prevent any card text clipping */
+  .what-card,
+  .comm-card,
+  .editorial-card,
+  .quiz-question,
+  .pathfinder-shell,
+  .hero-dash-card,
+  .hero-dash-mini {
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  /* headings more controlled */
+  .learn-heading,
+  .what-heading,
+  .intentions-heading,
+  .community-heading,
+  .editorial-title {
+    max-width: 100% !important;
+    font-size: clamp(2.6rem, 11vw, 3.7rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  /* mobile spacing rhythm */
+  section {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  .section-kicker {
+    color: rgba(245, 247, 251, 0.42) !important;
+    opacity: 1 !important;
+  }
+
+  /* dark section cards need stronger contrast */
+  .bento-item,
+  .what-card,
+  .comm-card,
+  .editorial-card {
+    background: rgba(15, 19, 29, 0.92) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* light/community block should not look dead */
+  .community-join,
+  .join-card,
+  .community-card-light {
+    background: #f7f2ec !important;
+    color: #111 !important;
+  }
+
+  .community-join p,
+  .join-card p,
+  .community-card-light p {
+    color: rgba(17, 17, 17, 0.72) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .bento-item {
+    padding: 24px 20px !important;
+    border-radius: 22px !important;
+  }
+
+  .bento-item h3 {
+    font-size: clamp(1.9rem, 10vw, 2.7rem) !important;
+  }
+
+  .about-heading {
+    font-size: clamp(2.4rem, 12vw, 3.3rem) !important;
+  }
+}
