@@ -6252,3 +6252,13 @@ footer {
     color: rgba(20,18,20,0.8) !important;
   }
 }
+@media (max-width: 768px) {
+  .community-heading {
+    line-height: 1.1 !important;
+  }
+
+  .community-heading .kinetic-em {
+    padding-right: 0.2em;
+    display: inline;
+  }
+}
