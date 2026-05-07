@@ -6235,3 +6235,20 @@ footer {
   }
 
 }
+@media (max-width: 768px) {
+  .about-content-bright {
+    background: rgba(255,255,255,0.92) !important;
+  }
+
+  .about-heading,
+  .community-equation {
+    -webkit-text-fill-color: #1a1620 !important;
+    color: #1a1620 !important;
+    background: none !important;
+  }
+
+  .about-body,
+  .about-body p {
+    color: rgba(20,18,20,0.8) !important;
+  }
+}
