@@ -4717,54 +4717,83 @@ footer {
   transform: rotateY(180deg) translateZ(1px);
 }
 
-/* â”€â”€ Bug 3: Bento grid (How it all works) â€” cards 03/04 clipped, empty gap
-   Safari fails to resolve implicit row heights when grid-row:span 2 is used
-   without explicit column/row placement. Fix: place every item explicitly. â”€â”€ */
+/* â”€â”€ Bug 3: Bento grid â€” card 01 clipped by card 03, rows miscomputed.
+   Safari can't auto-place items when grid-row:span 2 is involved.
+   Use explicit grid-column + grid-row on every child. Items are children
+   1â€“5 of .bento-grid, so we target by nth-child directly. â”€â”€ */
 
 .bento-grid {
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   align-items: stretch;
 }
 
-/* Item 1: tall card â€” col 1â€“4, rows 1â€“2 */
-.bento-item.bento-tall {
+/* 1: tall â€” cols 1-4, rows 1-2 */
+.bento-grid > .bento-item:nth-child(1) {
   grid-column: 1 / 5;
   grid-row: 1 / 3;
   align-self: stretch;
 }
 
-/* Item 2: wide card â€” col 5â€“12, row 1 */
-.bento-item.bento-wide {
+/* 2: wide â€” cols 5-12, row 1 */
+.bento-grid > .bento-item:nth-child(2) {
   grid-column: 5 / 13;
   grid-row: 1;
 }
 
-/* Items 3 & 4: regular cards â€” col 5â€“8 and 9â€“12, row 2 */
-.bento-grid > .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta):nth-child(3) {
+/* 3: regular â€” cols 5-8, row 2 */
+.bento-grid > .bento-item:nth-child(3) {
   grid-column: 5 / 9;
   grid-row: 2;
 }
 
-.bento-grid > .bento-item:not(.bento-tall):not(.bento-wide):not(.bento-cta):nth-child(4) {
+/* 4: regular â€” cols 9-12, row 2 */
+.bento-grid > .bento-item:nth-child(4) {
   grid-column: 9 / 13;
   grid-row: 2;
 }
 
-/* Item 5: cta â€” col 1â€“12, row 3 */
-.bento-item.bento-cta {
+/* 5: cta â€” full width, row 3 */
+.bento-grid > .bento-item:nth-child(5) {
   grid-column: 1 / 13;
   grid-row: 3;
 }
 
-/* â”€â”€ Bug 4: Oval text ring not spinning
-   Safari ignores CSS transform on SVG elements unless transform-box:fill-box
-   is set â€” without it, transform-origin defaults to the SVG viewport origin,
-   not the element center, so rotate() spins around the wrong point and
-   appears static or invisible. â”€â”€ */
+/* â”€â”€ Bug 4: Community section â€” light theme, image blown up, layout collapsed.
+   backdrop-filter on the .community-cards container with overflow:hidden and
+   a grid-row:span 3 child causes Safari to flatten the whole layout.
+   Fix: strip backdrop-filter from the container; keep it only on individual cards.
+   Also give the featured card explicit position + image sizing. â”€â”€ */
+
+.community.community-bright .community-cards {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+.community.community-bright .comm-card-featured {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  position: relative;
+  overflow: hidden;
+}
+
+.community.community-bright .comm-feature-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 24px !important;
+}
+
+/* â”€â”€ Bug 5: Oval text ring not spinning.
+   Safari ignores CSS transform on SVG elements without transform-box:fill-box â€” 
+   without it, rotate() spins around the SVG viewport origin (0 0), not the center. â”€â”€ */
 
 .oval-text-svg {
+  -webkit-transform-box: fill-box;
   transform-box: fill-box;
   transform-origin: center center;
-  -webkit-transform-box: fill-box;
 }
